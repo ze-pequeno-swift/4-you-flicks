@@ -80,16 +80,6 @@ Carthage/Build/
 Dependencies/
 .accio/
 
-## Build generated
-*.generated.swift
-
-### Xcode Patch ###
-*.xcodeproj/*
-!*.xcodeproj/project.pbxproj
-!*.xcodeproj/xcshareddata/
-!*.xcworkspace/contents.xcworkspacedata
-/*.gcno
-
 # fastlane
 #
 # It is recommended to not store the screenshots in the git repo.
