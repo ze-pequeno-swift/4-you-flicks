@@ -15,6 +15,8 @@ class PopularSeriesCell: UITableViewCell {
     
     // MARK: - Public Properties
     
+    weak var delegate: HomeViewControllerDelegate?
+    
     class var identifier: String {
         String(describing: PopularSeriesCell.self)
     }
@@ -51,5 +53,10 @@ extension PopularSeriesCell: UICollectionViewDelegate, UICollectionViewDataSourc
         cell.setupSerieCell()
         
         return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        delegate?.tappedCell()
+        print("DEBUG: Series populares..")
     }
 }

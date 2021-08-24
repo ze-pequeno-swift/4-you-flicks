@@ -15,6 +15,8 @@ class PopularMoviesCell: UITableViewCell {
     
     // MARK: - Public Properties
     
+    weak var delegate: HomeViewControllerDelegate?
+    
     class var identifier: String {
         String(describing: PopularMoviesCell.self)
     }
@@ -52,5 +54,10 @@ extension PopularMoviesCell: UICollectionViewDelegate, UICollectionViewDataSourc
         cell.setupMovieCell()
         
         return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        delegate?.tappedCell()
+        print("DEBUG: Filmes populares..")
     }
 }

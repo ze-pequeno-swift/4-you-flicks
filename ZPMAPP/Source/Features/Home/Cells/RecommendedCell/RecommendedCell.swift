@@ -15,6 +15,8 @@ class RecommendedCell: UITableViewCell {
     
     // MARK: - Public Properties
     
+    weak var delegate: HomeViewControllerDelegate?
+    
     class var identifier: String {
         String(describing: RecommendedCell.self)
     }
@@ -51,5 +53,9 @@ extension RecommendedCell: UICollectionViewDelegate, UICollectionViewDataSource 
         cell.setupRecommendedCell()
         
         return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        delegate?.tappedCell()
     }
 }

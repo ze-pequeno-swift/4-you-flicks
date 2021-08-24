@@ -38,6 +38,8 @@ class HomeViewController: UIViewController {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: identifier)
                 as? MoviesTheatersCell else { return UITableViewCell() }
         
+        cell.delegate = self
+        
         return cell
     }
     
@@ -46,6 +48,8 @@ class HomeViewController: UIViewController {
         
         guard let cell = tableView.dequeueReusableCell(withIdentifier: identifier)
                 as? PopularMoviesCell else { return UITableViewCell() }
+        
+        cell.delegate = self
         
         return cell
     }
@@ -56,6 +60,8 @@ class HomeViewController: UIViewController {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: identifier)
                 as? PopularSeriesCell else { return UITableViewCell() }
         
+        cell.delegate = self
+        
         return cell
     }
     
@@ -65,7 +71,17 @@ class HomeViewController: UIViewController {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: identifier)
                 as? RecommendedCell else { return UITableViewCell() }
         
+        cell.delegate = self
+        
         return cell
+    }
+    
+    private func proceedToMoviesDetails() {
+        let homeController = UIStoryboard(name: "Home", bundle: nil)
+        guard let viewController = homeController.instantiateViewController(identifier: "MovieDetailsViewController")
+                as? MovieDetailsViewController else { return }
+        
+        navigationController?.pushViewController(viewController, animated: true)
     }
 }
 
@@ -112,5 +128,12 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         case .recommended:
             return getRecommendedCell()
         }
+    }
+}
+
+extension HomeViewController: HomeViewControllerDelegate {
+    
+    func tappedCell() {
+        proceedToMoviesDetails()
     }
 }

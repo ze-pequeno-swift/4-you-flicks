@@ -6,3 +6,8 @@
 //
 
 import Foundation
+
+protocol HomeViewControllerDelegate: AnyObject {
+    
+    func tappedCell()
+}

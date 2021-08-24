@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		7405C32B26D35FF2002B8B2B /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7405C32A26D35FF2002B8B2B /* Home.storyboard */; };
+		745B9A5226D583B40024977F /* HomeViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 745B9A5126D583B40024977F /* HomeViewControllerDelegate.swift */; };
 		74818A4926D4180E0071AB5E /* CustomCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74818A4726D4180E0071AB5E /* CustomCollectionCell.swift */; };
 		74818A4A26D4180E0071AB5E /* CustomCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 74818A4826D4180E0071AB5E /* CustomCollectionCell.xib */; };
 		74818A4E26D419C60071AB5E /* CustomMoviesTheatersCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74818A4C26D419C60071AB5E /* CustomMoviesTheatersCell.swift */; };
@@ -32,10 +33,12 @@
 		74D1AE6E26D3615900AC56E5 /* Random.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 74D1AE6D26D3615900AC56E5 /* Random.storyboard */; };
 		74D1AE7026D3616500AC56E5 /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 74D1AE6F26D3616500AC56E5 /* Profile.storyboard */; };
 		74D1AE7226D3683400AC56E5 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 74D1AE7126D3683400AC56E5 /* Login.storyboard */; };
+		74D919C026D570BB00257317 /* MovieDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74D919BF26D570BB00257317 /* MovieDetailsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		7405C32A26D35FF2002B8B2B /* Home.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
+		745B9A5126D583B40024977F /* HomeViewControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewControllerDelegate.swift; sourceTree = "<group>"; };
 		74818A4726D4180E0071AB5E /* CustomCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCollectionCell.swift; sourceTree = "<group>"; };
 		74818A4826D4180E0071AB5E /* CustomCollectionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomCollectionCell.xib; sourceTree = "<group>"; };
 		74818A4C26D419C60071AB5E /* CustomMoviesTheatersCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomMoviesTheatersCell.swift; sourceTree = "<group>"; };
@@ -62,6 +65,7 @@
 		74D1AE6D26D3615900AC56E5 /* Random.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Random.storyboard; sourceTree = "<group>"; };
 		74D1AE6F26D3616500AC56E5 /* Profile.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
 		74D1AE7126D3683400AC56E5 /* Login.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
+		74D919BF26D570BB00257317 /* MovieDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -193,6 +197,7 @@
 			isa = PBXGroup;
 			children = (
 				74A98FD026D2D5DC00DD7889 /* Home */,
+				74D919BE26D5704C00257317 /* MovieDetails */,
 				74818A6526D439250071AB5E /* Shared */,
 			);
 			path = Features;
@@ -232,8 +237,17 @@
 			children = (
 				74818A4526D417AD0071AB5E /* Cells */,
 				74A98FB726D2D4EF00DD7889 /* HomeViewController.swift */,
+				745B9A5126D583B40024977F /* HomeViewControllerDelegate.swift */,
 			);
 			path = Home;
+			sourceTree = "<group>";
+		};
+		74D919BE26D5704C00257317 /* MovieDetails */ = {
+			isa = PBXGroup;
+			children = (
+				74D919BF26D570BB00257317 /* MovieDetailsViewController.swift */,
+			);
+			path = MovieDetails;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -318,6 +332,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				74818A5E26D41FF60071AB5E /* PopularMoviesCell.swift in Sources */,
+				745B9A5226D583B40024977F /* HomeViewControllerDelegate.swift in Sources */,
 				74818A6926D43B320071AB5E /* UICollectionViewCell+Extensions.swift in Sources */,
 				74818A4926D4180E0071AB5E /* CustomCollectionCell.swift in Sources */,
 				74A98FB826D2D4EF00DD7889 /* HomeViewController.swift in Sources */,
@@ -325,6 +340,7 @@
 				74A98FB626D2D4EF00DD7889 /* SceneDelegate.swift in Sources */,
 				74818A5326D41AAF0071AB5E /* MoviesTheatersCell.swift in Sources */,
 				74818A5926D41D720071AB5E /* PopularSeriesCell.swift in Sources */,
+				74D919C026D570BB00257317 /* MovieDetailsViewController.swift in Sources */,
 				74818A6326D4277A0071AB5E /* RecommendedCell.swift in Sources */,
 				74818A6726D439540071AB5E /* UITableViewCell+Extensions.swift in Sources */,
 				74818A4E26D419C60071AB5E /* CustomMoviesTheatersCell.swift in Sources */,
