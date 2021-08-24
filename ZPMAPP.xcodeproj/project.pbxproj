@@ -18,6 +18,7 @@
 		74D1AE6E26D3615900AC56E5 /* Random.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 74D1AE6D26D3615900AC56E5 /* Random.storyboard */; };
 		74D1AE7026D3616500AC56E5 /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 74D1AE6F26D3616500AC56E5 /* Profile.storyboard */; };
 		74D1AE7226D3683400AC56E5 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 74D1AE7126D3683400AC56E5 /* Login.storyboard */; };
+		DEADB51026D48A1C00133508 /* UIColor+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEADB50F26D48A1C00133508 /* UIColor+Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,7 @@
 		74D1AE6D26D3615900AC56E5 /* Random.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Random.storyboard; sourceTree = "<group>"; };
 		74D1AE6F26D3616500AC56E5 /* Profile.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
 		74D1AE7126D3683400AC56E5 /* Login.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
+		DEADB50F26D48A1C00133508 /* UIColor+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extensions.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +68,7 @@
 		74A98FB226D2D4EF00DD7889 /* ZPMAPP */ = {
 			isa = PBXGroup;
 			children = (
+				DEADB50E26D48A0A00133508 /* Extensions */,
 				74A98FCB26D2D50800DD7889 /* Source */,
 				74A98FCF26D2D59B00DD7889 /* Resources */,
 				74A98FCE26D2D57400DD7889 /* Storyboard */,
@@ -136,6 +139,14 @@
 			children = (
 			);
 			path = Shared;
+			sourceTree = "<group>";
+		};
+		DEADB50E26D48A0A00133508 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				DEADB50F26D48A1C00133508 /* UIColor+Extensions.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -216,6 +227,7 @@
 				74A98FB826D2D4EF00DD7889 /* HomeViewController.swift in Sources */,
 				74A98FB426D2D4EF00DD7889 /* AppDelegate.swift in Sources */,
 				74A98FB626D2D4EF00DD7889 /* SceneDelegate.swift in Sources */,
+				DEADB51026D48A1C00133508 /* UIColor+Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
