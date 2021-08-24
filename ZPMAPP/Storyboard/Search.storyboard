@@ -1,49 +1,88 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Y6W-OH-hqX">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Item-->
+        <!--Buscar-->
         <scene sceneID="s0d-6b-0kx">
             <objects>
-                <viewController id="Y6W-OH-hqX" sceneMemberID="viewController">
+                <viewController id="Y6W-OH-hqX" customClass="SearchViewController" customModule="ZPMAPP" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <searchBar contentMode="redraw" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GfD-uv-9io">
-                                <rect key="frame" x="20" y="54" width="330" height="44"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="apW-TW-Jzn">
+                                <rect key="frame" x="313" y="20" width="51" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <state key="normal" title="Cancelar">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="cancelButtonTapped:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="lOf-NQ-FTx"/>
+                                </connections>
+                            </button>
+                            <searchBar contentMode="redraw" searchBarStyle="minimal" placeholder="O que está procurando?" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GfD-uv-9io">
+                                <rect key="frame" x="0.0" y="20" width="304" height="30"/>
+                                <color key="backgroundColor" name="Main Onix"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="yZp-dW-m4A"/>
+                                </constraints>
+                                <color key="barTintColor" name="Main Onix"/>
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="78l-T6-RtJ">
-                                <rect key="frame" x="20" y="119" width="374" height="31"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="78l-T6-RtJ">
+                                <rect key="frame" x="10" y="81" width="355" height="31"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" priority="999" constant="30" id="Q7G-EP-7AM"/>
+                                </constraints>
                                 <segments>
                                     <segment title="First"/>
                                     <segment title="Second"/>
+                                    <segment title=""/>
                                 </segments>
                             </segmentedControl>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" name="Main Black"/>
+                        <constraints>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="78l-T6-RtJ" secondAttribute="trailing" constant="10" id="5Ea-bj-n69"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="apW-TW-Jzn" secondAttribute="trailing" constant="11" id="9Ug-LW-nD5"/>
+                            <constraint firstItem="78l-T6-RtJ" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="10" id="A6t-5P-sid"/>
+                            <constraint firstItem="apW-TW-Jzn" firstAttribute="leading" secondItem="GfD-uv-9io" secondAttribute="trailing" constant="9" id="Bcb-UB-5og"/>
+                            <constraint firstItem="apW-TW-Jzn" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="20" id="C01-rn-1tb"/>
+                            <constraint firstItem="GfD-uv-9io" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="FVb-X2-vko"/>
+                            <constraint firstItem="78l-T6-RtJ" firstAttribute="top" secondItem="GfD-uv-9io" secondAttribute="bottom" constant="31" id="Ke2-0T-Kjr"/>
+                            <constraint firstItem="apW-TW-Jzn" firstAttribute="centerY" secondItem="GfD-uv-9io" secondAttribute="centerY" id="f2Z-CF-vs9"/>
+                            <constraint firstItem="GfD-uv-9io" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="20" id="oDd-NX-gfa"/>
+                        </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="cZs-Ul-MaO"/>
+                    <tabBarItem key="tabBarItem" title="Buscar" image="magnifyingglass" catalog="system" id="cZs-Ul-MaO">
+                        <color key="badgeColor" name="Main Black"/>
+                    </tabBarItem>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="cancelButton" destination="apW-TW-Jzn" id="LQq-qv-5sU"/>
+                        <outlet property="searchBar" destination="GfD-uv-9io" id="lGl-fA-cDq"/>
+                        <outlet property="searchSegmentedControl" destination="78l-T6-RtJ" id="R3C-Zp-ap3"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="137.68115942028987" y="123.88392857142857"/>
+            <point key="canvasLocation" x="136.80000000000001" y="123.68815592203899"/>
         </scene>
     </scenes>
     <resources>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
+        <image name="magnifyingglass" catalog="system" width="128" height="115"/>
+        <namedColor name="Main Black">
+            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="Main Onix">
+            <color red="0.13699999451637268" green="0.1289999932050705" blue="0.14900000393390656" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
     </resources>
 </document>
