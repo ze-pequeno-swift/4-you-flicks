@@ -16,4 +16,5 @@ struct MovieList: Codable {
     let image: String
     let length: String
     let genre: String
+    let name: String
 }

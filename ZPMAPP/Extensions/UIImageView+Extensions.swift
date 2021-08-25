@@ -8,8 +8,8 @@
 import UIKit
 
 extension UIImageView {
-        func setupBorderImage() {
+        func setupCornerImage() {
             clipsToBounds = true
-            layer.borderWidth = 2.5
+            layer.cornerRadius = 10
         }
 }

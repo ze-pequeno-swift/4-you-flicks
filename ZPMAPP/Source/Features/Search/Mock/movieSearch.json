@@ -4,25 +4,29 @@
 			"title": "Viúva Negra",
 			"image": "black-widow",
             "length" : "2h10m",
-			"genre": "Ação"
+			"genre": "Ação",
+            "name": "Elizabeth Olsen"
 		},
 		{
 			"title": "Joker",
 			"image": "joker",
             "length" : "2h50m",
-			"genre": "Drama"
+			"genre": "Drama",
+            "name": "Elizabeth Banks"
 		},
 		{
 			"title": "Midsommar",
 			"image": "midsommar",
             "length" : "2h00",
-			"genre": "Terror"
+			"genre": "Terror",
+            "name": "Mary Elizabeth"
 		},
 		{
 			"title": "Nós",
 			"image": "us",
             "length" : "2h30m",
-			"genre": "Terror/Suspense"
+			"genre": "Terror/Suspense",
+            "name": "Shannon Elizabeth"
 		}
 	]
 }

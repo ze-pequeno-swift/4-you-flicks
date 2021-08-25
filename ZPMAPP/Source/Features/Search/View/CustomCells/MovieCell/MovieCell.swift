@@ -18,13 +18,17 @@ class MovieCell: UITableViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
+        self.titileMovieImageView.setupCornerImage()
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
     }
 
-    func setupSearchMovieCell() {
-
+    func setupSearchMovieCell(data: MovieList) {
+        self.titleMovieLabel.text = data.title
+        self.titileMovieImageView.image = UIImage(named: data.image)
+        self.movieLengthLabel.text = data.length
+        self.movieGenreLabel.text = data.genre
     }
 }

@@ -20,6 +20,7 @@ class SearchViewController: UIViewController {
     private func configTableViewCell() {
         self.searchTableView.dataSource = self
         self.searchTableView.delegate = self
+        self.searchTableView.tableFooterView = UIView()
 
         self.searchTableView.register(UINib(nibName: "MovieCell", bundle: nil), forCellReuseIdentifier: MovieCell.identifier)
     }
