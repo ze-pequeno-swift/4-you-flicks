@@ -21,6 +21,8 @@
 		DEADB51026D48A1C00133508 /* UIColor+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEADB50F26D48A1C00133508 /* UIColor+Extensions.swift */; };
 		DEADB51326D48DFA00133508 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEADB51226D48DFA00133508 /* SearchViewController.swift */; };
 		DEDD23F926D6A1A9000C62E6 /* movieSearch.json in Resources */ = {isa = PBXBuildFile; fileRef = DEDD23F826D6A1A9000C62E6 /* movieSearch.json */; };
+		DEDD23FD26D6A337000C62E6 /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEDD23FC26D6A337000C62E6 /* Movie.swift */; };
+		DEDD240126D6A826000C62E6 /* JsonParse.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEDD240026D6A826000C62E6 /* JsonParse.swift */; };
 		DEFED81726D6923600B2AEEA /* MovieCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEFED81526D6923600B2AEEA /* MovieCell.swift */; };
 		DEFED81826D6923600B2AEEA /* MovieCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DEFED81626D6923600B2AEEA /* MovieCell.xib */; };
 		DEFED81A26D6986B00B2AEEA /* UIImageView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEFED81926D6986B00B2AEEA /* UIImageView+Extensions.swift */; };
@@ -43,6 +45,8 @@
 		DEADB50F26D48A1C00133508 /* UIColor+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extensions.swift"; sourceTree = "<group>"; };
 		DEADB51226D48DFA00133508 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		DEDD23F826D6A1A9000C62E6 /* movieSearch.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = movieSearch.json; sourceTree = "<group>"; };
+		DEDD23FC26D6A337000C62E6 /* Movie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
+		DEDD240026D6A826000C62E6 /* JsonParse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonParse.swift; sourceTree = "<group>"; };
 		DEFED81526D6923600B2AEEA /* MovieCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieCell.swift; sourceTree = "<group>"; };
 		DEFED81626D6923600B2AEEA /* MovieCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MovieCell.xib; sourceTree = "<group>"; };
 		DEFED81926D6986B00B2AEEA /* UIImageView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extensions.swift"; sourceTree = "<group>"; };
@@ -165,8 +169,9 @@
 			isa = PBXGroup;
 			children = (
 				DEDD23F726D6A190000C62E6 /* Mock */,
-				DEFED81426D691FD00B2AEEA /* Custom Cells */,
-				DEADB51226D48DFA00133508 /* SearchViewController.swift */,
+				DEDD23FB26D6A318000C62E6 /* Model */,
+				DEDD23FA26D6A301000C62E6 /* View */,
+				DEDD23FE26D6A796000C62E6 /* Controller */,
 			);
 			path = Search;
 			sourceTree = "<group>";
@@ -177,6 +182,39 @@
 				DEDD23F826D6A1A9000C62E6 /* movieSearch.json */,
 			);
 			path = Mock;
+			sourceTree = "<group>";
+		};
+		DEDD23FA26D6A301000C62E6 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				DEADB51226D48DFA00133508 /* SearchViewController.swift */,
+				DEFED81426D691FD00B2AEEA /* Custom Cells */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		DEDD23FB26D6A318000C62E6 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				DEDD23FF26D6A800000C62E6 /* Network */,
+				DEDD23FC26D6A337000C62E6 /* Movie.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		DEDD23FE26D6A796000C62E6 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		DEDD23FF26D6A800000C62E6 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				DEDD240026D6A826000C62E6 /* JsonParse.swift */,
+			);
+			path = Network;
 			sourceTree = "<group>";
 		};
 		DEFED81426D691FD00B2AEEA /* Custom Cells */ = {
@@ -268,9 +306,11 @@
 				DEADB51326D48DFA00133508 /* SearchViewController.swift in Sources */,
 				DEFED81A26D6986B00B2AEEA /* UIImageView+Extensions.swift in Sources */,
 				74A98FB826D2D4EF00DD7889 /* HomeViewController.swift in Sources */,
+				DEDD240126D6A826000C62E6 /* JsonParse.swift in Sources */,
 				DEFED81726D6923600B2AEEA /* MovieCell.swift in Sources */,
 				74A98FB426D2D4EF00DD7889 /* AppDelegate.swift in Sources */,
 				74A98FB626D2D4EF00DD7889 /* SceneDelegate.swift in Sources */,
+				DEDD23FD26D6A337000C62E6 /* Movie.swift in Sources */,
 				DEADB51026D48A1C00133508 /* UIColor+Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

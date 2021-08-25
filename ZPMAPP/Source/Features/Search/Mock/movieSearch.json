@@ -3,21 +3,25 @@
 		{
 			"title": "Viúva Negra",
 			"image": "black-widow",
+            "length" : "2h10m",
 			"genre": "Ação"
 		},
 		{
 			"title": "Joker",
 			"image": "joker",
+            "length" : "2h50m",
 			"genre": "Drama"
 		},
 		{
 			"title": "Midsommar",
 			"image": "midsommar",
+            "length" : "2h00",
 			"genre": "Terror"
 		},
 		{
 			"title": "Nós",
 			"image": "us",
+            "length" : "2h30m",
 			"genre": "Terror/Suspense"
 		}
 	]
