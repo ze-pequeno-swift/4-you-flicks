@@ -21,11 +21,21 @@ class LoginViewController: UIViewController {
         let emailImage = UIImage(systemName: "mail")
         addLeftImageTo(txtField: txtUser, andImage: emailImage!)
         
+        let passwordlImage = UIImage(systemName: "lock")
+        addLeftImageTo(txtField: txtPassword, andImage: passwordlImage!)
+        
+        btnUser.layer.cornerRadius = 20
+        btnUser.layer.borderWidth = 1
+        
     
     }
     
     func addLeftImageTo(txtField: UITextField, andImage img: UIImage){
         let leftImageView = UIImageView(frame: CGRect(x: 0.0, y:0.0, width: img.size.width, height: img.size.height))
+        
+        txtPassword.attributedPlaceholder = NSAttributedString(string:"Senha", attributes:[NSAttributedString.Key.foregroundColor: UIColor.gray])
+        
+        txtUser.attributedPlaceholder = NSAttributedString(string:"Usuário", attributes:[NSAttributedString.Key.foregroundColor: UIColor.gray])
         
         leftImageView.image = img
         txtField.leftView = leftImageView
