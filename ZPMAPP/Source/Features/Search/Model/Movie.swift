@@ -7,14 +7,10 @@
 
 import Foundation
 
-struct Movie: Codable {
-    let movies: [MovieList]
-}
-
-struct MovieList: Codable {
-    let title: String
-    let image: String
-    let length: String
-    let genre: String
-    let name: String
+struct MovieList {
+    let title: String?
+    let image: String?
+    let genre: String?
+    let length: String?
+    let actors: String?
 }
