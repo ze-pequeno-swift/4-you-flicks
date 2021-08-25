@@ -1,0 +1,24 @@
+{
+	"movies": [
+		{
+			"title": "Viúva Negra",
+			"image": "black-widow",
+			"genre": "Ação"
+		},
+		{
+			"title": "Joker",
+			"image": "joker",
+			"genre": "Drama"
+		},
+		{
+			"title": "Midsommar",
+			"image": "midsommar",
+			"genre": "Terror"
+		},
+		{
+			"title": "Nós",
+			"image": "us",
+			"genre": "Terror/Suspense"
+		}
+	]
+}
