@@ -1,17 +1,15 @@
 {
   "images" : [
     {
-      "filename" : "icon-home.png",
+      "filename" : "icon-rottentomatoes.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "icon-home@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "icon-home@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }
