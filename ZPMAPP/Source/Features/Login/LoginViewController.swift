@@ -43,6 +43,9 @@ class LoginViewController: UIViewController {
         txtPassword.attributedPlaceholder = NSAttributedString(string:"Senha", attributes:[NSAttributedString.Key.foregroundColor: UIColor.gray])
         txtUser.attributedPlaceholder = NSAttributedString(string:"Email", attributes:[NSAttributedString.Key.foregroundColor: UIColor.gray])
         
+        //Hide tabBar
+        self.tabBarController?.tabBar.isHidden = true
+        
 
     
     }
