@@ -40,6 +40,4 @@ class RandomViewController: UIViewController {
     @IBAction func ratingChoices(_ sender: UIButton) {
         
     }
-    
-    
 }
