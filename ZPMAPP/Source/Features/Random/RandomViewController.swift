@@ -20,16 +20,11 @@ class RandomViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //Used to make the round corners
-        self.objectView.roundCorners(cornerRadius: 8.0, typeCorners: [.inferiorDireito, .inferiorEsquerdo, .superiorDireito, .superiorEsquerdo]);
-        self.goButton.roundCorners(cornerRadius: 8.0, typeCorners: [.inferiorDireito, .inferiorEsquerdo, .superiorDireito, .superiorEsquerdo]);
+        self.objectView.roundCorners(cornerRadius: 8.0, typeCorners: [.bottomRight, .bottomLeft, .topRight, .topLeft]);
+        self.goButton.roundCorners(cornerRadius: 8.0, typeCorners: [.bottomRight, .bottomLeft, .topRight, .topLeft]);
         
-        //Set the tint color for the segmentedControl and the text color
         self.optionSegmented.selectedSegmentTintColor = UIColor(named: "Main Red");
         self.optionSegmented.setTitleTextAttributes([.foregroundColor : UIColor.white], for: .normal);
-        
-
-        // Do any additional setup after loading the view.
     }
     
     //MARK:- Actions
