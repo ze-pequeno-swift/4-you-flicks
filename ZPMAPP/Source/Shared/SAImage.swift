@@ -9,6 +9,9 @@ import UIKit
 
 class SAImage: UIViewController {
     
+    var iconClick = false
+    
+    
     func addLeftImageTo(txtField: UITextField, andImage img: UIImage){
         let leftImageView = UIImageView(frame: CGRect(x: 0.0, y:0.0, width: img.size.width, height: img.size.height))
         
@@ -17,11 +20,15 @@ class SAImage: UIViewController {
         txtField.leftViewMode = .always
     }
     
-    func addRightImageTo(txtField: UITextField, andImage img: UIImage){
-        let rightImageView = UIImageView(frame: CGRect(x: 0.0, y:0.0, width: img.size.width, height: img.size.height))
+    func addRightImageTo(txtField: UITextField, andImage img: UIImageView){
         
-        rightImageView.image = img
-        txtField.rightView = rightImageView
+        let contentView = UIView()
+        contentView.addSubview(img)
+        
+        contentView.frame = CGRect(x: 0, y: 0, width: UIImage(systemName: "eye.slash")!.size.width, height: UIImage(systemName: "eye.slash")!.size.height)
+        img.frame = CGRect(x: -10, y: 0, width: UIImage(systemName: "eye")!.size.width, height: UIImage(systemName: "eye")!.size.height)
+        
+        txtField.rightView = contentView
         txtField.rightViewMode = .always
     }
 }

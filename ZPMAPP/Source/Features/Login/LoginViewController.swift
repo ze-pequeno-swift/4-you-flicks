@@ -14,9 +14,14 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var txtUser: UITextField!
     
     let _SAImage = SAImage()
+    let passwordlImageRight = UIImageView()
+    var iconClick = false
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         
         let emailImage = UIImage(systemName: "mail")
         _SAImage.addLeftImageTo(txtField: txtUser, andImage: emailImage!)
@@ -24,10 +29,37 @@ class LoginViewController: UIViewController {
         let passwordlImage = UIImage(systemName: "lock")
         _SAImage.addLeftImageTo(txtField: txtPassword, andImage: passwordlImage!)
         
+        //Call FUNC to setup the icon into textField Password
+        passwordlImageRight.image = UIImage(systemName: "eye.slash")
+        _SAImage.addRightImageTo(txtField: txtPassword, andImage: passwordlImageRight)
         
+        // Add TapGestureReconizer at button eye of the Passowrd
+        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(imageTapped(tapGestureRecognizer
+                                                            :)))
+        passwordlImageRight.isUserInteractionEnabled = true
+        passwordlImageRight.addGestureRecognizer(tapGestureRecognizer)
+        
+        //Change the PlaceHolders
         txtPassword.attributedPlaceholder = NSAttributedString(string:"Senha", attributes:[NSAttributedString.Key.foregroundColor: UIColor.gray])
-        txtUser.attributedPlaceholder = NSAttributedString(string:"Usuário", attributes:[NSAttributedString.Key.foregroundColor: UIColor.gray])
+        txtUser.attributedPlaceholder = NSAttributedString(string:"Email", attributes:[NSAttributedString.Key.foregroundColor: UIColor.gray])
+        
+
     
     }
-    
+    //Func to change the icon of texfield Password
+    @ objc func imageTapped(tapGestureRecognizer: UITapGestureRecognizer){
+
+        let tappedImage = tapGestureRecognizer.view as! UIImageView
+
+        if iconClick {
+            iconClick =  false
+            tappedImage.image = UIImage(systemName: "eye")
+            txtPassword.isSecureTextEntry = false
+
+        }else{
+            iconClick = true
+            tappedImage.image = UIImage(systemName: "eye.slash")
+            txtPassword.isSecureTextEntry = true
+        }
+    }
 }

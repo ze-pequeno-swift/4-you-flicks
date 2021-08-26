@@ -15,6 +15,8 @@ class ChangePasswordViewController: UIViewController {
     @IBOutlet weak var txtRenterNewPassword: UITextField!
     
     let _SAImage = SAImage()
+    let passwordlImageRight = UIImageView()
+    var iconClick = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,10 +31,11 @@ class ChangePasswordViewController: UIViewController {
         let reEnterNewPasswordlImage = UIImage(systemName: "lock")
         _SAImage.addLeftImageTo(txtField: txtRenterNewPassword, andImage: reEnterNewPasswordlImage!)
         
+
+        
+        //Change the PlaceHolders
         txtCurrentPassword.attributedPlaceholder = NSAttributedString(string:"Senha Atual", attributes:[NSAttributedString.Key.foregroundColor: UIColor.gray])
-        
         txtNewPassword.attributedPlaceholder = NSAttributedString(string:"Nova Senha", attributes:[NSAttributedString.Key.foregroundColor: UIColor.gray])
-        
         txtRenterNewPassword.attributedPlaceholder = NSAttributedString(string:"Nova Senha", attributes:[NSAttributedString.Key.foregroundColor: UIColor.gray])
 
     }
