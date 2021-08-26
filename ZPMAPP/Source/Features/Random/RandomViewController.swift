@@ -35,7 +35,7 @@ class RandomViewController: UIViewController {
     //MARK:- Actions
     //Button to shuffle and present the movies
     @IBAction func drawAction(_ sender: UIButton) {
-        
+        performSegue(withIdentifier: "SuggestionViewControllerSegue", sender: nil);
     }
     //Button to choose the genre
     @IBAction func genreChoices(_ sender: UIButton) {
