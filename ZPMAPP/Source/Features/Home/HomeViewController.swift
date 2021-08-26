@@ -20,7 +20,17 @@ class HomeViewController: UIViewController {
         setupUI()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        setupNavigationBar()
+    }
+    
     // MARK: - Private Functions
+    
+    private func setupNavigationBar() {
+//        navigationItem.title = "Home"
+        navigationController?.navigationBar.navigationStyle()
+    }
     
     private func setupUI() {
         tableView.delegate = self
@@ -130,6 +140,8 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         }
     }
 }
+
+// MARK: - HomeViewControllerDelegate Extensions
 
 extension HomeViewController: HomeViewControllerDelegate {
     

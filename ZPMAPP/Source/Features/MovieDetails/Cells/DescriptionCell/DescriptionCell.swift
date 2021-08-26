@@ -9,18 +9,21 @@ import UIKit
 
 class DescriptionCell: UITableViewCell {
 
-    @IBOutlet weak var cardView: UIView!
+    // MARK: - IBOutlets
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
-       
-        cardView.layer.cornerRadius = 10
-    }
-
+    @IBOutlet private var cardView: UIView!
+    @IBOutlet private var descriptionText: UILabel!
+    
     // MARK: - Public Properties
     
     static var identifier: String {
         String(describing: DescriptionCell.self)
     }
     
+    // MARK: - View Lifecycle
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        cardView.layer.cornerRadius = 10
+    }
 }

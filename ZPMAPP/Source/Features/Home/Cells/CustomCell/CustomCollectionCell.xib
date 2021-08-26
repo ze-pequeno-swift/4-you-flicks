@@ -35,7 +35,7 @@
             <connections>
                 <outlet property="movieImage" destination="OVh-me-6Sr" id="Brx-3p-vLe"/>
             </connections>
-            <point key="canvasLocation" x="278.26086956521743" y="224.66517857142856"/>
+            <point key="canvasLocation" x="276.80000000000001" y="223.98800599700152"/>
         </collectionViewCell>
     </objects>
 </document>
