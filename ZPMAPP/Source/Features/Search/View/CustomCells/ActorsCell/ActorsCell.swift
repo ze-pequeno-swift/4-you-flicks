@@ -21,7 +21,7 @@ class ActorsCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
     }
 
-//    func setupSearchActorCell(data: MovieList) {
-//        self.actorsNameLabel.text = data.name
-//    }
+    func setupSearchActorCell(data: MovieList) {
+        self.actorsNameLabel.text = data.actors
+    }
 }

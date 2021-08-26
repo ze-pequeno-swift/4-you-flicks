@@ -7,9 +7,9 @@
 
 import UIKit
 
+
 class SearchViewController: UIViewController {
     @IBOutlet private weak var searchTableView: UITableView!
-    @IBOutlet private weak var searchBar: UISearchBar!
 
     private let controller = SearchController()
     
@@ -18,27 +18,50 @@ class SearchViewController: UIViewController {
         self.configDelegate()
         self.registerTableView()
         self.searchTableView.tableFooterView = UIView()
-    }
-    
-    @IBAction func tappedCancelButton(_ sender: UIButton) {
+        self.configSearchBar()
     }
 
     private func configDelegate() {
         self.searchTableView.dataSource = self
         self.searchTableView.delegate = self
-        self.searchBar.delegate = self
     }
 
     private func registerTableView() {
         self.searchTableView.register(UINib(nibName: "MovieCell", bundle: nil), forCellReuseIdentifier: MovieCell.identifier)
+        self.searchTableView.register(UINib(nibName: "ActorsCell", bundle: nil), forCellReuseIdentifier: ActorsCell.identifier)
+    }
+
+    private func configSearchBar() {
+        let  searchBar = UISearchBar(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 30))
+        searchBar.showsScopeBar = true
+        searchBar.scopeButtonTitles = ["Títulos", "Atores", "Usuários"]
+        searchBar.delegate = self
+        
+        self.searchTableView.tableHeaderView = searchBar
+        self.configLayoutSearchBar(searchBar: searchBar)
+        self.configLayoutScopeBar()
+    }
+
+    private func configLayoutSearchBar(searchBar: UISearchBar) {
+        let textPlaceholder: String = "O que está procurando?"
+        searchBar.barTintColor = .black
+        searchBar.searchTextField.backgroundColor = .customDarkGray
+        searchBar.searchTextField.textColor = .white
+        searchBar.searchTextField.tintColor = .white
+        searchBar.searchTextField.placeholder = textPlaceholder
+    }
+
+    private func configLayoutScopeBar() {
+        UISegmentedControl.appearance().selectedSegmentTintColor = .customRed
+        UISegmentedControl.appearance().setTitleTextAttributes([NSAttributedString.Key.foregroundColor : UIColor.white], for: .normal)
     }
 }
 
 extension SearchViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-            self.controller.searchMovieResults(searchText: searchText)
-            self.searchTableView.reloadData()
-        }
+        self.controller.searchMovieResults(searchText: searchText, index: searchBar.selectedScopeButtonIndex)
+        self.searchTableView.reloadData()
+    }
 
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         searchBar.resignFirstResponder()
@@ -51,40 +74,21 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell: MovieCell  = searchTableView.dequeueReusableCell(withIdentifier: MovieCell.identifier) as? MovieCell else { return  UITableViewCell() }
 
-        let customCell = self.controller.loadCustomCell(indexPath: indexPath)
+        if controller.checkFilmEmptyState() {
+            guard let cell: ActorsCell  = searchTableView.dequeueReusableCell(withIdentifier: ActorsCell.identifier) as? ActorsCell else { return  UITableViewCell() }
+            let customCell = self.controller.loadCustomActorsCell(indexPath: indexPath)
 
-        cell.setupSearchMovieCell(data: customCell)
-        return cell
+            cell.setupSearchActorCell(data: customCell)
+            return cell
+
+        } else {
+            guard let cell: MovieCell  = searchTableView.dequeueReusableCell(withIdentifier: MovieCell.identifier) as? MovieCell else { return  UITableViewCell() }
+            let customCell = self.controller.loadCustomFilmCell(indexPath: indexPath)
+
+            cell.setupSearchMovieCell(data: customCell)
+            return cell
+        }
     }
 }
 
-
-
-
-
-
-
-//        self.setupLayoutSegmentedControl()
-//        self.setupTitlesSegmentedControl(firsSegment: "Títulos", secondSegment: "Atores", thirdSegment: "Usuários")
-
-
-
-//    private func setupTableViewCell() -> UITableViewCell {
-//        guard let cell: MovieCell  = searchTableView.dequeueReusableCell(withIdentifier: MovieCell.identifier) as? MovieCell else { return  UITableViewCell() }
-//
-//        return cell
-//    }
-
-//    private func setupLayoutSegmentedControl() {
-//        self.searchSegmentedControl.backgroundColor = .customDarkGray
-//        self.searchSegmentedControl.selectedSegmentTintColor = .customRed
-//        self.searchSegmentedControl.setTitleTextAttributes([NSAttributedString.Key.foregroundColor : UIColor.white], for: .normal)
-//    }
-//
-//    private func setupTitlesSegmentedControl(firsSegment: String,secondSegment: String, thirdSegment: String) {
-//        self.searchSegmentedControl.setTitle(firsSegment, forSegmentAt: 0)
-//        self.searchSegmentedControl.setTitle(secondSegment, forSegmentAt: 1)
-//        self.searchSegmentedControl.setTitle(thirdSegment, forSegmentAt: 2)
-//    }
