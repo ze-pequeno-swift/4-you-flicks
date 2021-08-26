@@ -12,10 +12,6 @@ class SearchViewController: UIViewController {
     @IBOutlet private weak var searchBar: UISearchBar!
 
     private let controller = SearchController()
-
-    var search = UISearchController(searchResultsController: nil)
-    var searching = false
-    var searchSegmentedControlTapped = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,7 +22,6 @@ class SearchViewController: UIViewController {
     
     @IBAction func tappedCancelButton(_ sender: UIButton) {
     }
-
 
     private func configDelegate() {
         self.searchTableView.dataSource = self
@@ -41,8 +36,9 @@ class SearchViewController: UIViewController {
 
 extension SearchViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        print(searchText)
-    }
+            self.controller.searchMovieResults(searchText: searchText)
+            self.searchTableView.reloadData()
+        }
 
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         searchBar.resignFirstResponder()
@@ -51,7 +47,7 @@ extension SearchViewController: UISearchBarDelegate {
 
 extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.controller.count()
+        return self.controller.resultCount()
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
