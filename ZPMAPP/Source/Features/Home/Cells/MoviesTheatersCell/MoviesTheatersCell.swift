@@ -15,6 +15,8 @@ class MoviesTheatersCell: UITableViewCell {
     
     // MARK: - Public Properties
     
+    weak var delegate: HomeViewControllerDelegate?
+    
     class var identifier: String {
         String(describing: MoviesTheatersCell.self)
     }
@@ -51,5 +53,10 @@ extension MoviesTheatersCell: UICollectionViewDelegate, UICollectionViewDataSour
         cell.setupMovieTheatersCell()
         
         return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        delegate?.tappedCell()
+        print("DEBUG: Nos cinemas..")
     }
 }

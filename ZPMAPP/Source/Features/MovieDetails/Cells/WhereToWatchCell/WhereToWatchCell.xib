@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="WhereToWatchCell" id="KGk-i7-Jjw" customClass="WhereToWatchCell" customModule="ZPMAPP" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="80"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="80"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qAo-Pv-6Ip">
+                        <rect key="frame" x="8" y="8" width="304" height="64"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Onde assistir" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ek0-d6-KBn">
+                                <rect key="frame" x="8" y="8" width="288" height="21"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uZo-dD-Nna">
+                                <rect key="frame" x="8" y="32" width="41" height="28"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <state key="normal" title="Disney"/>
+                                <connections>
+                                    <action selector="whereToWatchButton:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="Nbb-8h-O8s"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" name="Main Onix"/>
+                        <constraints>
+                            <constraint firstItem="Ek0-d6-KBn" firstAttribute="leading" secondItem="qAo-Pv-6Ip" secondAttribute="leading" constant="8" id="4cP-4n-H5w"/>
+                            <constraint firstItem="uZo-dD-Nna" firstAttribute="top" secondItem="Ek0-d6-KBn" secondAttribute="bottom" constant="3" id="EBU-11-6VB"/>
+                            <constraint firstAttribute="trailing" secondItem="Ek0-d6-KBn" secondAttribute="trailing" constant="8" id="abW-38-ChH"/>
+                            <constraint firstItem="uZo-dD-Nna" firstAttribute="leading" secondItem="qAo-Pv-6Ip" secondAttribute="leading" constant="8" id="qUn-Oc-Dnl"/>
+                            <constraint firstItem="Ek0-d6-KBn" firstAttribute="top" secondItem="qAo-Pv-6Ip" secondAttribute="top" constant="8" id="yJo-mc-cru"/>
+                            <constraint firstAttribute="bottom" secondItem="uZo-dD-Nna" secondAttribute="bottom" constant="4" id="zXC-pv-Q8X"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="bottom" secondItem="qAo-Pv-6Ip" secondAttribute="bottom" constant="8" id="OyT-kz-yPV"/>
+                    <constraint firstItem="qAo-Pv-6Ip" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="PjA-rA-i5d"/>
+                    <constraint firstItem="qAo-Pv-6Ip" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="Tvv-8K-9nR"/>
+                    <constraint firstAttribute="trailing" secondItem="qAo-Pv-6Ip" secondAttribute="trailing" constant="8" id="jUI-OF-C2Y"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <color key="backgroundColor" name="Main Black"/>
+            <connections>
+                <outlet property="cardView" destination="qAo-Pv-6Ip" id="mBV-fG-j6g"/>
+            </connections>
+            <point key="canvasLocation" x="47.826086956521742" y="97.767857142857139"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <namedColor name="Main Black">
+            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="Main Onix">
+            <color red="0.13699999451637268" green="0.1289999932050705" blue="0.14900000393390656" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>
