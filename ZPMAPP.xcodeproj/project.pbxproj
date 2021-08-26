@@ -19,6 +19,10 @@
 		74D1AE7026D3616500AC56E5 /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 74D1AE6F26D3616500AC56E5 /* Profile.storyboard */; };
 		74D1AE7226D3683400AC56E5 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 74D1AE7126D3683400AC56E5 /* Login.storyboard */; };
 		BCBD243526D48697008110FB /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCBD243426D48697008110FB /* LoginViewController.swift */; };
+		BCDC471426D7EEB500AD8A35 /* CreateAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCDC471326D7EEB500AD8A35 /* CreateAccountViewController.swift */; };
+		BCDC471626D7F0D400AD8A35 /* ChangePasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCDC471526D7F0D400AD8A35 /* ChangePasswordViewController.swift */; };
+		BCDC471826D7F64300AD8A35 /* SAButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCDC471726D7F64300AD8A35 /* SAButton.swift */; };
+		BCDC471A26D7FB5C00AD8A35 /* SAImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCDC471926D7FB5C00AD8A35 /* SAImage.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +40,10 @@
 		74D1AE6F26D3616500AC56E5 /* Profile.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
 		74D1AE7126D3683400AC56E5 /* Login.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
 		BCBD243426D48697008110FB /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		BCDC471326D7EEB500AD8A35 /* CreateAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountViewController.swift; sourceTree = "<group>"; };
+		BCDC471526D7F0D400AD8A35 /* ChangePasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordViewController.swift; sourceTree = "<group>"; };
+		BCDC471726D7F64300AD8A35 /* SAButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SAButton.swift; sourceTree = "<group>"; };
+		BCDC471926D7FB5C00AD8A35 /* SAImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SAImage.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -137,6 +145,8 @@
 		74A98FD126D2DA8A00DD7889 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
+				BCDC471726D7F64300AD8A35 /* SAButton.swift */,
+				BCDC471926D7FB5C00AD8A35 /* SAImage.swift */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -145,6 +155,8 @@
 			isa = PBXGroup;
 			children = (
 				BCBD243426D48697008110FB /* LoginViewController.swift */,
+				BCDC471326D7EEB500AD8A35 /* CreateAccountViewController.swift */,
+				BCDC471526D7F0D400AD8A35 /* ChangePasswordViewController.swift */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -225,8 +237,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				BCBD243526D48697008110FB /* LoginViewController.swift in Sources */,
+				BCDC471426D7EEB500AD8A35 /* CreateAccountViewController.swift in Sources */,
 				74A98FB826D2D4EF00DD7889 /* HomeViewController.swift in Sources */,
+				BCDC471826D7F64300AD8A35 /* SAButton.swift in Sources */,
 				74A98FB426D2D4EF00DD7889 /* AppDelegate.swift in Sources */,
+				BCDC471626D7F0D400AD8A35 /* ChangePasswordViewController.swift in Sources */,
+				BCDC471A26D7FB5C00AD8A35 /* SAImage.swift in Sources */,
 				74A98FB626D2D4EF00DD7889 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
