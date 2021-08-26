@@ -3,6 +3,7 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -15,10 +16,25 @@
                     <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="eWx-y3-HSQ">
+                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </tableView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="eWx-y3-HSQ" secondAttribute="bottom" id="DRf-Ps-hOi"/>
+                            <constraint firstItem="eWx-y3-HSQ" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="QS3-UD-Nhk"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="eWx-y3-HSQ" secondAttribute="trailing" id="ahH-WD-bsb"/>
+                            <constraint firstItem="eWx-y3-HSQ" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="gL4-m7-30t"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Home" id="2m8-Ea-8HB"/>
+                    <connections>
+                        <outlet property="tableView" destination="eWx-y3-HSQ" id="IoM-bP-9Yo"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -28,12 +44,16 @@
         <scene sceneID="H1d-tt-irx">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="U2Q-OL-39x" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Home" id="rhN-cA-qpJ"/>
+                    <tabBarItem key="tabBarItem" title="Home" image="icon-home" id="rhN-cA-qpJ"/>
                     <toolbarItems/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="18A-Tl-CVY">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" name="Main Black"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -46,6 +66,10 @@
         </scene>
     </scenes>
     <resources>
+        <image name="icon-home" width="20" height="14"/>
+        <namedColor name="Main Black">
+            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
