@@ -28,6 +28,7 @@ class HomeViewController: UIViewController {
     // MARK: - Private Functions
     
     private func setupNavigationBar() {
+//        navigationItem.title = "Home"
         navigationController?.navigationBar.navigationStyle()
     }
     
