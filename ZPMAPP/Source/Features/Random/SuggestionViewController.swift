@@ -18,11 +18,15 @@ class SuggestionViewController: UIViewController {
     @IBOutlet weak var rottenTomatoesImageView: UIImageView!
     @IBOutlet weak var imdbPercentageLabel: UILabel!
     @IBOutlet weak var imdbImageView: UIImageView!
-    @IBOutlet weak var suggestionsTableView: UITableView!
+    @IBOutlet weak var suggestionCollectionView: UICollectionView!
     
     //MARK:- viewDidLoad()
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        suggestionCollectionView.delegate = self
+        suggestionCollectionView.dataSource = self
+        suggestionCollectionView.register(UINib(nibName: "CustomSuggestionCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "CustomSuggestionCollectionViewCell")
         
         self.principalImageView.roundCorners(cornerRadius: 8.0, typeCorners: [.bottomRight, .bottomLeft, .topRight, .topLeft]);
         self.rottenTomatoesImageView.roundCorners(cornerRadius: 8.0, typeCorners:[.bottomRight, .bottomLeft, .topRight, .topLeft]);
@@ -33,4 +37,18 @@ class SuggestionViewController: UIViewController {
     @IBAction func back(_ sender: UIButton) {
         self.dismiss(animated: true, completion: nil);
     }
+}
+
+
+extension SuggestionViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 10
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell: CustomSuggestionCollectionViewCell? = collectionView.dequeueReusableCell(withReuseIdentifier: "CustomSuggestionCollectionViewCell", for: indexPath) as? CustomSuggestionCollectionViewCell
+        return cell ?? UICollectionViewCell()
+    }
+    
+    
 }

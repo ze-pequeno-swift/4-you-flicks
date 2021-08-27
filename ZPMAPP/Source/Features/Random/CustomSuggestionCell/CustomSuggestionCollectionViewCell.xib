@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="CustomSuggestionCollectionViewCell" id="gTV-IL-0wX" customClass="CustomSuggestionCollectionViewCell" customModule="ZPMAPP" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="160" height="240"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="160" height="240"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="luca" translatesAutoresizingMaskIntoConstraints="NO" id="dUL-Py-rNC">
+                        <rect key="frame" x="0.0" y="0.0" width="160" height="240"/>
+                        <color key="backgroundColor" name="Main Black"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="160" id="7Ai-US-JYW"/>
+                            <constraint firstAttribute="height" constant="240" id="f7p-5V-3d7"/>
+                        </constraints>
+                    </imageView>
+                </subviews>
+            </view>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="dUL-Py-rNC" secondAttribute="trailing" id="9M3-JE-MTY"/>
+                <constraint firstAttribute="bottom" secondItem="dUL-Py-rNC" secondAttribute="bottom" id="dHd-oj-3iW"/>
+                <constraint firstItem="dUL-Py-rNC" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="eZm-eI-hce"/>
+                <constraint firstItem="dUL-Py-rNC" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="igp-bx-1ag"/>
+            </constraints>
+            <connections>
+                <outlet property="movieImageView" destination="dUL-Py-rNC" id="sDa-oF-b8P"/>
+            </connections>
+            <point key="canvasLocation" x="86.956521739130437" y="71.651785714285708"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="luca" width="507" height="725"/>
+        <namedColor name="Main Black">
+            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>
