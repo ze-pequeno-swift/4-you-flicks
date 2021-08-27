@@ -17,7 +17,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="tL6-h5-mGf">
-                                <rect key="frame" x="10" y="10" width="355" height="608"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="618"/>
                                 <color key="backgroundColor" name="Main Black"/>
                                 <color key="separatorColor" name="Main Black"/>
                                 <color key="sectionIndexBackgroundColor" name="Main Black"/>
@@ -27,10 +27,10 @@
                         <color key="backgroundColor" name="Main Black"/>
                         <color key="tintColor" name="Main Black"/>
                         <constraints>
-                            <constraint firstItem="tL6-h5-mGf" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="10" id="0om-LK-bWQ"/>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="tL6-h5-mGf" secondAttribute="trailing" constant="10" id="2DQ-mc-bAd"/>
-                            <constraint firstItem="tL6-h5-mGf" firstAttribute="bottom" secondItem="vDu-zF-Fre" secondAttribute="bottom" id="dhe-cK-dfG"/>
-                            <constraint firstItem="tL6-h5-mGf" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="10" id="jjE-ey-44t"/>
+                            <constraint firstItem="tL6-h5-mGf" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="dGi-DB-4fu"/>
+                            <constraint firstItem="tL6-h5-mGf" firstAttribute="bottom" secondItem="vDu-zF-Fre" secondAttribute="bottom" id="ffY-T5-5ng"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="tL6-h5-mGf" secondAttribute="trailing" id="fnJ-T3-OcC"/>
+                            <constraint firstItem="tL6-h5-mGf" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="wGQ-u1-3Tx"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Buscar" image="magnifyingglass" catalog="system" id="cZs-Ul-MaO"/>

@@ -20,13 +20,6 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8SO-D2-8YW">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="182"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="black-widow" translatesAutoresizingMaskIntoConstraints="NO" id="rul-5C-Qj5">
-                                <rect key="frame" x="0.0" y="11" width="138" height="160"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" priority="999" constant="138" id="9Sv-o0-72B"/>
-                                    <constraint firstAttribute="height" priority="999" constant="160" id="Lcr-Vn-Kod"/>
-                                </constraints>
-                            </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="T21-df-IGS">
                                 <rect key="frame" x="146" y="11" width="169" height="76.5"/>
                                 <subviews>
@@ -50,6 +43,13 @@
                                     </label>
                                 </subviews>
                             </stackView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="black-widow" translatesAutoresizingMaskIntoConstraints="NO" id="rul-5C-Qj5">
+                                <rect key="frame" x="0.0" y="11" width="138" height="160"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" priority="999" constant="138" id="9Sv-o0-72B"/>
+                                    <constraint firstAttribute="height" priority="999" constant="160" id="Lcr-Vn-Kod"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" name="Main Black"/>
                         <constraints>

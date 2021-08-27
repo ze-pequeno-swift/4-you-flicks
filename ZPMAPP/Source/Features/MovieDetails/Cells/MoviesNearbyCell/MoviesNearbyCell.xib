@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="MoviesNearbyCell" id="KGk-i7-Jjw" customClass="MoviesNearbyCell" customModule="ZPMAPP" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="80"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="80"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2AY-W6-bAb">
+                        <rect key="frame" x="8" y="8" width="304" height="64"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cinemas próximos" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LoS-Lt-4Wp">
+                                <rect key="frame" x="8" y="8" width="287" height="21"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mappin.and.ellipse" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="w84-MP-ljm">
+                                <rect key="frame" x="8" y="30.5" width="25" height="25.5"/>
+                                <color key="tintColor" name="Main Red"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="25" id="oli-Nm-gNK"/>
+                                    <constraint firstAttribute="width" constant="25" id="zkG-jK-oyD"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9kF-S8-uSo">
+                                <rect key="frame" x="41" y="28.5" width="76" height="30"/>
+                                <state key="normal" title="Abrir mapa">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="openMapButton:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="h05-Om-fdy"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" name="Main Onix"/>
+                        <constraints>
+                            <constraint firstItem="LoS-Lt-4Wp" firstAttribute="top" secondItem="2AY-W6-bAb" secondAttribute="top" constant="8" id="7BZ-tr-sR8"/>
+                            <constraint firstAttribute="bottom" secondItem="w84-MP-ljm" secondAttribute="bottom" constant="8" id="8l4-ZG-20b"/>
+                            <constraint firstItem="9kF-S8-uSo" firstAttribute="centerY" secondItem="w84-MP-ljm" secondAttribute="centerY" id="Ehp-Zv-hua"/>
+                            <constraint firstItem="w84-MP-ljm" firstAttribute="top" secondItem="LoS-Lt-4Wp" secondAttribute="bottom" constant="2" id="G0S-Dm-PPp"/>
+                            <constraint firstAttribute="trailing" secondItem="LoS-Lt-4Wp" secondAttribute="trailing" constant="9" id="GRG-7U-r9f"/>
+                            <constraint firstItem="9kF-S8-uSo" firstAttribute="leading" secondItem="w84-MP-ljm" secondAttribute="trailing" constant="8" id="j4T-wS-pIu"/>
+                            <constraint firstItem="w84-MP-ljm" firstAttribute="leading" secondItem="2AY-W6-bAb" secondAttribute="leading" constant="8" id="nH3-VV-64j"/>
+                            <constraint firstItem="LoS-Lt-4Wp" firstAttribute="leading" secondItem="2AY-W6-bAb" secondAttribute="leading" constant="8" id="x24-xU-gpN"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <color key="backgroundColor" name="Main Black"/>
+                <constraints>
+                    <constraint firstAttribute="bottom" secondItem="2AY-W6-bAb" secondAttribute="bottom" constant="8" id="185-6M-7L9"/>
+                    <constraint firstItem="2AY-W6-bAb" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="IcZ-Hp-2JI"/>
+                    <constraint firstItem="2AY-W6-bAb" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="XKD-0w-Fqo"/>
+                    <constraint firstAttribute="trailing" secondItem="2AY-W6-bAb" secondAttribute="trailing" constant="8" id="vjU-7h-PSs"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="cardView" destination="2AY-W6-bAb" id="GqE-zT-20c"/>
+            </connections>
+            <point key="canvasLocation" x="-20.289855072463769" y="83.705357142857139"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="mappin.and.ellipse" catalog="system" width="118" height="128"/>
+        <namedColor name="Main Black">
+            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="Main Onix">
+            <color red="0.13699999451637268" green="0.1289999932050705" blue="0.14900000393390656" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="Main Red">
+            <color red="1" green="0.17599999904632568" blue="0.23899999260902405" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>
