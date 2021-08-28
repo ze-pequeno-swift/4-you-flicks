@@ -17,12 +17,15 @@ class LoginViewController: UIViewController {
     let passwordlImageRight = UIImageView()
     var iconClick = false
     
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
+    
+        self.setupUI()
+        //Hide tabBar
+        self.tabBarController?.tabBar.isHidden = true
+    }
+    
+    func setupUI() {
         let emailImage = UIImage(systemName: "mail")
         _SAImage.addLeftImageTo(txtField: txtUser, andImage: emailImage!)
         
@@ -40,17 +43,13 @@ class LoginViewController: UIViewController {
         passwordlImageRight.addGestureRecognizer(tapGestureRecognizer)
         
         //Change the PlaceHolders
-        txtPassword.attributedPlaceholder = NSAttributedString(string:"Senha", attributes:[NSAttributedString.Key.foregroundColor: UIColor.gray])
-        txtUser.attributedPlaceholder = NSAttributedString(string:"Email", attributes:[NSAttributedString.Key.foregroundColor: UIColor.gray])
-        
-        //Hide tabBar
-        self.tabBarController?.tabBar.isHidden = true
-        
-
-    
+        txtPassword.attributedPlaceholder = NSAttributedString(string: "Senha", attributes:[NSAttributedString.Key.foregroundColor: UIColor.gray])
+        txtUser.attributedPlaceholder = NSAttributedString(string: "Email", attributes:[NSAttributedString.Key.foregroundColor: UIColor.gray])
     }
+    
     //Func to change the icon of texfield Password
-    @ objc func imageTapped(tapGestureRecognizer: UITapGestureRecognizer){
+    @ objc
+    func imageTapped(tapGestureRecognizer: UITapGestureRecognizer) {
 
         let tappedImage = tapGestureRecognizer.view as! UIImageView
 
@@ -59,7 +58,7 @@ class LoginViewController: UIViewController {
             tappedImage.image = UIImage(systemName: "eye")
             txtPassword.isSecureTextEntry = false
 
-        }else{
+        }else {
             iconClick = true
             tappedImage.image = UIImage(systemName: "eye.slash")
             txtPassword.isSecureTextEntry = true

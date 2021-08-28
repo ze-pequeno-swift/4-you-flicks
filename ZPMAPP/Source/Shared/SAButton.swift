@@ -7,17 +7,16 @@
 
 import UIKit
 
-class SAButton: UIButton{
+class SAButton: UIButton {
     
-    override init(frame: CGRect){
-    super.init(frame: frame)
-    
-    setupButton()
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        self.setupButton()
     }
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        setupButton()
+        self.setupButton()
     }
     
     private func setupButton(){

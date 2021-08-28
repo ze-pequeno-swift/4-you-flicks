@@ -9,33 +9,31 @@ import UIKit
 
 class CreateAccountViewController: UIViewController {
 
-    @IBOutlet weak var btnCreateAccount: UIButton!
-    @IBOutlet weak var txtName: UITextField!
-    @IBOutlet weak var txtEmail: UITextField!
-    @IBOutlet weak var txtPassword: UITextField!
+    @IBOutlet weak var createAccountButton: UIButton!
+    @IBOutlet weak var nameTextFiled: UITextField!
+    @IBOutlet weak var emailTextFiled: UITextField!
+    @IBOutlet weak var passwordTextFiled: UITextField!
     
-
     let _SAImage = SAImage()
 
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        self.setupUI()
+    }
+    
+    func setupUI() {
         let personImage = UIImage(systemName: "person")
-        _SAImage.addLeftImageTo(txtField: txtName, andImage: personImage!)
+        _SAImage.addLeftImageTo(txtField: nameTextFiled, andImage: personImage!)
         
         let emailImage = UIImage(systemName: "mail")
-        _SAImage.addLeftImageTo(txtField: txtEmail, andImage: emailImage!)
+        _SAImage.addLeftImageTo(txtField: emailTextFiled, andImage: emailImage!)
         
         let passwordlImage = UIImage(systemName: "lock")
-        _SAImage.addLeftImageTo(txtField: txtPassword, andImage: passwordlImage!)
-        
+        _SAImage.addLeftImageTo(txtField: passwordTextFiled, andImage: passwordlImage!)
         
         //Change the PlaceHolders
-        txtName.attributedPlaceholder = NSAttributedString(string:"Nome Completo", attributes:[NSAttributedString.Key.foregroundColor: UIColor.gray])
-        txtEmail.attributedPlaceholder = NSAttributedString(string:"Email", attributes:[NSAttributedString.Key.foregroundColor: UIColor.gray])
-        txtPassword.attributedPlaceholder = NSAttributedString(string:"Password", attributes:[NSAttributedString.Key.foregroundColor: UIColor.gray])
-        
+        nameTextFiled.attributedPlaceholder = NSAttributedString(string: "Nome Completo", attributes:[NSAttributedString.Key.foregroundColor: UIColor.gray])
+        emailTextFiled.attributedPlaceholder = NSAttributedString(string: "Email", attributes:[NSAttributedString.Key.foregroundColor: UIColor.gray])
+        passwordTextFiled.attributedPlaceholder = NSAttributedString(string: "Password", attributes:[NSAttributedString.Key.foregroundColor: UIColor.gray])
     }
-
 }

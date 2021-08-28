@@ -9,9 +9,7 @@ import UIKit
 
 class RecoverPasswordViewController: UIViewController {
 
-    
     @IBOutlet weak var txtEmail: UITextField!
-
     
     let _SAImage = SAImage()
     let passwordlImageRight = UIImageView()
@@ -19,16 +17,15 @@ class RecoverPasswordViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
+        self.setupUI()
+    }
+    
+    func setupUI() {
         let passwordlImage = UIImage(systemName: "mail")
         _SAImage.addLeftImageTo(txtField: txtEmail, andImage: passwordlImage!)
         
-        
         //Change the PlaceHolders
         txtEmail.attributedPlaceholder = NSAttributedString(string:"Email cadastrado", attributes:[NSAttributedString.Key.foregroundColor: UIColor.gray])
-
-
+        
     }
-    
 }
