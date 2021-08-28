@@ -18,17 +18,19 @@ class SuggestionViewController: UIViewController {
     @IBOutlet weak var rottenTomatoesImageView: UIImageView!
     @IBOutlet weak var imdbPercentageLabel: UILabel!
     @IBOutlet weak var imdbImageView: UIImageView!
-    @IBOutlet weak var suggestionCollectionView: UICollectionView!
+    @IBOutlet weak var tableView: UITableView!
+    
     
     //MARK:- viewDidLoad()
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        suggestionCollectionView.delegate = self
-        suggestionCollectionView.dataSource = self
-        suggestionCollectionView.register(UINib(nibName: "CustomSuggestionCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "CustomSuggestionCollectionViewCell")
+        tableView.delegate = self
+        tableView.dataSource = self
+        RecommendedCell.registerOn(tableView)
         
-        self.principalImageView.roundCorners(cornerRadius: 8.0, typeCorners: [.bottomRight, .bottomLeft, .topRight, .topLeft]);
+        self.principalImageView.layer.cornerRadius = 10
+        //self.principalImageView.roundCorners(cornerRadius: 8.0, typeCorners: [.bottomRight, .bottomLeft, .topRight, .topLeft]);
         self.rottenTomatoesImageView.roundCorners(cornerRadius: 8.0, typeCorners:[.bottomRight, .bottomLeft, .topRight, .topLeft]);
         self.imdbImageView.roundCorners(cornerRadius: 8.0, typeCorners: [.bottomRight, .bottomLeft, .topRight, .topLeft]);
     }
@@ -37,17 +39,26 @@ class SuggestionViewController: UIViewController {
     @IBAction func back(_ sender: UIButton) {
         self.dismiss(animated: true, completion: nil);
     }
+    
+    private func getRecommendedCell() -> UITableViewCell {
+        let identifier = RecommendedCell.identifier
+        
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: identifier)
+                as? RecommendedCell else { return UITableViewCell() }
+        
+        //cell.delegate = self
+        
+        return cell
+    }
 }
 
-
-extension SuggestionViewController: UICollectionViewDelegate, UICollectionViewDataSource {
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10
+extension SuggestionViewController: UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 1
     }
     
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell: CustomSuggestionCollectionViewCell? = collectionView.dequeueReusableCell(withReuseIdentifier: "CustomSuggestionCollectionViewCell", for: indexPath) as? CustomSuggestionCollectionViewCell
-        return cell ?? UICollectionViewCell()
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        return getRecommendedCell()
     }
     
     
