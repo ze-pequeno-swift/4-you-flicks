@@ -18,6 +18,7 @@ class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
+        showLoginIfNeeded()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -26,6 +27,18 @@ class HomeViewController: UIViewController {
     }
     
     // MARK: - Private Functions
+    
+    private func showLoginIfNeeded() {
+        guard userIsLogged() else {
+            return
+            
+        }
+        proceedToLogin()
+    }
+    
+    private func userIsLogged() -> Bool {
+        return true
+    }
     
     private func setupNavigationBar() {
         navigationController?.navigationBar.navigationStyle()
@@ -91,6 +104,18 @@ class HomeViewController: UIViewController {
                 as? MovieDetailsViewController else { return }
         
         navigationController?.pushViewController(viewController, animated: true)
+    }
+    
+    private func proceedToLogin() {
+        let homeController = UIStoryboard(name: "Login", bundle: nil)
+        guard let viewController = homeController.instantiateViewController(identifier: "LoginViewController")
+                as? LoginViewController else { return }
+        
+        let navigationController = UINavigationController(rootViewController: viewController)
+        
+        present(navigationController, animated: true)
+        
+//        navigationController?.pushViewController(viewController, animated: true)
     }
 }
 
