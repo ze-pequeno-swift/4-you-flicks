@@ -1,5 +1,5 @@
 //
-//  SAButton.swift
+//  ZPButton.swift
 //  AppSaude_IOS
 //
 //  Created by Alan Silva on 30/05/21.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class SAButton: UIButton {
+class ZPButton: UIButton {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
