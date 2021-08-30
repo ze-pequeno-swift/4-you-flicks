@@ -1,6 +1,6 @@
 //
 //  ZPButton.swift
-//  AppSaude_IOS
+//  ZPMAPP
 //
 //  Created by Alan Silva on 30/05/21.
 //
@@ -25,5 +25,4 @@ class ZPButton: UIButton {
         layer.cornerRadius = frame.size.height/2
         setTitleColor(.white, for: .normal)
     }
-    
 }

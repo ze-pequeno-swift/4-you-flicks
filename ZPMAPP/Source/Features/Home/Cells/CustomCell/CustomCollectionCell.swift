@@ -15,7 +15,7 @@ class CustomCollectionCell: UICollectionViewCell {
     
     // MARK: - Public Properties
     
-    class var identifier: String {
+    static var identifier: String {
         String(describing: CustomCollectionCell.self)
     }
     

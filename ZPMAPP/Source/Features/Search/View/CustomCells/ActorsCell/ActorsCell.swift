@@ -8,19 +8,22 @@
 import UIKit
 
 class ActorsCell: UITableViewCell {
-
-    static let identifier: String = "actorsSearchCell"
-
+    
+    // MARK: - IBOutlets
+    
     @IBOutlet weak var actorsNameLabel: UILabel!
+    
+    static var identifier: String {
+        String(describing: ActorsCell.self)
+    }
+    
+    // MARK: - View Lifecycle
     
     override func awakeFromNib() {
         super.awakeFromNib()
     }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-    }
-
+    
+    // MARK: - Public Functions
     func setupSearchActorCell(data: MovieList) {
         self.actorsNameLabel.text = data.actors
     }

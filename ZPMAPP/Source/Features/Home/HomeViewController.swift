@@ -114,8 +114,6 @@ class HomeViewController: UIViewController {
         let navigationController = UINavigationController(rootViewController: viewController)
         
         present(navigationController, animated: true)
-        
-//        navigationController?.pushViewController(viewController, animated: true)
     }
 }
 

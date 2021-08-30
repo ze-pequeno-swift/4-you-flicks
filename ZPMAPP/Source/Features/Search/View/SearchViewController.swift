@@ -7,42 +7,52 @@
 
 import UIKit
 
-
 class SearchViewController: UIViewController {
-    @IBOutlet private weak var searchTableView: UITableView!
-
+    
+    // MARK: - IBOutlets
+    
+    @IBOutlet private weak var tableView: UITableView!
+    
+    // MARK: - Private Properties
+    
     private let controller = SearchController()
+    
+    // MARK: - View Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.configDelegate()
-        self.registerTableView()
-        self.searchTableView.tableFooterView = UIView()
-        self.configSearchBar()
+        configureDelegate()
+        registerTableView()
+        setupSearchBar()
+        tableView.tableFooterView = UIView()
     }
-
-    private func configDelegate() {
-        self.searchTableView.dataSource = self
-        self.searchTableView.delegate = self
+    
+    // MARK: - Private Functions
+    
+    private func configureDelegate() {
+        tableView.dataSource = self
+        tableView.delegate = self
     }
-
+    
     private func registerTableView() {
-        self.searchTableView.register(UINib(nibName: "MovieCell", bundle: nil), forCellReuseIdentifier: MovieCell.identifier)
-        self.searchTableView.register(UINib(nibName: "ActorsCell", bundle: nil), forCellReuseIdentifier: ActorsCell.identifier)
+        MovieSearchCell.registerOn(tableView)
+        ActorsCell.registerOn(tableView)
     }
-
-    private func configSearchBar() {
-        let  searchBar = UISearchBar(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 30))
+    
+    private func setupSearchBar() {
+        let searchBar = UISearchBar(frame: CGRect(
+            x: 0, y: 0, width: UIScreen.main.bounds.width, height: 30))
+        
         searchBar.showsScopeBar = true
         searchBar.scopeButtonTitles = ["Títulos", "Atores", "Usuários"]
         searchBar.delegate = self
         
-        self.searchTableView.tableHeaderView = searchBar
-        self.configLayoutSearchBar(searchBar: searchBar)
+        self.tableView.tableHeaderView = searchBar
+        self.configureLayoutSearchBar(searchBar: searchBar)
         self.configLayoutScopeBar()
     }
-
-    private func configLayoutSearchBar(searchBar: UISearchBar) {
+    
+    private func configureLayoutSearchBar(searchBar: UISearchBar) {
         let textPlaceholder: String = "O que está procurando?"
         searchBar.barTintColor = .black
         searchBar.searchTextField.backgroundColor = .customDarkGray
@@ -50,45 +60,60 @@ class SearchViewController: UIViewController {
         searchBar.searchTextField.tintColor = .white
         searchBar.searchTextField.placeholder = textPlaceholder
     }
-
+    
     private func configLayoutScopeBar() {
         UISegmentedControl.appearance().selectedSegmentTintColor = .customRed
-        UISegmentedControl.appearance().setTitleTextAttributes([NSAttributedString.Key.foregroundColor : UIColor.white], for: .normal)
+        UISegmentedControl.appearance().setTitleTextAttributes(
+            [NSAttributedString.Key.foregroundColor: UIColor.white], for: .normal)
+    }
+    
+    private func getActorCell(indexPath: IndexPath) -> UITableViewCell {
+        guard let cell: ActorsCell  = tableView.dequeueReusableCell(withIdentifier: ActorsCell.identifier) as? ActorsCell else { return  UITableViewCell() }
+        let customCell = self.controller.loadCustomActorsCell(indexPath: indexPath)
+        
+        cell.setupSearchActorCell(data: customCell)
+        
+        return cell
+    }
+    
+    private func getMovieSearchCell(indexPath: IndexPath) -> UITableViewCell {
+        let identifier =  MovieSearchCell.identifier
+        
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: identifier)
+                as? MovieSearchCell else { return  UITableViewCell() }
+        let customMovieCell = controller.loadCustomFilmCell(indexPath: indexPath)
+        
+        cell.setupSearchMovieCell(data: customMovieCell)
+        
+        return cell
     }
 }
 
+// MARK: - UISearchBarDelegate Protocol
+
 extension SearchViewController: UISearchBarDelegate {
+    
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         self.controller.searchMovieResults(searchText: searchText, index: searchBar.selectedScopeButtonIndex)
-        self.searchTableView.reloadData()
+        self.tableView.reloadData()
     }
-
+    
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         searchBar.resignFirstResponder()
     }
 }
 
+// MARK: - UITableView Protocol Extensions
+
 extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.controller.resultCount()
+        return controller.resultCount()
     }
-
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-
-        if controller.checkFilmEmptyState() {
-            guard let cell: ActorsCell  = searchTableView.dequeueReusableCell(withIdentifier: ActorsCell.identifier) as? ActorsCell else { return  UITableViewCell() }
-            let customCell = self.controller.loadCustomActorsCell(indexPath: indexPath)
-
-            cell.setupSearchActorCell(data: customCell)
-            return cell
-
-        } else {
-            guard let cell: MovieCell  = searchTableView.dequeueReusableCell(withIdentifier: MovieCell.identifier) as? MovieCell else { return  UITableViewCell() }
-            let customCell = self.controller.loadCustomFilmCell(indexPath: indexPath)
-
-            cell.setupSearchMovieCell(data: customCell)
-            return cell
-        }
+        controller.checkFilmEmptyState()
+            ? getActorCell(indexPath: indexPath)
+            : getMovieSearchCell(indexPath: indexPath)
     }
 }
-

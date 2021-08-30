@@ -9,35 +9,44 @@ import UIKit
 
 class RandomViewController: UIViewController {
     
-    //MARK:- Outlets
+    // MARK: - IBOutlets
+    
     @IBOutlet weak var objectView: UIView!
+    
     @IBOutlet weak var optionSegmented: UISegmentedControl!
+    
     @IBOutlet weak var genreButton: UIButton!
+    
     @IBOutlet weak var ratingButton: UIButton!
+    
     @IBOutlet weak var goButton: UIButton!
     
-    //MARK:- viewDidLoad()
+    // MARK: - View Lifecycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        self.objectView.roundCorners(cornerRadius: 8.0, typeCorners: [.bottomRight, .bottomLeft, .topRight, .topLeft]);
-        self.goButton.roundCorners(cornerRadius: 8.0, typeCorners: [.bottomRight, .bottomLeft, .topRight, .topLeft]);
-        
-        self.optionSegmented.selectedSegmentTintColor = UIColor(named: "Main Red");
-        self.optionSegmented.setTitleTextAttributes([.foregroundColor : UIColor.white], for: .normal);
+        setupUI()
     }
     
-    //MARK:- Actions
-    //Button to shuffle and present the movies
-    @IBAction func drawAction(_ sender: UIButton) {
+    // MARK: - Private Functions
+    
+    private func setupUI() {
+        objectView.roundCorners(cornerRadius: 8.0, typeCorners: [.bottomRight, .bottomLeft, .topRight, .topLeft])
+        goButton.roundCorners(cornerRadius: 8.0, typeCorners: [.bottomRight, .bottomLeft, .topRight, .topLeft])
+        
+        optionSegmented.selectedSegmentTintColor = UIColor(named: "Main Red")
+        optionSegmented.setTitleTextAttributes([.foregroundColor : UIColor.white], for: .normal)
+    }
+
+    @IBAction private func drawAction(_ sender: UIButton) {
         performSegue(withIdentifier: "SuggestionViewControllerSegue", sender: nil);
     }
-    //Button to choose the genre
-    @IBAction func genreChoices(_ sender: UIButton) {
+
+    @IBAction private func genreChoices(_ sender: UIButton) {
         
     }
-    //Button to chose the movies rating
-    @IBAction func ratingChoices(_ sender: UIButton) {
+
+    @IBAction private func ratingChoices(_ sender: UIButton) {
         
     }
 }

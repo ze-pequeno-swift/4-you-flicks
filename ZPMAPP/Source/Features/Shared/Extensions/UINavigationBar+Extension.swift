@@ -1,5 +1,5 @@
 //
-//  UINavigationBar+Extensions.swift
+//  UINavigationBar+Extension.swift
 //  ZPMAPP
 //
 //  Created by Hellen on 26/08/21.

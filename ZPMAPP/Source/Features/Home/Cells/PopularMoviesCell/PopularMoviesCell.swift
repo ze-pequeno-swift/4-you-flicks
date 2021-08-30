@@ -17,7 +17,7 @@ class PopularMoviesCell: UITableViewCell {
     
     weak var delegate: HomeViewControllerDelegate?
     
-    class var identifier: String {
+    static var identifier: String {
         String(describing: PopularMoviesCell.self)
     }
     
@@ -40,7 +40,6 @@ class PopularMoviesCell: UITableViewCell {
 // MARK: - UICollectionView Protocol Extensions
 
 extension PopularMoviesCell: UICollectionViewDelegate, UICollectionViewDataSource {
-    
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 10

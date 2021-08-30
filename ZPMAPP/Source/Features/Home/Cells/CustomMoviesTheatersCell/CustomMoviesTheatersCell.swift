@@ -15,7 +15,7 @@ class CustomMoviesTheatersCell: UICollectionViewCell {
     
     // MARK: - Public Properties
     
-    class var identifier: String {
+    static var identifier: String {
         String(describing: CustomMoviesTheatersCell.self)
     }
     

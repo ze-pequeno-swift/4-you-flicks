@@ -1,5 +1,5 @@
 //
-//  UITableViewCell+Extensions.swift
+//  UITableViewCell+Extension.swift
 //  ZPMAPP
 //
 //  Created by Hellen on 23/08/21.

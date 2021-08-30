@@ -63,8 +63,11 @@ Pods/
 
 ### macOS ###
 .DS_Store
+.DS_Store?
 .AppleDouble
 .LSOverride
+.Trashes
+Thumbs.db
 
 # Add this line if you want to avoid checking in source code from the Xcode workspace
 # *.xcworkspace

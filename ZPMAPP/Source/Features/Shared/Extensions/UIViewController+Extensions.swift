@@ -1,26 +1,23 @@
 //
-//  PositionImage.swift
+//  UIViewController+Extensions.swift
 //  ZPMAPP
 //
-//  Created by Alan Silva on 26/08/21.
+//  Created by Hellen on 26/08/21.
 //
 
 import UIKit
 
-class SAImage: UIViewController {
+extension UIViewController {
     
-    var iconClick = false
-    
-    func addLeftImageTo(txtField: UITextField, andImage imagem: UIImage) {
+    func addLeftImageTo(textField: UITextField, andImage imagem: UIImage) {
         let leftImageView = UIImageView(frame: CGRect(x: 0.0, y:0.0, width: imagem.size.width, height: imagem.size.height))
         
         leftImageView.image = imagem
-        txtField.leftView = leftImageView
-        txtField.leftViewMode = .always
+        textField.leftView = leftImageView
+        textField.leftViewMode = .always
     }
     
     func addRightImageTo(txtField: UITextField, andImage imagem: UIImageView) {
-        
         let contentView = UIView()
         contentView.addSubview(imagem)
         
@@ -29,5 +26,13 @@ class SAImage: UIViewController {
         
         txtField.rightView = contentView
         txtField.rightViewMode = .always
+    }
+    
+    @objc
+    func close() {
+        let viewController = navigationController?.popViewController(animated: true)
+        if viewController == nil {
+            navigationController?.dismiss(animated: true)
+        }
     }
 }

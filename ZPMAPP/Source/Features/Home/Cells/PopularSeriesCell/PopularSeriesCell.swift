@@ -17,7 +17,7 @@ class PopularSeriesCell: UITableViewCell {
     
     weak var delegate: HomeViewControllerDelegate?
     
-    class var identifier: String {
+    static var identifier: String {
         String(describing: PopularSeriesCell.self)
     }
     

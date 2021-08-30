@@ -16,5 +16,3 @@ extension UIColor {
     static let customRed: UIColor = UIColor(red: 255, green: 45, blue: 61)
     static let customDarkGray: UIColor = UIColor(red: 35, green: 33, blue: 38)
 }
-
-
