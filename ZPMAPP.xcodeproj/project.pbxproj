@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6B9F4D1926DDFAE6004BB120 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B9F4D1826DDFAE6004BB120 /* ProfileViewController.swift */; };
+		6B9F4D1B26DDFB5E004BB120 /* OptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B9F4D1A26DDFB5E004BB120 /* OptionsViewController.swift */; };
+		6B9F4D1D26DDFB96004BB120 /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B9F4D1C26DDFB96004BB120 /* EditProfileViewController.swift */; };
+		6B9F4D1F26DDFBC0004BB120 /* ResetPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B9F4D1E26DDFBC0004BB120 /* ResetPasswordViewController.swift */; };
+		6B9F4D2426DDFF76004BB120 /* MovieCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B9F4D2226DDFF76004BB120 /* MovieCollectionViewCell.swift */; };
+		6B9F4D2526DDFF76004BB120 /* MovieCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6B9F4D2326DDFF76004BB120 /* MovieCollectionViewCell.xib */; };
+		6BA6220826DE2D2400A45B32 /* ZPRedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BA6220726DE2D2400A45B32 /* ZPRedButton.swift */; };
 		7405C32B26D35FF2002B8B2B /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7405C32A26D35FF2002B8B2B /* Home.storyboard */; };
 		74309AC426D9D9C300CB5D7B /* ZPButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74309AC326D9D9C300CB5D7B /* ZPButton.swift */; };
 		745B9A5226D583B40024977F /* HomeViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 745B9A5126D583B40024977F /* HomeViewControllerDelegate.swift */; };
@@ -73,6 +80,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		6B9F4D1826DDFAE6004BB120 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		6B9F4D1A26DDFB5E004BB120 /* OptionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionsViewController.swift; sourceTree = "<group>"; };
+		6B9F4D1C26DDFB96004BB120 /* EditProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileViewController.swift; sourceTree = "<group>"; };
+		6B9F4D1E26DDFBC0004BB120 /* ResetPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordViewController.swift; sourceTree = "<group>"; };
+		6B9F4D2226DDFF76004BB120 /* MovieCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieCollectionViewCell.swift; sourceTree = "<group>"; };
+		6B9F4D2326DDFF76004BB120 /* MovieCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MovieCollectionViewCell.xib; sourceTree = "<group>"; };
+		6BA6220726DE2D2400A45B32 /* ZPRedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZPRedButton.swift; sourceTree = "<group>"; };
 		7405C32A26D35FF2002B8B2B /* Home.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
 		74309AC326D9D9C300CB5D7B /* ZPButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZPButton.swift; sourceTree = "<group>"; };
 		745B9A5126D583B40024977F /* HomeViewControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewControllerDelegate.swift; sourceTree = "<group>"; };
@@ -151,6 +165,27 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6B67B54126DDA61800B2B205 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				6B9F4D2126DDFDB5004BB120 /* MoviesCell */,
+				6B9F4D1826DDFAE6004BB120 /* ProfileViewController.swift */,
+				6B9F4D1A26DDFB5E004BB120 /* OptionsViewController.swift */,
+				6B9F4D1C26DDFB96004BB120 /* EditProfileViewController.swift */,
+				6B9F4D1E26DDFBC0004BB120 /* ResetPasswordViewController.swift */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
+		6B9F4D2126DDFDB5004BB120 /* MoviesCell */ = {
+			isa = PBXGroup;
+			children = (
+				6B9F4D2226DDFF76004BB120 /* MovieCollectionViewCell.swift */,
+				6B9F4D2326DDFF76004BB120 /* MovieCollectionViewCell.xib */,
+			);
+			path = MoviesCell;
+			sourceTree = "<group>";
+		};
 		746ECACD26D6ADD50047ACE7 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
@@ -261,6 +296,7 @@
 			isa = PBXGroup;
 			children = (
 				74309AC326D9D9C300CB5D7B /* ZPButton.swift */,
+				6BA6220726DE2D2400A45B32 /* ZPRedButton.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -322,6 +358,7 @@
 		74A98FCA26D2D50500DD7889 /* Features */ = {
 			isa = PBXGroup;
 			children = (
+				6B67B54126DDA61800B2B205 /* Profile */,
 				7483D83C26DC4CB400ABB950 /* CreateAccount */,
 				74A98FD026D2D5DC00DD7889 /* Home */,
 				BCBD243326D48677008110FB /* Login */,
@@ -607,6 +644,7 @@
 				74818A4F26D419C60071AB5E /* CustomMoviesTheatersCell.xib in Resources */,
 				74818A5426D41AAF0071AB5E /* MoviesTheatersCell.xib in Resources */,
 				74CB473D26D72CF40091F683 /* MoviesNearbyCell.xib in Resources */,
+				6B9F4D2526DDFF76004BB120 /* MovieCollectionViewCell.xib in Resources */,
 				749FED3826D6E0CA00B35C1A /* DescriptionCell.xib in Resources */,
 				749FED3C26D6E61600B35C1A /* WhereToWatchCell.xib in Resources */,
 				74A98FBB26D2D4EF00DD7889 /* Main.storyboard in Resources */,
@@ -631,15 +669,20 @@
 				74A98FB826D2D4EF00DD7889 /* HomeViewController.swift in Sources */,
 				DEFED81726D6923600B2AEEA /* MovieSearchCell.swift in Sources */,
 				DEB196AD26D7E99100D52080 /* Users.swift in Sources */,
+				6BA6220826DE2D2400A45B32 /* ZPRedButton.swift in Sources */,
 				74A98FB426D2D4EF00DD7889 /* AppDelegate.swift in Sources */,
+				6B9F4D1926DDFAE6004BB120 /* ProfileViewController.swift in Sources */,
 				74A98FB626D2D4EF00DD7889 /* SceneDelegate.swift in Sources */,
 				DEDD241226D6C222000C62E6 /* SearchController.swift in Sources */,
 				DEDD240F26D6BA17000C62E6 /* UsersCell.swift in Sources */,
+				6B9F4D1D26DDFB96004BB120 /* EditProfileViewController.swift in Sources */,
 				DEDD23FD26D6A337000C62E6 /* Movie.swift in Sources */,
 				DEADB51026D48A1C00133508 /* UIColor+Extensions.swift in Sources */,
 				DEDD240626D6B2E8000C62E6 /* ActorsCell.swift in Sources */,
 				74CB475626D75D1D0091F683 /* UIViewController+Extensions.swift in Sources */,
+				6B9F4D2426DDFF76004BB120 /* MovieCollectionViewCell.swift in Sources */,
 				746ECAD026D6AE440047ACE7 /* DetailsCell.swift in Sources */,
+				6B9F4D1F26DDFBC0004BB120 /* ResetPasswordViewController.swift in Sources */,
 				74818A5E26D41FF60071AB5E /* PopularMoviesCell.swift in Sources */,
 				74CB475426D75CD40091F683 /* UINavigationItem+Extensions.swift in Sources */,
 				749FED3326D6DA7700B35C1A /* SaveWatchLaterCell.swift in Sources */,
@@ -664,6 +707,7 @@
 				749FED3B26D6E61600B35C1A /* WhereToWatchCell.swift in Sources */,
 				74CB474E26D757BA0091F683 /* UINavigationBar+Extension.swift in Sources */,
 				74818A5926D41D720071AB5E /* PopularSeriesCell.swift in Sources */,
+				6B9F4D1B26DDFB5E004BB120 /* OptionsViewController.swift in Sources */,
 				74CB474026D739DE0091F683 /* CustomCastCell.swift in Sources */,
 				74D919C026D570BB00257317 /* MovieDetailsViewController.swift in Sources */,
 				74818A6326D4277A0071AB5E /* RecommendedCell.swift in Sources */,
