@@ -97,7 +97,7 @@ class ProfileViewController: UIViewController {
         guard let viewController = homeController.instantiateViewController(identifier: "MovieDetailsViewController")
                 as? MovieDetailsViewController else { return }
         
-        navigationController?.pushViewController(viewController, animated: true)
+        self.navigationController?.pushViewController(viewController, animated: true)
     }
 }
 
