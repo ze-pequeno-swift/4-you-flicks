@@ -9,37 +9,36 @@ import UIKit
 import PhotosUI
 
 class EditProfileViewController: UIViewController {
-    @IBOutlet weak var backButton: UIButton!
-    @IBOutlet weak var avatarImageView: UIImageView!
-    @IBOutlet weak var editAvatarButton: UIButton!
-    @IBOutlet weak var nameTextField: UITextField!
-    @IBOutlet weak var emailTextField: UITextField!
-    @IBOutlet weak var usernameTextField: UITextField!
-    @IBOutlet weak var saveProfileButton: UIButton!
-    @IBOutlet weak var signOutButton: UIButton!
+    //MARK: - IBOutlet
+    @IBOutlet weak private var backButton: UIButton!
+    @IBOutlet weak private var avatarImageView: UIImageView!
+    @IBOutlet weak private var editAvatarButton: UIButton!
+    @IBOutlet weak private var nameTextField: UITextField!
+    @IBOutlet weak private var emailTextField: UITextField!
+    @IBOutlet weak private var usernameTextField: UITextField!
+    @IBOutlet weak private var saveProfileButton: UIButton!
+    @IBOutlet weak private var signOutButton: UIButton!
     
-    
+    // MARK: - View Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        //config ImageView
-        self.avatarImageView.circleCornerImage()
+        self.setupUI()
     }
     
-    // actions
-    @IBAction func tappedBackButtonAction(_ sender: UIButton) {
+    // MARK: - Actions
+    @IBAction private func tappedBackButtonAction(_ sender: UIButton) {
         self.navigationController?.popViewController(animated: true)
     }
     
-    @IBAction func tappedSaveButtonAction(_ sender: UIButton) {
+    @IBAction private func tappedSaveButtonAction(_ sender: UIButton) {
         self.navigationController?.popToRootViewController(animated: true)
     }
     
-    @IBAction func tappedSignOutAction(_ sender: UIButton) {
+    @IBAction private func tappedSignOutAction(_ sender: UIButton) {
         self.proceedToLogin()
     }
 
-    @IBAction func tappedEditAvatarAction(_ sender: UIButton) {
+    @IBAction private func tappedEditAvatarAction(_ sender: UIButton) {
         //permissions in parts
         PHPhotoLibrary.requestAuthorization(for: .readWrite) { [unowned self] (status) in
             DispatchQueue.main.async { [unowned self] in
@@ -64,6 +63,12 @@ class EditProfileViewController: UIViewController {
         }))
         
         self.present(alert, animated: true, completion: nil)
+    }
+    
+    // MARK: - Private functions
+    private func setupUI() {
+        //config ImageView
+        self.avatarImageView.circleCornerImage()
     }
     
     private func proceedToLogin() {
