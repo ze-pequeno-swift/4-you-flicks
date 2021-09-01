@@ -24,13 +24,6 @@ class EditProfileViewController: UIViewController {
         
         //config ImageView
         self.avatarImageView.circleCornerImage()
-        
-        //permissions in parts
-        PHPhotoLibrary.requestAuthorization(for: .readWrite) { [unowned self] (status) in
-            DispatchQueue.main.async { [unowned self] in
-                showUI(for: status)
-            }
-        }
     }
     
     // actions
@@ -47,6 +40,13 @@ class EditProfileViewController: UIViewController {
     }
 
     @IBAction func tappedEditAvatarAction(_ sender: UIButton) {
+        //permissions in parts
+        PHPhotoLibrary.requestAuthorization(for: .readWrite) { [unowned self] (status) in
+            DispatchQueue.main.async { [unowned self] in
+                showUI(for: status)
+            }
+        }
+
         let alert: UIAlertController = UIAlertController.init(title: "Search Images", message: "", preferredStyle: UIAlertController.Style.actionSheet)
         
         alert.addAction(UIAlertAction.init(title: "Camera", style: UIAlertAction.Style.default, handler: { action in
