@@ -25,6 +25,12 @@ class SearchViewController: UIViewController {
         registerTableView()
         setupSearchBar()
         tableView.tableFooterView = UIView()
+        controller.delegate(delegate: self)
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        setupNavigationBar()
     }
     
     // MARK: - Private Functions
@@ -38,14 +44,19 @@ class SearchViewController: UIViewController {
         MovieSearchCell.registerOn(tableView)
         ActorsCell.registerOn(tableView)
     }
+    private func setupNavigationBar() {
+        navigationController?.navigationBar.navigationStyle()
+        navigationController?.isNavigationBarHidden = false
+    }
     
     private func setupSearchBar() {
         let searchBar = UISearchBar(frame: CGRect(
             x: 0, y: 0, width: UIScreen.main.bounds.width, height: 30))
         
         searchBar.showsScopeBar = true
-        searchBar.scopeButtonTitles = ["Títulos", "Atores", "Usuários"]
+        searchBar.scopeButtonTitles = ["Títulos", "Atores"]
         searchBar.delegate = self
+        searchBar.selectedScopeButtonIndex = 0
         
         self.tableView.tableHeaderView = searchBar
         self.configureLayoutSearchBar(searchBar: searchBar)
@@ -87,6 +98,14 @@ class SearchViewController: UIViewController {
         
         return cell
     }
+
+    private func proceedToMovie() {
+        let homeController = UIStoryboard(name: "Home", bundle: nil)
+        guard let viewController = homeController.instantiateViewController(identifier: "MovieDetailsViewController")
+                as? MovieDetailsViewController else { return }
+
+        self.present(viewController, animated: true, completion: nil)
+    }
 }
 
 // MARK: - UISearchBarDelegate Protocol
@@ -115,5 +134,26 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
         controller.checkFilmEmptyState()
             ? getActorCell(indexPath: indexPath)
             : getMovieSearchCell(indexPath: indexPath)
+    }
+
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let section = selectedScopeBar(rawValue: indexPath.item) else { return }
+
+        switch section.rawValue {
+            case 1:
+                performSegue(withIdentifier: "ActorsDetailViewController", sender: nil)
+            default:
+                proceedToMovie()
+        }
+    }
+}
+
+extension SearchViewController: SearchControllerProtocol {
+    func reloadActorsData() {
+        self.tableView.reloadData()
+    }
+
+    func reloadFilmData() {
+        self.tableView.reloadData()
     }
 }
