@@ -74,6 +74,7 @@
 		DEDD240F26D6BA17000C62E6 /* UsersCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEDD240D26D6BA17000C62E6 /* UsersCell.swift */; };
 		DEDD241026D6BA17000C62E6 /* UsersCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DEDD240E26D6BA17000C62E6 /* UsersCell.xib */; };
 		DEDD241226D6C222000C62E6 /* SearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEDD241126D6C222000C62E6 /* SearchController.swift */; };
+		DEF3329C26E1701C007DD03A /* DetailSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEF3329B26E1701C007DD03A /* DetailSearchViewController.swift */; };
 		DEFED81726D6923600B2AEEA /* MovieSearchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEFED81526D6923600B2AEEA /* MovieSearchCell.swift */; };
 		DEFED81826D6923600B2AEEA /* MovieSearchCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DEFED81626D6923600B2AEEA /* MovieSearchCell.xib */; };
 		DEFED81A26D6986B00B2AEEA /* UIImageView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEFED81926D6986B00B2AEEA /* UIImageView+Extension.swift */; };
@@ -149,6 +150,7 @@
 		DEDD240D26D6BA17000C62E6 /* UsersCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersCell.swift; sourceTree = "<group>"; };
 		DEDD240E26D6BA17000C62E6 /* UsersCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UsersCell.xib; sourceTree = "<group>"; };
 		DEDD241126D6C222000C62E6 /* SearchController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchController.swift; sourceTree = "<group>"; };
+		DEF3329B26E1701C007DD03A /* DetailSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailSearchViewController.swift; sourceTree = "<group>"; };
 		DEFED81526D6923600B2AEEA /* MovieSearchCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieSearchCell.swift; sourceTree = "<group>"; };
 		DEFED81626D6923600B2AEEA /* MovieSearchCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MovieSearchCell.xib; sourceTree = "<group>"; };
 		DEFED81926D6986B00B2AEEA /* UIImageView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extension.swift"; sourceTree = "<group>"; };
@@ -514,6 +516,7 @@
 			children = (
 				DEFED81426D691FD00B2AEEA /* CustomCells */,
 				DEADB51226D48DFA00133508 /* SearchViewController.swift */,
+				DEF3329B26E1701C007DD03A /* DetailSearchViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -706,6 +709,7 @@
 				74818A5326D41AAF0071AB5E /* MoviesTheatersCell.swift in Sources */,
 				749FED3B26D6E61600B35C1A /* WhereToWatchCell.swift in Sources */,
 				74CB474E26D757BA0091F683 /* UINavigationBar+Extension.swift in Sources */,
+				DEF3329C26E1701C007DD03A /* DetailSearchViewController.swift in Sources */,
 				74818A5926D41D720071AB5E /* PopularSeriesCell.swift in Sources */,
 				6B9F4D1B26DDFB5E004BB120 /* OptionsViewController.swift in Sources */,
 				74CB474026D739DE0091F683 /* CustomCastCell.swift in Sources */,

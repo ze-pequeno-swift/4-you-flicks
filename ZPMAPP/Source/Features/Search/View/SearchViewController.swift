@@ -16,6 +16,8 @@ class SearchViewController: UIViewController {
     // MARK: - Private Properties
     
     private let controller = SearchController()
+    private let searchBar = UISearchBar(frame: CGRect(
+                                            x: 0, y: 0, width: UIScreen.main.bounds.width, height: 30))
     
     // MARK: - View Lifecycle
     
@@ -25,12 +27,6 @@ class SearchViewController: UIViewController {
         registerTableView()
         setupSearchBar()
         tableView.tableFooterView = UIView()
-        controller.delegate(delegate: self)
-    }
-
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(true)
-        setupNavigationBar()
     }
     
     // MARK: - Private Functions
@@ -44,14 +40,8 @@ class SearchViewController: UIViewController {
         MovieSearchCell.registerOn(tableView)
         ActorsCell.registerOn(tableView)
     }
-    private func setupNavigationBar() {
-        navigationController?.navigationBar.navigationStyle()
-        navigationController?.isNavigationBarHidden = false
-    }
     
     private func setupSearchBar() {
-        let searchBar = UISearchBar(frame: CGRect(
-            x: 0, y: 0, width: UIScreen.main.bounds.width, height: 30))
         
         searchBar.showsScopeBar = true
         searchBar.scopeButtonTitles = ["Títulos", "Atores"]
@@ -137,23 +127,11 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard let section = selectedScopeBar(rawValue: indexPath.item) else { return }
 
-        switch section.rawValue {
-            case 1:
-                performSegue(withIdentifier: "ActorsDetailViewController", sender: nil)
-            default:
-                proceedToMovie()
+        if searchBar.selectedScopeButtonIndex == 0 {
+            self.proceedToMovie()
+        } else {
+            performSegue(withIdentifier: "ActorsDetailViewController", sender: nil)
         }
-    }
-}
-
-extension SearchViewController: SearchControllerProtocol {
-    func reloadActorsData() {
-        self.tableView.reloadData()
-    }
-
-    func reloadFilmData() {
-        self.tableView.reloadData()
     }
 }

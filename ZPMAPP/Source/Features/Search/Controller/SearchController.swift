@@ -7,20 +7,14 @@
 
 import Foundation
 
-enum selectedScopeBar: Int {
+enum selectedScopeBar: Int, CaseIterable {
     case title = 0
     case actors = 1
-}
-
-protocol SearchControllerProtocol: AnyObject {
-    func reloadActorsData()
-    func reloadFilmData()
 }
 
 class SearchController {
     
     // MARK: - Private Properties
-    private weak var delegate: SearchControllerProtocol?
     
     private var arrayMovie: [MovieList] = [
         MovieList(title: "Joker", image: "joker", genre: "Drama", length: "2h10m", actors: "Elizabeth Olsen"), MovieList(title: "Viúva Negra", image: "black-widow", genre: "Ação", length: "1h50", actors: "Elizabeth Banks"), MovieList(title: "Nós", image: "us", genre: "Terror", length: "2h50m", actors: "Mary Elizabeth"), MovieList(title: "Midsommar", image: "midsommar", genre: "Terror", length: "2h40m", actors: "Elizabeth Olsen"), MovieList(title: "Jaws", image: "jaws", genre: "Suspense", length: "1h50", actors: "Elizabeth Banks")
@@ -31,10 +25,6 @@ class SearchController {
     
     // MARK: - Public Functions
 
-    func delegate(delegate: SearchControllerProtocol) {
-        self.delegate = delegate
-    }
-    
     func resultCount() -> Int {
         checkFilmEmptyState() ? arrayActorsSearchResult.count : arrayFilmSearchResult.count
     }
