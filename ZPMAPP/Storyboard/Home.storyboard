@@ -1,39 +1,89 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="U2Q-OL-39x">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Home-->
+        <!--Home View Controller-->
         <scene sceneID="s0d-6b-0kx">
             <objects>
-                <viewController id="Y6W-OH-hqX" customClass="HomeViewController" customModule="ZPMAPP" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="HomeViewController" id="Y6W-OH-hqX" customClass="HomeViewController" customModule="ZPMAPP" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="eWx-y3-HSQ">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="574"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </tableView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="eWx-y3-HSQ" secondAttribute="bottom" id="DRf-Ps-hOi"/>
+                            <constraint firstItem="eWx-y3-HSQ" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="QS3-UD-Nhk"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="eWx-y3-HSQ" secondAttribute="trailing" id="ahH-WD-bsb"/>
+                            <constraint firstItem="eWx-y3-HSQ" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="gL4-m7-30t"/>
+                        </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Home" id="2m8-Ea-8HB"/>
+                    <navigationItem key="navigationItem" largeTitleDisplayMode="always" id="2m8-Ea-8HB"/>
+                    <connections>
+                        <outlet property="tableView" destination="eWx-y3-HSQ" id="IoM-bP-9Yo"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="889.85507246376824" y="93.75"/>
         </scene>
+        <!--Movie Details View Controller-->
+        <scene sceneID="zzr-q8-n1s">
+            <objects>
+                <viewController storyboardIdentifier="MovieDetailsViewController" id="74c-vJ-eAL" customClass="MovieDetailsViewController" customModule="ZPMAPP" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ahl-zS-eGo">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Z5F-HC-r4v">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" name="Main Black"/>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="G3D-D6-v0U"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="G3D-D6-v0U" firstAttribute="trailing" secondItem="Z5F-HC-r4v" secondAttribute="trailing" id="1uI-Q3-kZs"/>
+                            <constraint firstItem="Z5F-HC-r4v" firstAttribute="leading" secondItem="G3D-D6-v0U" secondAttribute="leading" id="LDz-gc-hhS"/>
+                            <constraint firstItem="Z5F-HC-r4v" firstAttribute="top" secondItem="G3D-D6-v0U" secondAttribute="top" id="k7u-b3-de0"/>
+                            <constraint firstItem="G3D-D6-v0U" firstAttribute="bottom" secondItem="Z5F-HC-r4v" secondAttribute="bottom" id="kUX-7h-8sd"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="Z5F-HC-r4v" id="d5q-n6-olZ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dHi-mb-sdL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1756" y="94"/>
+        </scene>
         <!--Home-->
         <scene sceneID="H1d-tt-irx">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="U2Q-OL-39x" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Home" id="rhN-cA-qpJ"/>
+                    <tabBarItem key="tabBarItem" title="Home" image="house.fill" catalog="system" id="rhN-cA-qpJ"/>
                     <toolbarItems/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="18A-Tl-CVY">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="18A-Tl-CVY">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" name="Main Black"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -46,6 +96,10 @@
         </scene>
     </scenes>
     <resources>
+        <image name="house.fill" catalog="system" width="128" height="106"/>
+        <namedColor name="Main Black">
+            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
