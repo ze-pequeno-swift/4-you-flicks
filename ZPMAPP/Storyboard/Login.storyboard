@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Y6W-OH-hqX">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
@@ -14,11 +14,11 @@
             <objects>
                 <viewController storyboardIdentifier="LoginViewController" title="Login" id="Y6W-OH-hqX" customClass="LoginViewController" customModule="ZPMAPP" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="kMt-5X-qhW">
-                                <rect key="frame" x="20" y="274" width="374" height="78.5"/>
+                                <rect key="frame" x="20" y="230" width="335" height="78.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Usuário" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uub-7H-TDS">
                                         <rect key="frame" x="0.0" y="0.0" width="58.5" height="20.5"/>
@@ -27,7 +27,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Usuario" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rcg-BV-iV1">
-                                        <rect key="frame" x="0.0" y="28.5" width="374" height="50"/>
+                                        <rect key="frame" x="0.0" y="28.5" width="335" height="50"/>
                                         <color key="backgroundColor" name="Main Onix"/>
                                         <color key="tintColor" systemColor="systemGrayColor"/>
                                         <constraints>
@@ -43,7 +43,7 @@
                                 </constraints>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Pnw-OK-v3l">
-                                <rect key="frame" x="20" y="362.5" width="374" height="113.5"/>
+                                <rect key="frame" x="20" y="318.5" width="335" height="113.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Senha" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TXd-Qa-Oaf">
                                         <rect key="frame" x="0.0" y="0.0" width="48" height="20.5"/>
@@ -52,7 +52,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Senha" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4eZ-T0-h2A">
-                                        <rect key="frame" x="0.0" y="28.5" width="374" height="50"/>
+                                        <rect key="frame" x="0.0" y="28.5" width="335" height="50"/>
                                         <color key="backgroundColor" name="Main Onix"/>
                                         <color key="tintColor" systemColor="systemGrayColor"/>
                                         <constraints>
@@ -79,7 +79,7 @@
                                 </constraints>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f8Q-BK-Fjo" customClass="ZPButton" customModule="ZPMAPP" customModuleProvider="target">
-                                <rect key="frame" x="20" y="526" width="374" height="50"/>
+                                <rect key="frame" x="20" y="482" width="335" height="50"/>
                                 <color key="backgroundColor" name="Main Onix"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="gxJ-nt-HfU"/>
@@ -92,13 +92,13 @@
                                 </connections>
                             </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon-logo" translatesAutoresizingMaskIntoConstraints="NO" id="Zin-v4-yFA">
-                                <rect key="frame" x="50" y="94" width="314" height="150"/>
+                                <rect key="frame" x="50" y="50" width="275" height="150"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="150" id="aKx-DK-iMz"/>
                                 </constraints>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="wuQ-t5-h22">
-                                <rect key="frame" x="20" y="586" width="189.5" height="27"/>
+                                <rect key="frame" x="20" y="542" width="189.5" height="27"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Não tem uma conta?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qvt-oB-dDs">
                                         <rect key="frame" x="0.0" y="0.0" width="116.5" height="27"/>
@@ -153,7 +153,7 @@
             <objects>
                 <viewController id="zXS-FW-Yxg" customClass="RecoverPasswordViewController" customModule="ZPMAPP" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="WT4-ab-Jbr">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Recuperar Senha" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g5K-uJ-dCw">
@@ -166,7 +166,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="7" translatesAutoresizingMaskIntoConstraints="NO" id="0oD-za-gxi">
-                                <rect key="frame" x="20" y="126" width="374" height="120.5"/>
+                                <rect key="frame" x="20" y="126" width="335" height="120.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email Cadastrado" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xg3-nI-RwI">
                                         <rect key="frame" x="0.0" y="0.0" width="133.5" height="20.5"/>
@@ -175,7 +175,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Senha" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lMT-Oc-yjk">
-                                        <rect key="frame" x="0.0" y="27.5" width="374" height="50"/>
+                                        <rect key="frame" x="0.0" y="27.5" width="335" height="50"/>
                                         <color key="backgroundColor" name="Main Onix"/>
                                         <color key="tintColor" systemColor="systemGrayColor"/>
                                         <constraints>
@@ -198,7 +198,7 @@
                                 </constraints>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="S1B-tc-umK" customClass="ZPButton" customModule="ZPMAPP" customModuleProvider="target">
-                                <rect key="frame" x="20" y="326.5" width="374" height="50"/>
+                                <rect key="frame" x="20" y="326.5" width="335" height="50"/>
                                 <color key="backgroundColor" name="Main Onix"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="o3H-TB-uSn"/>
@@ -234,7 +234,7 @@
             <objects>
                 <viewController storyboardIdentifier="CreateAccountViewController" id="xq3-58-J9v" customClass="CreateAccountViewController" customModule="ZPMAPP" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="oOW-bW-o9e">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Criar Conta" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UoZ-cz-iHq">
@@ -247,7 +247,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="rBo-W9-QBs">
-                                <rect key="frame" x="20" y="126" width="374" height="78.5"/>
+                                <rect key="frame" x="20" y="126" width="335" height="78.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nome" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IU3-MM-Zsj">
                                         <rect key="frame" x="0.0" y="0.0" width="45.5" height="20.5"/>
@@ -256,7 +256,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Nome Completo" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="SXk-xi-rd0">
-                                        <rect key="frame" x="0.0" y="28.5" width="374" height="50"/>
+                                        <rect key="frame" x="0.0" y="28.5" width="335" height="50"/>
                                         <color key="backgroundColor" name="Main Onix"/>
                                         <color key="tintColor" systemColor="systemGrayColor"/>
                                         <constraints>
@@ -273,7 +273,7 @@
                                 </constraints>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="rRU-pq-qAP">
-                                <rect key="frame" x="20" y="224.5" width="374" height="78.5"/>
+                                <rect key="frame" x="20" y="224.5" width="335" height="78.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dVn-Aw-z1L">
                                         <rect key="frame" x="0.0" y="0.0" width="41" height="20.5"/>
@@ -282,7 +282,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NwB-Um-j2F">
-                                        <rect key="frame" x="0.0" y="28.5" width="374" height="50"/>
+                                        <rect key="frame" x="0.0" y="28.5" width="335" height="50"/>
                                         <color key="backgroundColor" name="Main Onix"/>
                                         <color key="tintColor" systemColor="systemGrayColor"/>
                                         <constraints>
@@ -299,7 +299,7 @@
                                 </constraints>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="7" translatesAutoresizingMaskIntoConstraints="NO" id="y2m-bu-fTu">
-                                <rect key="frame" x="20" y="323" width="374" height="77.5"/>
+                                <rect key="frame" x="20" y="323" width="335" height="77.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Senha" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ex2-c8-tcj">
                                         <rect key="frame" x="0.0" y="0.0" width="48" height="20.5"/>
@@ -308,7 +308,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Senha" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="eP4-3U-bEg">
-                                        <rect key="frame" x="0.0" y="27.5" width="374" height="50"/>
+                                        <rect key="frame" x="0.0" y="27.5" width="335" height="50"/>
                                         <color key="backgroundColor" name="Main Onix"/>
                                         <color key="tintColor" systemColor="systemGrayColor"/>
                                         <constraints>
@@ -326,7 +326,7 @@
                                 </constraints>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VMX-qZ-9QW" customClass="ZPButton" customModule="ZPMAPP" customModuleProvider="target">
-                                <rect key="frame" x="20" y="450.5" width="374" height="50"/>
+                                <rect key="frame" x="20" y="450.5" width="335" height="50"/>
                                 <color key="backgroundColor" name="Main Onix"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="tFN-yd-ess"/>

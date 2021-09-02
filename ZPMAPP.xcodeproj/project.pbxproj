@@ -168,11 +168,9 @@
 		6B67B54126DDA61800B2B205 /* Profile */ = {
 			isa = PBXGroup;
 			children = (
-				6B9F4D2126DDFDB5004BB120 /* MoviesCell */,
-				6B9F4D1826DDFAE6004BB120 /* ProfileViewController.swift */,
-				6B9F4D1A26DDFB5E004BB120 /* OptionsViewController.swift */,
-				6B9F4D1C26DDFB96004BB120 /* EditProfileViewController.swift */,
-				6B9F4D1E26DDFBC0004BB120 /* ResetPasswordViewController.swift */,
+				ABA4314626E1756C00B21018 /* Model */,
+				ABA4314526E1756800B21018 /* View */,
+				ABA4314426E1756100B21018 /* Controller */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -304,7 +302,9 @@
 		7483D83C26DC4CB400ABB950 /* CreateAccount */ = {
 			isa = PBXGroup;
 			children = (
-				BCDC471326D7EEB500AD8A35 /* CreateAccountViewController.swift */,
+				ABA4314326E1755000B21018 /* Model */,
+				ABA4314226E1754900B21018 /* View */,
+				ABA4314126E1754300B21018 /* Controller */,
 			);
 			path = CreateAccount;
 			sourceTree = "<group>";
@@ -312,7 +312,9 @@
 		7483D83D26DC4D3400ABB950 /* RecoverPassword */ = {
 			isa = PBXGroup;
 			children = (
-				BCDC471526D7F0D400AD8A35 /* RecoverPasswordViewController.swift */,
+				ABA4313426E173B100B21018 /* Model */,
+				ABA4313326E173AD00B21018 /* View */,
+				ABA4313226E173A200B21018 /* Controller */,
 			);
 			path = RecoverPassword;
 			sourceTree = "<group>";
@@ -403,9 +405,9 @@
 		74A98FD026D2D5DC00DD7889 /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				74818A4526D417AD0071AB5E /* Cells */,
-				74A98FB726D2D4EF00DD7889 /* HomeViewController.swift */,
-				745B9A5126D583B40024977F /* HomeViewControllerDelegate.swift */,
+				ABA4314026E174E000B21018 /* Model */,
+				ABA4313F26E174D600B21018 /* View */,
+				ABA4313E26E174CF00B21018 /* Controller */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -476,8 +478,9 @@
 		74D919BE26D5704C00257317 /* MovieDetails */ = {
 			isa = PBXGroup;
 			children = (
-				746ECACD26D6ADD50047ACE7 /* Cells */,
-				74D919BF26D570BB00257317 /* MovieDetailsViewController.swift */,
+				ABA4313A26E1748000B21018 /* Model */,
+				ABA4313926E1747B00B21018 /* View */,
+				ABA4313826E1747500B21018 /* Controller */,
 			);
 			path = MovieDetails;
 			sourceTree = "<group>";
@@ -485,16 +488,181 @@
 		AB21C97B26D724FC0031724B /* Random */ = {
 			isa = PBXGroup;
 			children = (
+				ABA4313726E1744F00B21018 /* Model */,
+				ABA4313626E1744A00B21018 /* View */,
+				ABA4313526E1744400B21018 /* Controller */,
+			);
+			path = Random;
+			sourceTree = "<group>";
+		};
+		ABA4313226E173A200B21018 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		ABA4313326E173AD00B21018 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				BCDC471526D7F0D400AD8A35 /* RecoverPasswordViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		ABA4313426E173B100B21018 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		ABA4313526E1744400B21018 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		ABA4313626E1744A00B21018 /* View */ = {
+			isa = PBXGroup;
+			children = (
 				AB21C97C26D725160031724B /* RandomViewController.swift */,
 				AB21C98026D734240031724B /* SuggestionViewController.swift */,
 			);
-			path = Random;
+			path = View;
+			sourceTree = "<group>";
+		};
+		ABA4313726E1744F00B21018 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		ABA4313826E1747500B21018 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		ABA4313926E1747B00B21018 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				74D919BF26D570BB00257317 /* MovieDetailsViewController.swift */,
+				746ECACD26D6ADD50047ACE7 /* Cells */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		ABA4313A26E1748000B21018 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		ABA4313B26E174A900B21018 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		ABA4313C26E174AE00B21018 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				BCBD243426D48697008110FB /* LoginViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		ABA4313D26E174B700B21018 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		ABA4313E26E174CF00B21018 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		ABA4313F26E174D600B21018 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				74818A4526D417AD0071AB5E /* Cells */,
+				74A98FB726D2D4EF00DD7889 /* HomeViewController.swift */,
+				745B9A5126D583B40024977F /* HomeViewControllerDelegate.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		ABA4314026E174E000B21018 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		ABA4314126E1754300B21018 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		ABA4314226E1754900B21018 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				BCDC471326D7EEB500AD8A35 /* CreateAccountViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		ABA4314326E1755000B21018 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		ABA4314426E1756100B21018 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		ABA4314526E1756800B21018 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				6B9F4D2126DDFDB5004BB120 /* MoviesCell */,
+				6B9F4D1826DDFAE6004BB120 /* ProfileViewController.swift */,
+				6B9F4D1A26DDFB5E004BB120 /* OptionsViewController.swift */,
+				6B9F4D1C26DDFB96004BB120 /* EditProfileViewController.swift */,
+				6B9F4D1E26DDFBC0004BB120 /* ResetPasswordViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		ABA4314626E1756C00B21018 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		BCBD243326D48677008110FB /* Login */ = {
 			isa = PBXGroup;
 			children = (
-				BCBD243426D48697008110FB /* LoginViewController.swift */,
+				ABA4313D26E174B700B21018 /* Model */,
+				ABA4313C26E174AE00B21018 /* View */,
+				ABA4313B26E174A900B21018 /* Controller */,
 			);
 			path = Login;
 			sourceTree = "<group>";
