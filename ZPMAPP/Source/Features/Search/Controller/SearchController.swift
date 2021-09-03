@@ -22,6 +22,12 @@ class SearchController {
     
     private var arrayFilmSearchResult: [MovieList] = []
     private var arrayActorsSearchResult: [MovieList] = []
+
+    // MARK: - Public Properties
+
+    var getMovieArray: [MovieList] {
+        return arrayMovie
+    }
     
     // MARK: - Public Functions
 

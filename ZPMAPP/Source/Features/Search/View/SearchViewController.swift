@@ -96,6 +96,10 @@ class SearchViewController: UIViewController {
 
         self.present(viewController, animated: true, completion: nil)
     }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let detailVC = segue.destination as? DetailSearchViewController, let sender = sender as? [MovieList] else { return }
+        detailVC.movieData = sender
+    }
 }
 
 // MARK: - UISearchBarDelegate Protocol
@@ -128,10 +132,8 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 
-        if searchBar.selectedScopeButtonIndex == 0 {
-            self.proceedToMovie()
-        } else {
-            performSegue(withIdentifier: "ActorsDetailViewController", sender: nil)
-        }
+        searchBar.selectedScopeButtonIndex == 0
+            ? self.proceedToMovie()
+            : performSegue(withIdentifier: "ActorsDetailViewController", sender: controller.getMovieArray)
     }
 }
