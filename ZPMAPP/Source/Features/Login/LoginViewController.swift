@@ -34,6 +34,7 @@ class LoginViewController: UIViewController {
     
     private func setupUI() {
         let emailImage = UIImage(systemName: "mail")
+        
         addLeftImageTo(textField: userTextField, andImage: emailImage!)
         
         let passwordlImage = UIImage(systemName: "lock")
