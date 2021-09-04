@@ -56,6 +56,14 @@ class DetailSearchViewController: UIViewController {
 
         return cell ?? UITableViewCell()
     }
+
+    private func proceedToMovie() {
+        let homeController = UIStoryboard(name: "Home", bundle: nil)
+        guard let viewController = homeController.instantiateViewController(identifier: "MovieDetailsViewController")
+                as? MovieDetailsViewController else { return }
+
+        present(viewController, animated: true, completion: nil)
+    }
 }
 
 // MARK: - UITableView Protocol Extensions
@@ -69,4 +77,7 @@ extension DetailSearchViewController: UITableViewDelegate, UITableViewDataSource
         return configureCustomCell(indexPath: indexPath)
     }
 
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        proceedToMovie()
+    }
 }
