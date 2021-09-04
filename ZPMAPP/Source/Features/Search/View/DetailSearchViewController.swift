@@ -24,6 +24,7 @@ class DetailSearchViewController: UIViewController {
         super.viewDidLoad()
         configureDelegate()
         registerTableView()
+        setupLayout()
     }
 
     // MARK: - IBAction
@@ -33,7 +34,6 @@ class DetailSearchViewController: UIViewController {
     }
 
     // MARK: - Private Functions
-
     private func configureDelegate() {
         tableViewDetailSearch.dataSource = self
         tableViewDetailSearch.delegate = self
@@ -43,9 +43,16 @@ class DetailSearchViewController: UIViewController {
         MovieSearchCell.registerOn(tableViewDetailSearch)
     }
 
+    private func setupLayout() {
+        tableViewDetailSearch.backgroundColor = .black
+        view.backgroundColor = .black
+    }
+
     private func configureCustomCell(indexPath: IndexPath) -> UITableViewCell {
         let cell = tableViewDetailSearch.dequeueReusableCell(withIdentifier: MovieSearchCell.identifier, for: indexPath) as? MovieSearchCell
         cell?.setupSearchMovieCell(data: movieData[indexPath.row])
+
+        actorSearchNameLabel.text = movieData[indexPath.row].actors
 
         return cell ?? UITableViewCell()
     }

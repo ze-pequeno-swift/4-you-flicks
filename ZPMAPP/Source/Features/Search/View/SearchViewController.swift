@@ -48,9 +48,9 @@ class SearchViewController: UIViewController {
         searchBar.delegate = self
         searchBar.selectedScopeButtonIndex = 0
         
-        self.tableView.tableHeaderView = searchBar
-        self.configureLayoutSearchBar(searchBar: searchBar)
-        self.configLayoutScopeBar()
+        tableView.tableHeaderView = searchBar
+        configureLayoutSearchBar(searchBar: searchBar)
+        configLayoutScopeBar()
     }
     
     private func configureLayoutSearchBar(searchBar: UISearchBar) {
@@ -94,8 +94,9 @@ class SearchViewController: UIViewController {
         guard let viewController = homeController.instantiateViewController(identifier: "MovieDetailsViewController")
                 as? MovieDetailsViewController else { return }
 
-        self.present(viewController, animated: true, completion: nil)
+        present(viewController, animated: true, completion: nil)
     }
+
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let detailVC = segue.destination as? DetailSearchViewController, let sender = sender as? [MovieList] else { return }
         detailVC.movieData = sender
@@ -107,12 +108,17 @@ class SearchViewController: UIViewController {
 extension SearchViewController: UISearchBarDelegate {
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        self.controller.searchMovieResults(searchText: searchText, index: searchBar.selectedScopeButtonIndex)
-        self.tableView.reloadData()
+        controller.searchMovieResults(searchText: searchText, index: searchBar.selectedScopeButtonIndex)
+        tableView.reloadData()
     }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         searchBar.resignFirstResponder()
+    }
+
+    func searchBarShouldEndEditing(_ searchBar: UISearchBar) -> Bool {
+        searchBar.enablesReturnKeyAutomatically = false
+        return true
     }
 }
 
@@ -131,7 +137,6 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-
         searchBar.selectedScopeButtonIndex == 0
             ? self.proceedToMovie()
             : performSegue(withIdentifier: "ActorsDetailViewController", sender: controller.getMovieArray)
