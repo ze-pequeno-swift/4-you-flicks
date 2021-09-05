@@ -7,10 +7,9 @@
 
 import Foundation
 
-enum selectedScopeBar: Int {
+enum selectedScopeBar: Int, CaseIterable {
     case title = 0
     case actors = 1
-    case user = 2
 }
 
 class SearchController {
@@ -23,10 +22,15 @@ class SearchController {
     
     private var arrayFilmSearchResult: [MovieList] = []
     private var arrayActorsSearchResult: [MovieList] = []
-    //private var arrayUsersSearchResult: [Users] = []
+
+    // MARK: - Public Properties
+
+    var getMovieArray: [MovieList] {
+        return arrayMovie
+    }
     
     // MARK: - Public Functions
-    
+
     func resultCount() -> Int {
         checkFilmEmptyState() ? arrayActorsSearchResult.count : arrayFilmSearchResult.count
     }
@@ -44,25 +48,26 @@ class SearchController {
     }
     
     func searchMovieResults(searchText: String, index: Int) {
-        
+
         if searchText.isEmpty {
-            self.arrayFilmSearchResult = []
-            self.arrayActorsSearchResult = []
+            arrayFilmSearchResult = []
+            arrayActorsSearchResult = []
         }
-        
-        switch index {
-        case selectedScopeBar.title.rawValue:
-            self.arrayFilmSearchResult = self.arrayMovie.filter { model -> Bool in
-                guard let movie = model.title?.uppercased() else { return false }
-                return movie.contains(searchText.uppercased())
-            }
-        case selectedScopeBar.actors.rawValue:
-            self.arrayActorsSearchResult = self.arrayMovie.filter { model -> Bool in
-                guard let movie = model.actors?.uppercased() else { return false }
-                return movie.contains(searchText.uppercased())
-            }
-        default:
-            print("error")
+
+            switch index {
+            case selectedScopeBar.title.rawValue:
+                self.arrayFilmSearchResult = self.arrayMovie.filter { model -> Bool in
+                    guard let movie = model.title?.uppercased() else { return false }
+                    return movie.contains(searchText.uppercased())
+                }
+            case selectedScopeBar.actors.rawValue:
+                self.arrayActorsSearchResult = self.arrayMovie.filter { model -> Bool in
+                    guard let movie = model.actors?.uppercased() else { return false }
+                    return movie.contains(searchText.uppercased())
+                }
+            default:
+                arrayFilmSearchResult = []
+                arrayActorsSearchResult = []
         }
     }
 }

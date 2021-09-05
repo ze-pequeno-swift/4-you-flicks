@@ -16,6 +16,8 @@ class SearchViewController: UIViewController {
     // MARK: - Private Properties
     
     private let controller = SearchController()
+    private let searchBar = UISearchBar(frame: CGRect(
+                                            x: 0, y: 0, width: UIScreen.main.bounds.width, height: 30))
     
     // MARK: - View Lifecycle
     
@@ -40,16 +42,15 @@ class SearchViewController: UIViewController {
     }
     
     private func setupSearchBar() {
-        let searchBar = UISearchBar(frame: CGRect(
-            x: 0, y: 0, width: UIScreen.main.bounds.width, height: 30))
         
         searchBar.showsScopeBar = true
-        searchBar.scopeButtonTitles = ["Títulos", "Atores", "Usuários"]
+        searchBar.scopeButtonTitles = ["Títulos", "Atores"]
         searchBar.delegate = self
+        searchBar.selectedScopeButtonIndex = 0
         
-        self.tableView.tableHeaderView = searchBar
-        self.configureLayoutSearchBar(searchBar: searchBar)
-        self.configLayoutScopeBar()
+        tableView.tableHeaderView = searchBar
+        configureLayoutSearchBar(searchBar: searchBar)
+        configLayoutScopeBar()
     }
     
     private func configureLayoutSearchBar(searchBar: UISearchBar) {
@@ -87,6 +88,19 @@ class SearchViewController: UIViewController {
         
         return cell
     }
+
+    private func proceedToMovie() {
+        let homeController = UIStoryboard(name: "Home", bundle: nil)
+        guard let viewController = homeController.instantiateViewController(identifier: "MovieDetailsViewController")
+                as? MovieDetailsViewController else { return }
+
+        present(viewController, animated: true, completion: nil)
+    }
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let detailVC = segue.destination as? DetailSearchViewController, let sender = sender as? [MovieList] else { return }
+        detailVC.movieData = sender
+    }
 }
 
 // MARK: - UISearchBarDelegate Protocol
@@ -94,12 +108,17 @@ class SearchViewController: UIViewController {
 extension SearchViewController: UISearchBarDelegate {
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        self.controller.searchMovieResults(searchText: searchText, index: searchBar.selectedScopeButtonIndex)
-        self.tableView.reloadData()
+        controller.searchMovieResults(searchText: searchText, index: searchBar.selectedScopeButtonIndex)
+        tableView.reloadData()
     }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         searchBar.resignFirstResponder()
+    }
+
+    func searchBarShouldEndEditing(_ searchBar: UISearchBar) -> Bool {
+        searchBar.enablesReturnKeyAutomatically = false
+        return true
     }
 }
 
@@ -115,5 +134,11 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
         controller.checkFilmEmptyState()
             ? getActorCell(indexPath: indexPath)
             : getMovieSearchCell(indexPath: indexPath)
+    }
+
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        searchBar.selectedScopeButtonIndex == 0
+            ? self.proceedToMovie()
+            : performSegue(withIdentifier: "ActorsDetailViewController", sender: controller.getMovieArray)
     }
 }
