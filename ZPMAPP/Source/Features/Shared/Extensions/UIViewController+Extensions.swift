@@ -10,10 +10,16 @@ import UIKit
 extension UIViewController {
     
     func addLeftImageTo(textField: UITextField, andImage imagem: UIImage) {
-        let leftImageView = UIImageView(frame: CGRect(x: 0.0, y:0.0, width: imagem.size.width, height: imagem.size.height))
+        
+        let leftImageView = UIImageView(frame: CGRect(x: 5 , y:0, width: imagem.size.width, height: imagem.size.height))
         
         leftImageView.image = imagem
-        textField.leftView = leftImageView
+        
+        //created a view to add my leftImageView
+        let view = UIView(frame: CGRect(x: 0, y: 0, width: 25, height: 20))
+        view.addSubview(leftImageView)
+        textField.leftView = view
+        
         textField.leftViewMode = .always
     }
     
