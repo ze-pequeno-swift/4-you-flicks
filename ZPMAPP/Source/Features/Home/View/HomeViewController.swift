@@ -49,6 +49,7 @@ class HomeViewController: UIViewController {
         tableView.dataSource = self
         
         MoviesTheatersCell.registerOn(tableView)
+        TopCustomCell.registerOn(tableView)
     }
     
     private func getMoviesTheatersCellCell() -> UITableViewCell {
@@ -56,6 +57,17 @@ class HomeViewController: UIViewController {
         
         guard let cell = tableView.dequeueReusableCell(withIdentifier: identifier)
                 as? MoviesTheatersCell else { return UITableViewCell() }
+        
+        cell.delegate = self
+        
+        return cell
+    }
+    
+    private func getTopCustomCell() -> UITableViewCell {
+        let identifier = TopCustomCell.identifier
+        
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: identifier)
+                as? TopCustomCell else { return UITableViewCell() }
         
         cell.delegate = self
         
@@ -87,6 +99,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     
     enum HomeSection: Int, CaseIterable {
         case movieTheater
+        case popularMovies
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -99,6 +112,8 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         switch section {
         case .movieTheater:
             return 1
+        case .popularMovies:
+            return 1
         }
     }
     
@@ -108,6 +123,8 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         switch section {
         case .movieTheater:
             return getMoviesTheatersCellCell()
+        case .popularMovies:
+            return getTopCustomCell()
         }
     }
 }
