@@ -1,5 +1,5 @@
 //
-//  CustomCollectionCell.swift
+//  CardCustomDailyTrendingsCell.swift
 //  ZPMAPP
 //
 //  Created by Hellen on 23/08/21.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class CustomCollectionCell: UICollectionViewCell {
+class CardCustomDailyTrendingsCell: UICollectionViewCell {
     
     // MARK: - IBOutlets
     
@@ -16,7 +16,7 @@ class CustomCollectionCell: UICollectionViewCell {
     // MARK: - Public Properties
     
     static var identifier: String {
-        String(describing: CustomCollectionCell.self)
+        String(describing: CardCustomDailyTrendingsCell.self)
     }
     
     // MARK: - View Lifecycle
@@ -28,20 +28,12 @@ class CustomCollectionCell: UICollectionViewCell {
     
     // MARK: - Public Functions
     
-    func setupMovieCell() {
-        movieImage.image = UIImage(named: "ruamedo")
-    }
-    
-    func setupSerieCell() {
-        movieImage.image = UIImage(named: "luca")
-    }
-    
-    func setupRecommendedCell() {
-        movieImage.image = UIImage(named: "backwidow")
+    func setupMovieTheatersCell() {
+        movieImage.image = UIImage(named: "posterviuva")
     }
     
     // MARK: - Private Functions
-
+    
     private func setupUI() {
         movieImage.layer.cornerRadius = 10
     }

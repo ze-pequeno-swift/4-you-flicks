@@ -48,15 +48,15 @@ class HomeViewController: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
         
-        MoviesTheatersCell.registerOn(tableView)
+        DailyTrendingsCell.registerOn(tableView)
         TopCustomCell.registerOn(tableView)
     }
     
     private func getMoviesTheatersCellCell() -> UITableViewCell {
-        let identifier = MoviesTheatersCell.identifier
+        let identifier = DailyTrendingsCell.identifier
         
         guard let cell = tableView.dequeueReusableCell(withIdentifier: identifier)
-                as? MoviesTheatersCell else { return UITableViewCell() }
+                as? DailyTrendingsCell else { return UITableViewCell() }
         
         cell.delegate = self
         

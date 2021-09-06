@@ -1,16 +1,16 @@
 //
-//  TopCustomCell.swift
+//  DailyTrendingsCell.swift
 //  ZPMAPP
 //
-//  Created by Alan Silva on 06/09/21.
+//  Created by Hellen on 23/08/21.
 //
 
 import UIKit
 
-class TopCustomCell: UITableViewCell {
-    
-    // MARK: - IBOutlets
+class DailyTrendingsCell: UITableViewCell {
 
+    // MARK: - IBOutlets
+    
     @IBOutlet weak var collectionView: UICollectionView!
     
     // MARK: - Public Properties
@@ -18,7 +18,7 @@ class TopCustomCell: UITableViewCell {
     weak var delegate: HomeViewControllerDelegate?
     
     static var identifier: String {
-        String(describing: TopCustomCell.self)
+        String(describing: DailyTrendingsCell.self)
     }
     
     // MARK: - View Lifecycle
@@ -29,35 +29,34 @@ class TopCustomCell: UITableViewCell {
     }
     
     // MARK: - Private Functions
-    
+
     private func setupUI() {
-        CustomCollectionCell.registerOn(collectionView)
-        collectionView.dataSource = self
+        CardCustomDailyTrendingsCell.registerOn(collectionView)
         collectionView.delegate = self
+        collectionView.dataSource = self
     }
 }
 
 // MARK: - UICollectionView Protocol Extensions
 
-extension TopCustomCell: UICollectionViewDelegate, UICollectionViewDataSource {
+extension DailyTrendingsCell: UICollectionViewDelegate, UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 5
+        return 10
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let identifier = CustomCollectionCell.identifier
+        let identifier = CardCustomDailyTrendingsCell.identifier
         
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: identifier, for: indexPath)
-                as? CustomCollectionCell else { return UICollectionViewCell() }
-        
-        cell.setupMovieCell()
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: identifier, for: indexPath) as? CardCustomDailyTrendingsCell else { return UICollectionViewCell() }
+   
+        cell.setupMovieTheatersCell()
         
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         delegate?.tappedCell()
-        print("DEBUG: Clicou em uma cell de filmes..")
+        print("DEBUG: Nos cinemas..")
     }
 }
