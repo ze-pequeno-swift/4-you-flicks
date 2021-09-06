@@ -8,8 +8,12 @@
 import UIKit
 
 class TopCustomCell: UITableViewCell {
+    
+    // MARK: - IBOutlets
 
     @IBOutlet weak var collectionView: UICollectionView!
+    
+    // MARK: - Public Properties
     
     weak var delegate: HomeViewControllerDelegate?
     
@@ -17,10 +21,14 @@ class TopCustomCell: UITableViewCell {
         String(describing: TopCustomCell.self)
     }
     
+    // MARK: - View Lifecycle
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         setupUI()
     }
+    
+    // MARK: - Private Functions
     
     private func setupUI() {
         CustomCollectionCell.registerOn(collectionView)
@@ -28,6 +36,8 @@ class TopCustomCell: UITableViewCell {
         collectionView.delegate = self
     }
 }
+
+// MARK: - UICollectionView Protocol Extensions
 
 extension TopCustomCell: UICollectionViewDelegate, UICollectionViewDataSource {
     
@@ -48,6 +58,6 @@ extension TopCustomCell: UICollectionViewDelegate, UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         delegate?.tappedCell()
-        print("DEBUG: Filmes populares..")
+        print("DEBUG: Clicou em uma cell de filmes..")
     }
 }
