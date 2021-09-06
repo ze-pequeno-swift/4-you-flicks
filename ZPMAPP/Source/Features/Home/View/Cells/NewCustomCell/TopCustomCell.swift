@@ -11,6 +11,8 @@ class TopCustomCell: UITableViewCell {
 
     @IBOutlet weak var collectionView: UICollectionView!
     
+    weak var delegate: HomeViewControllerDelegate?
+    
     static var identifier: String {
         String(describing: TopCustomCell.self)
     }
@@ -25,9 +27,10 @@ class TopCustomCell: UITableViewCell {
         collectionView.dataSource = self
         collectionView.delegate = self
     }
-
 }
+
 extension TopCustomCell: UICollectionViewDelegate, UICollectionViewDataSource {
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 5
     }
@@ -42,5 +45,9 @@ extension TopCustomCell: UICollectionViewDelegate, UICollectionViewDataSource {
         
         return cell
     }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        delegate?.tappedCell()
+        print("DEBUG: Filmes populares..")
+    }
 }
-
