@@ -42,7 +42,6 @@ class MovieDetailsViewController: UIViewController {
         WhereToWatchCell.registerOn(tableView)
         MoviesNearbyCell.registerOn(tableView)
         CustomCastCell.registerOn(tableView)
-        RecommendedCell.registerOn(tableView)
     }
     
     private func getDetailsCell() -> UITableViewCell {
@@ -98,17 +97,6 @@ class MovieDetailsViewController: UIViewController {
         
         return cell
     }
-    
-    private func getRecommendedCell() -> UITableViewCell {
-        let identifier = RecommendedCell.identifier
-        
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: identifier)
-                as? RecommendedCell else { return UITableViewCell() }
-        
-        cell.delegate = self
-        
-        return cell
-    }
 }
 
 // MARK: - UITableView Protocol Extensions
@@ -122,7 +110,6 @@ extension MovieDetailsViewController: UITableViewDelegate, UITableViewDataSource
         case whereToWatch
         case moviesNearby
         case customCast
-        case recommended
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -145,8 +132,6 @@ extension MovieDetailsViewController: UITableViewDelegate, UITableViewDataSource
             return 1
         case .customCast:
             return 1
-        case .recommended:
-            return 1
         }
     }
     
@@ -166,8 +151,6 @@ extension MovieDetailsViewController: UITableViewDelegate, UITableViewDataSource
             return getMoviesNearbyCell()
         case .customCast:
             return getCustomCastCell()
-        case .recommended:
-            return getRecommendedCell()
         }
     }
 }

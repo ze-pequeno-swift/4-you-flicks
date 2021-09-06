@@ -48,10 +48,8 @@ class HomeViewController: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
         
-        PopularMoviesCell.registerOn(tableView)
-        PopularSeriesCell.registerOn(tableView)
         MoviesTheatersCell.registerOn(tableView)
-        RecommendedCell.registerOn(tableView)
+        TopCustomCell.registerOn(tableView)
     }
     
     private func getMoviesTheatersCellCell() -> UITableViewCell {
@@ -65,33 +63,11 @@ class HomeViewController: UIViewController {
         return cell
     }
     
-    private func getPopularMoviesCell() -> UITableViewCell {
-        let identifier = PopularMoviesCell.identifier
+    private func getTopCustomCell() -> UITableViewCell {
+        let identifier = TopCustomCell.identifier
         
         guard let cell = tableView.dequeueReusableCell(withIdentifier: identifier)
-                as? PopularMoviesCell else { return UITableViewCell() }
-        
-        cell.delegate = self
-        
-        return cell
-    }
-    
-    private func getPopularSeriesCell() -> UITableViewCell {
-        let identifier = PopularSeriesCell.identifier
-        
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: identifier)
-                as? PopularSeriesCell else { return UITableViewCell() }
-        
-        cell.delegate = self
-        
-        return cell
-    }
-    
-    private func getRecommendedCell() -> UITableViewCell {
-        let identifier = RecommendedCell.identifier
-        
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: identifier)
-                as? RecommendedCell else { return UITableViewCell() }
+                as? TopCustomCell else { return UITableViewCell() }
         
         cell.delegate = self
         
@@ -124,8 +100,6 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     enum HomeSection: Int, CaseIterable {
         case movieTheater
         case popularMovies
-        case popularSeries
-        case recommended
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -140,10 +114,6 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
             return 1
         case .popularMovies:
             return 1
-        case .popularSeries:
-            return 1
-        case .recommended:
-            return 1
         }
     }
     
@@ -154,11 +124,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         case .movieTheater:
             return getMoviesTheatersCellCell()
         case .popularMovies:
-            return getPopularMoviesCell()
-        case .popularSeries:
-            return getPopularSeriesCell()
-        case .recommended:
-            return getRecommendedCell()
+            return getTopCustomCell()
         }
     }
 }

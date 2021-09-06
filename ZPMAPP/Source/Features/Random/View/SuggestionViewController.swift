@@ -42,8 +42,6 @@ class SuggestionViewController: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
         
-        RecommendedCell.registerOn(tableView)
-        
         principalImageView.layer.cornerRadius = 10
         rottenTomatoesImageView.roundCorners(cornerRadius: 8.0, typeCorners:[.bottomRight, .bottomLeft, .topRight, .topLeft])
         imdbImageView.roundCorners(cornerRadius: 8.0, typeCorners: [.bottomRight, .bottomLeft, .topRight, .topLeft])
@@ -51,17 +49,6 @@ class SuggestionViewController: UIViewController {
     
     @IBAction private func back(_ sender: UIButton) {
         self.dismiss(animated: true, completion: nil);
-    }
-    
-    private func getRecommendedCell() -> UITableViewCell {
-        let identifier = RecommendedCell.identifier
-        
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: identifier)
-                as? RecommendedCell else { return UITableViewCell() }
-        
-        //cell.delegate = self
-        
-        return cell
     }
 }
 
@@ -73,6 +60,6 @@ extension SuggestionViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return getRecommendedCell()
+        return UITableViewCell()
     }
 }
