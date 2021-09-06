@@ -53,15 +53,15 @@
 		74CB474526D741200091F683 /* CastCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 74CB474326D741200091F683 /* CastCell.xib */; };
 		74CB474E26D757BA0091F683 /* UINavigationBar+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74CB474D26D757BA0091F683 /* UINavigationBar+Extension.swift */; };
 		74CB475426D75CD40091F683 /* UINavigationItem+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74CB475326D75CD40091F683 /* UINavigationItem+Extensions.swift */; };
-		74CB475626D75D1D0091F683 /* UIViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74CB475526D75D1D0091F683 /* UIViewController+Extensions.swift */; };
 		74D1AE6C26D3615100AC56E5 /* Search.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 74D1AE6B26D3615100AC56E5 /* Search.storyboard */; };
 		74D1AE6E26D3615900AC56E5 /* Random.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 74D1AE6D26D3615900AC56E5 /* Random.storyboard */; };
 		74D1AE7026D3616500AC56E5 /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 74D1AE6F26D3616500AC56E5 /* Profile.storyboard */; };
-		74D1AE7226D3683400AC56E5 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 74D1AE7126D3683400AC56E5 /* Login.storyboard */; };
 		74D919C026D570BB00257317 /* MovieDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74D919BF26D570BB00257317 /* MovieDetailsViewController.swift */; };
 		AB21C97D26D725160031724B /* RandomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB21C97C26D725160031724B /* RandomViewController.swift */; };
 		AB21C97F26D7266E0031724B /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB21C97E26D7266E0031724B /* UIView+Extension.swift */; };
 		AB21C98126D734240031724B /* SuggestionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB21C98026D734240031724B /* SuggestionViewController.swift */; };
+		BC4C3B1C26E5B8C200662A23 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BC4C3B1B26E5B8C200662A23 /* Login.storyboard */; };
+		BC4C3B1E26E5B99300662A23 /* UIViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC4C3B1D26E5B99300662A23 /* UIViewController+Extensions.swift */; };
 		BCBD243526D48697008110FB /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCBD243426D48697008110FB /* LoginViewController.swift */; };
 		BCDC471426D7EEB500AD8A35 /* CreateAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCDC471326D7EEB500AD8A35 /* CreateAccountViewController.swift */; };
 		BCDC471626D7F0D400AD8A35 /* RecoverPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCDC471526D7F0D400AD8A35 /* RecoverPasswordViewController.swift */; };
@@ -129,15 +129,15 @@
 		74CB474326D741200091F683 /* CastCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CastCell.xib; sourceTree = "<group>"; };
 		74CB474D26D757BA0091F683 /* UINavigationBar+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationBar+Extension.swift"; sourceTree = "<group>"; };
 		74CB475326D75CD40091F683 /* UINavigationItem+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationItem+Extensions.swift"; sourceTree = "<group>"; };
-		74CB475526D75D1D0091F683 /* UIViewController+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extensions.swift"; sourceTree = "<group>"; };
 		74D1AE6B26D3615100AC56E5 /* Search.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Search.storyboard; sourceTree = "<group>"; };
 		74D1AE6D26D3615900AC56E5 /* Random.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Random.storyboard; sourceTree = "<group>"; };
 		74D1AE6F26D3616500AC56E5 /* Profile.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
-		74D1AE7126D3683400AC56E5 /* Login.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
 		74D919BF26D570BB00257317 /* MovieDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailsViewController.swift; sourceTree = "<group>"; };
 		AB21C97C26D725160031724B /* RandomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomViewController.swift; sourceTree = "<group>"; };
 		AB21C97E26D7266E0031724B /* UIView+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		AB21C98026D734240031724B /* SuggestionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuggestionViewController.swift; sourceTree = "<group>"; };
+		BC4C3B1B26E5B8C200662A23 /* Login.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
+		BC4C3B1D26E5B99300662A23 /* UIViewController+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extensions.swift"; sourceTree = "<group>"; };
 		BCBD243426D48697008110FB /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		BCDC471326D7EEB500AD8A35 /* CreateAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountViewController.swift; sourceTree = "<group>"; };
 		BCDC471526D7F0D400AD8A35 /* RecoverPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecoverPasswordViewController.swift; sourceTree = "<group>"; };
@@ -287,7 +287,7 @@
 				74CB475326D75CD40091F683 /* UINavigationItem+Extensions.swift */,
 				74818A6626D439540071AB5E /* UITableViewCell+Extension.swift */,
 				AB21C97E26D7266E0031724B /* UIView+Extension.swift */,
-				74CB475526D75D1D0091F683 /* UIViewController+Extensions.swift */,
+				BC4C3B1D26E5B99300662A23 /* UIViewController+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -391,7 +391,7 @@
 				74D1AE6B26D3615100AC56E5 /* Search.storyboard */,
 				74D1AE6D26D3615900AC56E5 /* Random.storyboard */,
 				74D1AE6F26D3616500AC56E5 /* Profile.storyboard */,
-				74D1AE7126D3683400AC56E5 /* Login.storyboard */,
+				BC4C3B1B26E5B8C200662A23 /* Login.storyboard */,
 			);
 			path = Storyboard;
 			sourceTree = "<group>";
@@ -807,8 +807,8 @@
 				74818A4A26D4180E0071AB5E /* CustomCollectionCell.xib in Resources */,
 				74818A5F26D41FF60071AB5E /* PopularMoviesCell.xib in Resources */,
 				74CB474526D741200091F683 /* CastCell.xib in Resources */,
-				74D1AE7226D3683400AC56E5 /* Login.storyboard in Resources */,
 				749FED3426D6DA7700B35C1A /* SaveWatchLaterCell.xib in Resources */,
+				BC4C3B1C26E5B8C200662A23 /* Login.storyboard in Resources */,
 				74A98FC026D2D4F000DD7889 /* LaunchScreen.storyboard in Resources */,
 				74D1AE6E26D3615900AC56E5 /* Random.storyboard in Resources */,
 				74A98FBD26D2D4F000DD7889 /* Assets.xcassets in Resources */,
@@ -847,10 +847,10 @@
 				DEDD241226D6C222000C62E6 /* SearchController.swift in Sources */,
 				DEDD240F26D6BA17000C62E6 /* UsersCell.swift in Sources */,
 				6B9F4D1D26DDFB96004BB120 /* EditProfileViewController.swift in Sources */,
+				BC4C3B1E26E5B99300662A23 /* UIViewController+Extensions.swift in Sources */,
 				DEDD23FD26D6A337000C62E6 /* Movie.swift in Sources */,
 				DEADB51026D48A1C00133508 /* UIColor+Extensions.swift in Sources */,
 				DEDD240626D6B2E8000C62E6 /* ActorsCell.swift in Sources */,
-				74CB475626D75D1D0091F683 /* UIViewController+Extensions.swift in Sources */,
 				6B9F4D2426DDFF76004BB120 /* MovieCollectionViewCell.swift in Sources */,
 				746ECAD026D6AE440047ACE7 /* DetailsCell.swift in Sources */,
 				6B9F4D1F26DDFBC0004BB120 /* ResetPasswordViewController.swift in Sources */,
