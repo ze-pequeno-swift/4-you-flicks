@@ -176,7 +176,7 @@ class HomeViewController: UIViewController {
                                             CGRect.init(x: 0, y: 0, width: tableView.frame.width, height: 50))
         
         let sectionText = UILabel()
-        sectionText.frame = CGRect.init(x: 16, y: 16, width: sectionHeader.frame.width-10,
+        sectionText.frame = CGRect.init(x: 16, y: 15, width: sectionHeader.frame.width-10,
                                         height: sectionHeader.frame.height-10)
         
         sectionText.text = titleSection[section]
