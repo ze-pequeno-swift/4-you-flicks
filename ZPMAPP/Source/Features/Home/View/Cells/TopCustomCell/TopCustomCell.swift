@@ -1,24 +1,24 @@
 //
-//  PopularSeriesCell.swift
+//  TopCustomCell.swift
 //  ZPMAPP
 //
-//  Created by Hellen on 23/08/21.
+//  Created by Alan Silva on 06/09/21.
 //
 
 import UIKit
 
-class PopularSeriesCell: UITableViewCell {
-
-    // MARK: - IBOutlets
+class TopCustomCell: UITableViewCell {
     
-    @IBOutlet private var collectionView: UICollectionView!
+    // MARK: - IBOutlets
+
+    @IBOutlet weak var collectionView: UICollectionView!
     
     // MARK: - Public Properties
     
     weak var delegate: HomeViewControllerDelegate?
     
     static var identifier: String {
-        String(describing: PopularSeriesCell.self)
+        String(describing: TopCustomCell.self)
     }
     
     // MARK: - View Lifecycle
@@ -29,34 +29,35 @@ class PopularSeriesCell: UITableViewCell {
     }
     
     // MARK: - Private Functions
-
+    
     private func setupUI() {
-        CustomCollectionCell.registerOn(collectionView)
-        collectionView.delegate = self
+        CardCustomCell.registerOn(collectionView)
         collectionView.dataSource = self
+        collectionView.delegate = self
     }
 }
 
 // MARK: - UICollectionView Protocol Extensions
 
-extension PopularSeriesCell: UICollectionViewDelegate, UICollectionViewDataSource {
+extension TopCustomCell: UICollectionViewDelegate, UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10
+        return 5
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let identifier = CustomCollectionCell.identifier
+        let identifier = CardCustomCell.identifier
         
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: identifier, for: indexPath) as? CustomCollectionCell else { return UICollectionViewCell() }
-   
-        cell.setupSerieCell()
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: identifier, for: indexPath)
+                as? CardCustomCell else { return UICollectionViewCell() }
+        
+        cell.setupMovieCell()
         
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         delegate?.tappedCell()
-        print("DEBUG: Series populares..")
+        print("DEBUG: Clicou em uma cell de filmes..")
     }
 }

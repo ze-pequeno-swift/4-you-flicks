@@ -1,5 +1,5 @@
 //
-//  MoviesTheatersCell.swift
+//  DailyTrendingsCell.swift
 //  ZPMAPP
 //
 //  Created by Hellen on 23/08/21.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class MoviesTheatersCell: UITableViewCell {
+class DailyTrendingsCell: UITableViewCell {
 
     // MARK: - IBOutlets
     
@@ -18,7 +18,7 @@ class MoviesTheatersCell: UITableViewCell {
     weak var delegate: HomeViewControllerDelegate?
     
     static var identifier: String {
-        String(describing: MoviesTheatersCell.self)
+        String(describing: DailyTrendingsCell.self)
     }
     
     // MARK: - View Lifecycle
@@ -31,7 +31,7 @@ class MoviesTheatersCell: UITableViewCell {
     // MARK: - Private Functions
 
     private func setupUI() {
-        CustomMoviesTheatersCell.registerOn(collectionView)
+        CardCustomDailyTrendingsCell.registerOn(collectionView)
         collectionView.delegate = self
         collectionView.dataSource = self
     }
@@ -39,16 +39,16 @@ class MoviesTheatersCell: UITableViewCell {
 
 // MARK: - UICollectionView Protocol Extensions
 
-extension MoviesTheatersCell: UICollectionViewDelegate, UICollectionViewDataSource {
+extension DailyTrendingsCell: UICollectionViewDelegate, UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 10
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let identifier = CustomMoviesTheatersCell.identifier
+        let identifier = CardCustomDailyTrendingsCell.identifier
         
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: identifier, for: indexPath) as? CustomMoviesTheatersCell else { return UICollectionViewCell() }
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: identifier, for: indexPath) as? CardCustomDailyTrendingsCell else { return UICollectionViewCell() }
    
         cell.setupMovieTheatersCell()
         
