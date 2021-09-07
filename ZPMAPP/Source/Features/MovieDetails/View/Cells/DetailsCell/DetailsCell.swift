@@ -19,7 +19,7 @@ class DetailsCell: UITableViewCell {
     @IBOutlet private var timeMovie: UILabel!
     @IBOutlet private var genreMovie: UILabel!
     @IBOutlet private var scoreRottenTomatoes: UILabel!
-    @IBOutlet private var ScoreImbd: UILabel!
+    @IBOutlet private var scoreImbd: UILabel!
     
     // MARK: - Public Properties
     

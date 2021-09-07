@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum selectedScopeBar: Int, CaseIterable {
+enum SelectedScopeBar: Int, CaseIterable {
     case title = 0
     case actors = 1
 }
@@ -55,12 +55,12 @@ class SearchController {
         }
 
             switch index {
-            case selectedScopeBar.title.rawValue:
+            case SelectedScopeBar.title.rawValue:
                 self.arrayFilmSearchResult = self.arrayMovie.filter { model -> Bool in
                     guard let movie = model.title?.uppercased() else { return false }
                     return movie.contains(searchText.uppercased())
                 }
-            case selectedScopeBar.actors.rawValue:
+            case SelectedScopeBar.actors.rawValue:
                 self.arrayActorsSearchResult = self.arrayMovie.filter { model -> Bool in
                     guard let movie = model.actors?.uppercased() else { return false }
                     return movie.contains(searchText.uppercased())

@@ -119,12 +119,12 @@ class EditProfileViewController: UIViewController {
 // MARK: - UIImagePickerControllerDelegate, UINavigationControllerDelegate
 extension EditProfileViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
         
         let image: UIImage? = info[UIImagePickerController.InfoKey.originalImage] as? UIImage
         
-        if let _image = image {
-            self.avatarImageView.image = _image
+        if let imageFile = image {
+            self.avatarImageView.image = imageFile
         }
         
         self.dismiss(animated: true, completion: nil)
