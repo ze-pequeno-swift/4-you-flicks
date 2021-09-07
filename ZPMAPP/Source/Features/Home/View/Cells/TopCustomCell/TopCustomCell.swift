@@ -8,8 +8,12 @@
 import UIKit
 
 class TopCustomCell: UITableViewCell {
+    
+    // MARK: - IBOutlets
 
     @IBOutlet weak var collectionView: UICollectionView!
+    
+    // MARK: - Public Properties
     
     weak var delegate: HomeViewControllerDelegate?
     
@@ -17,17 +21,23 @@ class TopCustomCell: UITableViewCell {
         String(describing: TopCustomCell.self)
     }
     
+    // MARK: - View Lifecycle
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         setupUI()
     }
     
+    // MARK: - Private Functions
+    
     private func setupUI() {
-        CustomCollectionCell.registerOn(collectionView)
+        CardCustomCell.registerOn(collectionView)
         collectionView.dataSource = self
         collectionView.delegate = self
     }
 }
+
+// MARK: - UICollectionView Protocol Extensions
 
 extension TopCustomCell: UICollectionViewDelegate, UICollectionViewDataSource {
     
@@ -36,10 +46,10 @@ extension TopCustomCell: UICollectionViewDelegate, UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let identifier = CustomCollectionCell.identifier
+        let identifier = CardCustomCell.identifier
         
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: identifier, for: indexPath)
-                as? CustomCollectionCell else { return UICollectionViewCell() }
+                as? CardCustomCell else { return UICollectionViewCell() }
         
         cell.setupMovieCell()
         
@@ -48,6 +58,6 @@ extension TopCustomCell: UICollectionViewDelegate, UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         delegate?.tappedCell()
-        print("DEBUG: Filmes populares..")
+        print("DEBUG: Clicou em uma cell de filmes..")
     }
 }

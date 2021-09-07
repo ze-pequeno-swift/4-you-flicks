@@ -48,22 +48,99 @@ class HomeViewController: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
         
-        MoviesTheatersCell.registerOn(tableView)
+        DailyTrendingsCell.registerOn(tableView)
         TopCustomCell.registerOn(tableView)
     }
     
     private func getMoviesTheatersCellCell() -> UITableViewCell {
-        let identifier = MoviesTheatersCell.identifier
+        let identifier = DailyTrendingsCell.identifier
         
         guard let cell = tableView.dequeueReusableCell(withIdentifier: identifier)
-                as? MoviesTheatersCell else { return UITableViewCell() }
+                as? DailyTrendingsCell else { return UITableViewCell() }
         
         cell.delegate = self
         
         return cell
     }
     
-    private func getTopCustomCell() -> UITableViewCell {
+    private func getTopPopularMoviesCustomCell() -> UITableViewCell {
+        let identifier = TopCustomCell.identifier
+        
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: identifier)
+                as? TopCustomCell else { return UITableViewCell() }
+        
+        cell.delegate = self
+        
+        return cell
+    }
+    
+    private func getTopPopularSeriesCustomCell() -> UITableViewCell {
+        let identifier = TopCustomCell.identifier
+        
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: identifier)
+                as? TopCustomCell else { return UITableViewCell() }
+        
+        cell.delegate = self
+        
+        return cell
+    }
+    
+    private func getTopDramaCustomCell() -> UITableViewCell {
+        let identifier = TopCustomCell.identifier
+        
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: identifier)
+                as? TopCustomCell else { return UITableViewCell() }
+        
+        cell.delegate = self
+        
+        return cell
+    }
+    
+    private func getTopComedyCustomCell() -> UITableViewCell {
+        let identifier = TopCustomCell.identifier
+        
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: identifier)
+                as? TopCustomCell else { return UITableViewCell() }
+        
+        cell.delegate = self
+        
+        return cell
+    }
+    
+    private func getTopTerrorCustomCell() -> UITableViewCell {
+        let identifier = TopCustomCell.identifier
+        
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: identifier)
+                as? TopCustomCell else { return UITableViewCell() }
+        
+        cell.delegate = self
+        
+        return cell
+    }
+    
+    private func getTopDocumentariesCustomCell() -> UITableViewCell {
+        let identifier = TopCustomCell.identifier
+        
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: identifier)
+                as? TopCustomCell else { return UITableViewCell() }
+        
+        cell.delegate = self
+        
+        return cell
+    }
+    
+    private func getTopAdventureCustomCell() -> UITableViewCell {
+        let identifier = TopCustomCell.identifier
+        
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: identifier)
+                as? TopCustomCell else { return UITableViewCell() }
+        
+        cell.delegate = self
+        
+        return cell
+    }
+    
+    private func getTopRomanceCustomCell() -> UITableViewCell {
         let identifier = TopCustomCell.identifier
         
         guard let cell = tableView.dequeueReusableCell(withIdentifier: identifier)
@@ -91,6 +168,25 @@ class HomeViewController: UIViewController {
         
         present(navigationController, animated: true)
     }
+    
+    private func setupSectionHeader(section: Int) -> UIView {
+        let titleSection = ["Destaques diários", "Top 20 filmes populares", "Top 20 séries populares", "Dramático", "Rir é o melhor remédio", "Não apague as luzes", "Documentários surpreendentes", "Para se aventurar", "Hora do romance"]
+        
+        let sectionHeader = UIView.init(frame:
+                                            CGRect.init(x: 0, y: 0, width: tableView.frame.width, height: 50))
+        
+        let sectionText = UILabel()
+        sectionText.frame = CGRect.init(x: 16, y: 15, width: sectionHeader.frame.width-10,
+                                        height: sectionHeader.frame.height-10)
+        
+        sectionText.text = titleSection[section]
+        sectionText.font = .systemFont(ofSize: 18, weight: .bold)
+        sectionText.textColor = .white
+        
+        sectionHeader.addSubview(sectionText)
+        
+        return sectionHeader
+    }
 }
 
 // MARK: - UITableView Protocol Extensions
@@ -98,8 +194,15 @@ class HomeViewController: UIViewController {
 extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     
     enum HomeSection: Int, CaseIterable {
-        case movieTheater
+        case dailyTrendings
         case popularMovies
+        case popularSeries
+        case drama
+        case comedy
+        case terror
+        case documentaries
+        case adventure
+        case romance
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -110,9 +213,23 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         guard let section = HomeSection(rawValue: section) else { return 0 }
         
         switch section {
-        case .movieTheater:
+        case .dailyTrendings:
             return 1
         case .popularMovies:
+            return 1
+        case .popularSeries:
+            return 1
+        case .drama:
+            return 1
+        case .comedy:
+            return 1
+        case .terror:
+            return 1
+        case .documentaries:
+            return 1
+        case .adventure:
+            return 1
+        case .romance:
             return 1
         }
     }
@@ -121,11 +238,33 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         guard let section = HomeSection(rawValue: indexPath.section) else { return UITableViewCell() }
         
         switch section {
-        case .movieTheater:
+        case .dailyTrendings:
             return getMoviesTheatersCellCell()
         case .popularMovies:
-            return getTopCustomCell()
+            return getTopPopularMoviesCustomCell()
+        case .popularSeries:
+            return getTopPopularSeriesCustomCell()
+        case .drama:
+            return getTopDramaCustomCell()
+        case .comedy:
+            return getTopComedyCustomCell()
+        case .terror:
+            return getTopTerrorCustomCell()
+        case .documentaries:
+            return getTopDocumentariesCustomCell()
+        case .adventure:
+            return getTopAdventureCustomCell()
+        case .romance:
+            return getTopRomanceCustomCell()
         }
+    }
+
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        setupSectionHeader(section: section)
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 50
     }
 }
 

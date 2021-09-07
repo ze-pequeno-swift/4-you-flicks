@@ -19,12 +19,12 @@
 		745B9A5226D583B40024977F /* HomeViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 745B9A5126D583B40024977F /* HomeViewControllerDelegate.swift */; };
 		746ECAD026D6AE440047ACE7 /* DetailsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 746ECACE26D6AE440047ACE7 /* DetailsCell.swift */; };
 		746ECAD126D6AE440047ACE7 /* DetailsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 746ECACF26D6AE440047ACE7 /* DetailsCell.xib */; };
-		74818A4926D4180E0071AB5E /* CustomCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74818A4726D4180E0071AB5E /* CustomCollectionCell.swift */; };
-		74818A4A26D4180E0071AB5E /* CustomCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 74818A4826D4180E0071AB5E /* CustomCollectionCell.xib */; };
-		74818A4E26D419C60071AB5E /* CustomMoviesTheatersCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74818A4C26D419C60071AB5E /* CustomMoviesTheatersCell.swift */; };
-		74818A4F26D419C60071AB5E /* CustomMoviesTheatersCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 74818A4D26D419C60071AB5E /* CustomMoviesTheatersCell.xib */; };
-		74818A5326D41AAF0071AB5E /* MoviesTheatersCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74818A5126D41AAE0071AB5E /* MoviesTheatersCell.swift */; };
-		74818A5426D41AAF0071AB5E /* MoviesTheatersCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 74818A5226D41AAE0071AB5E /* MoviesTheatersCell.xib */; };
+		74818A4926D4180E0071AB5E /* CardCustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74818A4726D4180E0071AB5E /* CardCustomCell.swift */; };
+		74818A4A26D4180E0071AB5E /* CardCustomCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 74818A4826D4180E0071AB5E /* CardCustomCell.xib */; };
+		74818A4E26D419C60071AB5E /* CardCustomDailyTrendingsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74818A4C26D419C60071AB5E /* CardCustomDailyTrendingsCell.swift */; };
+		74818A4F26D419C60071AB5E /* CardCustomDailyTrendingsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 74818A4D26D419C60071AB5E /* CardCustomDailyTrendingsCell.xib */; };
+		74818A5326D41AAF0071AB5E /* DailyTrendingsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74818A5126D41AAE0071AB5E /* DailyTrendingsCell.swift */; };
+		74818A5426D41AAF0071AB5E /* DailyTrendingsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 74818A5226D41AAE0071AB5E /* DailyTrendingsCell.xib */; };
 		74818A6726D439540071AB5E /* UITableViewCell+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74818A6626D439540071AB5E /* UITableViewCell+Extension.swift */; };
 		74818A6926D43B320071AB5E /* UICollectionViewCell+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74818A6826D43B320071AB5E /* UICollectionViewCell+Extension.swift */; };
 		749FED3326D6DA7700B35C1A /* SaveWatchLaterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 749FED3126D6DA7700B35C1A /* SaveWatchLaterCell.swift */; };
@@ -89,12 +89,12 @@
 		745B9A5126D583B40024977F /* HomeViewControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewControllerDelegate.swift; sourceTree = "<group>"; };
 		746ECACE26D6AE440047ACE7 /* DetailsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsCell.swift; sourceTree = "<group>"; };
 		746ECACF26D6AE440047ACE7 /* DetailsCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailsCell.xib; sourceTree = "<group>"; };
-		74818A4726D4180E0071AB5E /* CustomCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCollectionCell.swift; sourceTree = "<group>"; };
-		74818A4826D4180E0071AB5E /* CustomCollectionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomCollectionCell.xib; sourceTree = "<group>"; };
-		74818A4C26D419C60071AB5E /* CustomMoviesTheatersCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomMoviesTheatersCell.swift; sourceTree = "<group>"; };
-		74818A4D26D419C60071AB5E /* CustomMoviesTheatersCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomMoviesTheatersCell.xib; sourceTree = "<group>"; };
-		74818A5126D41AAE0071AB5E /* MoviesTheatersCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesTheatersCell.swift; sourceTree = "<group>"; };
-		74818A5226D41AAE0071AB5E /* MoviesTheatersCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MoviesTheatersCell.xib; sourceTree = "<group>"; };
+		74818A4726D4180E0071AB5E /* CardCustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardCustomCell.swift; sourceTree = "<group>"; };
+		74818A4826D4180E0071AB5E /* CardCustomCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CardCustomCell.xib; sourceTree = "<group>"; };
+		74818A4C26D419C60071AB5E /* CardCustomDailyTrendingsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardCustomDailyTrendingsCell.swift; sourceTree = "<group>"; };
+		74818A4D26D419C60071AB5E /* CardCustomDailyTrendingsCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CardCustomDailyTrendingsCell.xib; sourceTree = "<group>"; };
+		74818A5126D41AAE0071AB5E /* DailyTrendingsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyTrendingsCell.swift; sourceTree = "<group>"; };
+		74818A5226D41AAE0071AB5E /* DailyTrendingsCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DailyTrendingsCell.xib; sourceTree = "<group>"; };
 		74818A6626D439540071AB5E /* UITableViewCell+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableViewCell+Extension.swift"; sourceTree = "<group>"; };
 		74818A6826D43B320071AB5E /* UICollectionViewCell+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionViewCell+Extension.swift"; sourceTree = "<group>"; };
 		749FED3126D6DA7700B35C1A /* SaveWatchLaterCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveWatchLaterCell.swift; sourceTree = "<group>"; };
@@ -195,39 +195,39 @@
 		74818A4526D417AD0071AB5E /* Cells */ = {
 			isa = PBXGroup;
 			children = (
-				BC4C3B1F26E5C04000662A23 /* NewCustomCell */,
-				74818A4626D417D80071AB5E /* CustomCell */,
+				74818A4626D417D80071AB5E /* CardCustomCell */,
+				BC4C3B1F26E5C04000662A23 /* TopCustomCell */,
 				74818A4B26D419A40071AB5E /* CustomMoviesTheatersCell */,
-				74818A5026D41A8E0071AB5E /* MoviesTheatersCell */,
+				74818A5026D41A8E0071AB5E /* DailyTrendingsCell */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
 		};
-		74818A4626D417D80071AB5E /* CustomCell */ = {
+		74818A4626D417D80071AB5E /* CardCustomCell */ = {
 			isa = PBXGroup;
 			children = (
-				74818A4726D4180E0071AB5E /* CustomCollectionCell.swift */,
-				74818A4826D4180E0071AB5E /* CustomCollectionCell.xib */,
+				74818A4726D4180E0071AB5E /* CardCustomCell.swift */,
+				74818A4826D4180E0071AB5E /* CardCustomCell.xib */,
 			);
-			path = CustomCell;
+			path = CardCustomCell;
 			sourceTree = "<group>";
 		};
 		74818A4B26D419A40071AB5E /* CustomMoviesTheatersCell */ = {
 			isa = PBXGroup;
 			children = (
-				74818A4C26D419C60071AB5E /* CustomMoviesTheatersCell.swift */,
-				74818A4D26D419C60071AB5E /* CustomMoviesTheatersCell.xib */,
+				74818A4C26D419C60071AB5E /* CardCustomDailyTrendingsCell.swift */,
+				74818A4D26D419C60071AB5E /* CardCustomDailyTrendingsCell.xib */,
 			);
 			path = CustomMoviesTheatersCell;
 			sourceTree = "<group>";
 		};
-		74818A5026D41A8E0071AB5E /* MoviesTheatersCell */ = {
+		74818A5026D41A8E0071AB5E /* DailyTrendingsCell */ = {
 			isa = PBXGroup;
 			children = (
-				74818A5126D41AAE0071AB5E /* MoviesTheatersCell.swift */,
-				74818A5226D41AAE0071AB5E /* MoviesTheatersCell.xib */,
+				74818A5126D41AAE0071AB5E /* DailyTrendingsCell.swift */,
+				74818A5226D41AAE0071AB5E /* DailyTrendingsCell.xib */,
 			);
-			path = MoviesTheatersCell;
+			path = DailyTrendingsCell;
 			sourceTree = "<group>";
 		};
 		74818A6526D439250071AB5E /* Shared */ = {
@@ -622,13 +622,13 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
-		BC4C3B1F26E5C04000662A23 /* NewCustomCell */ = {
+		BC4C3B1F26E5C04000662A23 /* TopCustomCell */ = {
 			isa = PBXGroup;
 			children = (
 				BC4C3B2026E5C0F100662A23 /* TopCustomCell.swift */,
 				BC4C3B2126E5C0F100662A23 /* TopCustomCell.xib */,
 			);
-			path = NewCustomCell;
+			path = TopCustomCell;
 			sourceTree = "<group>";
 		};
 		BCBD243326D48677008110FB /* Login */ = {
@@ -774,7 +774,7 @@
 			files = (
 				DEDD241026D6BA17000C62E6 /* UsersCell.xib in Resources */,
 				DEDD240726D6B2E8000C62E6 /* ActorsCell.xib in Resources */,
-				74818A4A26D4180E0071AB5E /* CustomCollectionCell.xib in Resources */,
+				74818A4A26D4180E0071AB5E /* CardCustomCell.xib in Resources */,
 				BC4C3B2326E5C0F100662A23 /* TopCustomCell.xib in Resources */,
 				74CB474526D741200091F683 /* CastCell.xib in Resources */,
 				74D1AE7226D3683400AC56E5 /* Login.storyboard in Resources */,
@@ -782,8 +782,8 @@
 				74A98FC026D2D4F000DD7889 /* LaunchScreen.storyboard in Resources */,
 				74D1AE6E26D3615900AC56E5 /* Random.storyboard in Resources */,
 				74A98FBD26D2D4F000DD7889 /* Assets.xcassets in Resources */,
-				74818A4F26D419C60071AB5E /* CustomMoviesTheatersCell.xib in Resources */,
-				74818A5426D41AAF0071AB5E /* MoviesTheatersCell.xib in Resources */,
+				74818A4F26D419C60071AB5E /* CardCustomDailyTrendingsCell.xib in Resources */,
+				74818A5426D41AAF0071AB5E /* DailyTrendingsCell.xib in Resources */,
 				74CB473D26D72CF40091F683 /* MoviesNearbyCell.xib in Resources */,
 				6B9F4D2526DDFF76004BB120 /* MovieCollectionViewCell.xib in Resources */,
 				749FED3826D6E0CA00B35C1A /* DescriptionCell.xib in Resources */,
@@ -832,7 +832,7 @@
 				745B9A5226D583B40024977F /* HomeViewControllerDelegate.swift in Sources */,
 				749FED3726D6E0CA00B35C1A /* DescriptionCell.swift in Sources */,
 				74818A6926D43B320071AB5E /* UICollectionViewCell+Extension.swift in Sources */,
-				74818A4926D4180E0071AB5E /* CustomCollectionCell.swift in Sources */,
+				74818A4926D4180E0071AB5E /* CardCustomCell.swift in Sources */,
 				74A98FB826D2D4EF00DD7889 /* HomeViewController.swift in Sources */,
 				AB21C97D26D725160031724B /* RandomViewController.swift in Sources */,
 				AB21C98126D734240031724B /* SuggestionViewController.swift in Sources */,
@@ -844,7 +844,7 @@
 				BCDC471626D7F0D400AD8A35 /* RecoverPasswordViewController.swift in Sources */,
 				74A98FB626D2D4EF00DD7889 /* SceneDelegate.swift in Sources */,
 				AB21C97F26D7266E0031724B /* UIView+Extension.swift in Sources */,
-				74818A5326D41AAF0071AB5E /* MoviesTheatersCell.swift in Sources */,
+				74818A5326D41AAF0071AB5E /* DailyTrendingsCell.swift in Sources */,
 				749FED3B26D6E61600B35C1A /* WhereToWatchCell.swift in Sources */,
 				74CB474E26D757BA0091F683 /* UINavigationBar+Extension.swift in Sources */,
 				DEF3329C26E1701C007DD03A /* DetailSearchViewController.swift in Sources */,
@@ -852,7 +852,7 @@
 				74CB474026D739DE0091F683 /* CustomCastCell.swift in Sources */,
 				74D919C026D570BB00257317 /* MovieDetailsViewController.swift in Sources */,
 				74818A6726D439540071AB5E /* UITableViewCell+Extension.swift in Sources */,
-				74818A4E26D419C60071AB5E /* CustomMoviesTheatersCell.swift in Sources */,
+				74818A4E26D419C60071AB5E /* CardCustomDailyTrendingsCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
