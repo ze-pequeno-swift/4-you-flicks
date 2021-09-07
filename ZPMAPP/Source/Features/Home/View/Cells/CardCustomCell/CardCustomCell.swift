@@ -1,5 +1,5 @@
 //
-//  CustomMoviesTheatersCell.swift
+//  CardCustomCell.swift
 //  ZPMAPP
 //
 //  Created by Hellen on 23/08/21.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class CustomMoviesTheatersCell: UICollectionViewCell {
+class CardCustomCell: UICollectionViewCell {
     
     // MARK: - IBOutlets
     
@@ -16,7 +16,7 @@ class CustomMoviesTheatersCell: UICollectionViewCell {
     // MARK: - Public Properties
     
     static var identifier: String {
-        String(describing: CustomMoviesTheatersCell.self)
+        String(describing: CardCustomCell.self)
     }
     
     // MARK: - View Lifecycle
@@ -28,12 +28,20 @@ class CustomMoviesTheatersCell: UICollectionViewCell {
     
     // MARK: - Public Functions
     
-    func setupMovieTheatersCell() {
-        movieImage.image = UIImage(named: "posterviuva")
+    func setupMovieCell() {
+        movieImage.image = UIImage(named: "ruamedo")
+    }
+    
+    func setupSerieCell() {
+        movieImage.image = UIImage(named: "luca")
+    }
+    
+    func setupRecommendedCell() {
+        movieImage.image = UIImage(named: "backwidow")
     }
     
     // MARK: - Private Functions
-    
+
     private func setupUI() {
         movieImage.layer.cornerRadius = 10
     }
