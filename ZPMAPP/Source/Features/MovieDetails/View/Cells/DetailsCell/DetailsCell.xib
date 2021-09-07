@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
@@ -128,12 +127,12 @@
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <connections>
-                <outlet property="ScoreImbd" destination="btg-Th-r1i" id="aYV-sG-Z7F"/>
                 <outlet property="backdropImage" destination="GQ5-Tw-sJL" id="p5F-Ow-bla"/>
                 <outlet property="detailsView" destination="SrG-dj-aq2" id="Wp3-uM-lpa"/>
                 <outlet property="genreMovie" destination="LEB-yJ-vKy" id="Eea-4X-3H4"/>
                 <outlet property="posterImage" destination="hwv-sd-Ehf" id="BzE-Ls-fAg"/>
                 <outlet property="posterView" destination="kH0-Uc-NtK" id="CJc-BK-3Er"/>
+                <outlet property="scoreImbd" destination="btg-Th-r1i" id="aYV-sG-Z7F"/>
                 <outlet property="scoreRottenTomatoes" destination="kJB-Sm-uff" id="XZH-hB-U9y"/>
                 <outlet property="timeMovie" destination="KfR-Mu-ich" id="6gm-ze-ZOK"/>
                 <outlet property="titleMovie" destination="mbn-BD-ba6" id="gtv-8l-m88"/>
