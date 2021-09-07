@@ -129,7 +129,7 @@ class HomeViewController: UIViewController {
         return cell
     }
     
-    private func getTopadventureCustomCell() -> UITableViewCell {
+    private func getTopAdventureCustomCell() -> UITableViewCell {
         let identifier = TopCustomCell.identifier
         
         guard let cell = tableView.dequeueReusableCell(withIdentifier: identifier)
@@ -167,6 +167,25 @@ class HomeViewController: UIViewController {
         let navigationController = UINavigationController(rootViewController: viewController)
         
         present(navigationController, animated: true)
+    }
+    
+    private func setupSectionHeader(section: Int) -> UIView {
+        let titleSection = ["Destaques diários", "Top 20 filmes populares", "Top 20 séries populares", "Dramático", "Rir é o melhor remédio", "Não apague as luzes", "Documentários surpreendentes", "Para se aventurar", "Hora do romance"]
+        
+        let sectionHeader = UIView.init(frame:
+                                            CGRect.init(x: 0, y: 0, width: tableView.frame.width, height: 50))
+        
+        let sectionText = UILabel()
+        sectionText.frame = CGRect.init(x: 16, y: 16, width: sectionHeader.frame.width-10,
+                                        height: sectionHeader.frame.height-10)
+        
+        sectionText.text = titleSection[section]
+        sectionText.font = .systemFont(ofSize: 18, weight: .bold)
+        sectionText.textColor = .white
+        
+        sectionHeader.addSubview(sectionText)
+        
+        return sectionHeader
     }
 }
 
@@ -234,27 +253,18 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         case .documentaries:
             return getTopDocumentariesCustomCell()
         case .adventure:
-            return getTopadventureCustomCell()
+            return getTopAdventureCustomCell()
         case .romance:
             return getTopRomanceCustomCell()
         }
     }
-    
-    func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
-        let tableHeader = view as! UITableViewHeaderFooterView
-        tableHeader.tintColor = UIColor.clear
-        tableHeader.textLabel?.textColor = .white
-        tableHeader.textLabel?.font = UIFont.boldSystemFont(ofSize: 20)
+
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        setupSectionHeader(section: section)
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 40
-    }
-    
-    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        let titleSection = ["Destaques diários", "Top 20 filmes populares", "Top 20 séries populares", "Dramático", "Rir é o melhor remédio", "Não apague as luzes", "Documentários surpreendentes", "Para se aventurar", "Hora do romance"]
-        
-        return titleSection[section]
+        return 50
     }
 }
 
