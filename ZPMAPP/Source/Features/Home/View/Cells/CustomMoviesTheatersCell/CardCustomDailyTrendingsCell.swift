@@ -29,13 +29,10 @@ class CardCustomDailyTrendingsCell: UICollectionViewCell {
         super.awakeFromNib()
 
     }
-
     
     func setupUI(value: DataMovies) {
-        
-        let url = homeController.extracImage(data: value.backdrop_path ?? "")
+        let url = homeController.extracImage(data: value.poster_path ?? "")
         movieImage.sd_setImage(with: url)
-        movieImage.image = UIImage(named: "posterviuva")
         movieImage.layer.cornerRadius = 10
     }
 }

@@ -65,7 +65,6 @@ extension DailyTrendingsCell: UICollectionViewDelegate, UICollectionViewDataSour
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: identifier, for: indexPath) as? CardCustomDailyTrendingsCell else { return UICollectionViewCell() }
         
         cell.setupUI(value: homeController.getInfoData(indexPath: indexPath))
-        //cell.setupMovieTheatersCell()
         
         return cell
     }

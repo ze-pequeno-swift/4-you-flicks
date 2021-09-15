@@ -12,7 +12,7 @@ struct APIMovieData: Codable {
     let results: [DataMovies]
 }
 struct DataMovies: Codable {
-    let backdrop_path: String?
+    let poster_path: String?
     let name: String?
     let overview: String?
 }
