@@ -6,8 +6,12 @@
 //
 
 import UIKit
+import SDWebImage
 
 class CardCustomDailyTrendingsCell: UICollectionViewCell {
+    
+    let dailyTrendingsCell: DailyTrendingsCell = DailyTrendingsCell()
+    let homeController: HomeController = HomeController()
     
     // MARK: - IBOutlets
     
@@ -23,18 +27,15 @@ class CardCustomDailyTrendingsCell: UICollectionViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        setupUI()
+
     }
+
     
-    // MARK: - Public Functions
-    
-    func setupMovieTheatersCell() {
+    func setupUI(value: DataMovies) {
+        
+        let url = homeController.extracImage(data: value.backdrop_path ?? "")
+        movieImage.sd_setImage(with: url)
         movieImage.image = UIImage(named: "posterviuva")
-    }
-    
-    // MARK: - Private Functions
-    
-    private func setupUI() {
         movieImage.layer.cornerRadius = 10
     }
 }

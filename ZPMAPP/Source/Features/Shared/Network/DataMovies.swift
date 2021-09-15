@@ -7,9 +7,12 @@
 
 import Foundation
 
-struct AIPResult: Codable {
-    let results: [dataMovies]
+
+struct APIMovieData: Codable {
+    let results: [DataMovies]
 }
-struct dataMovies: Codable {
-    let id: Int
+struct DataMovies: Codable {
+    let backdrop_path: String?
+    let name: String?
+    let overview: String?
 }

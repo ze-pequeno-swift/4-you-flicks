@@ -7,7 +7,13 @@
 
 import UIKit
 
+
 class HomeViewController: UIViewController {
+    
+    let path: [LayoutSectionItemsTuple] = [
+        ("trending/all/week", .topTrending),
+        ("movie/top_rated",   .popularMovies)
+    ]
 
     // MARK: - IBOutlets
     
@@ -193,8 +199,10 @@ class HomeViewController: UIViewController {
 
 extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     
+    typealias LayoutSectionItemsTuple = (apiPah: String, layout: HomeSection)
+    
     enum HomeSection: Int, CaseIterable {
-        case dailyTrendings
+        case topTrending
         case popularMovies
         case popularSeries
         case drama
@@ -203,6 +211,10 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         case documentaries
         case adventure
         case romance
+        
+        func getSection() {
+            
+        }
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -210,53 +222,16 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        guard let section = HomeSection(rawValue: section) else { return 0 }
-        
-        switch section {
-        case .dailyTrendings:
-            return 1
-        case .popularMovies:
-            return 1
-        case .popularSeries:
-            return 1
-        case .drama:
-            return 1
-        case .comedy:
-            return 1
-        case .terror:
-            return 1
-        case .documentaries:
-            return 1
-        case .adventure:
-            return 1
-        case .romance:
-            return 1
-        }
+        return 1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let section = HomeSection(rawValue: indexPath.section) else { return UITableViewCell() }
         
-        switch section {
-        case .dailyTrendings:
-            return getMoviesTheatersCellCell()
-        case .popularMovies:
-            return getTopPopularMoviesCustomCell()
-        case .popularSeries:
-            return getTopPopularSeriesCustomCell()
-        case .drama:
-            return getTopDramaCustomCell()
-        case .comedy:
-            return getTopComedyCustomCell()
-        case .terror:
-            return getTopTerrorCustomCell()
-        case .documentaries:
-            return getTopDocumentariesCustomCell()
-        case .adventure:
-            return getTopAdventureCustomCell()
-        case .romance:
-            return getTopRomanceCustomCell()
-        }
+        //Implementar códgio para identificar a section e saber o identifier.
+        let cell: DailyTrendingsCell? = tableView.dequeueReusableCell(withIdentifier: "DailyTrendingsCell", for: indexPath) as? DailyTrendingsCell
+        
+        return cell ?? UITableViewCell()
+    
     }
 
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
@@ -266,6 +241,9 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 50
     }
+    
+    //Implementar código para inserir o header da table view.
+    
 }
 
 // MARK: - HomeViewControllerDelegate Extensions
