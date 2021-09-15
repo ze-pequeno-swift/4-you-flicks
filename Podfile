@@ -7,5 +7,7 @@ target 'ZPMAPP' do
 
   # Pods for ZPMAPP
 pod 'SwiftLint'
+pod 'Alamofire', '~> 5.4'
+
 
 end
