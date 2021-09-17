@@ -7,5 +7,7 @@ target 'ZPMAPP' do
 
   # Pods for ZPMAPP
 pod 'SwiftLint'
+pod 'Firebase/Analytics'
+pod 'Firebase/Crashlytics'
 
 end
