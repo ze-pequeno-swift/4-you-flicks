@@ -7,11 +7,6 @@
 
 import Foundation
 
-enum TypeOfSection: Int, CaseIterable {
-    case trendingTop
-    case popularMovies
-}
-
 enum HomeSection: Int, CaseIterable {
     case topTrending
     case popularAction

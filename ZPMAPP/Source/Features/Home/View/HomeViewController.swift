@@ -6,8 +6,6 @@
 //
 
 import UIKit
-
-
 class HomeViewController: UIViewController {
 
     // MARK: - IBOutlets
@@ -53,6 +51,7 @@ class HomeViewController: UIViewController {
         DailyTrendingsCell.registerOn(tableView)
         TopCustomCell.registerOn(tableView)
     }
+    
     private func getTopPopularMoviesCustomCell(value: HomeSection) -> UITableViewCell {
         let identifier = TopCustomCell.identifier
         
@@ -107,7 +106,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let section = HomeSection(rawValue: indexPath.section) else { return UITableViewCell () }
+        guard let section = HomeSection(rawValue: indexPath.section) else { return UITableViewCell() }
 
         switch section {
         case .topTrending:
@@ -124,7 +123,6 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
 
 // MARK: - HomeViewControllerDelegate Extensions
 extension HomeViewController: HomeViewControllerDelegate {
-    
     func tappedCell() {
         proceedToMoviesDetails()
     }

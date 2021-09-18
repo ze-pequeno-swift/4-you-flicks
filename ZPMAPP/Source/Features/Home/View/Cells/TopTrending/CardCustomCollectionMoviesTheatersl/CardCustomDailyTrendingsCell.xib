@@ -17,18 +17,16 @@
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="posterviuva" translatesAutoresizingMaskIntoConstraints="NO" id="EJM-wZ-lDu">
-                        <rect key="frame" x="10" y="10" width="304" height="220"/>
+                        <rect key="frame" x="0.0" y="0.0" width="324" height="240"/>
                     </imageView>
                 </subviews>
             </view>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <constraints>
-                <constraint firstItem="EJM-wZ-lDu" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="10" id="IQ8-IE-7Xv"/>
-                <constraint firstItem="EJM-wZ-lDu" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="centerY" id="TTD-Ot-PEj"/>
-                <constraint firstAttribute="bottom" secondItem="EJM-wZ-lDu" secondAttribute="bottom" constant="10" id="ask-oS-5Fn"/>
-                <constraint firstItem="EJM-wZ-lDu" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="bH6-6o-9kf"/>
-                <constraint firstAttribute="trailing" secondItem="EJM-wZ-lDu" secondAttribute="trailing" constant="10" id="c1i-sS-1s1"/>
-                <constraint firstItem="EJM-wZ-lDu" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="10" id="skq-Va-1c0"/>
+                <constraint firstItem="EJM-wZ-lDu" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="3g4-cC-Gyd"/>
+                <constraint firstItem="EJM-wZ-lDu" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="BFA-Gt-7oJ"/>
+                <constraint firstAttribute="bottom" secondItem="EJM-wZ-lDu" secondAttribute="bottom" id="FIN-yP-GSB"/>
+                <constraint firstAttribute="trailing" secondItem="EJM-wZ-lDu" secondAttribute="trailing" id="pRy-Yz-zhL"/>
             </constraints>
             <size key="customSize" width="271" height="69"/>
             <connections>
