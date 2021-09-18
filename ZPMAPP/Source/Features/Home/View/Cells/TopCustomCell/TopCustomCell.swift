@@ -9,6 +9,8 @@ import UIKit
 
 class TopCustomCell: UITableViewCell {
     
+    let homeController: HomeController = HomeController()
+    
     // MARK: - IBOutlets
 
     @IBOutlet weak var collectionView: UICollectionView!
@@ -25,15 +27,22 @@ class TopCustomCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        setupUI()
     }
     
     // MARK: - Private Functions
-    
     private func setupUI() {
         CardCustomCell.registerOn(collectionView)
         collectionView.dataSource = self
         collectionView.delegate = self
+    }
+    func getData(apiPath: HomeSection) {
+        homeController.getData(filename: apiPath) { result, error in
+           if result {
+              self.setupUI()
+           }else {
+               print(error)
+           }
+       }
     }
 }
 
@@ -42,7 +51,8 @@ class TopCustomCell: UITableViewCell {
 extension TopCustomCell: UICollectionViewDelegate, UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 5
+        return homeController.getQtyData()
+        
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -50,9 +60,8 @@ extension TopCustomCell: UICollectionViewDelegate, UICollectionViewDataSource {
         
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: identifier, for: indexPath)
                 as? CardCustomCell else { return UICollectionViewCell() }
-        
-        cell.setupMovieCell()
-        
+    
+        cell.setupUI(value: homeController.getInfoData(indexPath: indexPath))
         return cell
     }
     

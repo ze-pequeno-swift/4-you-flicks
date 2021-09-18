@@ -6,8 +6,12 @@
 //
 
 import UIKit
+import SDWebImage
+
 
 class CardCustomCell: UICollectionViewCell {
+    
+    let homeController: HomeController = HomeController()
     
     // MARK: - IBOutlets
     
@@ -23,26 +27,13 @@ class CardCustomCell: UICollectionViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        setupUI()
-    }
-    
-    // MARK: - Public Functions
-    
-    func setupMovieCell() {
-        movieImage.image = UIImage(named: "ruamedo")
-    }
-    
-    func setupSerieCell() {
-        movieImage.image = UIImage(named: "luca")
-    }
-    
-    func setupRecommendedCell() {
-        movieImage.image = UIImage(named: "backwidow")
     }
     
     // MARK: - Private Functions
 
-    private func setupUI() {
+    func setupUI(value: DataMovies) {
+        let url = homeController.extracImage(data: value.poster_path ?? "")
+        movieImage.sd_setImage(with: url)
         movieImage.layer.cornerRadius = 10
     }
 }

@@ -7,7 +7,6 @@
 
 import UIKit
 
-
 class DailyTrendingsCell: UITableViewCell {
 
     // MARK: - IBOutlets
@@ -18,9 +17,7 @@ class DailyTrendingsCell: UITableViewCell {
     let homeController: HomeController = HomeController()
     
     // MARK: - Public Properties
-    
-    weak var delegate: HomeViewControllerDelegate?
-    
+
     static var identifier: String {
         String(describing: DailyTrendingsCell.self)
     }
@@ -30,17 +27,18 @@ class DailyTrendingsCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         
-         homeController.getData(filename: "trending/all/week") { result, error in
-            if result {
-               self.setupUI()
-            }else {
-                print(error)
-            }
-        }
-        
+    }
+    
+    func getData(apiPath: HomeSection) {
+        homeController.getData(filename: apiPath) { result, error in
+           if result {
+              self.setupUI()
+           }else {
+               print(error)
+           }
+       }
     }
 
-    
     // MARK: - Private Functions
 
     private func setupUI() {
@@ -56,6 +54,7 @@ class DailyTrendingsCell: UITableViewCell {
 extension DailyTrendingsCell: UICollectionViewDelegate, UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        print("####Linha\(homeController.getQtyData())")
         return homeController.getQtyData()
     }
     
@@ -65,12 +64,10 @@ extension DailyTrendingsCell: UICollectionViewDelegate, UICollectionViewDataSour
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: identifier, for: indexPath) as? CardCustomDailyTrendingsCell else { return UICollectionViewCell() }
         
         cell.setupUI(value: homeController.getInfoData(indexPath: indexPath))
-        
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        delegate?.tappedCell()
         print("DEBUG: Nos cinemas..")
     }
 }

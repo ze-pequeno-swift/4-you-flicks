@@ -10,7 +10,6 @@ import SDWebImage
 
 class CardCustomDailyTrendingsCell: UICollectionViewCell {
     
-    let dailyTrendingsCell: DailyTrendingsCell = DailyTrendingsCell()
     let homeController: HomeController = HomeController()
     
     // MARK: - IBOutlets
@@ -29,7 +28,6 @@ class CardCustomDailyTrendingsCell: UICollectionViewCell {
         super.awakeFromNib()
 
     }
-    
     func setupUI(value: DataMovies) {
         let url = homeController.extracImage(data: value.poster_path ?? "")
         movieImage.sd_setImage(with: url)

@@ -9,19 +9,12 @@ import UIKit
 
 
 class HomeViewController: UIViewController {
-    
-    let path: [LayoutSectionItemsTuple] = [
-        ("trending/all/week", "Os mais assistidos da semana", .topTrending),
-        ("movie/popular",     "Filmes Popular",              .popularMovies),
-        ("tv/popular",        "Series Popular",              .popularSeries)
-    ]
 
     // MARK: - IBOutlets
-    
     @IBOutlet private var tableView: UITableView!
+    let homeController: HomeController = HomeController()
     
     // MARK: - View Lifecycle
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
@@ -32,6 +25,7 @@ class HomeViewController: UIViewController {
         super.viewWillAppear(animated)
         setupNavigationBar()
     }
+    
     
     // MARK: - Private Functions
     
@@ -52,14 +46,36 @@ class HomeViewController: UIViewController {
     }
     
     private func setupUI() {
+        
         tableView.delegate = self
         tableView.dataSource = self
         
         DailyTrendingsCell.registerOn(tableView)
         TopCustomCell.registerOn(tableView)
     }
-    
-    
+    private func getTopPopularMoviesCustomCell(value: HomeSection) -> UITableViewCell {
+        let identifier = TopCustomCell.identifier
+        
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: identifier)
+                as? TopCustomCell else { return UITableViewCell() }
+        
+        cell.getData(apiPath: value)
+        cell.delegate = self
+        
+        return cell
+    }
+
+    private func getTopTrending(value: HomeSection) -> UITableViewCell {
+        let identifier = DailyTrendingsCell.identifier
+        
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: identifier)
+                as? DailyTrendingsCell else { return UITableViewCell() }
+        
+        cell.getData(apiPath: value)
+        
+        return cell
+    }
+
     private func proceedToMoviesDetails() {
         let homeController = UIStoryboard(name: "Home", bundle: nil)
         guard let viewController = homeController.instantiateViewController(identifier: "MovieDetailsViewController")
@@ -80,17 +96,7 @@ class HomeViewController: UIViewController {
 }
 
 // MARK: - UITableView Protocol Extensions
-
 extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
-    
-    typealias LayoutSectionItemsTuple = (apiPah: String, header: String, layout: HomeSection)
-    
-    enum HomeSection: Int, CaseIterable {
-        case topTrending
-        case popularMovies
-        case popularSeries
-    }
-    
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return HomeSection.allCases.count
@@ -101,28 +107,22 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-       // print(HomeSection[indexPath.section])
-        
-        
-        //print("######\(HomeSection.RawValue.(indexPath.section))")
-        
-        
-        
-        let cell: DailyTrendingsCell? = tableView.dequeueReusableCell(withIdentifier: "DailyTrendingsCell", for: indexPath) as? DailyTrendingsCell
-        
-        return cell ?? UITableViewCell()
-    
+        guard let section = HomeSection(rawValue: indexPath.section) else { return UITableViewCell () }
+
+        switch section {
+        case .topTrending:
+            return getTopTrending(value: section)
+        default:
+            return getTopPopularMoviesCustomCell(value: section)
+        }
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return "Teste"
+        return homeController.getTitleSection(section: section)
     }
-    
 }
 
 // MARK: - HomeViewControllerDelegate Extensions
-
 extension HomeViewController: HomeViewControllerDelegate {
     
     func tappedCell() {
