@@ -9,11 +9,11 @@ import UIKit
 
 class TopCustomCell: UITableViewCell {
     
-    let homeController: HomeController = HomeController()
     
     // MARK: - IBOutlets
 
     @IBOutlet weak var collectionView: UICollectionView!
+    let controllerHome: ControllerHome = ControllerHome()
     
     // MARK: - Public Properties
     
@@ -35,14 +35,14 @@ class TopCustomCell: UITableViewCell {
         collectionView.dataSource = self
         collectionView.delegate = self
     }
-    func getData(apiPath: HomeSection) {
-        homeController.getData(filename: apiPath) { result, error in
-           if result {
-              self.setupUI()
-           }else {
-               print(error)
-           }
-       }
+    
+    func getData(value: HomeSection) {
+        controllerHome.getData(value: value) { result, _ in
+            if result {
+                self.collectionView.reloadData()
+                self.setupUI()
+            } else { }
+        }
     }
 }
 
@@ -51,7 +51,7 @@ class TopCustomCell: UITableViewCell {
 extension TopCustomCell: UICollectionViewDelegate, UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return homeController.getQtyData()
+        return controllerHome.getQtd()
         
     }
     
@@ -61,7 +61,7 @@ extension TopCustomCell: UICollectionViewDelegate, UICollectionViewDataSource {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: identifier, for: indexPath)
                 as? CardCustomCell else { return UICollectionViewCell() }
     
-        cell.setupUI(value: homeController.getInfoData(indexPath: indexPath))
+        cell.setupUI(value: controllerHome.getInfoData(indexPath: indexPath))
         return cell
     }
     

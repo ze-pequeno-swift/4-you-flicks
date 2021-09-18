@@ -12,7 +12,8 @@ class HomeViewController: UIViewController {
 
     // MARK: - IBOutlets
     @IBOutlet private var tableView: UITableView!
-    let homeController: HomeController = HomeController()
+    let controllerHome: ControllerHome = ControllerHome()
+    
     
     // MARK: - View Lifecycle
     override func viewDidLoad() {
@@ -32,7 +33,6 @@ class HomeViewController: UIViewController {
     private func showLoginIfNeeded() {
         guard userIsLogged() else {
             return
-            
         }
         proceedToLogin()
     }
@@ -59,7 +59,7 @@ class HomeViewController: UIViewController {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: identifier)
                 as? TopCustomCell else { return UITableViewCell() }
         
-        cell.getData(apiPath: value)
+        cell.getData(value: value)
         cell.delegate = self
         
         return cell
@@ -71,8 +71,8 @@ class HomeViewController: UIViewController {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: identifier)
                 as? DailyTrendingsCell else { return UITableViewCell() }
         
-        cell.getData(apiPath: value)
-        
+        cell.getData()
+       
         return cell
     }
 
@@ -118,7 +118,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return homeController.getTitleSection(section: section)
+        return controllerHome.getTitleSection(section: section)
     }
 }
 

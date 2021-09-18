@@ -18,3 +18,4 @@ struct DataMovies: Codable {
     let genre_ids: [Int]
 }
 
+

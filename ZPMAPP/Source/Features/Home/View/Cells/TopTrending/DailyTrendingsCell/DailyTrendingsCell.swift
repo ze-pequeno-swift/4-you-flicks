@@ -10,11 +10,10 @@ import UIKit
 class DailyTrendingsCell: UITableViewCell {
 
     // MARK: - IBOutlets
-    var dataTopTrending: [DataMovies] = []
     
     @IBOutlet weak var collectionView: UICollectionView!
     
-    let homeController: HomeController = HomeController()
+    let controllerHome: ControllerHome = ControllerHome()
     
     // MARK: - Public Properties
 
@@ -29,19 +28,16 @@ class DailyTrendingsCell: UITableViewCell {
         
     }
     
-    func getData(apiPath: HomeSection) {
-        homeController.getData(filename: apiPath) { result, error in
-           if result {
-              self.setupUI()
-           }else {
-               print(error)
-           }
-       }
+    func getData() {
+        controllerHome.getData(value: .topTrending) { result, _ in
+            if result {
+                self.setupUI()
+            } else {  }
+        }
     }
 
     // MARK: - Private Functions
-
-    private func setupUI() {
+    func setupUI() {
         CardCustomDailyTrendingsCell.registerOn(collectionView)
         collectionView.delegate = self
         collectionView.dataSource = self
@@ -54,16 +50,16 @@ class DailyTrendingsCell: UITableViewCell {
 extension DailyTrendingsCell: UICollectionViewDelegate, UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        print("####Linha\(homeController.getQtyData())")
-        return homeController.getQtyData()
+        return controllerHome.getQtd()
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+
         let identifier = CardCustomDailyTrendingsCell.identifier
         
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: identifier, for: indexPath) as? CardCustomDailyTrendingsCell else { return UICollectionViewCell() }
         
-        cell.setupUI(value: homeController.getInfoData(indexPath: indexPath))
+        cell.setupUI(value: controllerHome.getInfoData(indexPath: indexPath))
         return cell
     }
     

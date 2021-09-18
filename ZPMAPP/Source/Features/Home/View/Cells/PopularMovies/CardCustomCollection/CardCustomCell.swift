@@ -11,7 +11,7 @@ import SDWebImage
 
 class CardCustomCell: UICollectionViewCell {
     
-    let homeController: HomeController = HomeController()
+    let controllerHome: ControllerHome = ControllerHome()
     
     // MARK: - IBOutlets
     
@@ -32,7 +32,7 @@ class CardCustomCell: UICollectionViewCell {
     // MARK: - Private Functions
 
     func setupUI(value: DataMovies) {
-        let url = homeController.extracImage(data: value.poster_path ?? "")
+        let url = controllerHome.extracImage(data: value.poster_path ?? "")
         movieImage.sd_setImage(with: url)
         movieImage.layer.cornerRadius = 10
     }
