@@ -10,29 +10,29 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="CardCustomDailyTrendingsCell" id="gTV-IL-0wX" customClass="CardCustomDailyTrendingsCell" customModule="ZPMAPP" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="324" height="240"/>
+            <rect key="frame" x="0.0" y="0.0" width="380" height="235"/>
             <autoresizingMask key="autoresizingMask"/>
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                <rect key="frame" x="0.0" y="0.0" width="324" height="240"/>
+                <rect key="frame" x="0.0" y="0.0" width="380" height="235"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="posterviuva" translatesAutoresizingMaskIntoConstraints="NO" id="EJM-wZ-lDu">
-                        <rect key="frame" x="0.0" y="0.0" width="324" height="240"/>
+                        <rect key="frame" x="0.0" y="0.0" width="380" height="235"/>
                     </imageView>
                 </subviews>
             </view>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <constraints>
-                <constraint firstItem="EJM-wZ-lDu" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="3g4-cC-Gyd"/>
-                <constraint firstItem="EJM-wZ-lDu" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="BFA-Gt-7oJ"/>
-                <constraint firstAttribute="bottom" secondItem="EJM-wZ-lDu" secondAttribute="bottom" id="FIN-yP-GSB"/>
-                <constraint firstAttribute="trailing" secondItem="EJM-wZ-lDu" secondAttribute="trailing" id="pRy-Yz-zhL"/>
+                <constraint firstAttribute="bottom" secondItem="EJM-wZ-lDu" secondAttribute="bottom" id="4ch-8E-SBL"/>
+                <constraint firstItem="EJM-wZ-lDu" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="Bgl-fG-tWg"/>
+                <constraint firstItem="EJM-wZ-lDu" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="T6q-94-FOZ"/>
+                <constraint firstAttribute="trailing" secondItem="EJM-wZ-lDu" secondAttribute="trailing" id="egw-cA-nWl"/>
             </constraints>
-            <size key="customSize" width="271" height="69"/>
+            <size key="customSize" width="371" height="290"/>
             <connections>
                 <outlet property="movieImage" destination="EJM-wZ-lDu" id="rNi-t1-7L3"/>
             </connections>
-            <point key="canvasLocation" x="144.92753623188406" y="127.23214285714285"/>
+            <point key="canvasLocation" x="136.23188405797103" y="169.75446428571428"/>
         </collectionViewCell>
     </objects>
     <resources>

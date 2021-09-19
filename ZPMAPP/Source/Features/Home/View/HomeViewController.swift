@@ -50,6 +50,8 @@ class HomeViewController: UIViewController {
         
         DailyTrendingsCell.registerOn(tableView)
         TopCustomCell.registerOn(tableView)
+        HeaderSection.registerOn(tableView)
+        
     }
     
     private func getTopPopularMoviesCustomCell(value: HomeSection) -> UITableViewCell {
@@ -71,7 +73,7 @@ class HomeViewController: UIViewController {
                 as? DailyTrendingsCell else { return UITableViewCell() }
         
         cell.getData()
-       
+        cell.delegate = self
         return cell
     }
 
@@ -116,8 +118,18 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         }
     }
     
-    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return controllerHome.getTitleSection(section: section)
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        
+        let identifier = HeaderSection.identifier
+        
+        guard let cell: HeaderSection = tableView.dequeueReusableCell(withIdentifier: identifier) as? HeaderSection else { return UITableViewCell() }
+        
+        cell.setup(value: controllerHome.getTitleSection(section: section))
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 44
     }
 }
 

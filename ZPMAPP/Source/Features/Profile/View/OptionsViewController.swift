@@ -36,7 +36,7 @@ class OptionsViewController: UIViewController {
     
     // MARK: - Private functions
     private func setupUI() {
-        //config ImageView
+        // config ImageView
         self.avatarImageView.circleCornerImage()
         self.configButtonCorner(editProfileButton)
         self.configButtonCorner(changePassword)

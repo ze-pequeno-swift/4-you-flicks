@@ -19,7 +19,7 @@ class ZPRedButton: UIButton {
         self.setupButton()
     }
     
-    private func setupButton(){
+    private func setupButton() {
         backgroundColor = UIColor.init(named: "Main Red")
         titleLabel?.font = UIFont(name: "System", size: 15)
         layer.cornerRadius = 10

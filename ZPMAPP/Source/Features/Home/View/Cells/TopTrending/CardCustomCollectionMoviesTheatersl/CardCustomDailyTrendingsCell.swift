@@ -29,7 +29,8 @@ class CardCustomDailyTrendingsCell: UICollectionViewCell {
 
     }
     func setupUI(value: DataMovies) {
-        let url = controllerHome.extracImage(data: value.poster_path ?? "")
+        let url = controllerHome.extracImage(data: value.backdrop_path ?? "")
+        print("URL_Image:\(url)")
         movieImage.sd_setImage(with: url)
         movieImage.layer.cornerRadius = 10
     }

@@ -15,8 +15,11 @@ class DailyTrendingsCell: UITableViewCell {
     
     let controllerHome: ControllerHome = ControllerHome()
     
+
     // MARK: - Public Properties
 
+    weak var delegate: HomeViewControllerDelegate?
+    
     static var identifier: String {
         String(describing: DailyTrendingsCell.self)
     }
@@ -64,6 +67,7 @@ extension DailyTrendingsCell: UICollectionViewDelegate, UICollectionViewDataSour
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        delegate?.tappedCell()
         print("DEBUG: Nos cinemas..")
     }
 }

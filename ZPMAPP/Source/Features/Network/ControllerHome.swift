@@ -55,7 +55,7 @@ class ControllerHome {
     }
     
     func extracImage(data: String) -> URL? {
-        let path = "https://image.tmdb.org/t/p/w500/"
+        let path = "https://image.tmdb.org/t/p/original/"
         return URL(string: "\(path)\(data)")
     }
     

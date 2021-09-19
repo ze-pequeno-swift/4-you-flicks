@@ -13,9 +13,8 @@ struct APIMovieData: Codable {
 }
 struct DataMovies: Codable {
     let poster_path: String?
+    let backdrop_path: String?
     let name: String?
     let overview: String?
     let genre_ids: [Int]
 }
-
-

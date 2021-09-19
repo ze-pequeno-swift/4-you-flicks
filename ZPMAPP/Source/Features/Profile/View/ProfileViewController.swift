@@ -80,10 +80,10 @@ class ProfileViewController: UIViewController {
     
     // MARK: - Private functions
     private func setupUI() {
-        //config ImageView
+        // config ImageView
         self.avatarProfileImageView.circleCornerImage()
 
-        //config background view
+        // config background view
         self.configViewCorner(followingFollowersView)
         self.configViewCorner(watchedView)
         self.configViewCorner(watchView)

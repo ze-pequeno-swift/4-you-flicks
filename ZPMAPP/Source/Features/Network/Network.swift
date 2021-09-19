@@ -17,6 +17,7 @@ class DataNetwork {
     func fetchData<T: Decodable>(urlString: String, genres: Int, completion: @escaping (T) -> Void) {
         if genres == 0 {
             url = ("\(link)\(urlString)\(priveteKey)")
+            print("MINHA_URL:\(url)")
         } else {
             url = ("\(link)\(urlString)\(priveteKey)\("&with_genres=")\(genres)")
         }

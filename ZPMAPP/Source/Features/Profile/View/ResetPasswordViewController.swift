@@ -8,7 +8,7 @@
 import UIKit
 
 class ResetPasswordViewController: UIViewController {
-    //MARK: - IBOutlet
+    // MARK: - IBOutlet
     @IBOutlet weak private var backButton: UIButton!
     @IBOutlet weak private var oldPasswordTextField: UITextField!
     @IBOutlet weak private var newPasswordTextField: UITextField!

@@ -40,4 +40,3 @@ class MovieSearchCell: UITableViewCell {
         self.movieGenreLabel.text = data.genre
     }
 }
-
