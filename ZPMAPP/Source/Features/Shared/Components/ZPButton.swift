@@ -19,7 +19,7 @@ class ZPButton: UIButton {
         self.setupButton()
     }
     
-    private func setupButton(){
+    private func setupButton() {
         backgroundColor = UIColor.init(named: "Main Onix")
         titleLabel?.font = UIFont(name: "Arial", size: 18)
         layer.cornerRadius = frame.size.height/2

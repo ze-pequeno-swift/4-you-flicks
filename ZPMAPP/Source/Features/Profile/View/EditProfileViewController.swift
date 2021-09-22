@@ -9,7 +9,7 @@ import UIKit
 import PhotosUI
 
 class EditProfileViewController: UIViewController {
-    //MARK: - IBOutlet
+    // MARK: - IBOutlet
     @IBOutlet weak private var backButton: UIButton!
     @IBOutlet weak private var avatarImageView: UIImageView!
     @IBOutlet weak private var editAvatarButton: UIButton!
@@ -39,7 +39,7 @@ class EditProfileViewController: UIViewController {
     }
 
     @IBAction private func tappedEditAvatarAction(_ sender: UIButton) {
-        //permissions in parts
+        // permissions in parts
         PHPhotoLibrary.requestAuthorization(for: .readWrite) { [unowned self] (status) in
             DispatchQueue.main.async { [unowned self] in
                 showUI(for: status)
@@ -67,7 +67,7 @@ class EditProfileViewController: UIViewController {
     
     // MARK: - Private functions
     private func setupUI() {
-        //config ImageView
+        // config ImageView
         self.avatarImageView.circleCornerImage()
     }
     

@@ -13,8 +13,11 @@ class DailyTrendingsCell: UITableViewCell {
     
     @IBOutlet weak var collectionView: UICollectionView!
     
-    // MARK: - Public Properties
+    let controllerHome: ControllerHome = ControllerHome()
     
+
+    // MARK: - Public Properties
+
     weak var delegate: HomeViewControllerDelegate?
     
     static var identifier: String {
@@ -25,16 +28,24 @@ class DailyTrendingsCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        setupUI()
+        
     }
     
-    // MARK: - Private Functions
+    func getData() {
+        controllerHome.getData(value: .topTrending) { result, _ in
+            if result {
+                self.setupUI()
+            } else {  }
+        }
+    }
 
-    private func setupUI() {
+    // MARK: - Private Functions
+    func setupUI() {
         CardCustomDailyTrendingsCell.registerOn(collectionView)
         collectionView.delegate = self
         collectionView.dataSource = self
     }
+    
 }
 
 // MARK: - UICollectionView Protocol Extensions
@@ -42,16 +53,16 @@ class DailyTrendingsCell: UITableViewCell {
 extension DailyTrendingsCell: UICollectionViewDelegate, UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10
+        return controllerHome.getQtd()
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+
         let identifier = CardCustomDailyTrendingsCell.identifier
         
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: identifier, for: indexPath) as? CardCustomDailyTrendingsCell else { return UICollectionViewCell() }
-   
-        cell.setupMovieTheatersCell()
         
+        cell.setupUI(value: controllerHome.getInfoData(indexPath: indexPath))
         return cell
     }
     
