@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 50;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -54,7 +54,6 @@
 		AB21C97D26D725160031724B /* RandomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB21C97C26D725160031724B /* RandomViewController.swift */; };
 		AB21C97F26D7266E0031724B /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB21C97E26D7266E0031724B /* UIView+Extension.swift */; };
 		AB21C98126D734240031724B /* SuggestionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB21C98026D734240031724B /* SuggestionViewController.swift */; };
-		AB5D799F26FA5FB300A14368 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = AB5D799E26FA5FB300A14368 /* GoogleService-Info.plist */; };
 		B205BC2E1EE73A4E3D1E90A6 /* Pods_ZPMAPP.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4DE58B26DB36CAEA02CA119E /* Pods_ZPMAPP.framework */; };
 		BC4C3B1C26E5B8C200662A23 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BC4C3B1B26E5B8C200662A23 /* Login.storyboard */; };
 		BC4C3B1E26E5B99300662A23 /* UIViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC4C3B1D26E5B99300662A23 /* UIViewController+Extensions.swift */; };
@@ -131,7 +130,6 @@
 		AB21C97C26D725160031724B /* RandomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomViewController.swift; sourceTree = "<group>"; };
 		AB21C97E26D7266E0031724B /* UIView+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		AB21C98026D734240031724B /* SuggestionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuggestionViewController.swift; sourceTree = "<group>"; };
-		AB5D799E26FA5FB300A14368 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		BC4C3B1B26E5B8C200662A23 /* Login.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
 		BC4C3B1D26E5B99300662A23 /* UIViewController+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extensions.swift"; sourceTree = "<group>"; };
 		BC4C3B2026E5C0F100662A23 /* TopCustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopCustomCell.swift; sourceTree = "<group>"; };
@@ -332,7 +330,6 @@
 			isa = PBXGroup;
 			children = (
 				74A98FC126D2D4F000DD7889 /* Info.plist */,
-				AB5D799E26FA5FB300A14368 /* GoogleService-Info.plist */,
 				74A98FB526D2D4EF00DD7889 /* SceneDelegate.swift */,
 				74A98FB326D2D4EF00DD7889 /* AppDelegate.swift */,
 				74A98FBE26D2D4F000DD7889 /* LaunchScreen.storyboard */,
@@ -754,8 +751,6 @@
 				74A98FAD26D2D4EF00DD7889 /* Frameworks */,
 				74A98FAE26D2D4EF00DD7889 /* Resources */,
 				DE2F04CC26E688C900015FBE /* ShellScript */,
-				523430169FCD06BE31E8EF0B /* [CP] Embed Pods Frameworks */,
-				AB39E00926F4178800A7333B /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -820,7 +815,6 @@
 				749FED3826D6E0CA00B35C1A /* DescriptionCell.xib in Resources */,
 				749FED3C26D6E61600B35C1A /* WhereToWatchCell.xib in Resources */,
 				74A98FBB26D2D4EF00DD7889 /* Main.storyboard in Resources */,
-				AB5D799F26FA5FB300A14368 /* GoogleService-Info.plist in Resources */,
 				7405C32B26D35FF2002B8B2B /* Home.storyboard in Resources */,
 				DEFED81826D6923600B2AEEA /* MovieSearchCell.xib in Resources */,
 				74CB474126D739DE0091F683 /* CustomCastCell.xib in Resources */,
@@ -855,42 +849,6 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		523430169FCD06BE31E8EF0B /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-ZPMAPP/Pods-ZPMAPP-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-ZPMAPP/Pods-ZPMAPP-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ZPMAPP/Pods-ZPMAPP-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		AB39E00926F4178800A7333B /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${DWARF_DSYM_FOLDER_PATH}/${DWARF_DSYM_FILE_NAME}/Contents/Resources/DWARF/${TARGET_NAME}",
-				"$(SRCROOT)/$(BUILT_PRODUCTS_DIR)/$(INFOPLIST_PATH)",
-			);
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/FirebaseCrashlytics/run\"\n";
-		};
 		DE2F04CC26E688C900015FBE /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -899,8 +857,6 @@
 			inputFileListPaths = (
 			);
 			inputPaths = (
-				"${DWARF_DSYM_FOLDER_PATH}/${DWARF_DSYM_FILE_NAME}/Contents/Resources/DWARF/${TARGET_NAME}",
-				"$(SRCROOT)/$(BUILT_PRODUCTS_DIR)/$(INFOPLIST_PATH)",
 			);
 			outputFileListPaths = (
 			);
@@ -908,7 +864,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/SwiftLint/swiftlint\"\n\"${PODS_ROOT}/FirebaseCrashlytics/run\"\n";
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n\"${PODS_ROOT}/SwiftLint/swiftlint\"\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -1113,7 +1069,6 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = ZFB9PS3322;
 				INFOPLIST_FILE = ZPMAPP/SupportFiles/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
