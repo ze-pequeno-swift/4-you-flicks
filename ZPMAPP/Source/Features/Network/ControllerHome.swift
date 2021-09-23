@@ -29,8 +29,8 @@ class ControllerHome {
         (10749, "movie/popular",     "Filmes de Romance",            .popularMystery),
         (878,   "movie/popular",     "Filmes de Ficção Ciêntifica",   .popularScienceFiction),
         (10770, "movie/popular",     "Filmes de TV ",                .popularTVMovie),
-        (53,    "movie/popular",     "Filmes de Thriller",           .popularThriller),
-        (10752, "movie/popular",     "Filmes de Gerra",              .popularWar),
+        (53,    "movie/popular",     "Filmes de Suspense",           .popularThriller),
+        (10752, "movie/popular",     "Filmes de Guerra",              .popularWar),
         (37,    "movie/popular",     "Filmes de Faroeste",           .popularWestern)
     ]
     
