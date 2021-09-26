@@ -34,11 +34,6 @@ struct MovieAPI {
         return "\(MovieAPI.imageURL)/\(size.rawValue)/\(image)"
     }
     
-    static func buildPopular(section: Section, type: Type, page: Int) -> String {
-        return "\(MovieAPI.baseURL)/\(type.rawValue)/\(section.rawValue)"
-            + "?api_key=\(MovieAPI.key)&language=\(language)&page=\(page)"
-    }
-    
     static func buildDailyTrendings() -> String {
         return "\(MovieAPI.baseURL)/trending/movie/week"
             + "?api_key=\(MovieAPI.key)&language=\(language)"
