@@ -9,9 +9,66 @@ import Foundation
 
 class ControllerHome {
     
-    typealias LayoutSectionItemsTuple = (generId: Int, pathAPI: String, header: String, enumHome: HomeSection)
+    // MARK: - Public Properties
     
-    let path: [LayoutSectionItemsTuple] = [
+    var movieList: [Movie] = []
+    
+    // MARK: - Private Properties
+    
+    private let movieListWorker: MovieWorkerProtocol
+    
+    // MARK: - Init
+    
+    init() {
+        self.movieListWorker = MovieListWorker()
+    }
+    
+    // MARK: - Public Functions
+    
+    func count() -> Int {
+        return movieList.count
+    }
+
+    func getMovie(indexPath: IndexPath) -> Movie {
+        return movieList[indexPath.row]
+    }
+    
+    func getTitleSection(section: Int) -> String {
+        return path[section].header
+    }
+    
+    func fetchMovieList(value: HomeSection, completion: @escaping (Bool, Error?) -> Void) {
+        let path = path.first { $0.enumHome == value }
+        guard let idGenre = path?.generId else { return }
+
+        movieListWorker.fecthMovieWithGenre(section: .popular, type: .movie, idGenre: idGenre) { [unowned self] result in
+            switch result {
+            case .success(let response):
+                movieList = response.results
+                completion(true, nil)
+            case .failure(_):
+                // Exibir erro
+              break
+            }
+        }
+    }
+    
+    func fetchDailyTrendings(value: HomeSection, completion: @escaping (Bool, Error?) -> Void) {
+        movieListWorker.fetchDailyTrendings { [unowned self] result in
+            switch result {
+            case .success(let response):
+                movieList = response.results
+                completion(true, nil)
+            case .failure(_):
+                break
+            }
+        }
+    }
+    
+    typealias SetSectionItems = (generId: Int, pathAPI: String,
+                                 header: String, enumHome: HomeSection)
+    
+    let path: [SetSectionItems] = [
         (0,     "trending/movies/week", "Os mais assistidos da semana",  .topTrending),
         (28,    "movie/popular",     "Filmes de Ação",               .popularAction),
         (12,    "movie/popular",     "Filmes de Aventura",           .popularAdventure),
@@ -33,33 +90,4 @@ class ControllerHome {
         (10752, "movie/popular",     "Filmes de Guerra",              .popularWar),
         (37,    "movie/popular",     "Filmes de Faroeste",           .popularWestern)
     ]
-    
-    let dataNetwork: DataNetwork = DataNetwork()
-    var arrayMovies: [DataMovies] = []
-    
-    func getData(value: HomeSection, completion: @escaping (Bool, Error?) -> Void) {
-        let urlPath = path.first { $0.enumHome == value }
-        
-        dataNetwork.fetchData(urlString: urlPath!.pathAPI, genres: urlPath!.generId) { (data: APIMovieData) in
-            self.arrayMovies = data.results
-                completion(true, nil)
-        }
-    }
-    
-    func getQtd() -> Int {
-        return self.arrayMovies.count
-    }
-    
-    func getInfoData(indexPath: IndexPath) -> DataMovies {
-        return self.arrayMovies[indexPath.row]
-    }
-    
-    func extracImage(data: String) -> URL? {
-        let path = "https://image.tmdb.org/t/p/original/"
-        return URL(string: "\(path)\(data)")
-    }
-    
-    func getTitleSection(section: Int) -> String {
-        return self.path[section].header
-    }
 }

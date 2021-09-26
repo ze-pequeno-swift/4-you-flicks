@@ -9,39 +9,37 @@ import UIKit
 
 class TopCustomCell: UITableViewCell {
     
-    
     // MARK: - IBOutlets
 
     @IBOutlet weak var collectionView: UICollectionView!
-    let controllerHome: ControllerHome = ControllerHome()
+    
+    // MARK: - Private Properties
+    
+    private let controllerHome: ControllerHome = ControllerHome()
     
     // MARK: - Public Properties
     
     weak var delegate: HomeViewControllerDelegate?
-    
+
     static var identifier: String {
         String(describing: TopCustomCell.self)
     }
     
-    // MARK: - View Lifecycle
-    
-    override func awakeFromNib() {
-        super.awakeFromNib()
-    }
-    
     // MARK: - Private Functions
+    
     private func setupUI() {
         CardCustomCell.registerOn(collectionView)
         collectionView.dataSource = self
         collectionView.delegate = self
     }
     
-    func getData(value: HomeSection) {
-        controllerHome.getData(value: value) { result, _ in
-            if result {
-                self.collectionView.reloadData()
-                self.setupUI()
-            } else { }
+    // MARK: - Public Functions
+    
+    func didFetchMovie(value: HomeSection) {
+        controllerHome.fetchMovieList(value: value) { result, _ in
+            guard result else { return }
+            self.collectionView.reloadData()
+            self.setupUI()
         }
     }
 }
@@ -51,8 +49,7 @@ class TopCustomCell: UITableViewCell {
 extension TopCustomCell: UICollectionViewDelegate, UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return controllerHome.getQtd()
-        
+        return controllerHome.count()
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -61,12 +58,12 @@ extension TopCustomCell: UICollectionViewDelegate, UICollectionViewDataSource {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: identifier, for: indexPath)
                 as? CardCustomCell else { return UICollectionViewCell() }
     
-        cell.setupUI(value: controllerHome.getInfoData(indexPath: indexPath))
+        cell.setupUI(movie: controllerHome.getMovie(indexPath: indexPath))
+        
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        delegate?.tappedCell()
-        print("DEBUG: Clicou em uma cell de filmes..")
+        delegate?.tappedCell(selectedMovie: controllerHome.movieList[indexPath.item])
     }
 }

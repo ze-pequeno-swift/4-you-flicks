@@ -1,5 +1,6 @@
 PODS:
   - Alamofire (5.4.3)
+  - Kingfisher (7.0.0)
   - SDWebImage (5.11.1):
     - SDWebImage/Core (= 5.11.1)
   - SDWebImage/Core (5.11.1)
@@ -7,20 +8,23 @@ PODS:
 
 DEPENDENCIES:
   - Alamofire (~> 5.4)
+  - Kingfisher
   - SDWebImage (~> 5.0)
   - SwiftLint
 
 SPEC REPOS:
   trunk:
     - Alamofire
+    - Kingfisher
     - SDWebImage
     - SwiftLint
 
 SPEC CHECKSUMS:
   Alamofire: e447a2774a40c996748296fa2c55112fdbbc42f9
+  Kingfisher: 5efc54fec3980f92354898532e562cc17f31efb4
   SDWebImage: a7f831e1a65eb5e285e3fb046a23fcfbf08e696d
   SwiftLint: 99f82d07b837b942dd563c668de129a03fc3fb52
 
-PODFILE CHECKSUM: ec4c00d3f4885115ffa85dded22ea6685fdc3f36
+PODFILE CHECKSUM: fcfa172d0fad853d8a2565509958f27712e65419
 
-COCOAPODS: 1.10.2
+COCOAPODS: 1.10.1
