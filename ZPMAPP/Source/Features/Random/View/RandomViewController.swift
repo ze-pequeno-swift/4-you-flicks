@@ -13,11 +13,11 @@ class RandomViewController: UIViewController {
     
     @IBOutlet weak var objectView: UIView!
     
-    @IBOutlet weak var optionSegmented: UISegmentedControl!
+    @IBOutlet weak var headerView: UIView!
     
-    @IBOutlet weak var genreButton: UIButton!
+    @IBOutlet weak var chooseGenreTextField: UITextField!
     
-    @IBOutlet weak var ratingButton: UIButton!
+    @IBOutlet weak var chooseNoteTextField: UITextField!
     
     @IBOutlet weak var goButton: UIButton!
     
@@ -31,22 +31,13 @@ class RandomViewController: UIViewController {
     // MARK: - Private Functions
     
     private func setupUI() {
-        objectView.roundCorners(cornerRadius: 8.0, typeCorners: [.bottomRight, .bottomLeft, .topRight, .topLeft])
+        headerView.roundCorners(cornerRadius: 8.0, typeCorners: [.topLeft, .topRight])
         goButton.roundCorners(cornerRadius: 8.0, typeCorners: [.bottomRight, .bottomLeft, .topRight, .topLeft])
-        
-        optionSegmented.selectedSegmentTintColor = UIColor(named: "Main Red")
-        optionSegmented.setTitleTextAttributes([.foregroundColor : UIColor.white], for: .normal)
+        objectView.roundCorners(cornerRadius: 8.0, typeCorners: [.bottomRight, .bottomLeft, .topRight, .topLeft])
     }
 
-    @IBAction private func drawAction(_ sender: UIButton) {
-        performSegue(withIdentifier: "SuggestionViewControllerSegue", sender: nil);
+    @IBAction private func sortedMovie(_ sender: UIButton) {
+        performSegue(withIdentifier: "SuggestionViewControllerSegue", sender: nil)
     }
 
-    @IBAction private func genreChoices(_ sender: UIButton) {
-        
-    }
-
-    @IBAction private func ratingChoices(_ sender: UIButton) {
-        
-    }
 }

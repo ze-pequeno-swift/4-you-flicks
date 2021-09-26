@@ -19,6 +19,7 @@ extension UIImageView {
         self.layer.cornerRadius = 0.5 * self.bounds.size.width
         self.clipsToBounds = true
     }
+    
     func load(url: String, completion: (() -> Void)? = nil) {
         kf.setImage(
             with: URL(string: url),
