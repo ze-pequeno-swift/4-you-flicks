@@ -90,6 +90,7 @@ class HomeViewController: UIViewController {
                 as? MovieDetailsViewController else { return }
         
         viewController.controllerMovieDetails.movie = selectedMovie
+        viewController.hidesBottomBarWhenPushed = true
         
         navigationController?.pushViewController(viewController, animated: true)
     }
