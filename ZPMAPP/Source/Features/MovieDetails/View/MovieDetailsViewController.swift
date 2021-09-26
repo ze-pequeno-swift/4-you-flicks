@@ -121,10 +121,9 @@ class MovieDetailsViewController: UIViewController {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: identifier)
                 as? CustomCastCell else { return UITableViewCell() }
         
-        let details = controllerMovieDetails.getDetails()
-        
-        cell.setupCell(details)
-    
+        if let details = controllerMovieDetails.getDetails() {
+            details.cast.isEmpty ? cell.isHidden = true : cell.setupCell(details)
+        }
         return cell
     }
 }
