@@ -13,9 +13,10 @@ class DailyTrendingsCell: UITableViewCell {
     
     @IBOutlet weak var collectionView: UICollectionView!
     
-    let controllerHome: ControllerHome = ControllerHome()
+    // MARK: - Private Properties
     
-
+    private let controllerHome: ControllerHome = ControllerHome()
+    
     // MARK: - Public Properties
 
     weak var delegate: HomeViewControllerDelegate?
@@ -23,29 +24,24 @@ class DailyTrendingsCell: UITableViewCell {
     static var identifier: String {
         String(describing: DailyTrendingsCell.self)
     }
-    
-    // MARK: - View Lifecycle
-    
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        
-    }
-    
-    func getData() {
-        controllerHome.getData(value: .topTrending) { result, _ in
-            if result {
-                self.setupUI()
-            } else {  }
+
+    // MARK: - Public Functions
+
+    func didFetchMovie() {
+        controllerHome.fetchDailyTrendings(value: .topTrending) { result, _ in
+            guard result else { return }
+            self.collectionView.reloadData()
+            self.setupUI()
         }
     }
 
     // MARK: - Private Functions
+    
     func setupUI() {
         CardCustomDailyTrendingsCell.registerOn(collectionView)
         collectionView.delegate = self
         collectionView.dataSource = self
     }
-    
 }
 
 // MARK: - UICollectionView Protocol Extensions
@@ -53,21 +49,20 @@ class DailyTrendingsCell: UITableViewCell {
 extension DailyTrendingsCell: UICollectionViewDelegate, UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return controllerHome.getQtd()
+        return controllerHome.count()
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-
         let identifier = CardCustomDailyTrendingsCell.identifier
         
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: identifier, for: indexPath) as? CardCustomDailyTrendingsCell else { return UICollectionViewCell() }
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: identifier, for: indexPath)
+                as? CardCustomDailyTrendingsCell else { return UICollectionViewCell() }
         
-        cell.setupUI(value: controllerHome.getInfoData(indexPath: indexPath))
+        cell.setupUI(movie: controllerHome.getMovie(indexPath: indexPath))
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        delegate?.tappedCell()
-        print("DEBUG: Nos cinemas..")
+        delegate?.tappedCell(selectedMovie: controllerHome.movieList[indexPath.item])
     }
 }

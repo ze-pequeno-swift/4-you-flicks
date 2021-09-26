@@ -9,18 +9,19 @@ import UIKit
 
 class HeaderSection: UITableViewCell {
 
-    @IBOutlet weak var titleSection: UILabel!
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
+    // MARK: - IBOutlets
     
-    func setup(value: String) {
-        titleSection.text = value
-    }
+    @IBOutlet weak var titleSection: UILabel!
+ 
+    // MARK: - Public Properties
     
     static var identifier: String {
         String(describing: HeaderSection.self)
     }
-
+    
+    // MARK: - Public Functions
+    
+    func setup(value: String) {
+        titleSection.text = value
+    }
 }

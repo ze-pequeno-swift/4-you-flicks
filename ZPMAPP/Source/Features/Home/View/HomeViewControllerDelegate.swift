@@ -8,5 +8,6 @@
 import Foundation
 
 protocol HomeViewControllerDelegate: AnyObject {
-    func tappedCell()
+    
+    func tappedCell(selectedMovie: Movie?)
 }

@@ -30,7 +30,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kH0-Uc-NtK">
                                 <rect key="frame" x="16" y="-50" width="140" height="210"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="backwidow" translatesAutoresizingMaskIntoConstraints="NO" id="hwv-sd-Ehf">
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="backwidow" translatesAutoresizingMaskIntoConstraints="NO" id="hwv-sd-Ehf">
                                         <rect key="frame" x="0.0" y="0.0" width="140" height="210"/>
                                     </imageView>
                                 </subviews>

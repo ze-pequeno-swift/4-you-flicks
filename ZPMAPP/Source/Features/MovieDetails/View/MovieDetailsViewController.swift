@@ -7,12 +7,21 @@
 
 import UIKit
 
+protocol MovieDetailsViewControllerProtocol: AnyObject {
+
+    func showMovieListError(_ errorMessage: String)
+}
+
 class MovieDetailsViewController: UIViewController {
     
     // MARK: - IBOutlets
 
     @IBOutlet private var tableView: UITableView!
     
+    // MARK: - Private Properties
+    
+    var controllerMovieDetails = ControllerMovieDetails()
+
     // MARK: - View Lifecycle
     
     override func viewDidLoad() {
@@ -22,6 +31,12 @@ class MovieDetailsViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        showLoading()
+        controllerMovieDetails.fetchMovieDetails()
+        hideLoading()
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
+        }
         setupNavigationBar()
     }
     
@@ -35,6 +50,7 @@ class MovieDetailsViewController: UIViewController {
     private func setupUI() {
         tableView.delegate = self
         tableView.dataSource = self
+        controllerMovieDetails.viewController = self
         
         DetailsCell.registerOn(tableView)
         SaveWatchLaterCell.registerOn(tableView)
@@ -50,7 +66,13 @@ class MovieDetailsViewController: UIViewController {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: identifier)
                 as? DetailsCell else { return UITableViewCell() }
         
+        let movie = controllerMovieDetails.getMovie()
+        let details = controllerMovieDetails.getDetails()
+
+        cell.setupCell(movie, details: details ?? Details())
+        
         return cell
+
     }
     
     private func getSaveWatchLaterCell() -> UITableViewCell {
@@ -67,6 +89,10 @@ class MovieDetailsViewController: UIViewController {
         
         guard let cell = tableView.dequeueReusableCell(withIdentifier: identifier)
                 as? DescriptionCell else { return UITableViewCell() }
+        
+        
+        let movie = controllerMovieDetails.getMovie()
+        cell.setupCell(movie)
         
         return cell
     }
@@ -95,6 +121,10 @@ class MovieDetailsViewController: UIViewController {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: identifier)
                 as? CustomCastCell else { return UITableViewCell() }
         
+        let details = controllerMovieDetails.getDetails()
+        
+        cell.setupCell(details)
+    
         return cell
     }
 }
@@ -117,22 +147,7 @@ extension MovieDetailsViewController: UITableViewDelegate, UITableViewDataSource
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        guard let section = DetailsSection(rawValue: section) else { return 0 }
-        
-        switch section {
-        case .details:
-            return 1
-        case .saveWatchLater:
-            return 1
-        case .description:
-            return 1
-        case .whereToWatch:
-            return 1
-        case .moviesNearby:
-            return 1
-        case .customCast:
-            return 1
-        }
+        return 1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -157,8 +172,9 @@ extension MovieDetailsViewController: UITableViewDelegate, UITableViewDataSource
 
 // MARK: - HomeViewControllerDelegate Extensions
 
-extension MovieDetailsViewController: HomeViewControllerDelegate {
-    func tappedCell() {
-        print("Details >> Details ??")
+extension MovieDetailsViewController: MovieDetailsViewControllerProtocol {
+
+    func showMovieListError(_ errorMessage: String) {
+        // error
     }
 }

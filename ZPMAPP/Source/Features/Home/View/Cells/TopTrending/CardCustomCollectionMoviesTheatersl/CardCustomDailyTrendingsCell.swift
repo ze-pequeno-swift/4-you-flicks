@@ -6,11 +6,8 @@
 //
 
 import UIKit
-import SDWebImage
 
 class CardCustomDailyTrendingsCell: UICollectionViewCell {
-    
-    let controllerHome: ControllerHome = ControllerHome()
     
     // MARK: - IBOutlets
     
@@ -22,16 +19,11 @@ class CardCustomDailyTrendingsCell: UICollectionViewCell {
         String(describing: CardCustomDailyTrendingsCell.self)
     }
     
-    // MARK: - View Lifecycle
+    func setupUI(movie: Movie) {
+        if let backdropPath = movie.backdropPath {
+            movieImage.load(url: MovieAPI.build(image: backdropPath, size: .original))
+        }
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
-
-    }
-    func setupUI(value: DataMovies) {
-        let url = controllerHome.extracImage(data: value.backdrop_path ?? "")
-        print("URL_Image:\(url)")
-        movieImage.sd_setImage(with: url)
         movieImage.layer.cornerRadius = 10
     }
 }
