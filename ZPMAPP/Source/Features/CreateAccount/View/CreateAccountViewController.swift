@@ -35,6 +35,8 @@ class CreateAccountViewController: UIViewController {
         
     }
     
+    
+    
     // MARK: - Private Functions
     
     private func setupUI() {
@@ -83,8 +85,8 @@ class CreateAccountViewController: UIViewController {
 
 extension CreateAccountViewController: CreateAccounteControllerProtocol {
     
-    func showError() {
-        self.present(controller.showError(mensagem: controller.message), animated: true, completion: nil)
+    func showAlert() {
+        self.present(controller.showAlert(title: controller.titleAlert, message: controller.messageAlert), animated: true, completion: nil)
     }
     
 }

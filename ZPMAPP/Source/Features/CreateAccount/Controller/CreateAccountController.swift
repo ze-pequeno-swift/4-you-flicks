@@ -7,30 +7,48 @@
 
 import Foundation
 import UIKit
+import Firebase
+import FirebaseAuth
 
 
 
 protocol CreateAccounteControllerProtocol: AnyObject {
-    func showError()
+    func showAlert()
 }
 
 class CreateAccountController {
     
     // MARK: - Var
-    var message: String = ""
+    var messageAlert: String = ""
+    var titleAlert: String = ""
     weak var delegate: CreateAccounteControllerProtocol?
     
     // MARK: - Funcs
     
     func basic(name: String?, email: String?, emailConf: String?, password: String?, passwordConf: String?) {
-        var basicReturn: String = verifyTextFields(name: name, email: email, emailConf: emailConf, password: password, passwordConf: passwordConf)
-        if basicReturn != "" {
-            self.message = basicReturn
-            print(message)
-            self.delegate?.showError()
+        messageAlert = verifyTextFields(name: name, email: email, emailConf: emailConf, password: password, passwordConf: passwordConf)
+        if messageAlert == "" {
+            messageAlert = verifyConfirmationFields(field: "Email", fieldTextOne: email, fieldTextTwo: emailConf)
+            if messageAlert == ""{
+                messageAlert = verifyConfirmationFields(field: "Senha", fieldTextOne: password, fieldTextTwo: passwordConf)
+                if messageAlert == ""{
+                    Auth.auth().createUser(withEmail: email ?? "", password: password ?? "") { result, error in
+                        if error != nil {
+                            self.titleAlert = "ERRO"
+                            self.messageAlert = error?.localizedDescription ?? ""
+                        }
+                    }
+                }
+            }
+        }
+        
+        
+        if messageAlert != "" {
+            self.delegate?.showAlert()
         } else {
-            basicReturn = "Deu certo"
-            print(basicReturn)
+            self.titleAlert = "Sucesso"
+            self.messageAlert = "Cadastro concluído com sucesso. Bem vindo(a)."
+            self.delegate?.showAlert()
         }
     }
     
@@ -45,21 +63,35 @@ class CreateAccountController {
     
     func verifyTextFields(name: String?, email: String?, emailConf: String?, password: String?, passwordConf: String?) -> String {
         if name?.trimmingCharacters(in: .whitespacesAndNewlines) == "" {
+            self.titleAlert = "ERRO"
             return "Por favor, preencha o nome corretamente"
         } else if email?.trimmingCharacters(in: .whitespacesAndNewlines) == "" {
+            self.titleAlert = "ERRO"
             return "Por favor, preencha o email corretamente"
         } else if emailConf?.trimmingCharacters(in: .whitespacesAndNewlines) == "" {
+            self.titleAlert = "ERRO"
             return "Por favor, preencha a confirmação do email corretamente"
         } else if password?.trimmingCharacters(in: .whitespacesAndNewlines) == "" {
+            self.titleAlert = "ERRO"
             return "Por favor, defina uma senha"
         } else if passwordConf?.trimmingCharacters(in: .whitespacesAndNewlines) == "" {
+            self.titleAlert = "ERRO"
             return "Por favor, preencha o campo de confirmação de senha corretamente"
         }
         return ""
     }
     
-    func showError(mensagem: String) -> UIAlertController {
-        let alert = UIAlertController(title: "ERRO", message: mensagem, preferredStyle: .alert)
+    func verifyConfirmationFields(field: String, fieldTextOne: String?, fieldTextTwo: String?) -> String {
+        if fieldTextOne == fieldTextTwo {
+            return ""
+        } else {
+            self.titleAlert = "ERRO"
+            return "\(field)s não são iguais, favor verificar"
+        }
+    }
+    
+    func showAlert(title: String, message: String) -> UIAlertController {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
         return alert
     }

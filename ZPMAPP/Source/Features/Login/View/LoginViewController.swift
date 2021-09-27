@@ -24,9 +24,11 @@ class LoginViewController: UIViewController {
         super.viewDidLoad()
         self.setupUI()
         navigationController?.navigationBar.isHidden = true
+        
     }
     
     // MARK: - Private Functions
+    
     
     @IBAction func loginButton(_ sender: UIButton) {
         close()
