@@ -54,6 +54,9 @@
 		AB21C97D26D725160031724B /* RandomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB21C97C26D725160031724B /* RandomViewController.swift */; };
 		AB21C97F26D7266E0031724B /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB21C97E26D7266E0031724B /* UIView+Extension.swift */; };
 		AB21C98126D734240031724B /* SuggestionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB21C98026D734240031724B /* SuggestionViewController.swift */; };
+		AB438220270246F300A8A74B /* UITextField+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB43821F270246F300A8A74B /* UITextField+Extensions.swift */; };
+		ABC4FD3826FCF96300F40C20 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = ABC4FD3726FCF96300F40C20 /* GoogleService-Info.plist */; };
+		ABC4FD3B26FD084A00F40C20 /* CreateAccountController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABC4FD3A26FD084A00F40C20 /* CreateAccountController.swift */; };
 		B205BC2E1EE73A4E3D1E90A6 /* Pods_ZPMAPP.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4DE58B26DB36CAEA02CA119E /* Pods_ZPMAPP.framework */; };
 		BC13C72226F5491900A99CFA /* SectionLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC13C72126F5491900A99CFA /* SectionLayout.swift */; };
 		BC1CCA0426F768C5002E0462 /* HeaderSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC1CCA0226F768C5002E0462 /* HeaderSection.swift */; };
@@ -136,6 +139,9 @@
 		AB21C97C26D725160031724B /* RandomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomViewController.swift; sourceTree = "<group>"; };
 		AB21C97E26D7266E0031724B /* UIView+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		AB21C98026D734240031724B /* SuggestionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuggestionViewController.swift; sourceTree = "<group>"; };
+		AB43821F270246F300A8A74B /* UITextField+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+Extensions.swift"; sourceTree = "<group>"; };
+		ABC4FD3726FCF96300F40C20 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		ABC4FD3A26FD084A00F40C20 /* CreateAccountController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountController.swift; sourceTree = "<group>"; };
 		BC13C72126F5491900A99CFA /* SectionLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionLayout.swift; sourceTree = "<group>"; };
 		BC1CCA0226F768C5002E0462 /* HeaderSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderSection.swift; sourceTree = "<group>"; };
 		BC1CCA0326F768C5002E0462 /* HeaderSection.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HeaderSection.xib; sourceTree = "<group>"; };
@@ -275,6 +281,7 @@
 				74818A6626D439540071AB5E /* UITableViewCell+Extension.swift */,
 				AB21C97E26D7266E0031724B /* UIView+Extension.swift */,
 				BC4C3B1D26E5B99300662A23 /* UIViewController+Extensions.swift */,
+				AB43821F270246F300A8A74B /* UITextField+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -341,6 +348,7 @@
 			isa = PBXGroup;
 			children = (
 				74A98FC126D2D4F000DD7889 /* Info.plist */,
+				ABC4FD3726FCF96300F40C20 /* GoogleService-Info.plist */,
 				74A98FB526D2D4EF00DD7889 /* SceneDelegate.swift */,
 				74A98FB326D2D4EF00DD7889 /* AppDelegate.swift */,
 				74A98FBE26D2D4F000DD7889 /* LaunchScreen.storyboard */,
@@ -607,6 +615,7 @@
 		ABA4314126E1754300B21018 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				ABC4FD3A26FD084A00F40C20 /* CreateAccountController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -802,6 +811,7 @@
 				74A98FAE26D2D4EF00DD7889 /* Resources */,
 				DE2F04CC26E688C900015FBE /* ShellScript */,
 				88B7D234028C141561DB7CB1 /* [CP] Embed Pods Frameworks */,
+				ABC4FD3926FCFB9200F40C20 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -851,6 +861,7 @@
 			files = (
 				DEDD241026D6BA17000C62E6 /* UsersCell.xib in Resources */,
 				DEDD240726D6B2E8000C62E6 /* ActorsCell.xib in Resources */,
+				ABC4FD3826FCF96300F40C20 /* GoogleService-Info.plist in Resources */,
 				74818A4A26D4180E0071AB5E /* CardCustomCell.xib in Resources */,
 				BC4C3B2326E5C0F100662A23 /* TopCustomCell.xib in Resources */,
 				74CB474526D741200091F683 /* CastCell.xib in Resources */,
@@ -918,6 +929,25 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ZPMAPP/Pods-ZPMAPP-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		ABC4FD3926FCFB9200F40C20 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${DWARF_DSYM_FOLDER_PATH}/${DWARF_DSYM_FILE_NAME}/Contents/Resources/DWARF/${TARGET_NAME}",
+				"$(SRCROOT)/$(BUILT_PRODUCTS_DIR)/$(INFOPLIST_PATH)",
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/FirebaseCrashlytics/run\"\n";
+		};
 		DE2F04CC26E688C900015FBE /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -963,6 +993,7 @@
 				BC1CCA0426F768C5002E0462 /* HeaderSection.swift in Sources */,
 				746ECAD026D6AE440047ACE7 /* DetailsCell.swift in Sources */,
 				6B9F4D1F26DDFBC0004BB120 /* ResetPasswordViewController.swift in Sources */,
+				ABC4FD3B26FD084A00F40C20 /* CreateAccountController.swift in Sources */,
 				74CB475426D75CD40091F683 /* UINavigationItem+Extensions.swift in Sources */,
 				749FED3326D6DA7700B35C1A /* SaveWatchLaterCell.swift in Sources */,
 				74CB473C26D72CF40091F683 /* MoviesNearbyCell.swift in Sources */,
@@ -974,6 +1005,7 @@
 				74818A4926D4180E0071AB5E /* CardCustomCell.swift in Sources */,
 				74A98FB826D2D4EF00DD7889 /* HomeViewController.swift in Sources */,
 				BC13C72226F5491900A99CFA /* SectionLayout.swift in Sources */,
+				AB438220270246F300A8A74B /* UITextField+Extensions.swift in Sources */,
 				AB21C97D26D725160031724B /* RandomViewController.swift in Sources */,
 				AB21C98126D734240031724B /* SuggestionViewController.swift in Sources */,
 				74309AC426D9D9C300CB5D7B /* ZPButton.swift in Sources */,
