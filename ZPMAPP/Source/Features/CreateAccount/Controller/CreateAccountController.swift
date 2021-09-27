@@ -32,7 +32,7 @@ class CreateAccountController {
             if messageAlert == ""{
                 messageAlert = verifyConfirmationFields(field: "Senha", fieldTextOne: password, fieldTextTwo: passwordConf)
                 if messageAlert == ""{
-                    Auth.auth().createUser(withEmail: email ?? "", password: password ?? "") { result, error in
+                    Auth.auth().createUser(withEmail: email ?? "", password: password ?? "") { _, error in
                         if error != nil {
                             self.titleAlert = "ERRO"
                             self.messageAlert = error?.localizedDescription ?? ""

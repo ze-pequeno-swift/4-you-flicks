@@ -50,8 +50,8 @@ class LoginViewController: UIViewController {
         passwordlImageRight.isUserInteractionEnabled = true
         passwordlImageRight.addGestureRecognizer(tapGestureRecognizer)
         
-        passwordTextField.attributedPlaceholder = NSAttributedString(string: "Senha", attributes:[NSAttributedString.Key.foregroundColor: UIColor.gray])
-        userTextField.attributedPlaceholder = NSAttributedString(string: "Email", attributes:[NSAttributedString.Key.foregroundColor: UIColor.gray])
+        passwordTextField.attributedPlaceholder = NSAttributedString(string: "Senha", attributes: [NSAttributedString.Key.foregroundColor: UIColor.gray])
+        userTextField.attributedPlaceholder = NSAttributedString(string: "Email", attributes: [NSAttributedString.Key.foregroundColor: UIColor.gray])
     }
     
     @ objc
