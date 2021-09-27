@@ -83,6 +83,8 @@
 		BCBD243526D48697008110FB /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCBD243426D48697008110FB /* LoginViewController.swift */; };
 		BCDC471426D7EEB500AD8A35 /* CreateAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCDC471326D7EEB500AD8A35 /* CreateAccountViewController.swift */; };
 		BCDC471626D7F0D400AD8A35 /* RecoverPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCDC471526D7F0D400AD8A35 /* RecoverPasswordViewController.swift */; };
+		DE26FEA527023EC3006B46EC /* RecommendationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE26FEA327023EC3006B46EC /* RecommendationTableViewCell.swift */; };
+		DE26FEA627023EC3006B46EC /* RecommendationTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DE26FEA427023EC3006B46EC /* RecommendationTableViewCell.xib */; };
 		DEADB51026D48A1C00133508 /* UIColor+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEADB50F26D48A1C00133508 /* UIColor+Extensions.swift */; };
 		DEADB51326D48DFA00133508 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEADB51226D48DFA00133508 /* SearchViewController.swift */; };
 		DEB196AD26D7E99100D52080 /* Users.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB196AC26D7E99100D52080 /* Users.swift */; };
@@ -181,6 +183,8 @@
 		BCBD243426D48697008110FB /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		BCDC471326D7EEB500AD8A35 /* CreateAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountViewController.swift; sourceTree = "<group>"; };
 		BCDC471526D7F0D400AD8A35 /* RecoverPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecoverPasswordViewController.swift; sourceTree = "<group>"; };
+		DE26FEA327023EC3006B46EC /* RecommendationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendationTableViewCell.swift; sourceTree = "<group>"; };
+		DE26FEA427023EC3006B46EC /* RecommendationTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RecommendationTableViewCell.xib; sourceTree = "<group>"; };
 		DEADB50F26D48A1C00133508 /* UIColor+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extensions.swift"; sourceTree = "<group>"; };
 		DEADB51226D48DFA00133508 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		DEB196AC26D7E99100D52080 /* Users.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Users.swift; sourceTree = "<group>"; };
@@ -312,6 +316,7 @@
 				74CB474A26D752E30091F683 /* MoviesNearbyCell */,
 				74CB474B26D753050091F683 /* CustomCastCell */,
 				74CB474C26D753140091F683 /* CastCell */,
+				DE26FEA227023E6C006B46EC /* CustomRecommendationCell */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -795,6 +800,15 @@
 			path = Login;
 			sourceTree = "<group>";
 		};
+		DE26FEA227023E6C006B46EC /* CustomRecommendationCell */ = {
+			isa = PBXGroup;
+			children = (
+				DE26FEA327023EC3006B46EC /* RecommendationTableViewCell.swift */,
+				DE26FEA427023EC3006B46EC /* RecommendationTableViewCell.xib */,
+			);
+			path = CustomRecommendationCell;
+			sourceTree = "<group>";
+		};
 		DEADB51126D48DCE00133508 /* Search */ = {
 			isa = PBXGroup;
 			children = (
@@ -941,6 +955,7 @@
 				74A98FBD26D2D4F000DD7889 /* Assets.xcassets in Resources */,
 				74818A4F26D419C60071AB5E /* CardCustomDailyTrendingsCell.xib in Resources */,
 				74818A5426D41AAF0071AB5E /* DailyTrendingsCell.xib in Resources */,
+				DE26FEA627023EC3006B46EC /* RecommendationTableViewCell.xib in Resources */,
 				74CB473D26D72CF40091F683 /* MoviesNearbyCell.xib in Resources */,
 				6B9F4D2526DDFF76004BB120 /* MovieCollectionViewCell.xib in Resources */,
 				749FED3826D6E0CA00B35C1A /* DescriptionCell.xib in Resources */,
@@ -1090,6 +1105,7 @@
 				74CB474026D739DE0091F683 /* CustomCastCell.swift in Sources */,
 				74D919C026D570BB00257317 /* MovieDetailsViewController.swift in Sources */,
 				74818A6726D439540071AB5E /* UITableViewCell+Extension.swift in Sources */,
+				DE26FEA527023EC3006B46EC /* RecommendationTableViewCell.swift in Sources */,
 				74818A4E26D419C60071AB5E /* CardCustomDailyTrendingsCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
