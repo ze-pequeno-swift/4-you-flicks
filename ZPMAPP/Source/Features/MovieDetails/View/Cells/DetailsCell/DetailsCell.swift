@@ -25,12 +25,16 @@ class DetailsCell: UITableViewCell {
     
     @IBOutlet private var genreMovie: UILabel!
     
-    @IBOutlet private var scoreRottenTomatoes: UILabel!
-    
-    @IBOutlet private var scoreImbd: UILabel!
-    
+    @IBOutlet weak var score: UILabel!
+
+    @IBOutlet private weak var scoreView: UIView!
+
+    // MARK: - Private Properties
+
+    private var circularProgressBarView: CircularProgressBarView?
+
     // MARK: - Public Properties
-    
+
     static var identifier: String {
         String(describing: DetailsCell.self)
     }
@@ -40,6 +44,7 @@ class DetailsCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         setupUI()
+        setupCircularProgressBarView()
     }
     
     // MARK: - Public Functions
@@ -67,5 +72,14 @@ class DetailsCell: UITableViewCell {
         detailsView.layer.maskedCorners = [.layerMaxXMinYCorner, .layerMinXMinYCorner]
         posterView.layer.cornerRadius = 8
         posterView.layer.masksToBounds = true
+    }
+
+    func setupCircularProgressBarView() {
+        circularProgressBarView = CircularProgressBarView(frame: .zero)
+
+        if let circularProgressBarView = circularProgressBarView {
+            scoreView.addSubview(circularProgressBarView)
+           
+        }
     }
 }

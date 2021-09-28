@@ -87,6 +87,7 @@
 		DE26FEA627023EC3006B46EC /* RecommendationTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DE26FEA427023EC3006B46EC /* RecommendationTableViewCell.xib */; };
 		DE26FEAA27038AF9006B46EC /* RecommendationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE26FEA827038AF9006B46EC /* RecommendationCell.swift */; };
 		DE26FEAB27038AF9006B46EC /* RecommendationCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DE26FEA927038AF9006B46EC /* RecommendationCell.xib */; };
+		DE26FEAD2703B8F7006B46EC /* CircularProgressBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE26FEAC2703B8F7006B46EC /* CircularProgressBarView.swift */; };
 		DEADB51026D48A1C00133508 /* UIColor+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEADB50F26D48A1C00133508 /* UIColor+Extensions.swift */; };
 		DEADB51326D48DFA00133508 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEADB51226D48DFA00133508 /* SearchViewController.swift */; };
 		DEB196AD26D7E99100D52080 /* Users.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB196AC26D7E99100D52080 /* Users.swift */; };
@@ -189,6 +190,7 @@
 		DE26FEA427023EC3006B46EC /* RecommendationTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RecommendationTableViewCell.xib; sourceTree = "<group>"; };
 		DE26FEA827038AF9006B46EC /* RecommendationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendationCell.swift; sourceTree = "<group>"; };
 		DE26FEA927038AF9006B46EC /* RecommendationCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RecommendationCell.xib; sourceTree = "<group>"; };
+		DE26FEAC2703B8F7006B46EC /* CircularProgressBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularProgressBarView.swift; sourceTree = "<group>"; };
 		DEADB50F26D48A1C00133508 /* UIColor+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extensions.swift"; sourceTree = "<group>"; };
 		DEADB51226D48DFA00133508 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		DEB196AC26D7E99100D52080 /* Users.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Users.swift; sourceTree = "<group>"; };
@@ -521,6 +523,7 @@
 			children = (
 				746ECACE26D6AE440047ACE7 /* DetailsCell.swift */,
 				746ECACF26D6AE440047ACE7 /* DetailsCell.xib */,
+				DE26FEAC2703B8F7006B46EC /* CircularProgressBarView.swift */,
 			);
 			path = DetailsCell;
 			sourceTree = "<group>";
@@ -1110,6 +1113,7 @@
 				BC7884D926F6211200EB59BF /* ControllerHome.swift in Sources */,
 				74818A5326D41AAF0071AB5E /* DailyTrendingsCell.swift in Sources */,
 				749FED3B26D6E61600B35C1A /* WhereToWatchCell.swift in Sources */,
+				DE26FEAD2703B8F7006B46EC /* CircularProgressBarView.swift in Sources */,
 				74CB474E26D757BA0091F683 /* UINavigationBar+Extension.swift in Sources */,
 				7404C40626FE281400494FD0 /* APIEnum.swift in Sources */,
 				7404C41E26FE466B00494FD0 /* MovieDetailsWorker.swift in Sources */,

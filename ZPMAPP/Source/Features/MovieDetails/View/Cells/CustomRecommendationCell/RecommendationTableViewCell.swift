@@ -25,8 +25,6 @@ class RecommendationTableViewCell: UITableViewCell {
             recommendation = movie.recommendations
         }
 
-        print(recommendation)
-
         RecommendationCell.registerOn(collectionView)
         collectionView.delegate = self
         collectionView.dataSource = self
