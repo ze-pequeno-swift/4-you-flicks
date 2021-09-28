@@ -28,8 +28,8 @@
                         <rect key="frame" x="16" y="45" width="288" height="220"/>
                         <color key="backgroundColor" name="Main Black"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="288" id="4En-22-Oqv"/>
-                            <constraint firstAttribute="height" constant="220" id="8eY-jI-CAT"/>
+                            <constraint firstAttribute="width" priority="999" constant="288" id="4En-22-Oqv"/>
+                            <constraint firstAttribute="height" priority="999" constant="220" id="8eY-jI-CAT"/>
                         </constraints>
                         <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="tbL-xA-eDm">
                             <size key="itemSize" width="145" height="220"/>

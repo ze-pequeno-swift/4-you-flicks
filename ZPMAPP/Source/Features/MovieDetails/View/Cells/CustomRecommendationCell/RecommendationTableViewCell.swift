@@ -22,17 +22,21 @@ class RecommendationTableViewCell: UITableViewCell {
 
     func setupCell(_ detail: Details?) {
         if let movie = detail {
-
             recommendation = movie.recommendations
-            collectionView.delegate = self
-            collectionView.dataSource = self
         }
+
+        print(recommendation)
+
+        RecommendationCell.registerOn(collectionView)
+        collectionView.delegate = self
+        collectionView.dataSource = self
     }
 }
 
 // MARK: - UICollectionView Protocol Extensions
 
 extension RecommendationTableViewCell: UICollectionViewDataSource, UICollectionViewDelegate {
+
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
 
         return recommendation.count
@@ -41,8 +45,13 @@ extension RecommendationTableViewCell: UICollectionViewDataSource, UICollectionV
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
 
-        let cell = UICollectionViewCell()
+        let identifier = RecommendationCell.identifier
 
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: identifier, for: indexPath) as? RecommendationCell else {
+            return UICollectionViewCell()
+        }
+
+        cell.setupCell(recommendation[indexPath.item])
         return cell
 
     }
