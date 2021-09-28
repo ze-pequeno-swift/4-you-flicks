@@ -27,7 +27,7 @@ class DetailsCell: UITableViewCell {
     
     @IBOutlet weak var score: UILabel!
 
-    @IBOutlet private weak var scoreView: UIView!
+    @IBOutlet weak var scoreView: UIImageView!
 
     // MARK: - Private Properties
 
@@ -63,6 +63,7 @@ class DetailsCell: UITableViewCell {
         titleMovie.text = movie.title
         timeMovie.text = details.duration
         genreMovie.text = details.genres
+        score.text = movie.voteAverage.round()
     }
     
     // MARK: - Private Functions
@@ -78,6 +79,7 @@ class DetailsCell: UITableViewCell {
         circularProgressBarView = CircularProgressBarView(frame: .zero)
 
         if let circularProgressBarView = circularProgressBarView {
+            circularProgressBarView.center =  scoreView.center
             scoreView.addSubview(circularProgressBarView)
            
         }
