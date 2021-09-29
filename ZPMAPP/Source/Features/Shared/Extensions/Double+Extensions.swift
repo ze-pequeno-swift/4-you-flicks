@@ -8,7 +8,7 @@
 import Foundation
 
 extension Double {
-    func round() -> String {
-        return NSString(format: "%.1f%%", self) as String
+    func formateVoteAverage() -> String {
+        return NSString(format: "%.0f%%", self) as String
     }
 }

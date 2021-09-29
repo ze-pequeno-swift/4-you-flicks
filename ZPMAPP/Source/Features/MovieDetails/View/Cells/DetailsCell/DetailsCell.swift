@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import CircleProgressView
 
 class DetailsCell: UITableViewCell {
     
@@ -26,15 +27,11 @@ class DetailsCell: UITableViewCell {
     @IBOutlet private var genreMovie: UILabel!
     
     @IBOutlet weak var score: UILabel!
-
-    @IBOutlet weak var scoreView: UIImageView!
-
-    // MARK: - Private Properties
-
-    private var circularProgressBarView: CircularProgressBarView?
+    
+   @IBOutlet weak var circleProgressView: CircleProgressView!
 
     // MARK: - Public Properties
-
+    
     static var identifier: String {
         String(describing: DetailsCell.self)
     }
@@ -44,7 +41,6 @@ class DetailsCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         setupUI()
-        setupCircularProgressBarView()
     }
     
     // MARK: - Public Functions
@@ -52,22 +48,31 @@ class DetailsCell: UITableViewCell {
     func setupCell(_ movie: Movie, details: Details?) {
         guard let details = details else { return }
         
-        if let posterPath = movie.posterPath {
+        if
+            let posterPath = movie.posterPath,
+            let backdropPath = movie.backdropPath {
+            
             posterImage.load(url: MovieAPI.build(image: posterPath, size: .w500))
-        }
-        
-        if let backdropPath = movie.backdropPath {
             backdropImage.load(url: MovieAPI.build(image: backdropPath, size: .w780))
         }
+        
         
         titleMovie.text = movie.title
         timeMovie.text = details.duration
         genreMovie.text = details.genres
-        score.text = movie.voteAverage.round()
+        
+        let round = (movie.voteAverage*10)
+        score.text = round.formateVoteAverage()
+
+       DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+          self.circleProgressView.setProgress(round / 100, animated: true)
+       }
     }
     
+    
+    
     // MARK: - Private Functions
-
+    
     private func setupUI() {
         detailsView.layer.cornerRadius = 15
         detailsView.layer.maskedCorners = [.layerMaxXMinYCorner, .layerMinXMinYCorner]
@@ -75,13 +80,4 @@ class DetailsCell: UITableViewCell {
         posterView.layer.masksToBounds = true
     }
 
-    func setupCircularProgressBarView() {
-        circularProgressBarView = CircularProgressBarView(frame: .zero)
-
-        if let circularProgressBarView = circularProgressBarView {
-            circularProgressBarView.center =  scoreView.center
-            scoreView.addSubview(circularProgressBarView)
-           
-        }
-    }
 }

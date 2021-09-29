@@ -13,4 +13,7 @@ pod 'Firebase/Analytics'
 pod 'Firebase/Auth'
 pod 'Firebase/Crashlytics'
 pod 'Kingfisher'
+pod 'CircleProgressView', '~> 1.0'
+
+
 end

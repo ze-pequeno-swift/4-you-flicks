@@ -75,7 +75,6 @@
 		AB438220270246F300A8A74B /* UITextField+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB43821F270246F300A8A74B /* UITextField+Extensions.swift */; };
 		AB4382222702665A00A8A74B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = AB4382212702665A00A8A74B /* GoogleService-Info.plist */; };
 		ABC4FD3B26FD084A00F40C20 /* CreateAccountController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABC4FD3A26FD084A00F40C20 /* CreateAccountController.swift */; };
-		B205BC2E1EE73A4E3D1E90A6 /* Pods_ZPMAPP.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4DE58B26DB36CAEA02CA119E /* Pods_ZPMAPP.framework */; };
 		BC13C72226F5491900A99CFA /* HomeSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC13C72126F5491900A99CFA /* HomeSection.swift */; };
 		BC1CCA0426F768C5002E0462 /* HeaderSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC1CCA0226F768C5002E0462 /* HeaderSection.swift */; };
 		BC1CCA0526F768C5002E0462 /* HeaderSection.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC1CCA0326F768C5002E0462 /* HeaderSection.xib */; };
@@ -91,7 +90,6 @@
 		DE26FEA627023EC3006B46EC /* RecommendationTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DE26FEA427023EC3006B46EC /* RecommendationTableViewCell.xib */; };
 		DE26FEAA27038AF9006B46EC /* RecommendationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE26FEA827038AF9006B46EC /* RecommendationCell.swift */; };
 		DE26FEAB27038AF9006B46EC /* RecommendationCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DE26FEA927038AF9006B46EC /* RecommendationCell.xib */; };
-		DE26FEAD2703B8F7006B46EC /* CircularProgressBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE26FEAC2703B8F7006B46EC /* CircularProgressBarView.swift */; };
 		DE26FEAF2703DC9B006B46EC /* Double+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE26FEAE2703DC9B006B46EC /* Double+Extensions.swift */; };
 		DEADB51026D48A1C00133508 /* UIColor+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEADB50F26D48A1C00133508 /* UIColor+Extensions.swift */; };
 		DEADB51326D48DFA00133508 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEADB51226D48DFA00133508 /* SearchViewController.swift */; };
@@ -106,13 +104,12 @@
 		DEFED81726D6923600B2AEEA /* MovieSearchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEFED81526D6923600B2AEEA /* MovieSearchCell.swift */; };
 		DEFED81826D6923600B2AEEA /* MovieSearchCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DEFED81626D6923600B2AEEA /* MovieSearchCell.xib */; };
 		DEFED81A26D6986B00B2AEEA /* UIImageView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEFED81926D6986B00B2AEEA /* UIImageView+Extension.swift */; };
-		E3C8E95B27EEF4DAEB64DF19 /* Pods_ZPMAPP.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00F1DD68C72DA215F98EDE98 /* Pods_ZPMAPP.framework */; };
+		FDC4E0B7EA4063118019D278 /* Pods_ZPMAPP.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56DFF85ADAABD999967A4CB4 /* Pods_ZPMAPP.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		00F1DD68C72DA215F98EDE98 /* Pods_ZPMAPP.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ZPMAPP.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		191253E54AF944DCE42CF474 /* Pods-ZPMAPP.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ZPMAPP.release.xcconfig"; path = "Target Support Files/Pods-ZPMAPP/Pods-ZPMAPP.release.xcconfig"; sourceTree = "<group>"; };
-		36EECB39F63A1BED91FF1584 /* Pods-ZPMAPP.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ZPMAPP.debug.xcconfig"; path = "Target Support Files/Pods-ZPMAPP/Pods-ZPMAPP.debug.xcconfig"; sourceTree = "<group>"; };
+		20051DE92C7C5E9719B305E2 /* Pods-ZPMAPP.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ZPMAPP.release.xcconfig"; path = "Target Support Files/Pods-ZPMAPP/Pods-ZPMAPP.release.xcconfig"; sourceTree = "<group>"; };
+		56DFF85ADAABD999967A4CB4 /* Pods_ZPMAPP.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ZPMAPP.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6B9F4D1826DDFAE6004BB120 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		6B9F4D1A26DDFB5E004BB120 /* OptionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionsViewController.swift; sourceTree = "<group>"; };
 		6B9F4D1C26DDFB96004BB120 /* EditProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileViewController.swift; sourceTree = "<group>"; };
@@ -120,6 +117,7 @@
 		6B9F4D2226DDFF76004BB120 /* MovieCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieCollectionViewCell.swift; sourceTree = "<group>"; };
 		6B9F4D2326DDFF76004BB120 /* MovieCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MovieCollectionViewCell.xib; sourceTree = "<group>"; };
 		6BA6220726DE2D2400A45B32 /* ZPRedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZPRedButton.swift; sourceTree = "<group>"; };
+		6E4C4D9D5A1563A9FC3D700D /* Pods-ZPMAPP.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ZPMAPP.debug.xcconfig"; path = "Target Support Files/Pods-ZPMAPP/Pods-ZPMAPP.debug.xcconfig"; sourceTree = "<group>"; };
 		7404C3FF26FE22DF00494FD0 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		7404C40126FE230A00494FD0 /* MovieError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieError.swift; sourceTree = "<group>"; };
 		7404C40326FE235A00494FD0 /* MovieAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieAPI.swift; sourceTree = "<group>"; };
@@ -141,7 +139,7 @@
 		7405C32A26D35FF2002B8B2B /* Home.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
 		74309AC326D9D9C300CB5D7B /* ZPButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZPButton.swift; sourceTree = "<group>"; };
 		745B9A5126D583B40024977F /* HomeViewControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewControllerDelegate.swift; sourceTree = "<group>"; };
-		746ECACE26D6AE440047ACE7 /* DetailsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsCell.swift; sourceTree = "<group>"; };
+		746ECACE26D6AE440047ACE7 /* DetailsCell.swift */ = {isa = PBXFileReference; indentWidth = 3; lastKnownFileType = sourcecode.swift; path = DetailsCell.swift; sourceTree = "<group>"; };
 		746ECACF26D6AE440047ACE7 /* DetailsCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailsCell.xib; sourceTree = "<group>"; };
 		74818A4726D4180E0071AB5E /* CardCustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardCustomCell.swift; sourceTree = "<group>"; };
 		74818A4826D4180E0071AB5E /* CardCustomCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CardCustomCell.xib; sourceTree = "<group>"; };
@@ -198,7 +196,6 @@
 		DE26FEA427023EC3006B46EC /* RecommendationTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RecommendationTableViewCell.xib; sourceTree = "<group>"; };
 		DE26FEA827038AF9006B46EC /* RecommendationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendationCell.swift; sourceTree = "<group>"; };
 		DE26FEA927038AF9006B46EC /* RecommendationCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RecommendationCell.xib; sourceTree = "<group>"; };
-		DE26FEAC2703B8F7006B46EC /* CircularProgressBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularProgressBarView.swift; sourceTree = "<group>"; };
 		DE26FEAE2703DC9B006B46EC /* Double+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+Extensions.swift"; sourceTree = "<group>"; };
 		DEADB50F26D48A1C00133508 /* UIColor+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extensions.swift"; sourceTree = "<group>"; };
 		DEADB51226D48DFA00133508 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
@@ -220,7 +217,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E3C8E95B27EEF4DAEB64DF19 /* Pods_ZPMAPP.framework in Frameworks */,
+				FDC4E0B7EA4063118019D278 /* Pods_ZPMAPP.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -438,7 +435,7 @@
 				74A98FB226D2D4EF00DD7889 /* ZPMAPP */,
 				74A98FB126D2D4EF00DD7889 /* Products */,
 				815E984596870329D86FAD73 /* Pods */,
-				85A3026F73855218F549AC13 /* Frameworks */,
+				B197C7D93E6A5F5AA1B6AF65 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -535,7 +532,6 @@
 			children = (
 				746ECACE26D6AE440047ACE7 /* DetailsCell.swift */,
 				746ECACF26D6AE440047ACE7 /* DetailsCell.xib */,
-				DE26FEAC2703B8F7006B46EC /* CircularProgressBarView.swift */,
 			);
 			path = DetailsCell;
 			sourceTree = "<group>";
@@ -607,18 +603,10 @@
 		815E984596870329D86FAD73 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				36EECB39F63A1BED91FF1584 /* Pods-ZPMAPP.debug.xcconfig */,
-				191253E54AF944DCE42CF474 /* Pods-ZPMAPP.release.xcconfig */,
+				6E4C4D9D5A1563A9FC3D700D /* Pods-ZPMAPP.debug.xcconfig */,
+				20051DE92C7C5E9719B305E2 /* Pods-ZPMAPP.release.xcconfig */,
 			);
 			path = Pods;
-			sourceTree = "<group>";
-		};
-		85A3026F73855218F549AC13 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				00F1DD68C72DA215F98EDE98 /* Pods_ZPMAPP.framework */,
-			);
-			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		AB21C97B26D724FC0031724B /* Random */ = {
@@ -765,6 +753,14 @@
 			children = (
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		B197C7D93E6A5F5AA1B6AF65 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				56DFF85ADAABD999967A4CB4 /* Pods_ZPMAPP.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		BC13C72026F548F800A99CFA /* Modal */ = {
@@ -920,13 +916,13 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 74A98FC426D2D4F000DD7889 /* Build configuration list for PBXNativeTarget "ZPMAPP" */;
 			buildPhases = (
-				8EB77C4340D6E0F26CCD92CF /* [CP] Check Pods Manifest.lock */,
+				47546AD9EE7AE20F52E6BCAA /* [CP] Check Pods Manifest.lock */,
 				74A98FAC26D2D4EF00DD7889 /* Sources */,
 				74A98FAD26D2D4EF00DD7889 /* Frameworks */,
 				74A98FAE26D2D4EF00DD7889 /* Resources */,
 				DE2F04CC26E688C900015FBE /* ShellScript */,
-				88B7D234028C141561DB7CB1 /* [CP] Embed Pods Frameworks */,
 				ABC4FD3926FCFB9200F40C20 /* ShellScript */,
+				AF539E2EDBBA10A66085544D /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -1007,24 +1003,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		062BB743E59EC7A4F2A4AB50 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-ZPMAPP/Pods-ZPMAPP-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-ZPMAPP/Pods-ZPMAPP-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ZPMAPP/Pods-ZPMAPP-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		8EB77C4340D6E0F26CCD92CF /* [CP] Check Pods Manifest.lock */ = {
+		47546AD9EE7AE20F52E6BCAA /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -1064,6 +1043,23 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/FirebaseCrashlytics/run\"\n";
+		};
+		AF539E2EDBBA10A66085544D /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ZPMAPP/Pods-ZPMAPP-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ZPMAPP/Pods-ZPMAPP-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ZPMAPP/Pods-ZPMAPP-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
 		};
 		DE2F04CC26E688C900015FBE /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -1150,7 +1146,6 @@
 				BC7884D926F6211200EB59BF /* ControllerHome.swift in Sources */,
 				74818A5326D41AAF0071AB5E /* DailyTrendingsCell.swift in Sources */,
 				749FED3B26D6E61600B35C1A /* WhereToWatchCell.swift in Sources */,
-				DE26FEAD2703B8F7006B46EC /* CircularProgressBarView.swift in Sources */,
 				74CB474E26D757BA0091F683 /* UINavigationBar+Extension.swift in Sources */,
 				7404C40626FE281400494FD0 /* APIEnum.swift in Sources */,
 				7404C41E26FE466B00494FD0 /* MovieDetailsWorker.swift in Sources */,
@@ -1307,7 +1302,7 @@
 		};
 		74A98FC526D2D4F000DD7889 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 36EECB39F63A1BED91FF1584 /* Pods-ZPMAPP.debug.xcconfig */;
+			baseConfigurationReference = 6E4C4D9D5A1563A9FC3D700D /* Pods-ZPMAPP.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -1328,7 +1323,7 @@
 		};
 		74A98FC626D2D4F000DD7889 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 191253E54AF944DCE42CF474 /* Pods-ZPMAPP.release.xcconfig */;
+			baseConfigurationReference = 20051DE92C7C5E9719B305E2 /* Pods-ZPMAPP.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
