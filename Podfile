@@ -12,5 +12,5 @@ pod 'SDWebImage', '~> 5.0'
 pod 'Firebase/Analytics'
 pod 'Firebase/Auth'
 pod 'Firebase/Crashlytics'
-
+pod 'Kingfisher'
 end

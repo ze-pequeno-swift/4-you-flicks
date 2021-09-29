@@ -13,25 +13,27 @@ class CustomCastCell: UITableViewCell {
 
     @IBOutlet private var collectionView: UICollectionView!
     
+    // MARK: - Private properties
+    
+    private var castList: [Cast] = []
+    
     // MARK: - Public Properties
     
     static var identifier: String {
         String(describing: CustomCastCell.self)
     }
-    
-    // MARK: - View Lifecycle
-    
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        setupUI()
-    }
-    
-    // MARK: - Private Functions
 
-    private func setupUI() {
+    // MARK: - Public Functions
+    
+    func setupCell(_ details: Details?) {
+        guard let details = details else { return }
+        
+        castList = details.cast
+
         CastCell.registerOn(collectionView)
         collectionView.delegate = self
         collectionView.dataSource = self
+        collectionView.reloadData()
     }
 }
 
@@ -40,7 +42,7 @@ class CustomCastCell: UITableViewCell {
 extension CustomCastCell: UICollectionViewDelegate, UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10
+        return castList.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -48,11 +50,7 @@ extension CustomCastCell: UICollectionViewDelegate, UICollectionViewDataSource {
         
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: identifier, for: indexPath) as? CastCell else { return UICollectionViewCell() }
 
-        
+        cell.setup(castList[indexPath.item])
         return cell
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print("DEBUG: Cast cell..")
     }
 }

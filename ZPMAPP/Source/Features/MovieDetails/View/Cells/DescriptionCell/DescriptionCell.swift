@@ -12,6 +12,7 @@ class DescriptionCell: UITableViewCell {
     // MARK: - IBOutlets
     
     @IBOutlet private var cardView: UIView!
+    
     @IBOutlet private var descriptionText: UILabel!
     
     // MARK: - Public Properties
@@ -25,5 +26,11 @@ class DescriptionCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         cardView.layer.cornerRadius = 10
+    }
+    
+    // MARK: - Public Functions
+    
+    func setupCell(_ movie: Movie) {
+        descriptionText.text = movie.overview
     }
 }

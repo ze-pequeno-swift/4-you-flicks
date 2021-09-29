@@ -6,14 +6,21 @@
 //
 
 import UIKit
+
 class HomeViewController: UIViewController {
 
     // MARK: - IBOutlets
-    @IBOutlet private var tableView: UITableView!
-    let controllerHome: ControllerHome = ControllerHome()
     
+    @IBOutlet private var tableView: UITableView!
+    
+    // MARK: - Private Properties
+    
+    private let controllerHome: ControllerHome = ControllerHome()
+    
+    private var selectedMovie: Movie?
     
     // MARK: - View Lifecycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
@@ -24,7 +31,6 @@ class HomeViewController: UIViewController {
         super.viewWillAppear(animated)
         setupNavigationBar()
     }
-    
     
     // MARK: - Private Functions
     
@@ -44,7 +50,6 @@ class HomeViewController: UIViewController {
     }
     
     private func setupUI() {
-        
         tableView.delegate = self
         tableView.dataSource = self
         
@@ -60,34 +65,40 @@ class HomeViewController: UIViewController {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: identifier)
                 as? TopCustomCell else { return UITableViewCell() }
         
-        cell.getData(value: value)
+        cell.didFetchMovie(value: value)
         cell.delegate = self
         
         return cell
     }
-
+    
     private func getTopTrending(value: HomeSection) -> UITableViewCell {
         let identifier = DailyTrendingsCell.identifier
         
         guard let cell = tableView.dequeueReusableCell(withIdentifier: identifier)
                 as? DailyTrendingsCell else { return UITableViewCell() }
         
-        cell.getData()
+        cell.didFetchMovie()
         cell.delegate = self
+        
         return cell
     }
 
     private func proceedToMoviesDetails() {
+        let identifier = "MovieDetailsViewController"
         let homeController = UIStoryboard(name: "Home", bundle: nil)
-        guard let viewController = homeController.instantiateViewController(identifier: "MovieDetailsViewController")
+        guard let viewController = homeController.instantiateViewController(identifier: identifier)
                 as? MovieDetailsViewController else { return }
+        
+        viewController.controllerMovieDetails.movie = selectedMovie
+        viewController.hidesBottomBarWhenPushed = true
         
         navigationController?.pushViewController(viewController, animated: true)
     }
     
     private func proceedToLogin() {
+        let identifier = "LoginViewController"
         let homeController = UIStoryboard(name: "Login", bundle: nil)
-        guard let viewController = homeController.instantiateViewController(identifier: "LoginViewController")
+        guard let viewController = homeController.instantiateViewController(identifier: identifier)
                 as? LoginViewController else { return }
         
         let navigationController = UINavigationController(rootViewController: viewController)
@@ -97,6 +108,7 @@ class HomeViewController: UIViewController {
 }
 
 // MARK: - UITableView Protocol Extensions
+
 extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -119,12 +131,13 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        
         let identifier = HeaderSection.identifier
         
-        guard let cell: HeaderSection = tableView.dequeueReusableCell(withIdentifier: identifier) as? HeaderSection else { return UITableViewCell() }
+        guard let cell: HeaderSection = tableView.dequeueReusableCell(withIdentifier: identifier)
+                as? HeaderSection else { return UITableViewCell() }
         
         cell.setup(value: controllerHome.getTitleSection(section: section))
+        
         return cell
     }
     
@@ -134,8 +147,11 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
 }
 
 // MARK: - HomeViewControllerDelegate Extensions
+
 extension HomeViewController: HomeViewControllerDelegate {
-    func tappedCell() {
+    
+    func tappedCell(selectedMovie: Movie?) {
+        self.selectedMovie = selectedMovie
         proceedToMoviesDetails()
     }
 }

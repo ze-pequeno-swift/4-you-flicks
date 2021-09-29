@@ -100,6 +100,7 @@ PODS:
   - nanopb/decode (2.30908.0)
   - nanopb/encode (2.30908.0)
   - PromisesObjC (2.0.0)
+  - Kingfisher (7.0.0)
   - SDWebImage (5.11.1):
     - SDWebImage/Core (= 5.11.1)
   - SDWebImage/Core (5.11.1)
@@ -110,6 +111,7 @@ DEPENDENCIES:
   - Firebase/Analytics
   - Firebase/Auth
   - Firebase/Crashlytics
+  - Kingfisher
   - SDWebImage (~> 5.0)
   - SwiftLint
 
@@ -129,6 +131,7 @@ SPEC REPOS:
     - GTMSessionFetcher
     - nanopb
     - PromisesObjC
+    - Kingfisher
     - SDWebImage
     - SwiftLint
 
@@ -151,5 +154,10 @@ SPEC CHECKSUMS:
   SwiftLint: 99f82d07b837b942dd563c668de129a03fc3fb52
 
 PODFILE CHECKSUM: fe417d3aaaecb81291ba70f4ff7af102754d8113
+  Kingfisher: 5efc54fec3980f92354898532e562cc17f31efb4
+  SDWebImage: a7f831e1a65eb5e285e3fb046a23fcfbf08e696d
+  SwiftLint: 99f82d07b837b942dd563c668de129a03fc3fb52
 
-COCOAPODS: 1.10.2
+PODFILE CHECKSUM: fcfa172d0fad853d8a2565509958f27712e65419
+
+COCOAPODS: 1.10.1
