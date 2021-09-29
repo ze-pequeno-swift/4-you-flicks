@@ -9,7 +9,8 @@ target 'ZPMAPP' do
 pod 'SwiftLint'
 pod 'Alamofire', '~> 5.4'
 pod 'SDWebImage', '~> 5.0'
+pod 'Firebase/Analytics'
+pod 'Firebase/Auth'
+pod 'Firebase/Crashlytics'
 pod 'Kingfisher'
-
-
 end
