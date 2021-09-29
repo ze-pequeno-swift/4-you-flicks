@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -18,10 +19,10 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="420"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="posterviuva" translatesAutoresizingMaskIntoConstraints="NO" id="GQ5-Tw-sJL">
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="empty-poster-image" translatesAutoresizingMaskIntoConstraints="NO" id="GQ5-Tw-sJL">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="260"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="260" id="zg4-k9-Sf3"/>
+                            <constraint firstAttribute="height" priority="999" constant="260" id="zg4-k9-Sf3"/>
                         </constraints>
                     </imageView>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SrG-dj-aq2">
@@ -143,9 +144,9 @@
     </objects>
     <resources>
         <image name="backwidow" width="800" height="1200"/>
+        <image name="empty-poster-image" width="6891" height="4155"/>
         <image name="icon-imbd" width="512" height="512"/>
         <image name="icon-rottentomatoes" width="1280" height="365"/>
-        <image name="posterviuva" width="1100" height="543"/>
         <namedColor name="Main Black">
             <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

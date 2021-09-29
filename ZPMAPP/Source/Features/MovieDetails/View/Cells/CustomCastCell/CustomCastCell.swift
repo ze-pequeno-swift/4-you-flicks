@@ -10,7 +10,7 @@ import UIKit
 class CustomCastCell: UITableViewCell {
     
     // MARK: - IBOutlets
-
+    
     @IBOutlet private var collectionView: UICollectionView!
     
     // MARK: - Private properties
@@ -22,20 +22,21 @@ class CustomCastCell: UITableViewCell {
     static var identifier: String {
         String(describing: CustomCastCell.self)
     }
-
+    
     // MARK: - Public Functions
     
     func setupCell(_ details: Details?) {
-        guard let details = details else { return }
+        guard let movie = details else { return }
         
-        castList = details.cast
-
+        castList = movie.cast
+        
         CastCell.registerOn(collectionView)
         collectionView.delegate = self
         collectionView.dataSource = self
         collectionView.reloadData()
     }
 }
+
 
 // MARK: - UICollectionView Protocol Extensions
 
@@ -49,7 +50,7 @@ extension CustomCastCell: UICollectionViewDelegate, UICollectionViewDataSource {
         let identifier = CastCell.identifier
         
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: identifier, for: indexPath) as? CastCell else { return UICollectionViewCell() }
-
+        
         cell.setup(castList[indexPath.item])
         return cell
     }
