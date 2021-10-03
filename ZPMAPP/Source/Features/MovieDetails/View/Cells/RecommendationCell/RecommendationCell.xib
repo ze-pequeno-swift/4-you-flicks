@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="RecommendationCell" id="gTV-IL-0wX" customClass="RecommendationCell" customModule="ZPMAPP" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="161" height="248"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="161" height="248"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nN6-Z2-ewa">
+                        <rect key="frame" x="0.0" y="0.0" width="161" height="248"/>
+                        <color key="backgroundColor" name="Main Black"/>
+                    </view>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="backwidow" translatesAutoresizingMaskIntoConstraints="NO" id="wZY-u7-mXy">
+                        <rect key="frame" x="0.0" y="0.0" width="161" height="248"/>
+                        <constraints>
+                            <constraint firstAttribute="height" priority="999" constant="250" id="VsI-b7-AqR"/>
+                        </constraints>
+                    </imageView>
+                </subviews>
+            </view>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <constraints>
+                <constraint firstItem="nN6-Z2-ewa" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="6FL-C3-evQ"/>
+                <constraint firstAttribute="trailing" secondItem="nN6-Z2-ewa" secondAttribute="trailing" id="A9y-BX-gC0"/>
+                <constraint firstItem="nN6-Z2-ewa" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="GN7-hl-e0l"/>
+                <constraint firstItem="wZY-u7-mXy" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="MG3-L3-sgf"/>
+                <constraint firstAttribute="trailing" secondItem="wZY-u7-mXy" secondAttribute="trailing" id="WfF-KI-3Rk"/>
+                <constraint firstAttribute="bottom" secondItem="wZY-u7-mXy" secondAttribute="bottom" id="gpx-NO-dsy"/>
+                <constraint firstItem="wZY-u7-mXy" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="xMr-nZ-hDX"/>
+                <constraint firstAttribute="bottom" secondItem="nN6-Z2-ewa" secondAttribute="bottom" id="zRe-kv-T20"/>
+            </constraints>
+            <size key="customSize" width="161" height="248"/>
+            <connections>
+                <outlet property="posterImage" destination="wZY-u7-mXy" id="aoX-Y7-44J"/>
+            </connections>
+            <point key="canvasLocation" x="218.11594202898553" y="140.625"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="backwidow" width="800" height="1200"/>
+        <namedColor name="Main Black">
+            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>
