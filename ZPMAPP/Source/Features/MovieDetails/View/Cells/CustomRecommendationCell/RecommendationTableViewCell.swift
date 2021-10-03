@@ -38,7 +38,6 @@ extension RecommendationTableViewCell: UICollectionViewDataSource, UICollectionV
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
 
         return recommendation.count
-
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -51,6 +50,5 @@ extension RecommendationTableViewCell: UICollectionViewDataSource, UICollectionV
 
         cell.setupCell(recommendation[indexPath.item])
         return cell
-
     }
 }
