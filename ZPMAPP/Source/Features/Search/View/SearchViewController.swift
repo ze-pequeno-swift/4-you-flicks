@@ -98,7 +98,7 @@ class SearchViewController: UIViewController {
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard let detailVC = segue.destination as? DetailSearchViewController, let sender = sender as? [MovieList] else { return }
+        guard let detailVC = segue.destination as? DetailSearchViewController, let sender = sender as? [Movie] else { return }
         detailVC.movieData = sender
     }
 }
@@ -108,7 +108,7 @@ class SearchViewController: UIViewController {
 extension SearchViewController: UISearchBarDelegate {
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        controller.searchMovieResults(searchText: searchText, index: searchBar.selectedScopeButtonIndex) { success, error in
+        controller.searchMovieResults(searchText: searchText) { success, error in
 
             if success {
                 self.tableView.reloadData()
@@ -136,9 +136,11 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        controller.checkFilmEmptyState()
-            ? getActorCell(indexPath: indexPath)
-            : getMovieSearchCell(indexPath: indexPath)
+//        controller.checkFilmEmptyState()
+//            ? getActorCell(indexPath: indexPath)
+//            : getMovieSearchCell(indexPath: indexPath)
+
+        getMovieSearchCell(indexPath: indexPath)
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

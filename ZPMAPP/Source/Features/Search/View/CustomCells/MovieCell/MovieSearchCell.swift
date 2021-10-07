@@ -33,10 +33,10 @@ class MovieSearchCell: UITableViewCell {
     
     // MARK: - Public Functions
     
-    public func setupSearchMovieCell(data: MovieList) {
+    public func setupSearchMovieCell(data: Movie) {
         self.titleMovieLabel.text = data.title
-        self.titileMovieImageView.image = UIImage(named: data.image ?? "")
-        self.movieLengthLabel.text = data.length
-        self.movieGenreLabel.text = data.genre
+        self.titileMovieImageView.image = UIImage(named: data.posterPath ?? "")
+        self.movieLengthLabel.text = data.voteAverage.formateVoteAverage()
+        self.movieGenreLabel.text = data.releaseDate
     }
 }

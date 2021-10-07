@@ -16,7 +16,7 @@ class DetailSearchViewController: UIViewController {
     @IBOutlet private weak var tableViewDetailSearch: UITableView!
 
     // MARK: - Public Properties
-    var movieData = [MovieList]()
+    var movieData = [Movie]()
 
     // MARK: - View Lifecycle
 
@@ -52,7 +52,7 @@ class DetailSearchViewController: UIViewController {
         let cell = tableViewDetailSearch.dequeueReusableCell(withIdentifier: MovieSearchCell.identifier, for: indexPath) as? MovieSearchCell
         cell?.setupSearchMovieCell(data: movieData[indexPath.row])
 
-        actorSearchNameLabel.text = movieData[indexPath.row].actors
+//        actorSearchNameLabel.text = movieData[indexPath.row].actors
 
         return cell ?? UITableViewCell()
     }

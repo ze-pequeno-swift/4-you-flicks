@@ -18,8 +18,8 @@ class SearchController {
     
     private var arrayMovie: [Movie] = []
     
-    private var arrayFilmSearchResult: [MovieList] = []
-    private var arrayActorsSearchResult: [MovieList] = []
+    private var arrayFilmSearchResult: [Movie] = []
+    private var arrayActorsSearchResult: [Movie] = []
 
     private let movieListWorker: MovieWorkerProtocol
 
@@ -38,28 +38,30 @@ class SearchController {
     // MARK: - Public Functions
 
     func resultCount() -> Int {
-        checkFilmEmptyState() ? arrayActorsSearchResult.count : arrayFilmSearchResult.count
+//        checkFilmEmptyState() ? arrayActorsSearchResult.count : arrayFilmSearchResult.count
+
+        return arrayMovie.count
     }
     
     func checkFilmEmptyState() -> Bool {
         return arrayFilmSearchResult.isEmpty
     }
     
-    func loadCustomFilmCell(indexPath: IndexPath) -> MovieList {
-        return arrayFilmSearchResult[indexPath.row]
+    func loadCustomFilmCell(indexPath: IndexPath) -> Movie {
+        return arrayMovie[indexPath.row]
     }
     
-    func loadCustomActorsCell(indexPath: IndexPath) -> MovieList {
+    func loadCustomActorsCell(indexPath: IndexPath) -> Movie {
         return arrayActorsSearchResult[indexPath.row]
     }
     
-    func searchMovieResults(searchText: String, index: Int, completion: @escaping (Bool, Error?) -> Void) {
+    func searchMovieResults(searchText: String, completion: @escaping (Bool, Error?) -> Void) {
 
-        movieListWorker.fetchMovieWithQuery(query: searchText.uppercased()) { [unowned self] result in
+        movieListWorker.fetchMovieWithQuery(query: searchText.uppercased()) { [weak self] result in
+            guard let self = self else { return }
             switch result {
                case .success(let response):
-                   arrayMovie = response.results
-                       print(arrayMovie)
+                    self.arrayMovie = response.results
                        completion(true, nil)
                case .failure(_):
                    // Exibir erro
@@ -67,26 +69,5 @@ class SearchController {
                }
 
         }
-
-//        if searchText.isEmpty {
-//            arrayFilmSearchResult = []
-//            arrayActorsSearchResult = []
-//        }
-
-//            switch index {
-//            case SelectedScopeBar.title.rawValue:
-//                self.arrayFilmSearchResult = self.arrayMovie.filter { model -> Bool in
-//                    guard let movie = model.title?.uppercased() else { return false }
-//                    return movie.contains(searchText.uppercased())
-//                }
-//            case SelectedScopeBar.actors.rawValue:
-//                self.arrayActorsSearchResult = self.arrayMovie.filter { model -> Bool in
-//                    guard let movie = model.actors?.uppercased() else { return false }
-//                    return movie.contains(searchText.uppercased())
-//                }
-//            default:
-//                arrayFilmSearchResult = []
-//                arrayActorsSearchResult = []
-//        }
     }
 }
