@@ -35,6 +35,7 @@ class ControllerMovieDetails {
 
     func getMovie() -> Movie {
         return movie!
+
     }
     
     func getDetails() -> Details? {
