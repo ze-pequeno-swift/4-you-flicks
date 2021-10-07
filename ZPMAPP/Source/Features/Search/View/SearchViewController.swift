@@ -108,8 +108,13 @@ class SearchViewController: UIViewController {
 extension SearchViewController: UISearchBarDelegate {
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        controller.searchMovieResults(searchText: searchText, index: searchBar.selectedScopeButtonIndex)
-        tableView.reloadData()
+        controller.searchMovieResults(searchText: searchText, index: searchBar.selectedScopeButtonIndex) { success, error in
+
+            if success {
+                self.tableView.reloadData()
+            }
+        }
+
     }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
