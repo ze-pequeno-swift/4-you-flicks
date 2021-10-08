@@ -5,18 +5,18 @@
 //
 
 import UIKit
+import Cosmos
 
 class MovieSearchCell: UITableViewCell {
     
     // MARK: - IBOutlets
     
-    @IBOutlet  private weak var titileMovieImageView: UIImageView!
+    @IBOutlet  private weak var movieImageView: UIImageView!
     
     @IBOutlet  private weak var titleMovieLabel: UILabel!
     
-    @IBOutlet  private weak var movieLengthLabel: UILabel!
-    
-    @IBOutlet  private weak var movieGenreLabel: UILabel!
+    @IBOutlet weak var starsRatingView: CosmosView!
+
     
     // MARK: - Public Properties
     
@@ -28,15 +28,18 @@ class MovieSearchCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        self.titileMovieImageView.setupCornerImage(cornerRadius: 10)
+        self.movieImageView.setupCornerImage(cornerRadius: 10)
     }
     
     // MARK: - Public Functions
     
     public func setupSearchMovieCell(data: Movie) {
-        self.titleMovieLabel.text = data.title
-        self.titileMovieImageView.image = UIImage(named: data.posterPath ?? "")
-        self.movieLengthLabel.text = data.voteAverage.formateVoteAverage()
-        self.movieGenreLabel.text = data.releaseDate
+
+        if let posterPath = data.posterPath {
+            movieImageView.load(url: MovieAPI.build(image: posterPath, size: .w500))
+        }
+
+        titleMovieLabel.text = data.title
+        starsRatingView.rating = data.voteAverage / 2
     }
 }

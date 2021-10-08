@@ -67,7 +67,6 @@ class SearchController {
                    // Exibir erro
                  break
                }
-
         }
     }
 }
