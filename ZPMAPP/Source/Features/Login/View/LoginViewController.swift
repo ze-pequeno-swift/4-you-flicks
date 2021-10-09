@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Firebase
 
 class LoginViewController: UIViewController {
     
@@ -17,6 +18,8 @@ class LoginViewController: UIViewController {
     
     private let passwordlImageRight = UIImageView()
     private var iconClick = false
+    private var emailGeneral = ""
+    private var passwordGeneral = ""
     
     // MARK: - View Lifecycle
     
@@ -24,14 +27,52 @@ class LoginViewController: UIViewController {
         super.viewDidLoad()
         self.setupUI()
         navigationController?.navigationBar.isHidden = true
-        
     }
     
     // MARK: - Private Functions
     
     
     @IBAction func loginButton(_ sender: UIButton) {
-        close()
+        
+        if checkFields(email: userTextField, password: passwordTextField) {
+            Auth.auth().signIn(withEmail: emailGeneral, password: passwordGeneral) { [weak self] authResult, error in
+                if error != nil {
+                    print("Erro no login")
+                } else {
+                    self!.close()
+                }
+              guard let strongSelf = self else { return }
+                
+            }
+        }
+    }
+    
+    func checkFields (email: UITextField, password: UITextField) -> Bool {
+        if let emailCheck = email.text {
+            if isValidEmail(emailCheck) {
+                emailGeneral = emailCheck
+                if let passwordCheck = password.text {
+                    passwordGeneral = passwordCheck
+                    return true
+                } else {
+                    print("Erro na senha")
+                    return false
+                }
+            } else {
+                print("Digite um email válido")
+                return false
+            }
+        } else {
+            print("Erro no email")
+            return false
+        }
+    }
+    
+    func isValidEmail(_ email: String) -> Bool {
+        let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
+
+        let emailPred = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
+        return emailPred.evaluate(with: email)
     }
     
     private func setupUI() {
