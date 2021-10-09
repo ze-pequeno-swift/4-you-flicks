@@ -75,7 +75,6 @@
 		AB438220270246F300A8A74B /* UITextField+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB43821F270246F300A8A74B /* UITextField+Extensions.swift */; };
 		AB4382222702665A00A8A74B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = AB4382212702665A00A8A74B /* GoogleService-Info.plist */; };
 		ABC4FD3B26FD084A00F40C20 /* CreateAccountController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABC4FD3A26FD084A00F40C20 /* CreateAccountController.swift */; };
-		B205BC2E1EE73A4E3D1E90A6 /* Pods_ZPMAPP.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4DE58B26DB36CAEA02CA119E /* Pods_ZPMAPP.framework */; };
 		BC13C72226F5491900A99CFA /* HomeSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC13C72126F5491900A99CFA /* HomeSection.swift */; };
 		BC1CCA0426F768C5002E0462 /* HeaderSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC1CCA0226F768C5002E0462 /* HeaderSection.swift */; };
 		BC1CCA0526F768C5002E0462 /* HeaderSection.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC1CCA0326F768C5002E0462 /* HeaderSection.xib */; };
@@ -891,8 +890,8 @@
 				74A98FAD26D2D4EF00DD7889 /* Frameworks */,
 				74A98FAE26D2D4EF00DD7889 /* Resources */,
 				DE2F04CC26E688C900015FBE /* ShellScript */,
-				88B7D234028C141561DB7CB1 /* [CP] Embed Pods Frameworks */,
 				ABC4FD3926FCFB9200F40C20 /* ShellScript */,
+				3300A3A8A0112202A626852C /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -971,7 +970,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		062BB743E59EC7A4F2A4AB50 /* [CP] Embed Pods Frameworks */ = {
+		3300A3A8A0112202A626852C /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -1271,16 +1270,19 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEVELOPMENT_TEAM = ZFB9PS3322;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = ZPMAPP/SupportFiles/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "ze-pequeno.mobile.ZPMAPP";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -1295,6 +1297,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = ZFB9PS3322;
 				INFOPLIST_FILE = ZPMAPP/SupportFiles/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
