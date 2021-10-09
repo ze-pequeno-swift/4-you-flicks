@@ -57,6 +57,7 @@
 		749FED3826D6E0CA00B35C1A /* DescriptionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 749FED3626D6E0CA00B35C1A /* DescriptionCell.xib */; };
 		749FED3B26D6E61600B35C1A /* WhereToWatchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 749FED3926D6E61600B35C1A /* WhereToWatchCell.swift */; };
 		749FED3C26D6E61600B35C1A /* WhereToWatchCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 749FED3A26D6E61600B35C1A /* WhereToWatchCell.xib */; };
+		74A58E57271125B1004112E8 /* RandomController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74A58E56271125B1004112E8 /* RandomController.swift */; };
 		74A98FB426D2D4EF00DD7889 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74A98FB326D2D4EF00DD7889 /* AppDelegate.swift */; };
 		74A98FB626D2D4EF00DD7889 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74A98FB526D2D4EF00DD7889 /* SceneDelegate.swift */; };
 		74A98FB826D2D4EF00DD7889 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74A98FB726D2D4EF00DD7889 /* HomeViewController.swift */; };
@@ -159,6 +160,7 @@
 		749FED3626D6E0CA00B35C1A /* DescriptionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DescriptionCell.xib; sourceTree = "<group>"; };
 		749FED3926D6E61600B35C1A /* WhereToWatchCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhereToWatchCell.swift; sourceTree = "<group>"; };
 		749FED3A26D6E61600B35C1A /* WhereToWatchCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WhereToWatchCell.xib; sourceTree = "<group>"; };
+		74A58E56271125B1004112E8 /* RandomController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomController.swift; sourceTree = "<group>"; };
 		74A98FB026D2D4EF00DD7889 /* ZPMAPP.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZPMAPP.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		74A98FB326D2D4EF00DD7889 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		74A98FB526D2D4EF00DD7889 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -451,6 +453,14 @@
 			path = RecoverPassword;
 			sourceTree = "<group>";
 		};
+		74A58E5527112598004112E8 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				74A58E56271125B1004112E8 /* RandomController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
 		74A98FA726D2D4EF00DD7889 = {
 			isa = PBXGroup;
 			children = (
@@ -641,9 +651,8 @@
 		AB21C97B26D724FC0031724B /* Random */ = {
 			isa = PBXGroup;
 			children = (
-				ABA4313726E1744F00B21018 /* Model */,
+				74A58E5527112598004112E8 /* Controller */,
 				ABA4313626E1744A00B21018 /* View */,
-				ABA4313526E1744400B21018 /* Controller */,
 			);
 			path = Random;
 			sourceTree = "<group>";
@@ -670,13 +679,6 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
-		ABA4313526E1744400B21018 /* Controller */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Controller;
-			sourceTree = "<group>";
-		};
 		ABA4313626E1744A00B21018 /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -684,13 +686,6 @@
 				AB21C98026D734240031724B /* SuggestionViewController.swift */,
 			);
 			path = View;
-			sourceTree = "<group>";
-		};
-		ABA4313726E1744F00B21018 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
 			sourceTree = "<group>";
 		};
 		ABA4313926E1747B00B21018 /* View */ = {
@@ -1112,6 +1107,7 @@
 				AB21C98126D734240031724B /* SuggestionViewController.swift in Sources */,
 				74309AC426D9D9C300CB5D7B /* ZPButton.swift in Sources */,
 				BCBD243526D48697008110FB /* LoginViewController.swift in Sources */,
+				74A58E57271125B1004112E8 /* RandomController.swift in Sources */,
 				BCDC471426D7EEB500AD8A35 /* CreateAccountViewController.swift in Sources */,
 				7404C41B26FE435600494FD0 /* Country.swift in Sources */,
 				74A98FB826D2D4EF00DD7889 /* HomeViewController.swift in Sources */,

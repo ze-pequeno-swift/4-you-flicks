@@ -8,7 +8,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Random-->
+        <!--Random View Controller-->
         <scene sceneID="s0d-6b-0kx">
             <objects>
                 <viewController id="Y6W-OH-hqX" customClass="RandomViewController" customModule="ZPMAPP" customModuleProvider="target" sceneMemberID="viewController">
@@ -23,8 +23,8 @@
                                         <rect key="frame" x="0.0" y="0.0" width="343" height="38"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Filmes" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BCu-HU-RE1">
-                                                <rect key="frame" x="147" y="9" width="49" height="20"/>
-                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
+                                                <rect key="frame" x="146" y="9" width="51" height="20"/>
+                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
                                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
@@ -49,7 +49,7 @@
                                             <action selector="sortedMovie:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="wpn-k6-88U"/>
                                         </connections>
                                     </button>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="  Escolha uma nota" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qh7-K2-aNH">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qh7-K2-aNH">
                                         <rect key="frame" x="0.0" y="74" width="343" height="38"/>
                                         <color key="backgroundColor" name="Main Onix"/>
                                         <constraints>
@@ -59,7 +59,7 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="  Escolha um gênero" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Lrc-DY-oav">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Lrc-DY-oav">
                                         <rect key="frame" x="0.0" y="36" width="343" height="38"/>
                                         <color key="backgroundColor" name="Main Onix"/>
                                         <constraints>
@@ -83,21 +83,35 @@
                                             <constraint firstAttribute="height" constant="16" id="Nl0-eX-at4"/>
                                         </constraints>
                                     </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tyZ-qX-yKX">
+                                        <rect key="frame" x="0.0" y="36" width="343" height="38"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cEM-1g-aF2">
+                                        <rect key="frame" x="0.0" y="74" width="343" height="38"/>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" name="Main Onix"/>
                                 <constraints>
                                     <constraint firstItem="kzW-ll-Zck" firstAttribute="centerY" secondItem="Lrc-DY-oav" secondAttribute="centerY" id="70F-IU-X42"/>
                                     <constraint firstItem="5pW-rJ-PVW" firstAttribute="centerY" secondItem="qh7-K2-aNH" secondAttribute="centerY" id="8RE-ua-3pg"/>
+                                    <constraint firstItem="cEM-1g-aF2" firstAttribute="trailing" secondItem="qh7-K2-aNH" secondAttribute="trailing" id="AuE-K6-0AU"/>
+                                    <constraint firstItem="tyZ-qX-yKX" firstAttribute="leading" secondItem="Lrc-DY-oav" secondAttribute="leading" id="BHw-wK-kkv"/>
                                     <constraint firstItem="BRq-VC-4kW" firstAttribute="leading" secondItem="gxf-2O-O4w" secondAttribute="leading" id="Fbk-J5-NZk"/>
                                     <constraint firstAttribute="height" constant="152" id="GCO-Gc-jWU"/>
+                                    <constraint firstItem="cEM-1g-aF2" firstAttribute="leading" secondItem="qh7-K2-aNH" secondAttribute="leading" id="Lvp-kZ-oS5"/>
                                     <constraint firstAttribute="trailing" secondItem="5pW-rJ-PVW" secondAttribute="trailing" constant="24" id="OwU-5z-5WE"/>
                                     <constraint firstAttribute="trailing" secondItem="kzW-ll-Zck" secondAttribute="trailing" constant="24" id="QWk-vi-6WK"/>
                                     <constraint firstAttribute="trailing" secondItem="Lrc-DY-oav" secondAttribute="trailing" id="SJk-CR-q8g"/>
                                     <constraint firstItem="VXX-ed-3d3" firstAttribute="top" secondItem="gxf-2O-O4w" secondAttribute="top" id="TNI-tU-PmU"/>
+                                    <constraint firstItem="cEM-1g-aF2" firstAttribute="height" secondItem="qh7-K2-aNH" secondAttribute="height" id="UoI-KC-x9K"/>
                                     <constraint firstAttribute="trailing" secondItem="BRq-VC-4kW" secondAttribute="trailing" id="dyP-w3-zib"/>
                                     <constraint firstAttribute="trailing" secondItem="qh7-K2-aNH" secondAttribute="trailing" id="hFI-vr-iTG"/>
+                                    <constraint firstItem="tyZ-qX-yKX" firstAttribute="trailing" secondItem="Lrc-DY-oav" secondAttribute="trailing" id="iCU-pq-bXF"/>
+                                    <constraint firstItem="cEM-1g-aF2" firstAttribute="top" secondItem="qh7-K2-aNH" secondAttribute="top" id="l8J-D9-Vvr"/>
+                                    <constraint firstItem="tyZ-qX-yKX" firstAttribute="height" secondItem="Lrc-DY-oav" secondAttribute="height" id="maS-og-971"/>
                                     <constraint firstItem="qh7-K2-aNH" firstAttribute="top" secondItem="Lrc-DY-oav" secondAttribute="bottom" id="o6t-LM-N7E"/>
                                     <constraint firstItem="qh7-K2-aNH" firstAttribute="leading" secondItem="gxf-2O-O4w" secondAttribute="leading" id="oJu-Ed-4nX"/>
+                                    <constraint firstItem="tyZ-qX-yKX" firstAttribute="top" secondItem="Lrc-DY-oav" secondAttribute="top" id="oLy-zr-f9N"/>
                                     <constraint firstItem="Lrc-DY-oav" firstAttribute="leading" secondItem="gxf-2O-O4w" secondAttribute="leading" id="tbF-AB-27P"/>
                                     <constraint firstItem="VXX-ed-3d3" firstAttribute="leading" secondItem="gxf-2O-O4w" secondAttribute="leading" id="uDm-Ig-Feg"/>
                                     <constraint firstAttribute="bottom" secondItem="BRq-VC-4kW" secondAttribute="bottom" id="urh-mM-OsH"/>
@@ -114,25 +128,26 @@
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="gxf-2O-O4w" secondAttribute="trailing" constant="16" id="dvL-sD-AeH"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Random" image="shuffle" catalog="system" id="oKr-Yx-bpV"/>
+                    <navigationItem key="navigationItem" id="cAM-cf-ggR"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="chooseGenreTextField" destination="Lrc-DY-oav" id="oUo-lQ-FGF"/>
                         <outlet property="chooseNoteTextField" destination="qh7-K2-aNH" id="GlS-HU-ZSg"/>
+                        <outlet property="genreButton" destination="tyZ-qX-yKX" id="ebc-mT-HLv"/>
                         <outlet property="goButton" destination="BRq-VC-4kW" id="4cY-VT-gcw"/>
                         <outlet property="headerView" destination="VXX-ed-3d3" id="HtO-Le-XUu"/>
+                        <outlet property="noteButton" destination="cEM-1g-aF2" id="KxN-hH-iAj"/>
                         <outlet property="objectView" destination="gxf-2O-O4w" id="4lk-2j-YFv"/>
-                        <segue destination="2kh-12-zhR" kind="presentation" identifier="SuggestionViewControllerSegue" modalPresentationStyle="fullScreen" modalTransitionStyle="flipHorizontal" id="I19-30-zIV"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="138.40000000000001" y="123.68815592203899"/>
+            <point key="canvasLocation" x="1228" y="123.68815592203899"/>
         </scene>
         <!--Suggestion View Controller-->
         <scene sceneID="ahP-EF-BwO">
             <objects>
-                <viewController id="2kh-12-zhR" customClass="SuggestionViewController" customModule="ZPMAPP" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SuggestionViewController" id="2kh-12-zhR" customClass="SuggestionViewController" customModule="ZPMAPP" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8Yf-as-ILZ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -255,7 +270,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zEZ-A0-E4X" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="904.79999999999995" y="123.68815592203899"/>
+            <point key="canvasLocation" x="2207.1999999999998" y="123.68815592203899"/>
         </scene>
     </scenes>
     <resources>
@@ -264,7 +279,6 @@
         <image name="imdb logo" width="1200" height="605"/>
         <image name="joker" width="707" height="1000"/>
         <image name="rotten tomatoes logo" width="1296" height="730"/>
-        <image name="shuffle" catalog="system" width="128" height="93"/>
         <namedColor name="Main Black">
             <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
