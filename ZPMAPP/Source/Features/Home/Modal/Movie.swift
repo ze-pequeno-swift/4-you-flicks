@@ -23,6 +23,8 @@ struct Movie: Decodable {
     
     let backdropPath: String?
     
+    let tag: String?
+    
     private enum CodingKeys: String, CodingKey {
         case id = "id"
         case title = "title"
@@ -31,5 +33,6 @@ struct Movie: Decodable {
         case voteAverage = "vote_average"
         case posterPath = "poster_path"
         case backdropPath = "backdrop_path"
+        case tag = "tag"
     }
 }
