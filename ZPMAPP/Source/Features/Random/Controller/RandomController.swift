@@ -15,8 +15,6 @@ class RandomController {
     
     var movieList: [Movie] = []
     
-    var genreSelectedd: String?
-    
     var note: Double?
     
     var sortedMovie: Movie?
@@ -33,59 +31,50 @@ class RandomController {
         self.movieListWorker = MovieListWorker()
     }
     
+    // MARK: - Public Functions
+    
     func get(note: String) {
         self.note = Double(note)
-        print("==== nota é \(note)")
     }
     
-//    let picker = ["Dramas": 1,
-//                  "Comédia": 2,
-//                  "Comédia": 2,
-//                  "Comédia": 2,
-//                  "Comédia": 2,
-//                  "Comédia": 2,
-//                  "Comédia": 2,
-//                  "Comédia": 2,
-//                  "Comédia": 2,
-//                  "Comédia": 2,
-//                  "Comédia": 2,
-//                  "Comédia": 2,
-//                  "Comédia": 2 ]
-//
-//    let pickerData = ["Dramas", "Comédia", "Filmes para família", "Romance", "Ação", "Documentários", "Terror", "Fantasia", "Animes", "Musical", "Policial"]
+    // MARK: - Private Functions
     
-    func sotedMovie(moviesFilters: [Movie]) {
-        sortedMovie = moviesFilters.randomElement()
-        delegate?.get(sortedMovie: sortedMovie)
-        
-        print("FILME SORTADO ALEATORIAMENTE É \(sortedMovie)")
-    }
-    
-    func filterMovie(movieList: [Movie]) {
-        guard let note = note else { return }
-        let moviesFilters = movieList.filter { $0.voteAverage >= note }
-        
-        sotedMovie(moviesFilters: moviesFilters)
-    }
-
-    func fetchRandomList(genreSelected: String) {
+    func fetchRandomList(genreSelected: String, completion: @escaping () -> Void) {
         let path = path.first { $0.genre == genreSelected}
-        
-        print("=== path \(path)")
         guard let idGenre = path?.idGenre else { return }
-        print("=== path \(idGenre)")
-        
+
         movieListWorker.fecthMovieWithGenre(section: .popular, type: .movie, idGenre: idGenre) { [unowned self] result in
             switch result {
             case .success(let response):
                 movieList = response.results
                 filterMovie(movieList: movieList)
+                completion()
             case .failure(_):
                 // Exibir erro
               break
             }
         }
     }
+    
+    private func filterMovie(movieList: [Movie]) {
+        guard let note = note else { return }
+        let moviesFilters = movieList.filter { $0.voteAverage >= note }
+        
+        sotedMovie(moviesFilters: moviesFilters)
+    }
+    
+    private func sotedMovie(moviesFilters: [Movie]) {
+        sortedMovie = moviesFilters.randomElement()
+        delegate?.get(sortedMovie: sortedMovie)
+    }
+    
+    private func getSortedMovie() -> Movie? {
+        return sortedMovie
+    }
+    
+    let pickerDataGenre = ["Dramas", "Comédia", "Filmes para família", "Romance", "Ação", "Documentários", "Terror", "Fantasia", "Animes", "Musical", "Policial"]
+    
+    let pickerDataNote = ["1", "2", "3", "4", "5", "6", "7", "8", "9"]
     
     typealias SetGenreItemsPicker = (idGenre: Int, genre: String)
     
@@ -95,11 +84,4 @@ class RandomController {
         (10751, "Filmes para família"),
         (10749, "Romance")
     ]
-}
-
-extension RandomController: SelectedGenreMovie {
-    
-    func genreMovie(genre: String) {
-        genreSelectedd = genre
-    }
 }

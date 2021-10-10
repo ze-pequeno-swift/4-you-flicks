@@ -55,6 +55,8 @@ class ControllerMovieDetails {
         }
     }
     
+    // MARK: - Private Functions
+    
     private func showMovieDetails(_ movie: Movie, response: MovieDetailsResponse?) {
         guard let movieDetails = response else {
             // Exibir error
