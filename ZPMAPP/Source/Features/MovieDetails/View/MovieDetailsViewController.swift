@@ -125,6 +125,7 @@ class MovieDetailsViewController: UIViewController {
         if let details = controllerMovieDetails.getDetails() {
             details.cast.isEmpty ? cell.isHidden = true : cell.setupCell(details)
         }
+        
         return cell
     }
 
@@ -132,9 +133,8 @@ class MovieDetailsViewController: UIViewController {
         let identifier = RecommendationTableViewCell.identifier
 
         guard let cell = tableView.dequeueReusableCell(withIdentifier: identifier)
-                as? RecommendationTableViewCell else {
-                    return UITableViewCell()
-                }
+                as? RecommendationTableViewCell else { return UITableViewCell() }
+        
         let detail = controllerMovieDetails.getDetails()
 
         cell.setupCell(detail)
