@@ -24,9 +24,11 @@ class LoginViewController: UIViewController {
         super.viewDidLoad()
         self.setupUI()
         navigationController?.navigationBar.isHidden = true
+        
     }
     
     // MARK: - Private Functions
+    
     
     @IBAction func loginButton(_ sender: UIButton) {
         close()
@@ -48,8 +50,8 @@ class LoginViewController: UIViewController {
         passwordlImageRight.isUserInteractionEnabled = true
         passwordlImageRight.addGestureRecognizer(tapGestureRecognizer)
         
-        passwordTextField.attributedPlaceholder = NSAttributedString(string: "Senha", attributes:[NSAttributedString.Key.foregroundColor: UIColor.gray])
-        userTextField.attributedPlaceholder = NSAttributedString(string: "Email", attributes:[NSAttributedString.Key.foregroundColor: UIColor.gray])
+        passwordTextField.attributedPlaceholder = NSAttributedString(string: "Senha", attributes: [NSAttributedString.Key.foregroundColor: UIColor.gray])
+        userTextField.attributedPlaceholder = NSAttributedString(string: "Email", attributes: [NSAttributedString.Key.foregroundColor: UIColor.gray])
     }
     
     @ objc

@@ -12,7 +12,7 @@ extension UIImageView {
     
     func setupCornerImage(cornerRadius: CGFloat) {
         clipsToBounds = true
-        layer.cornerRadius = 10
+        layer.cornerRadius = cornerRadius
     }
     
     func circleCornerImage() {
