@@ -9,6 +9,7 @@ import UIKit
 import PhotosUI
 
 class EditProfileViewController: UIViewController {
+
     // MARK: - IBOutlet
     @IBOutlet weak private var backButton: UIButton!
     @IBOutlet weak private var avatarImageView: UIImageView!
