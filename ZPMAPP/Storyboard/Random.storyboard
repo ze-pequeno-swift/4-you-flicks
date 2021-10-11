@@ -10,7 +10,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Random View Controller-->
+        <!--Random-->
         <scene sceneID="s0d-6b-0kx">
             <objects>
                 <viewController id="Y6W-OH-hqX" customClass="RandomViewController" customModule="ZPMAPP" customModuleProvider="target" sceneMemberID="viewController">
@@ -130,6 +130,9 @@
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="gxf-2O-O4w" secondAttribute="trailing" constant="16" id="dvL-sD-AeH"/>
                         </constraints>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Random" image="shuffle" catalog="system" id="C5B-jA-rJf">
+                        <color key="badgeColor" name="Main Red"/>
+                    </tabBarItem>
                     <navigationItem key="navigationItem" id="cAM-cf-ggR"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
@@ -146,7 +149,7 @@
             </objects>
             <point key="canvasLocation" x="1228" y="123.68815592203899"/>
         </scene>
-        <!--Random-->
+        <!--Suggestion View Controller-->
         <scene sceneID="ahP-EF-BwO">
             <objects>
                 <viewController storyboardIdentifier="SuggestionViewController" id="2kh-12-zhR" customClass="SuggestionViewController" customModule="ZPMAPP" customModuleProvider="target" sceneMemberID="viewController">
@@ -318,9 +321,6 @@
                             <constraint firstItem="Nyt-RL-kUK" firstAttribute="top" secondItem="sMk-EK-gkK" secondAttribute="bottom" constant="10" id="uCZ-3y-vGZ"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Random" image="shuffle" catalog="system" id="C5B-jA-rJf">
-                        <color key="badgeColor" name="Main Red"/>
-                    </tabBarItem>
                     <navigationItem key="navigationItem" id="bmZ-6I-qQD"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
