@@ -74,6 +74,7 @@
 		AB21C98126D734240031724B /* SuggestionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB21C98026D734240031724B /* SuggestionViewController.swift */; };
 		AB438220270246F300A8A74B /* UITextField+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB43821F270246F300A8A74B /* UITextField+Extensions.swift */; };
 		AB4382222702665A00A8A74B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = AB4382212702665A00A8A74B /* GoogleService-Info.plist */; };
+		AB97FA372715FE5B00BAD1B4 /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB97FA362715FE5B00BAD1B4 /* LoginController.swift */; };
 		ABC4FD3B26FD084A00F40C20 /* CreateAccountController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABC4FD3A26FD084A00F40C20 /* CreateAccountController.swift */; };
 		BC13C72226F5491900A99CFA /* HomeSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC13C72126F5491900A99CFA /* HomeSection.swift */; };
 		BC1CCA0426F768C5002E0462 /* HeaderSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC1CCA0226F768C5002E0462 /* HeaderSection.swift */; };
@@ -175,6 +176,7 @@
 		AB21C98026D734240031724B /* SuggestionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuggestionViewController.swift; sourceTree = "<group>"; };
 		AB43821F270246F300A8A74B /* UITextField+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+Extensions.swift"; sourceTree = "<group>"; };
 		AB4382212702665A00A8A74B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		AB97FA362715FE5B00BAD1B4 /* LoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
 		ABC4FD3A26FD084A00F40C20 /* CreateAccountController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountController.swift; sourceTree = "<group>"; };
 		BC13C72126F5491900A99CFA /* HomeSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeSection.swift; sourceTree = "<group>"; };
 		BC1CCA0226F768C5002E0462 /* HeaderSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderSection.swift; sourceTree = "<group>"; };
@@ -614,6 +616,21 @@
 			path = Random;
 			sourceTree = "<group>";
 		};
+		AB97FA342715FE3E00BAD1B4 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				AB97FA362715FE5B00BAD1B4 /* LoginController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		AB97FA352715FE4800BAD1B4 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		ABA4313226E173A200B21018 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
@@ -668,26 +685,12 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		ABA4313B26E174A900B21018 /* Controller */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Controller;
-			sourceTree = "<group>";
-		};
 		ABA4313C26E174AE00B21018 /* View */ = {
 			isa = PBXGroup;
 			children = (
 				BCBD243426D48697008110FB /* LoginViewController.swift */,
 			);
 			path = View;
-			sourceTree = "<group>";
-		};
-		ABA4313D26E174B700B21018 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
 			sourceTree = "<group>";
 		};
 		ABA4313F26E174D600B21018 /* View */ = {
@@ -797,9 +800,9 @@
 		BCBD243326D48677008110FB /* Login */ = {
 			isa = PBXGroup;
 			children = (
-				ABA4313D26E174B700B21018 /* Model */,
+				AB97FA352715FE4800BAD1B4 /* Model */,
 				ABA4313C26E174AE00B21018 /* View */,
-				ABA4313B26E174A900B21018 /* Controller */,
+				AB97FA342715FE3E00BAD1B4 /* Controller */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -1065,6 +1068,7 @@
 				6BA6220826DE2D2400A45B32 /* ZPRedButton.swift in Sources */,
 				74A98FB426D2D4EF00DD7889 /* AppDelegate.swift in Sources */,
 				7404C40926FE288C00494FD0 /* MovieListWorker.swift in Sources */,
+				AB97FA372715FE5B00BAD1B4 /* LoginController.swift in Sources */,
 				6B9F4D1926DDFAE6004BB120 /* ProfileViewController.swift in Sources */,
 				7404C40226FE230A00494FD0 /* MovieError.swift in Sources */,
 				74A98FB626D2D4EF00DD7889 /* SceneDelegate.swift in Sources */,

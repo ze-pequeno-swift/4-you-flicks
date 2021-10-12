@@ -20,12 +20,14 @@ class LoginViewController: UIViewController {
     private var iconClick = false
     private var emailGeneral = ""
     private var passwordGeneral = ""
+    let controller = LoginController()
     
     // MARK: - View Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setupUI()
+        self.controller.delegate = self
         navigationController?.navigationBar.isHidden = true
     }
     
@@ -38,10 +40,11 @@ class LoginViewController: UIViewController {
             Auth.auth().signIn(withEmail: emailGeneral, password: passwordGeneral) { [weak self] authResult, error in
                 if error != nil {
                     print("Erro no login")
+                    print(error?.localizedDescription)
                 } else {
-                    self!.close()
+                    self!.dismiss(animated: true, completion: nil)
                 }
-              guard let strongSelf = self else { return }
+              guard let _ = self else { return }
                 
             }
         }
@@ -117,4 +120,12 @@ class LoginViewController: UIViewController {
         
         navigationController?.pushViewController(viewController, animated: true)
     }
+}
+
+extension LoginViewController: LoginControllerProtocol {
+    
+    func sucess() {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
 }
