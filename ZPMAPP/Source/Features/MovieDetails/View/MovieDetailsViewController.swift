@@ -58,6 +58,7 @@ class MovieDetailsViewController: UIViewController {
         WhereToWatchCell.registerOn(tableView)
         MoviesNearbyCell.registerOn(tableView)
         CustomCastCell.registerOn(tableView)
+        RecommendationTableViewCell.registerOn(tableView)
     }
     
     private func getDetailsCell() -> UITableViewCell {
@@ -121,10 +122,22 @@ class MovieDetailsViewController: UIViewController {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: identifier)
                 as? CustomCastCell else { return UITableViewCell() }
         
-        let details = controllerMovieDetails.getDetails()
-        
-        cell.setupCell(details)
-    
+        if let details = controllerMovieDetails.getDetails() {
+            details.cast.isEmpty ? cell.isHidden = true : cell.setupCell(details)
+        }
+        return cell
+    }
+
+    private func getRecommendations() -> UITableViewCell {
+        let identifier = RecommendationTableViewCell.identifier
+
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: identifier)
+                as? RecommendationTableViewCell else {
+                    return UITableViewCell()
+                }
+        let detail = controllerMovieDetails.getDetails()
+
+        cell.setupCell(detail)
         return cell
     }
 }
@@ -140,6 +153,7 @@ extension MovieDetailsViewController: UITableViewDelegate, UITableViewDataSource
         case whereToWatch
         case moviesNearby
         case customCast
+        case recommendations
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -154,18 +168,20 @@ extension MovieDetailsViewController: UITableViewDelegate, UITableViewDataSource
         guard let section = DetailsSection(rawValue: indexPath.section) else { return UITableViewCell() }
         
         switch section {
-        case .details:
-            return getDetailsCell()
-        case .saveWatchLater:
-            return getSaveWatchLaterCell()
-        case .description:
-            return getDescriptionCell()
-        case .whereToWatch:
-            return getWhereToWatchCell()
-        case .moviesNearby:
-            return getMoviesNearbyCell()
-        case .customCast:
-            return getCustomCastCell()
+            case .details:
+                return getDetailsCell()
+            case .saveWatchLater:
+                return getSaveWatchLaterCell()
+            case .description:
+                return getDescriptionCell()
+            case .whereToWatch:
+                return getWhereToWatchCell()
+            case .moviesNearby:
+                return getMoviesNearbyCell()
+            case .customCast:
+                return getCustomCastCell()
+            case .recommendations:
+                return getRecommendations()
         }
     }
 }

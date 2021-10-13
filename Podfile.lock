@@ -1,5 +1,6 @@
 PODS:
   - Alamofire (5.4.4)
+  - CircleProgressView (1.2.0)
   - Firebase/Analytics (8.8.0):
     - Firebase/Core
   - Firebase/Auth (8.8.0):
@@ -115,6 +116,7 @@ PODS:
 
 DEPENDENCIES:
   - Alamofire (~> 5.4)
+  - CircleProgressView (~> 1.0)
   - Firebase/Analytics
   - Firebase/Auth
   - Firebase/Crashlytics
@@ -125,6 +127,7 @@ DEPENDENCIES:
 SPEC REPOS:
   trunk:
     - Alamofire
+    - CircleProgressView
     - Firebase
     - FirebaseAnalytics
     - FirebaseAuth
@@ -144,6 +147,7 @@ SPEC REPOS:
 
 SPEC CHECKSUMS:
   Alamofire: f3b09a368f1582ab751b3fff5460276e0d2cf5c9
+  CircleProgressView: 6b5b091d59dc5e5d2fda84e637a40498cdc39937
   Firebase: 629510f1a9ddb235f3a7c5c8ceb23ba887f0f814
   FirebaseAnalytics: 5506ea8b867d8423485a84b4cd612d279f7b0b8a
   FirebaseAuth: bcf0adeff88bda5dcb3beeabe5760f1226ab7b2f
