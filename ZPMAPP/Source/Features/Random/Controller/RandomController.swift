@@ -40,7 +40,7 @@ class RandomController {
     // MARK: - Private Functions
     
     func fetchRandomList(genreSelected: String, completion: @escaping () -> Void) {
-        let path = path.first { $0.genre == genreSelected}
+        let path = self.path.first { $0.genre == genreSelected} 
         guard let idGenre = path?.idGenre else { return }
 
         movieListWorker.fecthMovieWithGenre(section: .popular, type: .movie, idGenre: idGenre) { [unowned self] result in
