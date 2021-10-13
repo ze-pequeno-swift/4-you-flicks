@@ -12,16 +12,17 @@ import FirebaseAuth
 
 
 
-protocol CreateAccounteControllerProtocol: AnyObject {
+protocol CreateAccountControllerProtocol: AnyObject {
     func showAlert()
+    func sucess()
 }
 
 class CreateAccountController {
     
     // MARK: - Var
-    var messageAlert: String = ""
+    var messageAlert: String = "."
     var titleAlert: String = ""
-    weak var delegate: CreateAccounteControllerProtocol?
+    weak var delegate: CreateAccountControllerProtocol?
     
     // MARK: - Funcs
     
@@ -31,11 +32,18 @@ class CreateAccountController {
             messageAlert = verifyConfirmationFields(field: "Email", fieldTextOne: email, fieldTextTwo: emailConf)
             if messageAlert == ""{
                 messageAlert = verifyConfirmationFields(field: "Senha", fieldTextOne: password, fieldTextTwo: passwordConf)
-                if messageAlert == ""{
+                if messageAlert == "" {
                     Auth.auth().createUser(withEmail: email ?? "", password: password ?? "") { _, error in
                         if error != nil {
                             self.titleAlert = "ERRO"
                             self.messageAlert = error?.localizedDescription ?? ""
+                            print("DEU ERRO AQUI")
+                            self.delegate?.showAlert()
+                        } else {
+                            print("Passou por aqui")
+                            self.titleAlert = "Sucesso"
+                            self.messageAlert = "Cadastro concluído com sucesso. Por favor, faça o login no aplicativo com as informações cadastradas."
+                            self.delegate?.showAlert()
                         }
                     }
                 }
@@ -44,10 +52,6 @@ class CreateAccountController {
         
         
         if messageAlert != "" {
-            self.delegate?.showAlert()
-        } else {
-            self.titleAlert = "Sucesso"
-            self.messageAlert = "Cadastro concluído com sucesso. Bem vindo(a)."
             self.delegate?.showAlert()
         }
     }
@@ -90,10 +94,20 @@ class CreateAccountController {
         }
     }
     
+    
+    
     func showAlert(title: String, message: String) -> UIAlertController {
-        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
-        return alert
+        if title=="Sucesso" {
+            let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { (_) in
+                self.delegate?.sucess()
+            }))
+            return alert
+        } else {
+            let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+            return alert
+        }
     }
     
 }
