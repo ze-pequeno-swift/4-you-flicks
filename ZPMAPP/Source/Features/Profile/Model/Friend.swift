@@ -9,5 +9,51 @@ import Foundation
 
 // MARK: - Friend
 struct Friend: Codable {
-    let followers, followings: [String]
+    let followers, followings: [String]?
+}
+
+// MARK: Friend convenience initializers and mutators
+
+extension Friend {
+    init(data: Data) throws {
+        self = try JSONService.getJSONDecoder().decode(Friend.self, from: data)
+    }
+
+    init(_ json: String, using encoding: String.Encoding = .utf8) throws {
+        guard let data = json.data(using: encoding) else {
+            throw NSError(domain: "JSONDecoding", code: 0, userInfo: nil)
+        }
+        try self.init(data: data)
+    }
+
+    init(fromURL url: URL) throws {
+        try self.init(data: try Data(contentsOf: url))
+    }
+
+    func dictionary() throws -> [String: Any] {
+        let data = try self.jsonData()
+        guard let dictionary = try JSONSerialization.jsonObject(with: data, options: .allowFragments) as? [String: Any] else {
+          throw NSError()
+        }
+        
+        return dictionary
+    }
+    
+    func with(
+        followers: [String]? = nil,
+        followings: [String]? = nil
+    ) -> Friend {
+        return Friend(
+            followers: followers ?? self.followers,
+            followings: followings ?? self.followings
+        )
+    }
+
+    func jsonData() throws -> Data {
+        return try JSONService.getJSONEncoder().encode(self)
+    }
+
+    func jsonString(encoding: String.Encoding = .utf8) throws -> String? {
+        return String(data: try self.jsonData(), encoding: encoding)
+    }
 }
