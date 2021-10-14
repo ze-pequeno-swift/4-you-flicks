@@ -47,6 +47,7 @@ class FilterTableViewCell: UITableViewCell {
         self.watchView.roundCornersAll(cornerRadius: 10)
         self.watchedView.roundCornersAll(cornerRadius: 10)
         self.watchingView.roundCornersAll(cornerRadius: 10)
+        self.watchAllView.roundCornersAll(cornerRadius: 10)
     }
     
     func setup(watch: Int, watched: Int, watching: Int) {

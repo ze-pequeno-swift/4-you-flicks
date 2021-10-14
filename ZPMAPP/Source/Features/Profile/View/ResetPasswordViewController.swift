@@ -93,6 +93,7 @@ class ResetPasswordViewController: UIViewController {
             return
         } else {
             self.checkFirstValidationView.tintColor = UIColor.green
+            self.stepFirstValidationView.backgroundColor = UIColor.green
         }
 
         if !input.min(qty: 5) {
@@ -100,6 +101,7 @@ class ResetPasswordViewController: UIViewController {
             return
         } else {
             self.checkSecondValidationView.tintColor = UIColor.green
+            self.stepSecondValidationView.backgroundColor = UIColor.green
         }
         
         if !input.isPasswordValid() {
@@ -107,6 +109,7 @@ class ResetPasswordViewController: UIViewController {
             return
         } else {
             self.checkThirdValidationView.tintColor = UIColor.green
+            self.stepThirdValidationView.backgroundColor = UIColor.green
         }
         
         input.validField()
@@ -125,17 +128,17 @@ class ResetPasswordViewController: UIViewController {
         
         switch step {
         case 1:
-            self.stepFirstValidationView.tintColor = UIColor.red
+            self.stepFirstValidationView.backgroundColor = UIColor.red
             self.checkFirstValidationView.tintColor = UIColor.red
             self.checkSecondValidationView.tintColor = UIColor.red
             self.checkThirdValidationView.tintColor = UIColor.red
         case 2:
-            self.stepFirstValidationView.tintColor = UIColor.red
+            self.stepFirstValidationView.backgroundColor = UIColor.red
             self.stepSecondValidationView.tintColor = UIColor.red
             self.checkSecondValidationView.tintColor = UIColor.red
             self.checkThirdValidationView.tintColor = UIColor.red
         case 3:
-            self.stepFirstValidationView.tintColor = UIColor.red
+            self.stepFirstValidationView.backgroundColor = UIColor.red
             self.stepSecondValidationView.tintColor = UIColor.red
             self.stepThirdValidationView.tintColor = UIColor.red
             self.checkThirdValidationView.tintColor = UIColor.red
