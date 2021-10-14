@@ -32,6 +32,12 @@
 		7404C42026FE47A400494FD0 /* ControllerMovieDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7404C41F26FE47A400494FD0 /* ControllerMovieDetails.swift */; };
 		7404C42926FFA0DC00494FD0 /* Details.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7404C42826FFA0DC00494FD0 /* Details.swift */; };
 		7404C42F2700416200494FD0 /* Int+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7404C42E2700416200494FD0 /* Int+Extension.swift */; };
+		7404C43A2700EB7200494FD0 /* ZPPickerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7404C4332700EB7200494FD0 /* ZPPickerViewController.xib */; };
+		7404C43B2700EB7200494FD0 /* ZPPickerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7404C4342700EB7200494FD0 /* ZPPickerTableViewCell.swift */; };
+		7404C43C2700EB7200494FD0 /* ZPPickerTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7404C4352700EB7200494FD0 /* ZPPickerTableViewCell.xib */; };
+		7404C43D2700EB7200494FD0 /* ZPPickerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7404C4362700EB7200494FD0 /* ZPPickerDelegate.swift */; };
+		7404C43E2700EB7200494FD0 /* ZPPickerBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7404C4382700EB7200494FD0 /* ZPPickerBuilder.swift */; };
+		7404C43F2700EB7200494FD0 /* ZPPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7404C4392700EB7200494FD0 /* ZPPickerViewController.swift */; };
 		7405C32B26D35FF2002B8B2B /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7405C32A26D35FF2002B8B2B /* Home.storyboard */; };
 		74309AC426D9D9C300CB5D7B /* ZPButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74309AC326D9D9C300CB5D7B /* ZPButton.swift */; };
 		745B9A5226D583B40024977F /* HomeViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 745B9A5126D583B40024977F /* HomeViewControllerDelegate.swift */; };
@@ -51,6 +57,7 @@
 		749FED3826D6E0CA00B35C1A /* DescriptionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 749FED3626D6E0CA00B35C1A /* DescriptionCell.xib */; };
 		749FED3B26D6E61600B35C1A /* WhereToWatchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 749FED3926D6E61600B35C1A /* WhereToWatchCell.swift */; };
 		749FED3C26D6E61600B35C1A /* WhereToWatchCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 749FED3A26D6E61600B35C1A /* WhereToWatchCell.xib */; };
+		74A58E57271125B1004112E8 /* RandomController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74A58E56271125B1004112E8 /* RandomController.swift */; };
 		74A98FB426D2D4EF00DD7889 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74A98FB326D2D4EF00DD7889 /* AppDelegate.swift */; };
 		74A98FB626D2D4EF00DD7889 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74A98FB526D2D4EF00DD7889 /* SceneDelegate.swift */; };
 		74A98FB826D2D4EF00DD7889 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74A98FB726D2D4EF00DD7889 /* HomeViewController.swift */; };
@@ -74,6 +81,7 @@
 		AB21C98126D734240031724B /* SuggestionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB21C98026D734240031724B /* SuggestionViewController.swift */; };
 		AB438220270246F300A8A74B /* UITextField+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB43821F270246F300A8A74B /* UITextField+Extensions.swift */; };
 		AB4382222702665A00A8A74B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = AB4382212702665A00A8A74B /* GoogleService-Info.plist */; };
+		AB97FA372715FE5B00BAD1B4 /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB97FA362715FE5B00BAD1B4 /* LoginController.swift */; };
 		ABC4FD3B26FD084A00F40C20 /* CreateAccountController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABC4FD3A26FD084A00F40C20 /* CreateAccountController.swift */; };
 		BC13C72226F5491900A99CFA /* HomeSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC13C72126F5491900A99CFA /* HomeSection.swift */; };
 		BC1CCA0426F768C5002E0462 /* HeaderSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC1CCA0226F768C5002E0462 /* HeaderSection.swift */; };
@@ -136,6 +144,12 @@
 		7404C41F26FE47A400494FD0 /* ControllerMovieDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControllerMovieDetails.swift; sourceTree = "<group>"; };
 		7404C42826FFA0DC00494FD0 /* Details.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Details.swift; sourceTree = "<group>"; };
 		7404C42E2700416200494FD0 /* Int+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int+Extension.swift"; sourceTree = "<group>"; };
+		7404C4332700EB7200494FD0 /* ZPPickerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ZPPickerViewController.xib; sourceTree = "<group>"; };
+		7404C4342700EB7200494FD0 /* ZPPickerTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZPPickerTableViewCell.swift; sourceTree = "<group>"; };
+		7404C4352700EB7200494FD0 /* ZPPickerTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ZPPickerTableViewCell.xib; sourceTree = "<group>"; };
+		7404C4362700EB7200494FD0 /* ZPPickerDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZPPickerDelegate.swift; sourceTree = "<group>"; };
+		7404C4382700EB7200494FD0 /* ZPPickerBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZPPickerBuilder.swift; sourceTree = "<group>"; };
+		7404C4392700EB7200494FD0 /* ZPPickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZPPickerViewController.swift; sourceTree = "<group>"; };
 		7405C32A26D35FF2002B8B2B /* Home.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
 		74309AC326D9D9C300CB5D7B /* ZPButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZPButton.swift; sourceTree = "<group>"; };
 		745B9A5126D583B40024977F /* HomeViewControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewControllerDelegate.swift; sourceTree = "<group>"; };
@@ -155,6 +169,7 @@
 		749FED3626D6E0CA00B35C1A /* DescriptionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DescriptionCell.xib; sourceTree = "<group>"; };
 		749FED3926D6E61600B35C1A /* WhereToWatchCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhereToWatchCell.swift; sourceTree = "<group>"; };
 		749FED3A26D6E61600B35C1A /* WhereToWatchCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WhereToWatchCell.xib; sourceTree = "<group>"; };
+		74A58E56271125B1004112E8 /* RandomController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomController.swift; sourceTree = "<group>"; };
 		74A98FB026D2D4EF00DD7889 /* ZPMAPP.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZPMAPP.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		74A98FB326D2D4EF00DD7889 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		74A98FB526D2D4EF00DD7889 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -180,6 +195,7 @@
 		AB21C98026D734240031724B /* SuggestionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuggestionViewController.swift; sourceTree = "<group>"; };
 		AB43821F270246F300A8A74B /* UITextField+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+Extensions.swift"; sourceTree = "<group>"; };
 		AB4382212702665A00A8A74B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		AB97FA362715FE5B00BAD1B4 /* LoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
 		ABC4FD3A26FD084A00F40C20 /* CreateAccountController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountController.swift; sourceTree = "<group>"; };
 		BC13C72126F5491900A99CFA /* HomeSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeSection.swift; sourceTree = "<group>"; };
 		BC1CCA0226F768C5002E0462 /* HeaderSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderSection.swift; sourceTree = "<group>"; };
@@ -318,6 +334,36 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		7404C4302700EAEB00494FD0 /* ZPButton */ = {
+			isa = PBXGroup;
+			children = (
+				74309AC326D9D9C300CB5D7B /* ZPButton.swift */,
+				6BA6220726DE2D2400A45B32 /* ZPRedButton.swift */,
+			);
+			path = ZPButton;
+			sourceTree = "<group>";
+		};
+		7404C4322700EB7200494FD0 /* ZPPicker */ = {
+			isa = PBXGroup;
+			children = (
+				7404C4372700EB7200494FD0 /* Builder */,
+				7404C4332700EB7200494FD0 /* ZPPickerViewController.xib */,
+				7404C4342700EB7200494FD0 /* ZPPickerTableViewCell.swift */,
+				7404C4352700EB7200494FD0 /* ZPPickerTableViewCell.xib */,
+				7404C4362700EB7200494FD0 /* ZPPickerDelegate.swift */,
+				7404C4392700EB7200494FD0 /* ZPPickerViewController.swift */,
+			);
+			path = ZPPicker;
+			sourceTree = "<group>";
+		};
+		7404C4372700EB7200494FD0 /* Builder */ = {
+			isa = PBXGroup;
+			children = (
+				7404C4382700EB7200494FD0 /* ZPPickerBuilder.swift */,
+			);
+			path = Builder;
+			sourceTree = "<group>";
+		};
 		746ECACD26D6ADD50047ACE7 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
@@ -403,8 +449,8 @@
 		7483D83B26DC4AE600ABB950 /* Components */ = {
 			isa = PBXGroup;
 			children = (
-				74309AC326D9D9C300CB5D7B /* ZPButton.swift */,
-				6BA6220726DE2D2400A45B32 /* ZPRedButton.swift */,
+				7404C4322700EB7200494FD0 /* ZPPicker */,
+				7404C4302700EAEB00494FD0 /* ZPButton */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -427,6 +473,14 @@
 				ABA4313226E173A200B21018 /* Controller */,
 			);
 			path = RecoverPassword;
+			sourceTree = "<group>";
+		};
+		74A58E5527112598004112E8 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				74A58E56271125B1004112E8 /* RandomController.swift */,
+			);
+			path = Controller;
 			sourceTree = "<group>";
 		};
 		74A98FA726D2D4EF00DD7889 = {
@@ -612,11 +666,25 @@
 		AB21C97B26D724FC0031724B /* Random */ = {
 			isa = PBXGroup;
 			children = (
-				ABA4313726E1744F00B21018 /* Model */,
+				74A58E5527112598004112E8 /* Controller */,
 				ABA4313626E1744A00B21018 /* View */,
-				ABA4313526E1744400B21018 /* Controller */,
 			);
 			path = Random;
+			sourceTree = "<group>";
+		};
+		AB97FA342715FE3E00BAD1B4 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				AB97FA362715FE5B00BAD1B4 /* LoginController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		AB97FA352715FE4800BAD1B4 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		ABA4313226E173A200B21018 /* Controller */ = {
@@ -641,13 +709,6 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
-		ABA4313526E1744400B21018 /* Controller */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Controller;
-			sourceTree = "<group>";
-		};
 		ABA4313626E1744A00B21018 /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -655,13 +716,6 @@
 				AB21C98026D734240031724B /* SuggestionViewController.swift */,
 			);
 			path = View;
-			sourceTree = "<group>";
-		};
-		ABA4313726E1744F00B21018 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
 			sourceTree = "<group>";
 		};
 		ABA4313926E1747B00B21018 /* View */ = {
@@ -673,26 +727,12 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		ABA4313B26E174A900B21018 /* Controller */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Controller;
-			sourceTree = "<group>";
-		};
 		ABA4313C26E174AE00B21018 /* View */ = {
 			isa = PBXGroup;
 			children = (
 				BCBD243426D48697008110FB /* LoginViewController.swift */,
 			);
 			path = View;
-			sourceTree = "<group>";
-		};
-		ABA4313D26E174B700B21018 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
 			sourceTree = "<group>";
 		};
 		ABA4313F26E174D600B21018 /* View */ = {
@@ -810,9 +850,9 @@
 		BCBD243326D48677008110FB /* Login */ = {
 			isa = PBXGroup;
 			children = (
-				ABA4313D26E174B700B21018 /* Model */,
+				AB97FA352715FE4800BAD1B4 /* Model */,
 				ABA4313C26E174AE00B21018 /* View */,
-				ABA4313B26E174A900B21018 /* Controller */,
+				AB97FA342715FE3E00BAD1B4 /* Controller */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -916,13 +956,13 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 74A98FC426D2D4F000DD7889 /* Build configuration list for PBXNativeTarget "ZPMAPP" */;
 			buildPhases = (
-				47546AD9EE7AE20F52E6BCAA /* [CP] Check Pods Manifest.lock */,
+				82DA5F45BB769C9936916310 /* [CP] Check Pods Manifest.lock */,
 				74A98FAC26D2D4EF00DD7889 /* Sources */,
 				74A98FAD26D2D4EF00DD7889 /* Frameworks */,
 				74A98FAE26D2D4EF00DD7889 /* Resources */,
 				DE2F04CC26E688C900015FBE /* ShellScript */,
 				ABC4FD3926FCFB9200F40C20 /* ShellScript */,
-				AF539E2EDBBA10A66085544D /* [CP] Embed Pods Frameworks */,
+				3300A3A8A0112202A626852C /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -978,6 +1018,7 @@
 				74CB474526D741200091F683 /* CastCell.xib in Resources */,
 				749FED3426D6DA7700B35C1A /* SaveWatchLaterCell.xib in Resources */,
 				BC4C3B1C26E5B8C200662A23 /* Login.storyboard in Resources */,
+				7404C43A2700EB7200494FD0 /* ZPPickerViewController.xib in Resources */,
 				74A98FC026D2D4F000DD7889 /* LaunchScreen.storyboard in Resources */,
 				74D1AE6E26D3615900AC56E5 /* Random.storyboard in Resources */,
 				74A98FBD26D2D4F000DD7889 /* Assets.xcassets in Resources */,
@@ -985,6 +1026,7 @@
 				74818A5426D41AAF0071AB5E /* DailyTrendingsCell.xib in Resources */,
 				DE26FEA627023EC3006B46EC /* RecommendationTableViewCell.xib in Resources */,
 				74CB473D26D72CF40091F683 /* MoviesNearbyCell.xib in Resources */,
+				7404C43C2700EB7200494FD0 /* ZPPickerTableViewCell.xib in Resources */,
 				6B9F4D2526DDFF76004BB120 /* MovieCollectionViewCell.xib in Resources */,
 				749FED3826D6E0CA00B35C1A /* DescriptionCell.xib in Resources */,
 				749FED3C26D6E61600B35C1A /* WhereToWatchCell.xib in Resources */,
@@ -1003,7 +1045,24 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		47546AD9EE7AE20F52E6BCAA /* [CP] Check Pods Manifest.lock */ = {
+		3300A3A8A0112202A626852C /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ZPMAPP/Pods-ZPMAPP-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ZPMAPP/Pods-ZPMAPP-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ZPMAPP/Pods-ZPMAPP-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		82DA5F45BB769C9936916310 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -1044,23 +1103,6 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/FirebaseCrashlytics/run\"\n";
 		};
-		AF539E2EDBBA10A66085544D /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-ZPMAPP/Pods-ZPMAPP-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-ZPMAPP/Pods-ZPMAPP-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ZPMAPP/Pods-ZPMAPP-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		DE2F04CC26E688C900015FBE /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -1099,6 +1141,7 @@
 				6BA6220826DE2D2400A45B32 /* ZPRedButton.swift in Sources */,
 				74A98FB426D2D4EF00DD7889 /* AppDelegate.swift in Sources */,
 				7404C40926FE288C00494FD0 /* MovieListWorker.swift in Sources */,
+				AB97FA372715FE5B00BAD1B4 /* LoginController.swift in Sources */,
 				6B9F4D1926DDFAE6004BB120 /* ProfileViewController.swift in Sources */,
 				7404C40226FE230A00494FD0 /* MovieError.swift in Sources */,
 				74A98FB626D2D4EF00DD7889 /* SceneDelegate.swift in Sources */,
@@ -1122,6 +1165,7 @@
 				749FED3326D6DA7700B35C1A /* SaveWatchLaterCell.swift in Sources */,
 				74CB473C26D72CF40091F683 /* MoviesNearbyCell.swift in Sources */,
 				74CB474426D741200091F683 /* CastCell.swift in Sources */,
+				7404C43B2700EB7200494FD0 /* ZPPickerTableViewCell.swift in Sources */,
 				745B9A5226D583B40024977F /* HomeViewControllerDelegate.swift in Sources */,
 				749FED3726D6E0CA00B35C1A /* DescriptionCell.swift in Sources */,
 				74818A6926D43B320071AB5E /* UICollectionViewCell+Extension.swift in Sources */,
@@ -1134,6 +1178,7 @@
 				AB21C98126D734240031724B /* SuggestionViewController.swift in Sources */,
 				74309AC426D9D9C300CB5D7B /* ZPButton.swift in Sources */,
 				BCBD243526D48697008110FB /* LoginViewController.swift in Sources */,
+				74A58E57271125B1004112E8 /* RandomController.swift in Sources */,
 				BCDC471426D7EEB500AD8A35 /* CreateAccountViewController.swift in Sources */,
 				7404C41B26FE435600494FD0 /* Country.swift in Sources */,
 				74A98FB826D2D4EF00DD7889 /* HomeViewController.swift in Sources */,
@@ -1141,10 +1186,12 @@
 				74A98FB426D2D4EF00DD7889 /* AppDelegate.swift in Sources */,
 				BCDC471626D7F0D400AD8A35 /* RecoverPasswordViewController.swift in Sources */,
 				7404C40426FE235A00494FD0 /* MovieAPI.swift in Sources */,
+				7404C43F2700EB7200494FD0 /* ZPPickerViewController.swift in Sources */,
 				74A98FB626D2D4EF00DD7889 /* SceneDelegate.swift in Sources */,
 				AB21C97F26D7266E0031724B /* UIView+Extension.swift in Sources */,
 				BC7884D926F6211200EB59BF /* ControllerHome.swift in Sources */,
 				74818A5326D41AAF0071AB5E /* DailyTrendingsCell.swift in Sources */,
+				7404C43D2700EB7200494FD0 /* ZPPickerDelegate.swift in Sources */,
 				749FED3B26D6E61600B35C1A /* WhereToWatchCell.swift in Sources */,
 				74CB474E26D757BA0091F683 /* UINavigationBar+Extension.swift in Sources */,
 				7404C40626FE281400494FD0 /* APIEnum.swift in Sources */,
@@ -1153,6 +1200,7 @@
 				6B9F4D1B26DDFB5E004BB120 /* OptionsViewController.swift in Sources */,
 				7404C40F26FE40DE00494FD0 /* Genre.swift in Sources */,
 				7404C42F2700416200494FD0 /* Int+Extension.swift in Sources */,
+				7404C43E2700EB7200494FD0 /* ZPPickerBuilder.swift in Sources */,
 				7404C41526FE416300494FD0 /* RecommendationResponse.swift in Sources */,
 				74CB474026D739DE0091F683 /* CustomCastCell.swift in Sources */,
 				74D919C026D570BB00257317 /* MovieDetailsViewController.swift in Sources */,
@@ -1306,16 +1354,19 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEVELOPMENT_TEAM = ZFB9PS3322;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = ZPMAPP/SupportFiles/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "ze-pequeno.mobile.ZPMAPP";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -1330,6 +1381,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = ZFB9PS3322;
 				INFOPLIST_FILE = ZPMAPP/SupportFiles/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

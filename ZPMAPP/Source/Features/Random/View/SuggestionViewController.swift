@@ -29,6 +29,8 @@ class SuggestionViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     
+    var sortedMovie: Movie?
+    
     // MARK: - View Lifecycle
     
     override func viewDidLoad() {
@@ -41,6 +43,8 @@ class SuggestionViewController: UIViewController {
     private func setupUI() {
         tableView.delegate = self
         tableView.dataSource = self
+        
+        hidesBottomBarWhenPushed = true
         
         principalImageView.layer.cornerRadius = 10
         rottenTomatoesImageView.roundCorners(cornerRadius: 8.0, typeCorners:[.bottomRight, .bottomLeft, .topRight, .topLeft])

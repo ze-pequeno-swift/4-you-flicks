@@ -38,7 +38,7 @@ class ControllerHome {
     }
     
     func fetchMovieList(value: HomeSection, completion: @escaping (Bool, Error?) -> Void) {
-        let path = path.first { $0.enumHome == value }
+        let path = self.path.first { $0.enumHome == value }
         guard let idGenre = path?.generId else { return }
 
         movieListWorker.fecthMovieWithGenre(section: .popular, type: .movie, idGenre: idGenre) { [unowned self] result in

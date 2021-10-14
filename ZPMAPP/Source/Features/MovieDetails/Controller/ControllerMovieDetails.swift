@@ -44,7 +44,7 @@ class ControllerMovieDetails {
     
     func fetchMovieDetails() {
         guard let movie = movie else { return }
-        
+
         movieDetailsWorker.fetchMovieDetails(of: movie.id) { [unowned self] result in
             switch result {
             case .success(let response):
@@ -55,6 +55,8 @@ class ControllerMovieDetails {
             }
         }
     }
+    
+    // MARK: - Private Functions
     
     private func showMovieDetails(_ movie: Movie, response: MovieDetailsResponse?) {
         guard let movieDetails = response else {

@@ -83,10 +83,13 @@ class CreateAccountViewController: UIViewController {
 
 }
 
-extension CreateAccountViewController: CreateAccounteControllerProtocol {
+extension CreateAccountViewController: CreateAccountControllerProtocol {
     
     func showAlert() {
         self.present(controller.showAlert(title: controller.titleAlert, message: controller.messageAlert), animated: true, completion: nil)
     }
     
+    func sucess() {
+        self.dismiss(animated: true, completion: nil)
+    }
 }
