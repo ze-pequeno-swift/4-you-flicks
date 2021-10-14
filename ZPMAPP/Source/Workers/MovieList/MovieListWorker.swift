@@ -15,6 +15,8 @@ protocol MovieWorkerProtocol {
     
     func fecthMovieWithGenre(section: Section, type: Type, idGenre: Int,
                              completion: @escaping MovieListResult)
+
+    func fetchMovieWithQuery(query: String, completion: @escaping MovieListResult) 
 }
 
 class MovieListWorker: MovieWorkerProtocol {
@@ -30,6 +32,15 @@ class MovieListWorker: MovieWorkerProtocol {
     func fecthMovieWithGenre(section: Section, type: Type, idGenre: Int, completion: @escaping MovieListResult) {
         let url = MovieAPI.buildWithGenre(section: section, type: type, idGenre: idGenre)
         
+        NetworkManager.request(url: url) { result in
+            completion(result)
+        }
+    }
+
+    func fetchMovieWithQuery(query: String, completion: @escaping MovieListResult) {
+        let url = MovieAPI.buildWithTitle(title: query)
+        print(url)
+
         NetworkManager.request(url: url) { result in
             completion(result)
         }
