@@ -1,5 +1,5 @@
 //
-//  Friend.swift
+//  User.swift
 //  ZPMAPP
 //
 //  Created by Felipe Rocha Oliveira on 05/10/21.
@@ -7,16 +7,20 @@
 
 import Foundation
 
-// MARK: - Friend
-struct Friend: Codable {
-    let followers, followings: [String]?
+// MARK: - Customer
+
+struct Customer: Codable {
+    var email: String
+    var name, username, avatar: String?
+    var myMovies: [MyMovie]?
+    var friends: [Friend]?
 }
 
-// MARK: Friend convenience initializers and mutators
+// MARK: Customer convenience initializers and mutators
 
-extension Friend {
+extension Customer {
     init(data: Data) throws {
-        self = try JSONService.getJSONDecoder().decode(Friend.self, from: data)
+        self = try JSONService.getJSONDecoder().decode(Customer.self, from: data)
     }
 
     init(_ json: String, using encoding: String.Encoding = .utf8) throws {
@@ -29,7 +33,7 @@ extension Friend {
     init(fromURL url: URL) throws {
         try self.init(data: try Data(contentsOf: url))
     }
-
+    
     func dictionary() throws -> [String: Any] {
         let data = try self.jsonData()
         guard let dictionary = try JSONSerialization.jsonObject(with: data, options: .allowFragments) as? [String: Any] else {
@@ -38,16 +42,6 @@ extension Friend {
         
         return dictionary
     }
-    
-    func with(
-        followers: [String]? = nil,
-        followings: [String]? = nil
-    ) -> Friend {
-        return Friend(
-            followers: followers ?? self.followers,
-            followings: followings ?? self.followings
-        )
-    }
 
     func jsonData() throws -> Data {
         return try JSONService.getJSONEncoder().encode(self)
@@ -55,5 +49,9 @@ extension Friend {
 
     func jsonString(encoding: String.Encoding = .utf8) throws -> String? {
         return String(data: try self.jsonData(), encoding: encoding)
+    }
+    
+    func getCurrentCustomer() -> Customer {
+        return self
     }
 }

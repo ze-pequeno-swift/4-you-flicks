@@ -32,6 +32,19 @@ class HeaderProfileTableViewCell: UITableViewCell {
         self.setupUI()
     }
     
+    func setup(customer: Customer?) {
+        if let _customer = customer {
+            self.nameProfileLabel.text = _customer.name
+            self.usernameProfileLabel.text = _customer.username
+            
+            if let avatar = _customer.avatar {
+                self.avatarProfileImageView.load(url: avatar)
+            }
+            
+            print(_customer)
+        }
+    }
+    
     func setupUI() {
         // config ImageView
         self.avatarProfileImageView.circleCornerImage()

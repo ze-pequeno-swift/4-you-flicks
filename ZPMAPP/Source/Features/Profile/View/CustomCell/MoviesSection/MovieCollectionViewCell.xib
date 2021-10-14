@@ -18,7 +18,7 @@
                 <rect key="frame" x="0.0" y="0.0" width="162" height="247"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="black-widow" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Icf-Qd-pWu">
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Icf-Qd-pWu">
                         <rect key="frame" x="0.0" y="0.0" width="162" height="247"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="247" id="UQg-n4-pnp"/>
@@ -28,15 +28,15 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0hh-hl-nCq">
                         <rect key="frame" x="20" y="12" width="87" height="25"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="tih-kF-WcN">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="empty-actor-image" translatesAutoresizingMaskIntoConstraints="NO" id="tih-kF-WcN">
                                 <rect key="frame" x="5" y="0.0" width="25" height="25"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="25" id="1CJ-de-jtg"/>
                                     <constraint firstAttribute="height" constant="25" id="2BS-ro-MRo"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Assistindo" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iiv-6U-ReD">
-                                <rect key="frame" x="35" y="7" width="46" height="11"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iiv-6U-ReD">
+                                <rect key="frame" x="35" y="12.5" width="46" height="0.0"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="9"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -47,6 +47,7 @@
                             <constraint firstItem="iiv-6U-ReD" firstAttribute="leading" secondItem="tih-kF-WcN" secondAttribute="trailing" constant="5" id="1GL-QD-n6T"/>
                             <constraint firstAttribute="width" constant="87" id="D1S-7R-GZy"/>
                             <constraint firstAttribute="height" constant="25" id="J46-31-NCe"/>
+                            <constraint firstItem="tih-kF-WcN" firstAttribute="leading" secondItem="0hh-hl-nCq" secondAttribute="leading" constant="5" id="Rtw-71-kjj"/>
                             <constraint firstAttribute="bottom" secondItem="tih-kF-WcN" secondAttribute="bottom" id="Vam-dl-7fA"/>
                             <constraint firstItem="iiv-6U-ReD" firstAttribute="centerY" secondItem="tih-kF-WcN" secondAttribute="centerY" id="Ys1-et-mAt"/>
                             <constraint firstItem="tih-kF-WcN" firstAttribute="top" secondItem="0hh-hl-nCq" secondAttribute="top" id="mlg-B5-3YY"/>
@@ -66,11 +67,16 @@
                 <constraint firstItem="Icf-Qd-pWu" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="skB-2v-iAU"/>
             </constraints>
             <size key="customSize" width="308" height="189"/>
+            <connections>
+                <outlet property="movieImageView" destination="Icf-Qd-pWu" id="Kgj-4L-B3q"/>
+                <outlet property="profileImageView" destination="tih-kF-WcN" id="SMc-Ry-fwk"/>
+                <outlet property="statusLabel" destination="iiv-6U-ReD" id="dhz-Sw-z9N"/>
+            </connections>
             <point key="canvasLocation" x="314.49275362318843" y="123.54910714285714"/>
         </collectionViewCell>
     </objects>
     <resources>
-        <image name="black-widow" width="236" height="350"/>
+        <image name="empty-actor-image" width="1380" height="1380"/>
         <namedColor name="Main Black">
             <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

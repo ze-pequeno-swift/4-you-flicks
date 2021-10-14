@@ -81,6 +81,7 @@ class MovieDetailsViewController: UIViewController {
         
         guard let cell = tableView.dequeueReusableCell(withIdentifier: identifier)
                 as? SaveWatchLaterCell else { return UITableViewCell() }
+        cell.setupDelegate(delegate: self)
         
         return cell
     }
@@ -192,5 +193,12 @@ extension MovieDetailsViewController: MovieDetailsViewControllerProtocol {
 
     func showMovieListError(_ errorMessage: String) {
         // error
+    }
+}
+
+extension MovieDetailsViewController: SaveWatchLaterProtocol {
+
+    func saveMovieDB(tag: Tag) {
+        self.controllerMovieDetails.saveMovieDB(tag: tag)
     }
 }

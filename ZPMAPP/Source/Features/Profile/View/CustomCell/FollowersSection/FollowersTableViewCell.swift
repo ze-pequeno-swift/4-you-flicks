@@ -30,6 +30,11 @@ class FollowersTableViewCell: UITableViewCell {
         self.followingFollowersView.roundCornersAll(cornerRadius: 10)
     }
     
+    func setup(following: Int, followers: Int) {
+        self.qtyFollowingLabel.text = String(following)
+        self.qtyFollowersLabel.text = String(followers)
+    }
+    
     @IBAction private func tappedFriendsAction(_ sender: Any) {
         print("Hey man! Create view to list your friends")
     }

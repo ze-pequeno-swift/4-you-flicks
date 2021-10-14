@@ -7,9 +7,18 @@
 
 import UIKit
 
+protocol FilterTableViewCellProtocol: AnyObject {
+    func filterMovie(tag: Tag)
+}
+
 class FilterTableViewCell: UITableViewCell {
 
     static let identifier: String = String(describing: FilterTableViewCell.self)
+    
+    weak var delegate: FilterTableViewCellProtocol?
+    
+    @IBOutlet weak var watchAllView: UIView!
+    @IBOutlet weak var tappedWatchAllButton: UIButton!
     
     // Watched
     @IBOutlet weak private var qtyWatchedLabel: UILabel!
@@ -23,14 +32,27 @@ class FilterTableViewCell: UITableViewCell {
     @IBOutlet weak private var tappedWatchButton: UIButton!
     @IBOutlet weak private var watchView: UIView!
     
-    // Reviews
-    @IBOutlet weak private var qtyReviewsLabel: UILabel!
-    @IBOutlet weak private var reviewsLabel: UILabel!
-    @IBOutlet weak private var tappedReviewsButton: UIButton!
-    @IBOutlet weak private var reviewsView: UIView!
+    // Watching
+    @IBOutlet weak private var qtyWatchingLabel: UILabel!
+    @IBOutlet weak private var watchingLabel: UILabel!
+    @IBOutlet weak private var tappedWatchingButton: UIButton!
+    @IBOutlet weak private var watchingView: UIView!
 
     override func awakeFromNib() {
         super.awakeFromNib()
+        self.setupUI()
+    }
+    
+    func setupUI() {
+        self.watchView.roundCornersAll(cornerRadius: 10)
+        self.watchedView.roundCornersAll(cornerRadius: 10)
+        self.watchingView.roundCornersAll(cornerRadius: 10)
+    }
+    
+    func setup(watch: Int, watched: Int, watching: Int) {
+        self.qtyWatchedLabel.text = String(watched)
+        self.qtyWatchLabel.text = String(watch)
+        self.qtyWatchingLabel.text = String(watching)
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -38,15 +60,19 @@ class FilterTableViewCell: UITableViewCell {
     }
 
     @IBAction private func tappedWatchedAction(_ sender: UIButton) {
-        print("List watched movies")
+        self.delegate?.filterMovie(tag: .watched)
     }
     
     @IBAction private func tappedWatchAction(_ sender: UIButton) {
-        print("List watch movies")
+        self.delegate?.filterMovie(tag: .watch)
     }
     
-    @IBAction private func tappedReviewsAction(_ sender: UIButton) {
-        print("List reviews movies")
+    @IBAction private func tappedWatchingAction(_ sender: UIButton) {
+        self.delegate?.filterMovie(tag: .watching)
+    }
+
+    @IBAction func tappedWatchAllAction(_ sender: UIButton) {
+        self.delegate?.filterMovie(tag: .all)
     }
     
 }

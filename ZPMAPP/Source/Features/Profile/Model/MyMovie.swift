@@ -1,22 +1,26 @@
 //
-//  Friend.swift
+//  MyMovie.swift
 //  ZPMAPP
 //
-//  Created by Felipe Rocha Oliveira on 05/10/21.
+//  Created by Felipe Rocha Oliveira on 11/10/21.
 //
 
 import Foundation
+import FirebaseCore
 
-// MARK: - Friend
-struct Friend: Codable {
-    let followers, followings: [String]?
+// MARK: - MyMovies
+
+struct MyMovie: Codable {
+    var movie: Movie?
+    var tag: String
+    var id: String
 }
 
-// MARK: Friend convenience initializers and mutators
+// MARK: MyMovies convenience initializers and mutators
 
-extension Friend {
+extension MyMovie {
     init(data: Data) throws {
-        self = try JSONService.getJSONDecoder().decode(Friend.self, from: data)
+        self = try JSONService.getJSONDecoder().decode(MyMovie.self, from: data)
     }
 
     init(_ json: String, using encoding: String.Encoding = .utf8) throws {
@@ -29,7 +33,7 @@ extension Friend {
     init(fromURL url: URL) throws {
         try self.init(data: try Data(contentsOf: url))
     }
-
+    
     func dictionary() throws -> [String: Any] {
         let data = try self.jsonData()
         guard let dictionary = try JSONSerialization.jsonObject(with: data, options: .allowFragments) as? [String: Any] else {
@@ -38,14 +42,16 @@ extension Friend {
         
         return dictionary
     }
-    
+
     func with(
-        followers: [String]? = nil,
-        followings: [String]? = nil
-    ) -> Friend {
-        return Friend(
-            followers: followers ?? self.followers,
-            followings: followings ?? self.followings
+        movie: Movie? = nil,
+        tag: String? = nil,
+        id: String? = nil
+    ) -> MyMovie {
+        return MyMovie(
+            movie: movie ?? self.movie,
+            tag: tag ?? self.tag,
+            id: id ?? self.id
         )
     }
 
