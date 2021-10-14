@@ -198,7 +198,7 @@ extension MovieDetailsViewController: MovieDetailsViewControllerProtocol {
 
 extension MovieDetailsViewController: SaveWatchLaterProtocol {
 
-    func saveMovieDB(tag: String) {
+    func saveMovieDB(tag: Tag) {
         self.controllerMovieDetails.saveMovieDB(tag: tag)
     }
 }

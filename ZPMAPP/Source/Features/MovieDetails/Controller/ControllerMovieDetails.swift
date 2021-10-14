@@ -42,7 +42,7 @@ class ControllerMovieDetails {
         return movie!
     }
     
-    func saveMovieDB(tag: String) {
+    func saveMovieDB(tag: Tag) {
         guard var movie = self.movie else {
             return
         }
@@ -56,7 +56,7 @@ class ControllerMovieDetails {
                 collection: "users_movies",
                 id: "oSbOu3BuQkUaTtqnFqYJgBFWJvw1", // <- TODO update with uid user
                 data: [
-                    movieID: [tag, refID]
+                    movieID: [tag.rawValue, refID]
                 ]
             )
         } catch {
