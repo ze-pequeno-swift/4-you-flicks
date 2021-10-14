@@ -34,7 +34,8 @@
                         </collectionViewFlowLayout>
                     </collectionView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Meus Filmes" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rgb-lG-QYa">
-                        <rect key="frame" x="20" y="5" width="335" height="21"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="21"/>
+                        <color key="backgroundColor" name="Main Black"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
@@ -42,13 +43,13 @@
                 </subviews>
                 <color key="backgroundColor" name="Main Black"/>
                 <constraints>
-                    <constraint firstItem="rgb-lG-QYa" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="5" id="HGo-b5-TRD"/>
+                    <constraint firstItem="rgb-lG-QYa" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="HGo-b5-TRD"/>
                     <constraint firstAttribute="bottom" secondItem="FXg-UF-uT9" secondAttribute="bottom" id="O41-8c-PsM"/>
-                    <constraint firstAttribute="trailing" secondItem="rgb-lG-QYa" secondAttribute="trailing" constant="20" id="OzL-LU-ZgG"/>
+                    <constraint firstAttribute="trailing" secondItem="rgb-lG-QYa" secondAttribute="trailing" id="OzL-LU-ZgG"/>
                     <constraint firstItem="FXg-UF-uT9" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="S5d-Yx-myt"/>
                     <constraint firstItem="FXg-UF-uT9" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="TL8-9x-kXm"/>
                     <constraint firstAttribute="trailing" secondItem="FXg-UF-uT9" secondAttribute="trailing" id="bnc-R4-VZg"/>
-                    <constraint firstItem="rgb-lG-QYa" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="zRb-FK-lYw"/>
+                    <constraint firstItem="rgb-lG-QYa" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="zRb-FK-lYw"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
