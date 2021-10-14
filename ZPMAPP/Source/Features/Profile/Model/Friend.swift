@@ -1,47 +1,22 @@
 //
-//  Movie.swift
+//  Friend.swift
 //  ZPMAPP
 //
-//  Created by Hellen on 24/09/21.
+//  Created by Felipe Rocha Oliveira on 05/10/21.
 //
 
 import Foundation
 
-// MARK: - Movie
-
-struct Movie: Codable {
-
-    let id: Int
-
-    let title: String
-
-    let overview: String
-    
-    let releaseDate: String
-    
-    let voteAverage: Double
-    
-    let posterPath: String?
-    
-    let backdropPath: String?
-    
-    private enum CodingKeys: String, CodingKey {
-        case id = "id"
-        case title = "title"
-        case overview = "overview"
-        case releaseDate = "release_date"
-        case voteAverage = "vote_average"
-        case posterPath = "poster_path"
-        case backdropPath = "backdrop_path"
-    }
+// MARK: - Friend
+struct Friend: Codable {
+    let followers, followings: [String]?
 }
 
-// MARK: Movie convenience initializers and mutators
+// MARK: Friend convenience initializers and mutators
 
-extension Movie {
-
+extension Friend {
     init(data: Data) throws {
-        self = try JSONService.getJSONDecoder().decode(Movie.self, from: data)
+        self = try JSONService.getJSONDecoder().decode(Friend.self, from: data)
     }
 
     init(_ json: String, using encoding: String.Encoding = .utf8) throws {
@@ -54,7 +29,7 @@ extension Movie {
     init(fromURL url: URL) throws {
         try self.init(data: try Data(contentsOf: url))
     }
-    
+
     func dictionary() throws -> [String: Any] {
         let data = try self.jsonData()
         guard let dictionary = try JSONSerialization.jsonObject(with: data, options: .allowFragments) as? [String: Any] else {
@@ -62,6 +37,16 @@ extension Movie {
         }
         
         return dictionary
+    }
+    
+    func with(
+        followers: [String]? = nil,
+        followings: [String]? = nil
+    ) -> Friend {
+        return Friend(
+            followers: followers ?? self.followers,
+            followings: followings ?? self.followings
+        )
     }
 
     func jsonData() throws -> Data {

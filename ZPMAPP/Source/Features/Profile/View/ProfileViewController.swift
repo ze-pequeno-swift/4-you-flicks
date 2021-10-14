@@ -8,120 +8,154 @@
 import UIKit
 
 class ProfileViewController: UIViewController {
-    // MARK: - IBOutlet
-    @IBOutlet weak private var editProfileButton: UIButton!
-    @IBOutlet weak private var notificationProfileButton: UIButton!
-    @IBOutlet weak private var alertProfileButton: UIButton!
-    @IBOutlet weak private var avatarProfileImageView: UIImageView!
-    @IBOutlet weak private var nameProfileLabel: UILabel!
-    @IBOutlet weak private var usernameProfileLabel: UILabel!
     
-    // Following and Followers
-    @IBOutlet weak private var qtyFollowingLabel: UILabel!
-    @IBOutlet weak private var qtyFollowersLabel: UILabel!
-    @IBOutlet weak private var followingFollowersView: UIView!
-    @IBOutlet weak private var tappedListFriendsButton: UIButton!
+    @IBOutlet weak var profileTableView: UITableView!
     
-    // Watched
-    @IBOutlet weak private var qtyWatchedLabel: UILabel!
-    @IBOutlet weak private var watchedLabel: UILabel!
-    @IBOutlet weak private var tappedWatchedButton: UIButton!
-    @IBOutlet weak private var watchedView: UIView!
-    
-    // To watch
-    @IBOutlet weak private var qtyWatchLabel: UILabel!
-    @IBOutlet weak private var watchLabel: UILabel!
-    @IBOutlet weak private var tappedWatchButton: UIButton!
-    @IBOutlet weak private var watchView: UIView!
-    
-    // Reviews
-    @IBOutlet weak private var qtyReviewsLabel: UILabel!
-    @IBOutlet weak private var reviewsLabel: UILabel!
-    @IBOutlet weak private var tappedReviewsButton: UIButton!
-    @IBOutlet weak private var reviewsView: UIView!
-    
-    // MARK: - CollectionView
-    @IBOutlet weak private var moviesCollectionView: UICollectionView!
-    
+    var controller: ProfileController!
+
     // MARK: - View Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.controller = ProfileController()
+        self.controller.delegate = self
+
         self.setupUI()
     }
     
-    // MARK: - Actions
-    @IBAction private func tappedOptionsProfileAction(_ sender: UIButton) {
-        self.performSegue(withIdentifier: "OptionsViewController", sender: nil)
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        showLoading()
+        self.controller.getCustomerInfo()
+        self.profileTableView.reloadData()
+        hideLoading()
     }
     
-    @IBAction private func tappedNotificationAction(_ sender: UIButton) {
-        print("list messages and notifications from your friends")
-    }
-
-    @IBAction private func tappedAlertAction(_ sender: UIButton) {
-        print("alert, the movie you've been waiting for started in a nearby theater ")
-    }
-    
-    @IBAction private func tappedFriendsAction(_ sender: Any) {
-        print("Hey man! Create view to list your friends")
-    }
-
-    @IBAction private func tappedWatchedAction(_ sender: UIButton) {
-        print("List watched movies")
-    }
-    
-    @IBAction private func tappedWatchAction(_ sender: UIButton) {
-        print("List watch movies")
-    }
-    
-    @IBAction private func tappedReviewsAction(_ sender: UIButton) {
-        print("List reviews movies")
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let optionVC: OptionsViewController? = segue.destination as? OptionsViewController
+        let customer: Customer? = sender as? Customer
+        optionVC?.controller = OptionsController(customer: customer)
     }
     
     // MARK: - Private functions
     private func setupUI() {
-        // config ImageView
-        self.avatarProfileImageView.circleCornerImage()
+        self.profileTableView.delegate = self
+        self.profileTableView.dataSource = self
 
-        // config background view
-        self.configViewCorner(followingFollowersView)
-        self.configViewCorner(watchedView)
-        self.configViewCorner(watchView)
-        self.configViewCorner(reviewsView)
-        
-        self.moviesCollectionView.delegate = self
-        self.moviesCollectionView.dataSource = self
-        
-        MovieCollectionViewCell.registerOn(self.moviesCollectionView)
+        HeaderProfileTableViewCell.registerOn(profileTableView)
+        FilterTableViewCell.registerOn(profileTableView)
+        FollowersTableViewCell.registerOn(profileTableView)
+        ListMoviesTableViewCell.registerOn(profileTableView)
     }
     
-    private func configViewCorner(_ uiViewPerson: UIView) {
-        uiViewPerson.layer.cornerRadius = 10
+    private func getHeaderCell() -> UITableViewCell {
+        let identifier = HeaderProfileTableViewCell.identifier
+        let cell = profileTableView.dequeueReusableCell(withIdentifier: identifier) as? HeaderProfileTableViewCell
+
+        cell?.delegate = self
+        cell?.setup(customer: self.controller.getCustomer())
+
+        return cell ?? UITableViewCell()
     }
     
-    private func proceedToMovie() {
+    private func getFilterCell() -> UITableViewCell {
+        let identifier = FilterTableViewCell.identifier
+        let cell = profileTableView.dequeueReusableCell(withIdentifier: identifier) as? FilterTableViewCell
+        
+        let contWatch = self.controller.countWatches(tag: .watch)
+        let contWatched = self.controller.countWatches(tag: .watched)
+        let contWatching = self.controller.countWatches(tag: .watching)
+        
+        cell?.delegate = self
+        cell?.setup(watch: contWatch, watched: contWatched, watching: contWatching)
+        
+        return cell ?? UITableViewCell()
+    }
+    
+    private func getFollowersCell() -> UITableViewCell {
+        let identifier = FollowersTableViewCell.identifier
+        let cell = profileTableView.dequeueReusableCell(withIdentifier: identifier) as? FollowersTableViewCell
+        
+        let contFollowers = self.controller.countFollowers()
+        let contFollowings = self.controller.countFollowings()
+        cell?.setup(following: contFollowings, followers: contFollowers)
+        
+        return cell ?? UITableViewCell()
+    }
+    
+    private func getMovieCell() -> UITableViewCell {
+        let identifier = ListMoviesTableViewCell.identifier
+        let cell = profileTableView.dequeueReusableCell(withIdentifier: identifier) as? ListMoviesTableViewCell
+        
+        cell?.delegate = self
+        cell?.setup(
+            customer: self.controller.getCustomer(),
+            myMovies: self.controller.getMyMovies()
+        )
+        
+        return cell ?? UITableViewCell()
+    }
+    
+    private func proceedToMovieNav() {
         let homeController = UIStoryboard(name: "Home", bundle: nil)
-        guard let viewController = homeController.instantiateViewController(identifier: "MovieDetailsViewController")
-                as? MovieDetailsViewController else { return }
+        guard let viewController = homeController.instantiateViewController(identifier: String(describing: MovieDetailsViewController.self)) as? MovieDetailsViewController else { return }
         
         self.navigationController?.pushViewController(viewController, animated: true)
     }
+    
+    private func executePerformSegue(identifier: String) {
+        self.performSegue(withIdentifier: identifier, sender: self.controller.getCustomer())
+    }
 }
 
-// MARK: - UICollectionViewDelegate, UICollectionViewDataSource
-extension ProfileViewController: UICollectionViewDelegate, UICollectionViewDataSource {
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10
+extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
+    enum ProfileSection: Int, CaseIterable {
+        case header
+        case followers
+        case filter
+        case movies
     }
     
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        
-        let movieCell: MovieCollectionViewCell? = moviesCollectionView.dequeueReusableCell(withReuseIdentifier: "MovieCollectionViewCell", for: indexPath) as? MovieCollectionViewCell
-        
-        return movieCell ?? UICollectionViewCell()
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return ProfileSection.allCases.count
+    }
+
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 1
     }
     
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        self.proceedToMovie()
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let section = ProfileSection(rawValue: indexPath.section) else {
+            return UITableViewCell()
+        }
+
+        switch section {
+            case .header:
+                return getHeaderCell()
+            case .followers:
+                return getFollowersCell()
+            case .filter:
+                return getFilterCell()
+            case .movies:
+                return getMovieCell()
+        }
+    }
+}
+
+extension ProfileViewController: HeaderProfileProtocol, ProfileControllerProtocol, ListMoviesTableViewCellProtocol, FilterTableViewCellProtocol {
+    func filterMovie(tag: Tag) {
+        self.controller.filterMovie(tag: tag)
+        self.profileTableView.reloadData()
+    }
+    
+    func proceedToMovie() {
+        self.proceedToMovieNav()
+    }
+    
+    func reloadTableView() {
+        self.profileTableView.reloadData()
+    }
+    
+    func tappedPerformSegue(identifier: String) {
+        self.executePerformSegue(identifier: identifier)
     }
 }

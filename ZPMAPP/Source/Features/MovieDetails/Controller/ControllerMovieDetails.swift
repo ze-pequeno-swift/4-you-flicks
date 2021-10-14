@@ -6,12 +6,15 @@
 //
 
 import Foundation
+import Alamofire
 
 class ControllerMovieDetails {
     
     // MARK: - Public Properties
     
     weak var viewController: MovieDetailsViewControllerProtocol!
+     
+    let firebase: FirebaseDataService = FirebaseDataService()
     
     var movie: Movie?
     
@@ -25,10 +28,12 @@ class ControllerMovieDetails {
     
     init() {
         self.movieDetailsWorker = MovieDetailsWorker()
+        self.firebase.delegate = self
     }
     
     init(movieDetailsWorker: MovieDetailsWorkerProtocol) {
         self.movieDetailsWorker = movieDetailsWorker
+        self.firebase.delegate = self
     }
     
     // MARK: - Public Functions
@@ -36,6 +41,28 @@ class ControllerMovieDetails {
     func getMovie() -> Movie {
         return movie!
 
+    }
+    
+    func saveMovieDB(tag: Tag) {
+        guard var movie = self.movie else {
+            return
+        }
+
+        do {
+            let dictMovie = try movie.dictionary()
+            let movieID = String(movie.id)
+            self.firebase.addDocumentWithId(collection: "movies", id: movieID, data: dictMovie)
+            let refID = self.firebase.getDocumentRefWithId(collection: "movies", id: movieID)
+            self.firebase.addDocumentWithId(
+                collection: "users_movies",
+                id: "oSbOu3BuQkUaTtqnFqYJgBFWJvw1", // <- TODO update with uid user
+                data: [
+                    movieID: [tag.rawValue, refID]
+                ]
+            )
+        } catch {
+            print(error)
+        }
     }
     
     func getDetails() -> Details? {
@@ -66,5 +93,15 @@ class ControllerMovieDetails {
         
         let detalhes = Details(movieDetails)
         details = detalhes
+    }
+}
+
+extension ControllerMovieDetails: FirebaseDataServiceProtocol {
+    func success(_ collection: String) {
+        print("OK \(collection)")
+    }
+    
+    func failure(error: Error?) {
+        print(error)
     }
 }
