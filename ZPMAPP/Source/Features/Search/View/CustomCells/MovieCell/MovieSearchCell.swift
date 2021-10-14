@@ -15,7 +15,7 @@ class MovieSearchCell: UITableViewCell {
     
     @IBOutlet  private weak var titleMovieLabel: UILabel!
     
-    @IBOutlet weak var starsRatingView: CosmosView!
+    @IBOutlet private weak var starsRatingView: CosmosView!
 
     
     // MARK: - Public Properties
