@@ -72,7 +72,7 @@ class RandomController {
         return sortedMovie
     }
     
-    let pickerDataGenre = ["Dramas", "Comédia", "Filmes para família", "Romance", "Ação", "Documentários", "Terror", "Fantasia", "Animes", "Musical", "Policial"]
+    let pickerDataGenre = ["Dramas", "Comédia", "Filmes para família", "Romance", "Ação", "Documentários", "Terror", "Fantasia", "Ficção Ciêntifica", "Musical", "Aventura"]
     
     let pickerDataNote = ["1", "2", "3", "4", "5", "6", "7", "8", "9"]
     
@@ -82,6 +82,13 @@ class RandomController {
         (18, "Drama"),
         (35, "Comédia"),
         (10751, "Filmes para família"),
-        (10749, "Romance")
+        (10749, "Romance"),
+        (28, "Ação"),
+        (99, "Documentários"),
+        (27, "Terror"),
+        (14, "Fantasia"),
+        (878, "Ficção Ciêntifica"),
+        (10402, "Musical"),
+        (12, "Aventura")
     ]
 }

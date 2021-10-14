@@ -11,23 +11,27 @@ class RandomViewController: UIViewController {
     
     // MARK: - IBOutlets
     
-    @IBOutlet weak var objectView: UIView!
+    @IBOutlet private var objectView: UIView!
     
-    @IBOutlet weak var headerView: UIView!
+    @IBOutlet private var headerView: UIView!
     
-    @IBOutlet weak var chooseGenreTextField: UITextField!
+    @IBOutlet private var chooseGenreTextField: UITextField!
     
-    @IBOutlet weak var chooseNoteTextField: UITextField!
+    @IBOutlet private var chooseNoteTextField: UITextField!
     
-    @IBOutlet weak var goButton: UIButton!
+    @IBOutlet private var goButton: UIButton!
     
-    @IBOutlet weak var genreButton: UIButton!
+    @IBOutlet private var genreButton: UIButton!
     
-    @IBOutlet weak var noteButton: UIButton!
+    @IBOutlet private var noteButton: UIButton!
+    
+    // MARK: - Private Properties
     
     private var selectedGenre: Bool = false
     
     private var selectedNote: Bool = false
+    
+    // MARK: - Public Properties
     
     let randomController = RandomController()
     
@@ -117,6 +121,7 @@ class RandomViewController: UIViewController {
                 as? SuggestionViewController else { return }
         
         viewController.sortedMovie = sortedMovie
+        viewController.controllerSuggestion.movie = sortedMovie
         present(viewController, animated: true)
     }
 }

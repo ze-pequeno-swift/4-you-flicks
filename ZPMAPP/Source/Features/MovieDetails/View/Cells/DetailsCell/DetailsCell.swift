@@ -26,9 +26,9 @@ class DetailsCell: UITableViewCell {
     
     @IBOutlet private var genreMovie: UILabel!
     
-    @IBOutlet weak var score: UILabel!
+    @IBOutlet private var score: UILabel!
     
-   @IBOutlet weak var circleProgressView: CircleProgressView!
+   @IBOutlet private var circleProgressView: CircleProgressView!
 
     // MARK: - Public Properties
     
@@ -56,20 +56,17 @@ class DetailsCell: UITableViewCell {
             backdropImage.load(url: MovieAPI.build(image: backdropPath, size: .w780))
         }
         
-        
         titleMovie.text = movie.title
         timeMovie.text = details.duration
         genreMovie.text = details.genres
         
-        let round = (movie.voteAverage*10)
+        let round = (movie.voteAverage * 10)
         score.text = round.formateVoteAverage()
 
        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
           self.circleProgressView.setProgress(round / 100, animated: true)
        }
     }
-    
-    
     
     // MARK: - Private Functions
     
@@ -79,5 +76,4 @@ class DetailsCell: UITableViewCell {
         posterView.layer.cornerRadius = 8
         posterView.layer.masksToBounds = true
     }
-
 }

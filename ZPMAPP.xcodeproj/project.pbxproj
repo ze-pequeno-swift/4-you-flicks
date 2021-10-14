@@ -64,6 +64,8 @@
 		74A98FBB26D2D4EF00DD7889 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 74A98FB926D2D4EF00DD7889 /* Main.storyboard */; };
 		74A98FBD26D2D4F000DD7889 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 74A98FBC26D2D4F000DD7889 /* Assets.xcassets */; };
 		74A98FC026D2D4F000DD7889 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 74A98FBE26D2D4F000DD7889 /* LaunchScreen.storyboard */; };
+		74B309F327135251006B9110 /* SuggestionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74B309F227135251006B9110 /* SuggestionController.swift */; };
+		74B309F627135581006B9110 /* SuggestionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74B309F527135581006B9110 /* SuggestionCell.swift */; };
 		74CB473C26D72CF40091F683 /* MoviesNearbyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74CB473A26D72CF40091F683 /* MoviesNearbyCell.swift */; };
 		74CB473D26D72CF40091F683 /* MoviesNearbyCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 74CB473B26D72CF40091F683 /* MoviesNearbyCell.xib */; };
 		74CB474026D739DE0091F683 /* CustomCastCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74CB473E26D739DE0091F683 /* CustomCastCell.swift */; };
@@ -178,6 +180,8 @@
 		74A98FBC26D2D4F000DD7889 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		74A98FBF26D2D4F000DD7889 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		74A98FC126D2D4F000DD7889 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = ZPMAPP/SupportFiles/Info.plist; sourceTree = SOURCE_ROOT; };
+		74B309F227135251006B9110 /* SuggestionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuggestionController.swift; sourceTree = "<group>"; };
+		74B309F527135581006B9110 /* SuggestionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuggestionCell.swift; sourceTree = "<group>"; };
 		74CB473A26D72CF40091F683 /* MoviesNearbyCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesNearbyCell.swift; sourceTree = "<group>"; };
 		74CB473B26D72CF40091F683 /* MoviesNearbyCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MoviesNearbyCell.xib; sourceTree = "<group>"; };
 		74CB473E26D739DE0091F683 /* CustomCastCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCastCell.swift; sourceTree = "<group>"; };
@@ -479,6 +483,7 @@
 			isa = PBXGroup;
 			children = (
 				74A58E56271125B1004112E8 /* RandomController.swift */,
+				74B309F227135251006B9110 /* SuggestionController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -579,6 +584,14 @@
 				7404C42A2700364A00494FD0 /* Controller */,
 			);
 			path = Home;
+			sourceTree = "<group>";
+		};
+		74B309F427135546006B9110 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				74B309F527135581006B9110 /* SuggestionCell.swift */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 		74CB474626D752840091F683 /* DetailsCell */ = {
@@ -712,6 +725,7 @@
 		ABA4313626E1744A00B21018 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				74B309F427135546006B9110 /* Cells */,
 				AB21C97C26D725160031724B /* RandomViewController.swift */,
 				AB21C98026D734240031724B /* SuggestionViewController.swift */,
 			);
@@ -1128,6 +1142,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7404C41726FE418A00494FD0 /* MovieDetailsResponse.swift in Sources */,
+				74B309F327135251006B9110 /* SuggestionController.swift in Sources */,
 				7404C40026FE22DF00494FD0 /* NetworkManager.swift in Sources */,
 				7404C40B26FE28F500494FD0 /* Movie.swift in Sources */,
 				7404C41126FE410B00494FD0 /* Credits.swift in Sources */,
@@ -1158,6 +1173,7 @@
 				6B9F4D2426DDFF76004BB120 /* MovieCollectionViewCell.swift in Sources */,
 				BC1CCA0426F768C5002E0462 /* HeaderSection.swift in Sources */,
 				DE26FEAF2703DC9B006B46EC /* Double+Extensions.swift in Sources */,
+				74B309F627135581006B9110 /* SuggestionCell.swift in Sources */,
 				746ECAD026D6AE440047ACE7 /* DetailsCell.swift in Sources */,
 				6B9F4D1F26DDFBC0004BB120 /* ResetPasswordViewController.swift in Sources */,
 				ABC4FD3B26FD084A00F40C20 /* CreateAccountController.swift in Sources */,

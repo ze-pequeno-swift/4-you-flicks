@@ -6,64 +6,97 @@
 //
 
 import UIKit
+import CircleProgressView
 
 class SuggestionViewController: UIViewController {
     
     // MARK: - IBOutlets
     
-    @IBOutlet weak var principalImageView: UIImageView!
+    @IBOutlet private var posterMovie: UIImageView!
     
-    @IBOutlet weak var typeLabel: UILabel!
+    @IBOutlet private var genreLabel: UILabel!
     
-    @IBOutlet weak var genreLabel: UILabel!
+    @IBOutlet private var yearLabel: UILabel!
     
-    @IBOutlet weak var yearLabel: UILabel!
+    @IBOutlet private var collectionView: UICollectionView!
     
-    @IBOutlet weak var rottenTomatoesPercentageLabel: UILabel!
+    @IBOutlet private var score: UILabel!
     
-    @IBOutlet weak var rottenTomatoesImageView: UIImageView!
+    @IBOutlet private var progressView: CircleProgressView!
     
-    @IBOutlet weak var imdbPercentageLabel: UILabel!
+    // MARK: - Private Properties
     
-    @IBOutlet weak var imdbImageView: UIImageView!
+    private var suggestion: [Movie] = []
     
-    @IBOutlet weak var tableView: UITableView!
+    // MARK: - Public Properties
     
     var sortedMovie: Movie?
+    
+    var controllerSuggestion = ControllerSuggestion()
     
     // MARK: - View Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
+        
+        DispatchQueue.main.async {
+            self.collectionView.reloadData()
+        }
     }
     
     // MARK: - Private Functions
     
     private func setupUI() {
-        tableView.delegate = self
-        tableView.dataSource = self
-        
+        collectionView.dataSource = self
         hidesBottomBarWhenPushed = true
+        configureCell()
         
-        principalImageView.layer.cornerRadius = 10
-        rottenTomatoesImageView.roundCorners(cornerRadius: 8.0, typeCorners:[.bottomRight, .bottomLeft, .topRight, .topLeft])
-        imdbImageView.roundCorners(cornerRadius: 8.0, typeCorners: [.bottomRight, .bottomLeft, .topRight, .topLeft])
+        let movie = controllerSuggestion.getMovie()
+        posterMovie.layer.cornerRadius = 10
+        
+        posterMovie.load(url: MovieAPI.build(image: movie.posterPath ?? "", size: .w500))
+        
+        let round = (movie.voteAverage * 10)
+        score.text = round.formateVoteAverage()
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+            self.progressView.setProgress(round / 100, animated: true)
+        }
+    }
+    
+    private func configureCell() {
+        showLoading()
+        controllerSuggestion.fetchMovieDetails {
+            guard let details = self.controllerSuggestion.getDetails() else { return }
+            self.genreLabel.text = details.genres
+            self.suggestion = details.recommendations
+        }
+    
+        hideLoading()
     }
     
     @IBAction private func back(_ sender: UIButton) {
-        self.dismiss(animated: true, completion: nil);
+        dismiss(animated: true)
     }
 }
 
 // MARK: - UITableView Protocol Extensions
 
-extension SuggestionViewController: UITableViewDelegate, UITableViewDataSource {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
-    }
+extension SuggestionViewController: UICollectionViewDataSource {
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return UITableViewCell()
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return suggestion.count
+    }
+
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let identifier = SuggestionCell.identifier
+
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: identifier, for: indexPath)
+                as? SuggestionCell else { return UICollectionViewCell() }
+
+        cell.setupCell(suggestion[indexPath.item])
+        
+        return cell
     }
 }
