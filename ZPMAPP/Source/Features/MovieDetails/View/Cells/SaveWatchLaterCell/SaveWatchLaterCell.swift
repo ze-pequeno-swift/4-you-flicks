@@ -7,7 +7,13 @@
 
 import UIKit
 
+protocol SaveWatchLaterProtocol: AnyObject {
+    func saveMovieDB(tag: Tag)
+}
+
 class SaveWatchLaterCell: UITableViewCell {
+    
+    private weak var delegate: SaveWatchLaterProtocol?
     
     // MARK: - IBOutlets
 
@@ -26,6 +32,10 @@ class SaveWatchLaterCell: UITableViewCell {
         cardView.layer.cornerRadius = 10
     }
     
+    func setupDelegate(delegate: SaveWatchLaterProtocol) {
+        self.delegate = delegate
+    }
+    
     // MARK: - Private functions
    
     @IBAction func traillerButton(_ sender: UIButton) {
@@ -33,10 +43,10 @@ class SaveWatchLaterCell: UITableViewCell {
     }
     
     @IBAction func watchedButton(_ sender: UIButton) {
-        print("Debug: Tapped watched...")
+        self.delegate?.saveMovieDB(tag: .watched)
     }
     
     @IBAction func toWatchButton(_ sender: UIButton) {
-        print("Debug: Tapped watch...")
+        self.delegate?.saveMovieDB(tag: .watch)
     }
 }

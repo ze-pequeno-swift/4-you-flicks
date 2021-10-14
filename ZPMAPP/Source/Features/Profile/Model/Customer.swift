@@ -1,47 +1,26 @@
 //
-//  Movie.swift
+//  User.swift
 //  ZPMAPP
 //
-//  Created by Hellen on 24/09/21.
+//  Created by Felipe Rocha Oliveira on 05/10/21.
 //
 
 import Foundation
 
-// MARK: - Movie
+// MARK: - Customer
 
-struct Movie: Codable {
-
-    let id: Int
-
-    let title: String
-
-    let overview: String
-    
-    let releaseDate: String
-    
-    let voteAverage: Double
-    
-    let posterPath: String?
-    
-    let backdropPath: String?
-    
-    private enum CodingKeys: String, CodingKey {
-        case id = "id"
-        case title = "title"
-        case overview = "overview"
-        case releaseDate = "release_date"
-        case voteAverage = "vote_average"
-        case posterPath = "poster_path"
-        case backdropPath = "backdrop_path"
-    }
+struct Customer: Codable {
+    var email: String
+    var name, username, avatar: String?
+    var myMovies: [MyMovie]?
+    var friends: [Friend]?
 }
 
-// MARK: Movie convenience initializers and mutators
+// MARK: Customer convenience initializers and mutators
 
-extension Movie {
-
+extension Customer {
     init(data: Data) throws {
-        self = try JSONService.getJSONDecoder().decode(Movie.self, from: data)
+        self = try JSONService.getJSONDecoder().decode(Customer.self, from: data)
     }
 
     init(_ json: String, using encoding: String.Encoding = .utf8) throws {
@@ -70,5 +49,9 @@ extension Movie {
 
     func jsonString(encoding: String.Encoding = .utf8) throws -> String? {
         return String(data: try self.jsonData(), encoding: encoding)
+    }
+    
+    func getCurrentCustomer() -> Customer {
+        return self
     }
 }

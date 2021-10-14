@@ -7,6 +7,22 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6B05D7F6270C00AF00179A9D /* HeaderProfileTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B05D7F4270C00AF00179A9D /* HeaderProfileTableViewCell.swift */; };
+		6B05D7F7270C00AF00179A9D /* HeaderProfileTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6B05D7F5270C00AF00179A9D /* HeaderProfileTableViewCell.xib */; };
+		6B05D7FA270C06DD00179A9D /* FollowersTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B05D7F8270C06DD00179A9D /* FollowersTableViewCell.swift */; };
+		6B05D7FB270C06DD00179A9D /* FollowersTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6B05D7F9270C06DD00179A9D /* FollowersTableViewCell.xib */; };
+		6B05D7FE270C0C9700179A9D /* FilterTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B05D7FC270C0C9600179A9D /* FilterTableViewCell.swift */; };
+		6B05D7FF270C0C9700179A9D /* FilterTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6B05D7FD270C0C9600179A9D /* FilterTableViewCell.xib */; };
+		6B05D802270C0FC400179A9D /* ListMoviesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B05D800270C0FC400179A9D /* ListMoviesTableViewCell.swift */; };
+		6B05D803270C0FC400179A9D /* ListMoviesTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6B05D801270C0FC400179A9D /* ListMoviesTableViewCell.xib */; };
+		6B05D809270C238800179A9D /* Customer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B05D808270C238800179A9D /* Customer.swift */; };
+		6B05D80B270C2CEB00179A9D /* Friend.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B05D80A270C2CEB00179A9D /* Friend.swift */; };
+		6B05D80D270D0F1300179A9D /* ProfileController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B05D80C270D0F1300179A9D /* ProfileController.swift */; };
+		6B05D80F270D0F2A00179A9D /* OptionsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B05D80E270D0F2A00179A9D /* OptionsController.swift */; };
+		6B05D811270D0F4000179A9D /* EditController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B05D810270D0F4000179A9D /* EditController.swift */; };
+		6B05D813270D0F5000179A9D /* ResetController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B05D812270D0F5000179A9D /* ResetController.swift */; };
+		6B9E78D82714AA5C00C391B2 /* FirebaseDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B9E78D72714AA5C00C391B2 /* FirebaseDataService.swift */; };
+		6B9E78DA2714D45200C391B2 /* JSONService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B9E78D92714D45200C391B2 /* JSONService.swift */; };
 		6B9F4D1926DDFAE6004BB120 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B9F4D1826DDFAE6004BB120 /* ProfileViewController.swift */; };
 		6B9F4D1B26DDFB5E004BB120 /* OptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B9F4D1A26DDFB5E004BB120 /* OptionsViewController.swift */; };
 		6B9F4D1D26DDFB96004BB120 /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B9F4D1C26DDFB96004BB120 /* EditProfileViewController.swift */; };
@@ -14,6 +30,7 @@
 		6B9F4D2426DDFF76004BB120 /* MovieCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B9F4D2226DDFF76004BB120 /* MovieCollectionViewCell.swift */; };
 		6B9F4D2526DDFF76004BB120 /* MovieCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6B9F4D2326DDFF76004BB120 /* MovieCollectionViewCell.xib */; };
 		6BA6220826DE2D2400A45B32 /* ZPRedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BA6220726DE2D2400A45B32 /* ZPRedButton.swift */; };
+		6BD9F0B127151FDB0092CD89 /* MyMovie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BD9F0B027151FDA0092CD89 /* MyMovie.swift */; };
 		7404C40026FE22DF00494FD0 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7404C3FF26FE22DF00494FD0 /* NetworkManager.swift */; };
 		7404C40226FE230A00494FD0 /* MovieError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7404C40126FE230A00494FD0 /* MovieError.swift */; };
 		7404C40426FE235A00494FD0 /* MovieAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7404C40326FE235A00494FD0 /* MovieAPI.swift */; };
@@ -96,6 +113,7 @@
 		BCBD243526D48697008110FB /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCBD243426D48697008110FB /* LoginViewController.swift */; };
 		BCDC471426D7EEB500AD8A35 /* CreateAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCDC471326D7EEB500AD8A35 /* CreateAccountViewController.swift */; };
 		BCDC471626D7F0D400AD8A35 /* RecoverPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCDC471526D7F0D400AD8A35 /* RecoverPasswordViewController.swift */; };
+		CD7F86713422110AA76FC6E4 /* Pods_ZPMAPP.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81E7895316CEF430C4C266C6 /* Pods_ZPMAPP.framework */; };
 		DE26FEA527023EC3006B46EC /* RecommendationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE26FEA327023EC3006B46EC /* RecommendationTableViewCell.swift */; };
 		DE26FEA627023EC3006B46EC /* RecommendationTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DE26FEA427023EC3006B46EC /* RecommendationTableViewCell.xib */; };
 		DE26FEAA27038AF9006B46EC /* RecommendationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE26FEA827038AF9006B46EC /* RecommendationCell.swift */; };
@@ -103,7 +121,6 @@
 		DE26FEAF2703DC9B006B46EC /* Double+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE26FEAE2703DC9B006B46EC /* Double+Extensions.swift */; };
 		DEADB51026D48A1C00133508 /* UIColor+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEADB50F26D48A1C00133508 /* UIColor+Extensions.swift */; };
 		DEADB51326D48DFA00133508 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEADB51226D48DFA00133508 /* SearchViewController.swift */; };
-		DEB196AD26D7E99100D52080 /* Users.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB196AC26D7E99100D52080 /* Users.swift */; };
 		DEDD23FD26D6A337000C62E6 /* MovieSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEDD23FC26D6A337000C62E6 /* MovieSearch.swift */; };
 		DEDD240626D6B2E8000C62E6 /* ActorsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEDD240426D6B2E8000C62E6 /* ActorsCell.swift */; };
 		DEDD240726D6B2E8000C62E6 /* ActorsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DEDD240526D6B2E8000C62E6 /* ActorsCell.xib */; };
@@ -114,12 +131,28 @@
 		DEFED81726D6923600B2AEEA /* MovieSearchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEFED81526D6923600B2AEEA /* MovieSearchCell.swift */; };
 		DEFED81826D6923600B2AEEA /* MovieSearchCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DEFED81626D6923600B2AEEA /* MovieSearchCell.xib */; };
 		DEFED81A26D6986B00B2AEEA /* UIImageView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEFED81926D6986B00B2AEEA /* UIImageView+Extension.swift */; };
-		FDC4E0B7EA4063118019D278 /* Pods_ZPMAPP.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56DFF85ADAABD999967A4CB4 /* Pods_ZPMAPP.framework */; };
+		FDC4E0B7EA4063118019D278 /* (null) in Frameworks */ = {isa = PBXBuildFile; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		20051DE92C7C5E9719B305E2 /* Pods-ZPMAPP.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ZPMAPP.release.xcconfig"; path = "Target Support Files/Pods-ZPMAPP/Pods-ZPMAPP.release.xcconfig"; sourceTree = "<group>"; };
-		56DFF85ADAABD999967A4CB4 /* Pods_ZPMAPP.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ZPMAPP.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		47873D799DEDA5638D1B41BA /* Pods-ZPMAPP.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ZPMAPP.release.xcconfig"; path = "Target Support Files/Pods-ZPMAPP/Pods-ZPMAPP.release.xcconfig"; sourceTree = "<group>"; };
+		5D3383493D214B226A233DFA /* Pods-ZPMAPP.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ZPMAPP.debug.xcconfig"; path = "Target Support Files/Pods-ZPMAPP/Pods-ZPMAPP.debug.xcconfig"; sourceTree = "<group>"; };
+		6B05D7F4270C00AF00179A9D /* HeaderProfileTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderProfileTableViewCell.swift; sourceTree = "<group>"; };
+		6B05D7F5270C00AF00179A9D /* HeaderProfileTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HeaderProfileTableViewCell.xib; sourceTree = "<group>"; };
+		6B05D7F8270C06DD00179A9D /* FollowersTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowersTableViewCell.swift; sourceTree = "<group>"; };
+		6B05D7F9270C06DD00179A9D /* FollowersTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FollowersTableViewCell.xib; sourceTree = "<group>"; };
+		6B05D7FC270C0C9600179A9D /* FilterTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterTableViewCell.swift; sourceTree = "<group>"; };
+		6B05D7FD270C0C9600179A9D /* FilterTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FilterTableViewCell.xib; sourceTree = "<group>"; };
+		6B05D800270C0FC400179A9D /* ListMoviesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListMoviesTableViewCell.swift; sourceTree = "<group>"; };
+		6B05D801270C0FC400179A9D /* ListMoviesTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ListMoviesTableViewCell.xib; sourceTree = "<group>"; };
+		6B05D808270C238800179A9D /* Customer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Customer.swift; sourceTree = "<group>"; };
+		6B05D80A270C2CEB00179A9D /* Friend.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Friend.swift; sourceTree = "<group>"; };
+		6B05D80C270D0F1300179A9D /* ProfileController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileController.swift; sourceTree = "<group>"; };
+		6B05D80E270D0F2A00179A9D /* OptionsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionsController.swift; sourceTree = "<group>"; };
+		6B05D810270D0F4000179A9D /* EditController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditController.swift; sourceTree = "<group>"; };
+		6B05D812270D0F5000179A9D /* ResetController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetController.swift; sourceTree = "<group>"; };
+		6B9E78D72714AA5C00C391B2 /* FirebaseDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseDataService.swift; sourceTree = "<group>"; };
+		6B9E78D92714D45200C391B2 /* JSONService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONService.swift; sourceTree = "<group>"; };
 		6B9F4D1826DDFAE6004BB120 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		6B9F4D1A26DDFB5E004BB120 /* OptionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionsViewController.swift; sourceTree = "<group>"; };
 		6B9F4D1C26DDFB96004BB120 /* EditProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileViewController.swift; sourceTree = "<group>"; };
@@ -127,7 +160,7 @@
 		6B9F4D2226DDFF76004BB120 /* MovieCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieCollectionViewCell.swift; sourceTree = "<group>"; };
 		6B9F4D2326DDFF76004BB120 /* MovieCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MovieCollectionViewCell.xib; sourceTree = "<group>"; };
 		6BA6220726DE2D2400A45B32 /* ZPRedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZPRedButton.swift; sourceTree = "<group>"; };
-		6E4C4D9D5A1563A9FC3D700D /* Pods-ZPMAPP.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ZPMAPP.debug.xcconfig"; path = "Target Support Files/Pods-ZPMAPP/Pods-ZPMAPP.debug.xcconfig"; sourceTree = "<group>"; };
+		6BD9F0B027151FDA0092CD89 /* MyMovie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyMovie.swift; sourceTree = "<group>"; };
 		7404C3FF26FE22DF00494FD0 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		7404C40126FE230A00494FD0 /* MovieError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieError.swift; sourceTree = "<group>"; };
 		7404C40326FE235A00494FD0 /* MovieAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieAPI.swift; sourceTree = "<group>"; };
@@ -194,6 +227,7 @@
 		74D1AE6D26D3615900AC56E5 /* Random.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Random.storyboard; sourceTree = "<group>"; };
 		74D1AE6F26D3616500AC56E5 /* Profile.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
 		74D919BF26D570BB00257317 /* MovieDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailsViewController.swift; sourceTree = "<group>"; };
+		81E7895316CEF430C4C266C6 /* Pods_ZPMAPP.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ZPMAPP.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB21C97C26D725160031724B /* RandomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomViewController.swift; sourceTree = "<group>"; };
 		AB21C97E26D7266E0031724B /* UIView+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		AB21C98026D734240031724B /* SuggestionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuggestionViewController.swift; sourceTree = "<group>"; };
@@ -219,7 +253,6 @@
 		DE26FEAE2703DC9B006B46EC /* Double+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+Extensions.swift"; sourceTree = "<group>"; };
 		DEADB50F26D48A1C00133508 /* UIColor+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extensions.swift"; sourceTree = "<group>"; };
 		DEADB51226D48DFA00133508 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
-		DEB196AC26D7E99100D52080 /* Users.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Users.swift; sourceTree = "<group>"; };
 		DEDD23FC26D6A337000C62E6 /* MovieSearch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieSearch.swift; sourceTree = "<group>"; };
 		DEDD240426D6B2E8000C62E6 /* ActorsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActorsCell.swift; sourceTree = "<group>"; };
 		DEDD240526D6B2E8000C62E6 /* ActorsCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ActorsCell.xib; sourceTree = "<group>"; };
@@ -237,13 +270,52 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FDC4E0B7EA4063118019D278 /* Pods_ZPMAPP.framework in Frameworks */,
+				FDC4E0B7EA4063118019D278 /* (null) in Frameworks */,
+				CD7F86713422110AA76FC6E4 /* Pods_ZPMAPP.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6B05D804270C1ECD00179A9D /* HeaderSection */ = {
+			isa = PBXGroup;
+			children = (
+				6B05D7F5270C00AF00179A9D /* HeaderProfileTableViewCell.xib */,
+				6B05D7F4270C00AF00179A9D /* HeaderProfileTableViewCell.swift */,
+			);
+			path = HeaderSection;
+			sourceTree = "<group>";
+		};
+		6B05D805270C1F0F00179A9D /* FollowersSection */ = {
+			isa = PBXGroup;
+			children = (
+				6B05D7F9270C06DD00179A9D /* FollowersTableViewCell.xib */,
+				6B05D7F8270C06DD00179A9D /* FollowersTableViewCell.swift */,
+			);
+			path = FollowersSection;
+			sourceTree = "<group>";
+		};
+		6B05D806270C1F4000179A9D /* FiltersSection */ = {
+			isa = PBXGroup;
+			children = (
+				6B05D7FC270C0C9600179A9D /* FilterTableViewCell.swift */,
+				6B05D7FD270C0C9600179A9D /* FilterTableViewCell.xib */,
+			);
+			path = FiltersSection;
+			sourceTree = "<group>";
+		};
+		6B05D807270C1F6000179A9D /* MoviesSection */ = {
+			isa = PBXGroup;
+			children = (
+				6B9F4D2226DDFF76004BB120 /* MovieCollectionViewCell.swift */,
+				6B9F4D2326DDFF76004BB120 /* MovieCollectionViewCell.xib */,
+				6B05D800270C0FC400179A9D /* ListMoviesTableViewCell.swift */,
+				6B05D801270C0FC400179A9D /* ListMoviesTableViewCell.xib */,
+			);
+			path = MoviesSection;
+			sourceTree = "<group>";
+		};
 		6B67B54126DDA61800B2B205 /* Profile */ = {
 			isa = PBXGroup;
 			children = (
@@ -254,13 +326,15 @@
 			path = Profile;
 			sourceTree = "<group>";
 		};
-		6B9F4D2126DDFDB5004BB120 /* MoviesCell */ = {
+		6B9F4D2126DDFDB5004BB120 /* CustomCell */ = {
 			isa = PBXGroup;
 			children = (
-				6B9F4D2226DDFF76004BB120 /* MovieCollectionViewCell.swift */,
-				6B9F4D2326DDFF76004BB120 /* MovieCollectionViewCell.xib */,
+				6B05D807270C1F6000179A9D /* MoviesSection */,
+				6B05D806270C1F4000179A9D /* FiltersSection */,
+				6B05D805270C1F0F00179A9D /* FollowersSection */,
+				6B05D804270C1ECD00179A9D /* HeaderSection */,
 			);
-			path = MoviesCell;
+			path = CustomCell;
 			sourceTree = "<group>";
 		};
 		7404C3FE26FE22C000494FD0 /* Networking */ = {
@@ -269,6 +343,8 @@
 				7404C3FF26FE22DF00494FD0 /* NetworkManager.swift */,
 				7404C40326FE235A00494FD0 /* MovieAPI.swift */,
 				7404C40526FE281400494FD0 /* APIEnum.swift */,
+				6B9E78D72714AA5C00C391B2 /* FirebaseDataService.swift */,
+				6B9E78D92714D45200C391B2 /* JSONService.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -670,8 +746,8 @@
 		815E984596870329D86FAD73 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				6E4C4D9D5A1563A9FC3D700D /* Pods-ZPMAPP.debug.xcconfig */,
-				20051DE92C7C5E9719B305E2 /* Pods-ZPMAPP.release.xcconfig */,
+				5D3383493D214B226A233DFA /* Pods-ZPMAPP.debug.xcconfig */,
+				47873D799DEDA5638D1B41BA /* Pods-ZPMAPP.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -786,6 +862,10 @@
 		ABA4314426E1756100B21018 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				6B05D80C270D0F1300179A9D /* ProfileController.swift */,
+				6B05D80E270D0F2A00179A9D /* OptionsController.swift */,
+				6B05D810270D0F4000179A9D /* EditController.swift */,
+				6B05D812270D0F5000179A9D /* ResetController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -793,7 +873,7 @@
 		ABA4314526E1756800B21018 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				6B9F4D2126DDFDB5004BB120 /* MoviesCell */,
+				6B9F4D2126DDFDB5004BB120 /* CustomCell */,
 				6B9F4D1826DDFAE6004BB120 /* ProfileViewController.swift */,
 				6B9F4D1A26DDFB5E004BB120 /* OptionsViewController.swift */,
 				6B9F4D1C26DDFB96004BB120 /* EditProfileViewController.swift */,
@@ -805,6 +885,9 @@
 		ABA4314626E1756C00B21018 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				6B05D808270C238800179A9D /* Customer.swift */,
+				6B05D80A270C2CEB00179A9D /* Friend.swift */,
+				6BD9F0B027151FDA0092CD89 /* MyMovie.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -812,7 +895,7 @@
 		B197C7D93E6A5F5AA1B6AF65 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				56DFF85ADAABD999967A4CB4 /* Pods_ZPMAPP.framework */,
+				81E7895316CEF430C4C266C6 /* Pods_ZPMAPP.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -913,7 +996,6 @@
 			isa = PBXGroup;
 			children = (
 				DEDD23FC26D6A337000C62E6 /* MovieSearch.swift */,
-				DEB196AC26D7E99100D52080 /* Users.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -970,13 +1052,13 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 74A98FC426D2D4F000DD7889 /* Build configuration list for PBXNativeTarget "ZPMAPP" */;
 			buildPhases = (
-				82DA5F45BB769C9936916310 /* [CP] Check Pods Manifest.lock */,
+				7CDA34BC814469F7DB43C0F7 /* [CP] Check Pods Manifest.lock */,
 				74A98FAC26D2D4EF00DD7889 /* Sources */,
 				74A98FAD26D2D4EF00DD7889 /* Frameworks */,
 				74A98FAE26D2D4EF00DD7889 /* Resources */,
 				DE2F04CC26E688C900015FBE /* ShellScript */,
 				ABC4FD3926FCFB9200F40C20 /* ShellScript */,
-				3300A3A8A0112202A626852C /* [CP] Embed Pods Frameworks */,
+				AA03907AC23998574CE15395 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -994,7 +1076,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1250;
-				LastUpgradeCheck = 1250;
+				LastUpgradeCheck = 1300;
 				TargetAttributes = {
 					74A98FAF26D2D4EF00DD7889 = {
 						CreatedOnToolsVersion = 12.5.1;
@@ -1026,8 +1108,10 @@
 			files = (
 				DEDD241026D6BA17000C62E6 /* UsersCell.xib in Resources */,
 				DEDD240726D6B2E8000C62E6 /* ActorsCell.xib in Resources */,
+				6B05D7FB270C06DD00179A9D /* FollowersTableViewCell.xib in Resources */,
 				AB4382222702665A00A8A74B /* GoogleService-Info.plist in Resources */,
 				74818A4A26D4180E0071AB5E /* CardCustomCell.xib in Resources */,
+				6B05D7F7270C00AF00179A9D /* HeaderProfileTableViewCell.xib in Resources */,
 				BC4C3B2326E5C0F100662A23 /* TopCustomCell.xib in Resources */,
 				74CB474526D741200091F683 /* CastCell.xib in Resources */,
 				749FED3426D6DA7700B35C1A /* SaveWatchLaterCell.xib in Resources */,
@@ -1036,6 +1120,7 @@
 				74A98FC026D2D4F000DD7889 /* LaunchScreen.storyboard in Resources */,
 				74D1AE6E26D3615900AC56E5 /* Random.storyboard in Resources */,
 				74A98FBD26D2D4F000DD7889 /* Assets.xcassets in Resources */,
+				6B05D7FF270C0C9700179A9D /* FilterTableViewCell.xib in Resources */,
 				74818A4F26D419C60071AB5E /* CardCustomDailyTrendingsCell.xib in Resources */,
 				74818A5426D41AAF0071AB5E /* DailyTrendingsCell.xib in Resources */,
 				DE26FEA627023EC3006B46EC /* RecommendationTableViewCell.xib in Resources */,
@@ -1043,6 +1128,7 @@
 				7404C43C2700EB7200494FD0 /* ZPPickerTableViewCell.xib in Resources */,
 				6B9F4D2526DDFF76004BB120 /* MovieCollectionViewCell.xib in Resources */,
 				749FED3826D6E0CA00B35C1A /* DescriptionCell.xib in Resources */,
+				6B05D803270C0FC400179A9D /* ListMoviesTableViewCell.xib in Resources */,
 				749FED3C26D6E61600B35C1A /* WhereToWatchCell.xib in Resources */,
 				BC1CCA0526F768C5002E0462 /* HeaderSection.xib in Resources */,
 				74A98FBB26D2D4EF00DD7889 /* Main.storyboard in Resources */,
@@ -1059,24 +1145,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		3300A3A8A0112202A626852C /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-ZPMAPP/Pods-ZPMAPP-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-ZPMAPP/Pods-ZPMAPP-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ZPMAPP/Pods-ZPMAPP-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		82DA5F45BB769C9936916310 /* [CP] Check Pods Manifest.lock */ = {
+		7CDA34BC814469F7DB43C0F7 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -1096,6 +1165,23 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		AA03907AC23998574CE15395 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ZPMAPP/Pods-ZPMAPP-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ZPMAPP/Pods-ZPMAPP-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ZPMAPP/Pods-ZPMAPP-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		ABC4FD3926FCFB9200F40C20 /* ShellScript */ = {
@@ -1148,10 +1234,11 @@
 				7404C41126FE410B00494FD0 /* Credits.swift in Sources */,
 				DEADB51326D48DFA00133508 /* SearchViewController.swift in Sources */,
 				DEFED81A26D6986B00B2AEEA /* UIImageView+Extension.swift in Sources */,
+				6BD9F0B127151FDB0092CD89 /* MyMovie.swift in Sources */,
 				7404C42926FFA0DC00494FD0 /* Details.swift in Sources */,
+				6B05D80D270D0F1300179A9D /* ProfileController.swift in Sources */,
 				74A98FB826D2D4EF00DD7889 /* HomeViewController.swift in Sources */,
 				DEFED81726D6923600B2AEEA /* MovieSearchCell.swift in Sources */,
-				DEB196AD26D7E99100D52080 /* Users.swift in Sources */,
 				DE26FEAA27038AF9006B46EC /* RecommendationCell.swift in Sources */,
 				6BA6220826DE2D2400A45B32 /* ZPRedButton.swift in Sources */,
 				74A98FB426D2D4EF00DD7889 /* AppDelegate.swift in Sources */,
@@ -1163,12 +1250,15 @@
 				7404C41926FE424300494FD0 /* WatchProvidersResponse.swift in Sources */,
 				7404C40D26FE2AEA00494FD0 /* MovieListResponse.swift in Sources */,
 				DEDD241226D6C222000C62E6 /* SearchController.swift in Sources */,
+				6B05D7FA270C06DD00179A9D /* FollowersTableViewCell.swift in Sources */,
 				DEDD240F26D6BA17000C62E6 /* UsersCell.swift in Sources */,
 				BC4C3B2226E5C0F100662A23 /* TopCustomCell.swift in Sources */,
+				6B05D802270C0FC400179A9D /* ListMoviesTableViewCell.swift in Sources */,
 				6B9F4D1D26DDFB96004BB120 /* EditProfileViewController.swift in Sources */,
 				BC4C3B1E26E5B99300662A23 /* UIViewController+Extensions.swift in Sources */,
 				DEDD23FD26D6A337000C62E6 /* MovieSearch.swift in Sources */,
 				DEADB51026D48A1C00133508 /* UIColor+Extensions.swift in Sources */,
+				6B05D7F6270C00AF00179A9D /* HeaderProfileTableViewCell.swift in Sources */,
 				DEDD240626D6B2E8000C62E6 /* ActorsCell.swift in Sources */,
 				6B9F4D2426DDFF76004BB120 /* MovieCollectionViewCell.swift in Sources */,
 				BC1CCA0426F768C5002E0462 /* HeaderSection.swift in Sources */,
@@ -1176,6 +1266,7 @@
 				74B309F627135581006B9110 /* SuggestionCell.swift in Sources */,
 				746ECAD026D6AE440047ACE7 /* DetailsCell.swift in Sources */,
 				6B9F4D1F26DDFBC0004BB120 /* ResetPasswordViewController.swift in Sources */,
+				6B05D80F270D0F2A00179A9D /* OptionsController.swift in Sources */,
 				ABC4FD3B26FD084A00F40C20 /* CreateAccountController.swift in Sources */,
 				74CB475426D75CD40091F683 /* UINavigationItem+Extensions.swift in Sources */,
 				749FED3326D6DA7700B35C1A /* SaveWatchLaterCell.swift in Sources */,
@@ -1186,20 +1277,22 @@
 				749FED3726D6E0CA00B35C1A /* DescriptionCell.swift in Sources */,
 				74818A6926D43B320071AB5E /* UICollectionViewCell+Extension.swift in Sources */,
 				74818A4926D4180E0071AB5E /* CardCustomCell.swift in Sources */,
-				74A98FB826D2D4EF00DD7889 /* HomeViewController.swift in Sources */,
 				AB438220270246F300A8A74B /* UITextField+Extensions.swift in Sources */,
 				7404C41326FE411B00494FD0 /* Cast.swift in Sources */,
+				6B05D7FE270C0C9700179A9D /* FilterTableViewCell.swift in Sources */,
 				BC13C72226F5491900A99CFA /* HomeSection.swift in Sources */,
 				AB21C97D26D725160031724B /* RandomViewController.swift in Sources */,
+				6B05D809270C238800179A9D /* Customer.swift in Sources */,
 				AB21C98126D734240031724B /* SuggestionViewController.swift in Sources */,
 				74309AC426D9D9C300CB5D7B /* ZPButton.swift in Sources */,
 				BCBD243526D48697008110FB /* LoginViewController.swift in Sources */,
 				74A58E57271125B1004112E8 /* RandomController.swift in Sources */,
 				BCDC471426D7EEB500AD8A35 /* CreateAccountViewController.swift in Sources */,
+				6B05D813270D0F5000179A9D /* ResetController.swift in Sources */,
+				6B05D811270D0F4000179A9D /* EditController.swift in Sources */,
 				7404C41B26FE435600494FD0 /* Country.swift in Sources */,
-				74A98FB826D2D4EF00DD7889 /* HomeViewController.swift in Sources */,
+				6B9E78D82714AA5C00C391B2 /* FirebaseDataService.swift in Sources */,
 				7404C42026FE47A400494FD0 /* ControllerMovieDetails.swift in Sources */,
-				74A98FB426D2D4EF00DD7889 /* AppDelegate.swift in Sources */,
 				BCDC471626D7F0D400AD8A35 /* RecoverPasswordViewController.swift in Sources */,
 				7404C40426FE235A00494FD0 /* MovieAPI.swift in Sources */,
 				7404C43F2700EB7200494FD0 /* ZPPickerViewController.swift in Sources */,
@@ -1208,12 +1301,17 @@
 				BC7884D926F6211200EB59BF /* ControllerHome.swift in Sources */,
 				74818A5326D41AAF0071AB5E /* DailyTrendingsCell.swift in Sources */,
 				7404C43D2700EB7200494FD0 /* ZPPickerDelegate.swift in Sources */,
+				AB21C97F26D7266E0031724B /* UIView+Extension.swift in Sources */,
+				BC7884D926F6211200EB59BF /* ControllerHome.swift in Sources */,
+				74818A5326D41AAF0071AB5E /* DailyTrendingsCell.swift in Sources */,
+				6B05D80B270C2CEB00179A9D /* Friend.swift in Sources */,
 				749FED3B26D6E61600B35C1A /* WhereToWatchCell.swift in Sources */,
 				74CB474E26D757BA0091F683 /* UINavigationBar+Extension.swift in Sources */,
 				7404C40626FE281400494FD0 /* APIEnum.swift in Sources */,
 				7404C41E26FE466B00494FD0 /* MovieDetailsWorker.swift in Sources */,
 				DEF3329C26E1701C007DD03A /* DetailSearchViewController.swift in Sources */,
 				6B9F4D1B26DDFB5E004BB120 /* OptionsViewController.swift in Sources */,
+				6B9E78DA2714D45200C391B2 /* JSONService.swift in Sources */,
 				7404C40F26FE40DE00494FD0 /* Genre.swift in Sources */,
 				7404C42F2700416200494FD0 /* Int+Extension.swift in Sources */,
 				7404C43E2700EB7200494FD0 /* ZPPickerBuilder.swift in Sources */,
@@ -1366,14 +1464,14 @@
 		};
 		74A98FC526D2D4F000DD7889 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 6E4C4D9D5A1563A9FC3D700D /* Pods-ZPMAPP.debug.xcconfig */;
+			baseConfigurationReference = 5D3383493D214B226A233DFA /* Pods-ZPMAPP.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = TUYSB3A7FS;
 				INFOPLIST_FILE = ZPMAPP/SupportFiles/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1390,12 +1488,12 @@
 		};
 		74A98FC626D2D4F000DD7889 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 20051DE92C7C5E9719B305E2 /* Pods-ZPMAPP.release.xcconfig */;
+			baseConfigurationReference = 47873D799DEDA5638D1B41BA /* Pods-ZPMAPP.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = ZFB9PS3322;
+				DEVELOPMENT_TEAM = TUYSB3A7FS;
 				INFOPLIST_FILE = ZPMAPP/SupportFiles/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
 				LD_RUNPATH_SEARCH_PATHS = (
