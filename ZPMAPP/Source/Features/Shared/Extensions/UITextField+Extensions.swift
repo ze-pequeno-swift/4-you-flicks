@@ -63,6 +63,7 @@ extension UITextField{
         self.layer.borderWidth = 1.0
         self.layer.borderColor = UIColor.red.cgColor
         self.textColor = .red
+        self.shakeAnimation()
     }
     
     func validField() {
