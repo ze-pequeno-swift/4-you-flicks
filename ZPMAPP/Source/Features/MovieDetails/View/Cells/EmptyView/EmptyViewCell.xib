@@ -19,7 +19,7 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uWJ-h0-ZM2">
-                        <rect key="frame" x="8" y="0.0" width="304" height="300"/>
+                        <rect key="frame" x="8" y="8" width="304" height="284"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="empty" translatesAutoresizingMaskIntoConstraints="NO" id="z7F-Kd-3Z8">
                                 <rect key="frame" x="78" y="25" width="148" height="164"/>
@@ -66,9 +66,9 @@ e os detalhes do filme</string>
                 <color key="backgroundColor" name="Main Black"/>
                 <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 <constraints>
-                    <constraint firstItem="uWJ-h0-ZM2" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="ERs-o6-uPb"/>
+                    <constraint firstAttribute="bottom" secondItem="uWJ-h0-ZM2" secondAttribute="bottom" constant="8" id="RIL-uk-RAg"/>
+                    <constraint firstItem="uWJ-h0-ZM2" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="Xwn-To-b75"/>
                     <constraint firstAttribute="trailing" secondItem="uWJ-h0-ZM2" secondAttribute="trailing" constant="8" id="ZLd-Iq-FxM"/>
-                    <constraint firstAttribute="bottom" secondItem="uWJ-h0-ZM2" secondAttribute="bottom" id="i4j-un-AWm"/>
                     <constraint firstItem="uWJ-h0-ZM2" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="qNT-ad-rAr"/>
                 </constraints>
             </tableViewCellContentView>
