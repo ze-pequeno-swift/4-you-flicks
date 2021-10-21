@@ -82,6 +82,33 @@ class ControllerMovieDetails {
             }
         }
     }
+
+    func checkOverviewEmptyState() -> Bool {
+        if let overview = movie?.overview {
+            if overview == "" {
+                return true
+            }
+        }
+        return false
+    }
+
+    func checkRecommendationsEmptyState() -> Bool {
+        if let recommendations = details?.recommendations {
+            if recommendations.isEmpty {
+                return true
+            }
+        }
+        return false
+    }
+
+    func checkCastEmptyState() -> Bool {
+        if let cast = details?.cast {
+            if cast.isEmpty {
+                return true
+            }
+        }
+        return false
+    }
     
     // MARK: - Private Functions
     
