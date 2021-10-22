@@ -18,6 +18,8 @@ class SearchViewController: UIViewController {
     private let controller = SearchController()
     private let searchBar = UISearchBar(frame: CGRect(
                                             x: 0, y: 0, width: UIScreen.main.bounds.width, height: 30))
+    private var searchSelectedMovie: Movie?
+    private weak var delegate: HomeViewControllerDelegate?
     
     // MARK: - View Lifecycle
     
@@ -27,7 +29,10 @@ class SearchViewController: UIViewController {
         registerTableView()
         setupSearchBar()
         tableView.tableFooterView = UIView()
+        delegate = self
     }
+
+
     
     // MARK: - Private Functions
     
@@ -89,18 +94,18 @@ class SearchViewController: UIViewController {
         return cell
     }
 
-    private func proceedToMovie() {
+    private func proceedToMoviesDetails() {
+        let identifier = "MovieDetailsViewController"
         let homeController = UIStoryboard(name: "Home", bundle: nil)
-        guard let viewController = homeController.instantiateViewController(identifier: "MovieDetailsViewController")
+        guard let detailMovieVC = homeController.instantiateViewController(identifier: identifier)
                 as? MovieDetailsViewController else { return }
 
-        present(viewController, animated: true, completion: nil)
-    }
+        detailMovieVC.controllerMovieDetails.movie = searchSelectedMovie
+        detailMovieVC.hidesBottomBarWhenPushed = true
 
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        guard let detailVC = segue.destination as? MovieDetailsViewController, let sender = sender as? [Movie] else { return }
-//        detailVC.movieData = sender
-//    }
+
+        navigationController?.pushViewController(detailMovieVC, animated: true)
+    }
 }
 
 // MARK: - UISearchBarDelegate Protocol
@@ -143,6 +148,13 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-            self.proceedToMovie()
+        delegate?.tappedCell(selectedMovie: controller.getMovieArray[indexPath.row])
+        proceedToMoviesDetails()
+    }
+}
+
+extension SearchViewController: HomeViewControllerDelegate {
+    func tappedCell(selectedMovie: Movie?) {
+        self.searchSelectedMovie = selectedMovie
     }
 }
