@@ -28,7 +28,12 @@ class MoviesNearbyCell: UITableViewCell {
     
     // MARK: - Private Functions
     
-    @IBAction func openMapButton(_ sender: UIButton) {
-        print("Debug: Tapped Open Map...")
+    @IBAction private func openMapButton(_ sender: UIButton) {
+        openMap()
+    }
+
+    private func openMap() {
+        guard let url = URL(string: "http://maps.apple.com/?q=cinemas") else { return }
+        UIApplication.shared.open(url, options: [:], completionHandler: nil)
     }
 }
