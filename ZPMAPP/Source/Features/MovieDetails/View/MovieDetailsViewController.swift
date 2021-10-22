@@ -185,6 +185,16 @@ class MovieDetailsViewController: UIViewController {
         }
         return getRecommendations()
     }
+    
+    private func alert(title: String, message: String) {
+        let alert: UIAlertController = UIAlertController.init(title: title, message: message, preferredStyle: UIAlertController.Style.alert)
+
+        alert.addAction(UIAlertAction.init(title: "OK", style: UIAlertAction.Style.default, handler: { action in
+            self.dismiss(animated: true, completion: nil)
+        }))
+        
+        self.present(alert, animated: true, completion: nil)
+    }
 }
 
 // MARK: - UITableView Protocol Extensions
@@ -236,7 +246,7 @@ extension MovieDetailsViewController: UITableViewDelegate, UITableViewDataSource
 extension MovieDetailsViewController: MovieDetailsViewControllerProtocol {
 
     func showMovieListError(_ errorMessage: String) {
-        // error
+        self.alert(title: "Ixe, Deu ruim!", message: "Houve um erro ao apresentar a lista de filmes")
     }
 }
 
@@ -244,5 +254,6 @@ extension MovieDetailsViewController: SaveWatchLaterProtocol {
 
     func saveMovieDB(tag: Tag) {
         self.controllerMovieDetails.saveMovieDB(tag: tag)
+        self.alert(title: "Minha lista", message: "O filme foi adicionado com sucesso na sua lista de filmes")
     }
 }
