@@ -59,6 +59,8 @@ class MovieDetailsViewController: UIViewController {
         MoviesNearbyCell.registerOn(tableView)
         CustomCastCell.registerOn(tableView)
         RecommendationTableViewCell.registerOn(tableView)
+        EmptyViewCell.registerOn(tableView)
+        EmptySectionCell.registerOn(tableView)
     }
     
     private func getDetailsCell() -> UITableViewCell {
@@ -123,10 +125,9 @@ class MovieDetailsViewController: UIViewController {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: identifier)
                 as? CustomCastCell else { return UITableViewCell() }
         
-        if let details = controllerMovieDetails.getDetails() {
-            details.cast.isEmpty ? cell.isHidden = true : cell.setupCell(details)
-        }
-        
+        let details = controllerMovieDetails.getDetails()
+        cell.setupCell(details)
+
         return cell
     }
 
@@ -140,6 +141,49 @@ class MovieDetailsViewController: UIViewController {
 
         cell.setupCell(detail)
         return cell
+    }
+
+    private func getEmptyView() -> UITableViewCell {
+        let identifier = EmptyViewCell.identifier
+
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: identifier)
+                as? EmptyViewCell else { return UITableViewCell() }
+        cell.setupCell(title: "Opss", message: "Não encontramos a descrição e os detalhes do filme")
+
+        return cell
+    }
+
+    private func getEmpySectionView(title: String, message: String) -> UITableViewCell {
+        let identifier = EmptySectionCell.identifier
+
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: identifier)
+                as? EmptySectionCell else { return UITableViewCell()}
+
+        cell.setupCell(title: title, message: message)
+        return cell
+    }
+
+
+    private func checkEmptyStateToBuildDetailsCell() -> UITableViewCell {
+        if controllerMovieDetails.checkOverviewEmptyState() == true {
+            return getEmptyView()
+        } else {
+            return getDescriptionCell()
+        }
+    }
+
+    private func checkEmptyStateToBuildCastCell() -> UITableViewCell {
+        if controllerMovieDetails.checkCastEmptyState() == true {
+            return getEmpySectionView(title: "Algo deu errado", message: "Não encontramos o elenco do filme")
+        }
+        return getCustomCastCell()
+    }
+
+    private func checkEmptyStateToBuildRecommendationsCell() -> UITableViewCell {
+        if controllerMovieDetails.checkRecommendationsEmptyState() == true {
+            return getEmpySectionView(title: "Não deu match :(", message: "Não encontramos nenhum filme recomendado")
+        }
+        return getRecommendations()
     }
     
     private func alert(title: String, message: String) {
@@ -179,20 +223,20 @@ extension MovieDetailsViewController: UITableViewDelegate, UITableViewDataSource
         guard let section = DetailsSection(rawValue: indexPath.section) else { return UITableViewCell() }
         
         switch section {
-            case .details:
-                return getDetailsCell()
-            case .saveWatchLater:
-                return getSaveWatchLaterCell()
-            case .description:
-                return getDescriptionCell()
-            case .whereToWatch:
-                return getWhereToWatchCell()
-            case .moviesNearby:
-                return getMoviesNearbyCell()
-            case .customCast:
-                return getCustomCastCell()
-            case .recommendations:
-                return getRecommendations()
+        case .details:
+            return getDetailsCell()
+        case .saveWatchLater:
+            return getSaveWatchLaterCell()
+        case .description:
+            return checkEmptyStateToBuildDetailsCell()
+        case .whereToWatch:
+            return getWhereToWatchCell()
+        case .moviesNearby:
+            return getMoviesNearbyCell()
+        case .customCast:
+            return checkEmptyStateToBuildCastCell()
+        case .recommendations:
+            return checkEmptyStateToBuildRecommendationsCell()
         }
     }
 }
