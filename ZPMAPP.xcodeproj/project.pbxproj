@@ -30,6 +30,10 @@
 		6B9F4D2426DDFF76004BB120 /* MovieCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B9F4D2226DDFF76004BB120 /* MovieCollectionViewCell.swift */; };
 		6B9F4D2526DDFF76004BB120 /* MovieCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6B9F4D2326DDFF76004BB120 /* MovieCollectionViewCell.xib */; };
 		6BA6220826DE2D2400A45B32 /* ZPRedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BA6220726DE2D2400A45B32 /* ZPRedButton.swift */; };
+		6BACAF702725B92600ECBAF5 /* EmptyViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6BACAF6C2725B92600ECBAF5 /* EmptyViewCell.xib */; };
+		6BACAF712725B92600ECBAF5 /* EmptySectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6BACAF6D2725B92600ECBAF5 /* EmptySectionCell.xib */; };
+		6BACAF722725B92600ECBAF5 /* EmptyViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BACAF6E2725B92600ECBAF5 /* EmptyViewCell.swift */; };
+		6BACAF732725B92600ECBAF5 /* EmptySectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BACAF6F2725B92600ECBAF5 /* EmptySectionCell.swift */; };
 		6BD9F0B127151FDB0092CD89 /* MyMovie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BD9F0B027151FDA0092CD89 /* MyMovie.swift */; };
 		7404C40026FE22DF00494FD0 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7404C3FF26FE22DF00494FD0 /* NetworkManager.swift */; };
 		7404C40226FE230A00494FD0 /* MovieError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7404C40126FE230A00494FD0 /* MovieError.swift */; };
@@ -160,6 +164,10 @@
 		6B9F4D2226DDFF76004BB120 /* MovieCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieCollectionViewCell.swift; sourceTree = "<group>"; };
 		6B9F4D2326DDFF76004BB120 /* MovieCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MovieCollectionViewCell.xib; sourceTree = "<group>"; };
 		6BA6220726DE2D2400A45B32 /* ZPRedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZPRedButton.swift; sourceTree = "<group>"; };
+		6BACAF6C2725B92600ECBAF5 /* EmptyViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EmptyViewCell.xib; sourceTree = "<group>"; };
+		6BACAF6D2725B92600ECBAF5 /* EmptySectionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EmptySectionCell.xib; sourceTree = "<group>"; };
+		6BACAF6E2725B92600ECBAF5 /* EmptyViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmptyViewCell.swift; sourceTree = "<group>"; };
+		6BACAF6F2725B92600ECBAF5 /* EmptySectionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmptySectionCell.swift; sourceTree = "<group>"; };
 		6BD9F0B027151FDA0092CD89 /* MyMovie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyMovie.swift; sourceTree = "<group>"; };
 		7404C3FF26FE22DF00494FD0 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		7404C40126FE230A00494FD0 /* MovieError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieError.swift; sourceTree = "<group>"; };
@@ -337,6 +345,17 @@
 			path = CustomCell;
 			sourceTree = "<group>";
 		};
+		6BACAF6B2725B92600ECBAF5 /* EmptyView */ = {
+			isa = PBXGroup;
+			children = (
+				6BACAF6C2725B92600ECBAF5 /* EmptyViewCell.xib */,
+				6BACAF6D2725B92600ECBAF5 /* EmptySectionCell.xib */,
+				6BACAF6E2725B92600ECBAF5 /* EmptyViewCell.swift */,
+				6BACAF6F2725B92600ECBAF5 /* EmptySectionCell.swift */,
+			);
+			path = EmptyView;
+			sourceTree = "<group>";
+		};
 		7404C3FE26FE22C000494FD0 /* Networking */ = {
 			isa = PBXGroup;
 			children = (
@@ -447,6 +466,7 @@
 		746ECACD26D6ADD50047ACE7 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				6BACAF6B2725B92600ECBAF5 /* EmptyView */,
 				74CB474626D752840091F683 /* DetailsCell */,
 				74CB474726D752A60091F683 /* SaveWatchLaterCell */,
 				74CB474926D752D80091F683 /* DescriptionCell */,
@@ -1120,10 +1140,12 @@
 				74A98FC026D2D4F000DD7889 /* LaunchScreen.storyboard in Resources */,
 				74D1AE6E26D3615900AC56E5 /* Random.storyboard in Resources */,
 				74A98FBD26D2D4F000DD7889 /* Assets.xcassets in Resources */,
+				6BACAF712725B92600ECBAF5 /* EmptySectionCell.xib in Resources */,
 				6B05D7FF270C0C9700179A9D /* FilterTableViewCell.xib in Resources */,
 				74818A4F26D419C60071AB5E /* CardCustomDailyTrendingsCell.xib in Resources */,
 				74818A5426D41AAF0071AB5E /* DailyTrendingsCell.xib in Resources */,
 				DE26FEA627023EC3006B46EC /* RecommendationTableViewCell.xib in Resources */,
+				6BACAF702725B92600ECBAF5 /* EmptyViewCell.xib in Resources */,
 				74CB473D26D72CF40091F683 /* MoviesNearbyCell.xib in Resources */,
 				7404C43C2700EB7200494FD0 /* ZPPickerTableViewCell.xib in Resources */,
 				6B9F4D2526DDFF76004BB120 /* MovieCollectionViewCell.xib in Resources */,
@@ -1251,6 +1273,7 @@
 				7404C40D26FE2AEA00494FD0 /* MovieListResponse.swift in Sources */,
 				DEDD241226D6C222000C62E6 /* SearchController.swift in Sources */,
 				6B05D7FA270C06DD00179A9D /* FollowersTableViewCell.swift in Sources */,
+				6BACAF722725B92600ECBAF5 /* EmptyViewCell.swift in Sources */,
 				DEDD240F26D6BA17000C62E6 /* UsersCell.swift in Sources */,
 				BC4C3B2226E5C0F100662A23 /* TopCustomCell.swift in Sources */,
 				6B05D802270C0FC400179A9D /* ListMoviesTableViewCell.swift in Sources */,
@@ -1311,6 +1334,7 @@
 				7404C41E26FE466B00494FD0 /* MovieDetailsWorker.swift in Sources */,
 				DEF3329C26E1701C007DD03A /* DetailSearchViewController.swift in Sources */,
 				6B9F4D1B26DDFB5E004BB120 /* OptionsViewController.swift in Sources */,
+				6BACAF732725B92600ECBAF5 /* EmptySectionCell.swift in Sources */,
 				6B9E78DA2714D45200C391B2 /* JSONService.swift in Sources */,
 				7404C40F26FE40DE00494FD0 /* Genre.swift in Sources */,
 				7404C42F2700416200494FD0 /* Int+Extension.swift in Sources */,

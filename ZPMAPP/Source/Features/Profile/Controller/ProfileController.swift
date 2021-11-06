@@ -106,7 +106,7 @@ class ProfileController {
 
 extension ProfileController: FirebaseDataServiceProtocol {
     func success(_ collection: String) {
-        switch(collection) {
+        switch collection {
         case "users":
             self.setCustomer()
         case "movies":

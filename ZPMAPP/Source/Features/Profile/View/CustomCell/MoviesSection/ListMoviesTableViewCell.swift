@@ -8,7 +8,7 @@
 import UIKit
 
 protocol ListMoviesTableViewCellProtocol: AnyObject {
-    func proceedToMovie()
+    func proceedToMovie(myMovie: MyMovie)
 }
 
 class ListMoviesTableViewCell: UITableViewCell {
@@ -68,6 +68,8 @@ extension ListMoviesTableViewCell: UICollectionViewDelegate, UICollectionViewDat
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        self.delegate?.proceedToMovie()
+        if let _myMovie = self.myMovie {
+            self.delegate?.proceedToMovie(myMovie: _myMovie[indexPath.row])
+        }
     }
 }

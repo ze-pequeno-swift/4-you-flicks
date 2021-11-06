@@ -95,11 +95,17 @@ class ProfileViewController: UIViewController {
         return cell ?? UITableViewCell()
     }
     
-    private func proceedToMovieNav() {
+    private func proceedToMovieNav(myMovie: MyMovie) {
+        let identifier = String(describing: MovieDetailsViewController.self)
         let homeController = UIStoryboard(name: "Home", bundle: nil)
-        guard let viewController = homeController.instantiateViewController(identifier: String(describing: MovieDetailsViewController.self)) as? MovieDetailsViewController else { return }
+        guard let viewController = homeController.instantiateViewController(identifier: identifier) as? MovieDetailsViewController else { return }
         
-        self.navigationController?.pushViewController(viewController, animated: true)
+        if let movie = myMovie.movie {
+            viewController.controllerMovieDetails.movie = movie
+            viewController.hidesBottomBarWhenPushed = false
+            
+            self.navigationController?.pushViewController(viewController, animated: true)
+        }
     }
     
     private func executePerformSegue(identifier: String) {
@@ -147,8 +153,8 @@ extension ProfileViewController: HeaderProfileProtocol, ProfileControllerProtoco
         self.profileTableView.reloadData()
     }
     
-    func proceedToMovie() {
-        self.proceedToMovieNav()
+    func proceedToMovie(myMovie: MyMovie) {
+        self.proceedToMovieNav(myMovie: myMovie)
     }
     
     func reloadTableView() {
