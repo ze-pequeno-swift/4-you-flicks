@@ -7,19 +7,11 @@
 
 import Foundation
 
-enum SelectedScopeBar: Int, CaseIterable {
-    case title = 0
-    case actors = 1
-}
-
 class SearchController {
     
     // MARK: - Private Properties
     
     private var arrayMovie: [Movie] = []
-    
-    private var arrayFilmSearchResult: [Movie] = []
-    private var arrayActorsSearchResult: [Movie] = []
 
     private let movieListWorker: MovieWorkerProtocol
 
@@ -38,21 +30,15 @@ class SearchController {
     // MARK: - Public Functions
 
     func resultCount() -> Int {
-//        checkFilmEmptyState() ? arrayActorsSearchResult.count : arrayFilmSearchResult.count
-
         return arrayMovie.count
-    }
-    
-    func checkFilmEmptyState() -> Bool {
-        return arrayFilmSearchResult.isEmpty
     }
     
     func loadCustomFilmCell(indexPath: IndexPath) -> Movie {
         return arrayMovie[indexPath.row]
     }
-    
-    func loadCustomActorsCell(indexPath: IndexPath) -> Movie {
-        return arrayActorsSearchResult[indexPath.row]
+
+    func checkEmptyState() -> Bool {
+        return arrayMovie.isEmpty
     }
     
     func searchMovieResults(searchText: String, completion: @escaping (Bool, Error?) -> Void) {
@@ -63,8 +49,8 @@ class SearchController {
                case .success(let response):
                     self.arrayMovie = response.results
                        completion(true, nil)
-               case .failure(_):
-                   // Exibir erro
+               case .failure(let error):
+                   print(error)
                  break
                }
         }

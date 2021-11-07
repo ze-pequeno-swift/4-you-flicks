@@ -107,15 +107,17 @@ extension SearchViewController: UISearchBarDelegate {
             return
         }
         controller.searchMovieResults(searchText: text) { success, _ in
-            if success {
+
+            switch success {
+            case self.controller.checkEmptyState() :
+                self.showMessage(title: "Algo deu errado", message: "Não conseguimos encontrar nenhum filme")
+            default:
                 DispatchQueue.main.async {
                     self.tableView.reloadData()
                 }
-            } else {
-                self.showMessage(title: "Algo deu errado", message: "Não conseguimos encontrar nenhum filme")
             }
-        }
         searchBar.resignFirstResponder()
+        }
     }
 }
 
