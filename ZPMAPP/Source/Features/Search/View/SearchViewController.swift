@@ -17,7 +17,7 @@ class SearchViewController: UIViewController {
     
     private let controller = SearchController()
     private let searchBar = UISearchBar(frame: CGRect(
-                                            x: 0, y: 0, width: UIScreen.main.bounds.width, height: 30))
+                                            x: 0, y: 0, width: UIScreen.main.bounds.width, height: 40))
     private var searchSelectedMovie: Movie?
     private weak var delegate: HomeViewControllerDelegate?
     
@@ -32,8 +32,6 @@ class SearchViewController: UIViewController {
         delegate = self
     }
 
-
-    
     // MARK: - Private Functions
     
     private func configureDelegate() {
@@ -47,15 +45,9 @@ class SearchViewController: UIViewController {
     }
     
     private func setupSearchBar() {
-        
-        searchBar.showsScopeBar = true
-        searchBar.scopeButtonTitles = ["Títulos", "Atores"]
         searchBar.delegate = self
-        searchBar.selectedScopeButtonIndex = 0
-        
         tableView.tableHeaderView = searchBar
         configureLayoutSearchBar(searchBar: searchBar)
-        configLayoutScopeBar()
     }
     
     private func configureLayoutSearchBar(searchBar: UISearchBar) {
@@ -63,25 +55,13 @@ class SearchViewController: UIViewController {
         searchBar.barTintColor = .black
         searchBar.searchTextField.backgroundColor = .customDarkGray
         searchBar.searchTextField.textColor = .white
-        searchBar.searchTextField.tintColor = .white
+        searchBar.searchTextField.tintColor = .customRed
         searchBar.searchTextField.placeholder = textPlaceholder
+        searchBar.tintColor = .customRed
+        searchBar.searchTextField.addBackButtonOnKeyboard()
+
     }
-    
-    private func configLayoutScopeBar() {
-        UISegmentedControl.appearance().selectedSegmentTintColor = .customRed
-        UISegmentedControl.appearance().setTitleTextAttributes(
-            [NSAttributedString.Key.foregroundColor: UIColor.white], for: .normal)
-    }
-    
-    private func getActorCell(indexPath: IndexPath) -> UITableViewCell {
-        guard let cell: ActorsCell  = tableView.dequeueReusableCell(withIdentifier: ActorsCell.identifier) as? ActorsCell else { return  UITableViewCell() }
-        let customCell = self.controller.loadCustomActorsCell(indexPath: indexPath)
-        
-        cell.setupSearchActorCell(data: customCell)
-        
-        return cell
-    }
-    
+
     private func getMovieSearchCell(indexPath: IndexPath) -> UITableViewCell {
         let identifier =  MovieSearchCell.identifier
         
@@ -113,21 +93,31 @@ class SearchViewController: UIViewController {
 extension SearchViewController: UISearchBarDelegate {
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        controller.searchMovieResults(searchText: searchText) { success, error in
-
-            if success {
-                self.tableView.reloadData()
-            }
+        guard searchBar.text?.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty ?? true else {
+            return
+        }
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
         }
     }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        searchBar.resignFirstResponder()
-    }
+        guard let text = searchBar.text?.trimmingCharacters(in: .whitespacesAndNewlines),
+        !text.isEmpty else {
+            return
+        }
+        controller.searchMovieResults(searchText: text) { success, _ in
 
-    func searchBarShouldEndEditing(_ searchBar: UISearchBar) -> Bool {
-        searchBar.enablesReturnKeyAutomatically = false
-        return true
+            switch success {
+            case self.controller.checkEmptyState() :
+                self.showMessage(title: "Algo deu errado", message: "Não conseguimos encontrar nenhum filme")
+            default:
+                DispatchQueue.main.async {
+                    self.tableView.reloadData()
+                }
+            }
+        searchBar.resignFirstResponder()
+        }
     }
 }
 
@@ -140,10 +130,6 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        controller.checkFilmEmptyState()
-//            ? getActorCell(indexPath: indexPath)
-//            : getMovieSearchCell(indexPath: indexPath)
-
         getMovieSearchCell(indexPath: indexPath)
     }
 
