@@ -16,15 +16,28 @@ class SearchViewController: UIViewController {
     // MARK: - Private Properties
     
     private let controller = SearchController()
+    private let searchBar = UISearchBar(frame: CGRect(
+                                            x: 0, y: 0, width: UIScreen.main.bounds.width, height: 40))
+    private var searchSelectedMovie: Movie?
+    private weak var delegate: HomeViewControllerDelegate?
     
     // MARK: - View Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        showLoading()
+        showLoginIfNeeded()
         configureDelegate()
         registerTableView()
         setupSearchBar()
         tableView.tableFooterView = UIView()
+        delegate = self
+        hideLoading()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        showLoginIfNeeded()
     }
     
     // MARK: - Private Functions
@@ -40,16 +53,9 @@ class SearchViewController: UIViewController {
     }
     
     private func setupSearchBar() {
-        let searchBar = UISearchBar(frame: CGRect(
-            x: 0, y: 0, width: UIScreen.main.bounds.width, height: 30))
-        
-        searchBar.showsScopeBar = true
-        searchBar.scopeButtonTitles = ["Títulos", "Atores", "Usuários"]
         searchBar.delegate = self
-        
-        self.tableView.tableHeaderView = searchBar
-        self.configureLayoutSearchBar(searchBar: searchBar)
-        self.configLayoutScopeBar()
+        tableView.tableHeaderView = searchBar
+        configureLayoutSearchBar(searchBar: searchBar)
     }
     
     private func configureLayoutSearchBar(searchBar: UISearchBar) {
@@ -57,25 +63,13 @@ class SearchViewController: UIViewController {
         searchBar.barTintColor = .black
         searchBar.searchTextField.backgroundColor = .customDarkGray
         searchBar.searchTextField.textColor = .white
-        searchBar.searchTextField.tintColor = .white
+        searchBar.searchTextField.tintColor = .customRed
         searchBar.searchTextField.placeholder = textPlaceholder
+        searchBar.tintColor = .customRed
+        searchBar.searchTextField.addBackButtonOnKeyboard()
+
     }
-    
-    private func configLayoutScopeBar() {
-        UISegmentedControl.appearance().selectedSegmentTintColor = .customRed
-        UISegmentedControl.appearance().setTitleTextAttributes(
-            [NSAttributedString.Key.foregroundColor: UIColor.white], for: .normal)
-    }
-    
-    private func getActorCell(indexPath: IndexPath) -> UITableViewCell {
-        guard let cell: ActorsCell  = tableView.dequeueReusableCell(withIdentifier: ActorsCell.identifier) as? ActorsCell else { return  UITableViewCell() }
-        let customCell = self.controller.loadCustomActorsCell(indexPath: indexPath)
-        
-        cell.setupSearchActorCell(data: customCell)
-        
-        return cell
-    }
-    
+
     private func getMovieSearchCell(indexPath: IndexPath) -> UITableViewCell {
         let identifier =  MovieSearchCell.identifier
         
@@ -87,6 +81,37 @@ class SearchViewController: UIViewController {
         
         return cell
     }
+
+    private func proceedToMoviesDetails() {
+        let identifier = "MovieDetailsViewController"
+        let homeController = UIStoryboard(name: "Home", bundle: nil)
+        guard let detailMovieVC = homeController.instantiateViewController(identifier: identifier)
+                as? MovieDetailsViewController else { return }
+
+        detailMovieVC.controllerMovieDetails.movie = searchSelectedMovie
+        detailMovieVC.hidesBottomBarWhenPushed = true
+
+
+        navigationController?.pushViewController(detailMovieVC, animated: true)
+    }
+    
+    private func showLoginIfNeeded() {
+        if self.controller.userIsLogged() {
+            return
+        }
+        proceedToLogin()
+    }
+    
+    private func proceedToLogin() {
+        let identifier = String(describing: LoginViewController.self)
+        let homeController = UIStoryboard(name: "Login", bundle: nil)
+        guard let viewController = homeController.instantiateViewController(identifier: identifier)
+                as? LoginViewController else { return }
+        
+        let navigationController = UINavigationController(rootViewController: viewController)
+        
+        present(navigationController, animated: true)
+    }
 }
 
 // MARK: - UISearchBarDelegate Protocol
@@ -94,12 +119,31 @@ class SearchViewController: UIViewController {
 extension SearchViewController: UISearchBarDelegate {
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        self.controller.searchMovieResults(searchText: searchText, index: searchBar.selectedScopeButtonIndex)
-        self.tableView.reloadData()
+        guard searchBar.text?.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty ?? true else {
+            return
+        }
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
+        }
     }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        guard let text = searchBar.text?.trimmingCharacters(in: .whitespacesAndNewlines),
+        !text.isEmpty else {
+            return
+        }
+        controller.searchMovieResults(searchText: text) { success, _ in
+
+            switch success {
+            case self.controller.checkEmptyState() :
+                self.showMessage(title: "Algo deu errado", message: "Não conseguimos encontrar nenhum filme")
+            default:
+                DispatchQueue.main.async {
+                    self.tableView.reloadData()
+                }
+            }
         searchBar.resignFirstResponder()
+        }
     }
 }
 
@@ -112,8 +156,17 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        controller.checkFilmEmptyState()
-            ? getActorCell(indexPath: indexPath)
-            : getMovieSearchCell(indexPath: indexPath)
+        getMovieSearchCell(indexPath: indexPath)
+    }
+
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        delegate?.tappedCell(selectedMovie: controller.getMovieArray[indexPath.row])
+        proceedToMoviesDetails()
+    }
+}
+
+extension SearchViewController: HomeViewControllerDelegate {
+    func tappedCell(selectedMovie: Movie?) {
+        self.searchSelectedMovie = selectedMovie
     }
 }

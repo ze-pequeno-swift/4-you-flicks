@@ -7,64 +7,56 @@
 
 import Foundation
 
-enum selectedScopeBar: Int {
-    case title = 0
-    case actors = 1
-    case user = 2
-}
-
 class SearchController {
     
     // MARK: - Private Properties
     
-    private var arrayMovie: [MovieList] = [
-        MovieList(title: "Joker", image: "joker", genre: "Drama", length: "2h10m", actors: "Elizabeth Olsen"), MovieList(title: "Viúva Negra", image: "black-widow", genre: "Ação", length: "1h50", actors: "Elizabeth Banks"), MovieList(title: "Nós", image: "us", genre: "Terror", length: "2h50m", actors: "Mary Elizabeth"), MovieList(title: "Midsommar", image: "midsommar", genre: "Terror", length: "2h40m", actors: "Elizabeth Olsen"), MovieList(title: "Jaws", image: "jaws", genre: "Suspense", length: "1h50", actors: "Elizabeth Banks")
-    ]
-    
-    private var arrayFilmSearchResult: [MovieList] = []
-    private var arrayActorsSearchResult: [MovieList] = []
-    //private var arrayUsersSearchResult: [Users] = []
+    private var arrayMovie: [Movie] = []
+
+    private let movieListWorker: MovieWorkerProtocol
+
+    // MARK: - Init
+
+    init() {
+        self.movieListWorker = MovieListWorker()
+    }
+
+    // MARK: - Public Properties
+
+    var getMovieArray: [Movie] {
+        return arrayMovie
+    }
     
     // MARK: - Public Functions
-    
+
     func resultCount() -> Int {
-        checkFilmEmptyState() ? arrayActorsSearchResult.count : arrayFilmSearchResult.count
+        return arrayMovie.count
     }
     
-    func checkFilmEmptyState() -> Bool {
-        return arrayFilmSearchResult.isEmpty
+    func loadCustomFilmCell(indexPath: IndexPath) -> Movie {
+        return arrayMovie[indexPath.row]
+    }
+
+    func checkEmptyState() -> Bool {
+        return arrayMovie.isEmpty
     }
     
-    func loadCustomFilmCell(indexPath: IndexPath) -> MovieList {
-        return arrayFilmSearchResult[indexPath.row]
-    }
-    
-    func loadCustomActorsCell(indexPath: IndexPath) -> MovieList {
-        return arrayActorsSearchResult[indexPath.row]
-    }
-    
-    func searchMovieResults(searchText: String, index: Int) {
-        
-        if searchText.isEmpty {
-            self.arrayFilmSearchResult = []
-            self.arrayActorsSearchResult = []
+    func searchMovieResults(searchText: String, completion: @escaping (Bool, Error?) -> Void) {
+
+        movieListWorker.fetchMovieWithQuery(query: searchText.uppercased()) { [weak self] result in
+            guard let self = self else { return }
+            switch result {
+               case .success(let response):
+                    self.arrayMovie = response.results
+                       completion(true, nil)
+               case .failure(let error):
+                   print(error)
+                 break
+               }
         }
-        
-        switch index {
-        case selectedScopeBar.title.rawValue:
-            self.arrayFilmSearchResult = self.arrayMovie.filter { model -> Bool in
-                guard let movie = model.title?.uppercased() else { return false }
-                return movie.contains(searchText.uppercased())
-            }
-        case selectedScopeBar.actors.rawValue:
-            self.arrayActorsSearchResult = self.arrayMovie.filter { model -> Bool in
-                guard let movie = model.actors?.uppercased() else { return false }
-                return movie.contains(searchText.uppercased())
-            }
-        default:
-            print("error")
-        }
+    }
+    
+    func userIsLogged() -> Bool {
+        return FirebaseDataService.userIsLoggedIn()
     }
 }
-
-

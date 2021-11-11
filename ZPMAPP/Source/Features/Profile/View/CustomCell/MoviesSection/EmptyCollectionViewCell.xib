@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFill" reuseIdentifier="EmptyCollectionViewCell" id="gTV-IL-0wX" customClass="EmptyCollectionViewCell" customModule="ZPMAPP" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="420"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="420"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZaN-lW-NeC">
+                        <rect key="frame" x="10" y="10" width="300" height="400"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="empty" translatesAutoresizingMaskIntoConstraints="NO" id="2nJ-Z1-STr">
+                                <rect key="frame" x="69" y="5" width="162" height="162"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="162" id="jqk-hz-MrL"/>
+                                    <constraint firstAttribute="width" constant="162" id="yHu-4r-wcD"/>
+                                </constraints>
+                            </imageView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="17" translatesAutoresizingMaskIntoConstraints="NO" id="s3b-yh-vO3">
+                                <rect key="frame" x="10" y="187" width="280" height="193"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z9n-yN-iyk">
+                                        <rect key="frame" x="0.0" y="0.0" width="280" height="20"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="20" id="Cnl-do-U1x"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="none" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="me0-6G-n4l">
+                                        <rect key="frame" x="0.0" y="37" width="280" height="156"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="me0-6G-n4l" firstAttribute="leading" secondItem="s3b-yh-vO3" secondAttribute="leading" id="EaJ-AF-xGE"/>
+                                    <constraint firstAttribute="trailing" secondItem="z9n-yN-iyk" secondAttribute="trailing" id="RXu-FA-2Yi"/>
+                                    <constraint firstAttribute="trailing" secondItem="me0-6G-n4l" secondAttribute="trailing" id="cTU-Rv-EuG"/>
+                                    <constraint firstItem="z9n-yN-iyk" firstAttribute="leading" secondItem="s3b-yh-vO3" secondAttribute="leading" id="jM3-GA-wdl"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" name="Main Onix"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="s3b-yh-vO3" secondAttribute="bottom" constant="20" id="ErS-p9-a6M"/>
+                            <constraint firstItem="2nJ-Z1-STr" firstAttribute="top" secondItem="ZaN-lW-NeC" secondAttribute="top" constant="5" id="HYk-1W-Y1H"/>
+                            <constraint firstItem="s3b-yh-vO3" firstAttribute="leading" secondItem="ZaN-lW-NeC" secondAttribute="leading" constant="10" id="OQM-9r-nkB"/>
+                            <constraint firstAttribute="trailing" secondItem="s3b-yh-vO3" secondAttribute="trailing" constant="10" id="XBV-wX-mZc"/>
+                            <constraint firstItem="s3b-yh-vO3" firstAttribute="top" secondItem="2nJ-Z1-STr" secondAttribute="bottom" constant="20" id="beP-xz-WsJ"/>
+                            <constraint firstAttribute="height" constant="400" id="d2D-g3-VBH"/>
+                            <constraint firstItem="2nJ-Z1-STr" firstAttribute="centerX" secondItem="ZaN-lW-NeC" secondAttribute="centerX" id="dAl-mF-tuy"/>
+                        </constraints>
+                    </view>
+                </subviews>
+            </view>
+            <viewLayoutGuide key="safeArea" id="iHb-r1-8vN"/>
+            <color key="backgroundColor" name="Main Black"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="ZaN-lW-NeC" secondAttribute="bottom" constant="10" id="EFH-g6-J76"/>
+                <constraint firstItem="ZaN-lW-NeC" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="10" id="FnU-A6-VL5"/>
+                <constraint firstAttribute="trailing" secondItem="ZaN-lW-NeC" secondAttribute="trailing" constant="10" id="VvC-by-C5k"/>
+                <constraint firstItem="ZaN-lW-NeC" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="10" id="hjv-ET-Bak"/>
+            </constraints>
+            <size key="customSize" width="180" height="180"/>
+            <connections>
+                <outlet property="descriptionLabel" destination="me0-6G-n4l" id="V4I-fq-2Bs"/>
+                <outlet property="emptyView" destination="ZaN-lW-NeC" id="BlJ-QL-z8a"/>
+                <outlet property="titleLabel" destination="z9n-yN-iyk" id="P79-Bw-KiR"/>
+            </connections>
+            <point key="canvasLocation" x="234.78260869565219" y="121.20535714285714"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="empty" width="162" height="162"/>
+        <namedColor name="Main Black">
+            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="Main Onix">
+            <color red="0.13699999451637268" green="0.1289999932050705" blue="0.14900000393390656" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

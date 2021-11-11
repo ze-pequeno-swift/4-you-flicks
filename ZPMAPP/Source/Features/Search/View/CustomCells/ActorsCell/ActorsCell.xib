@@ -21,10 +21,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="51"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Elizabeth Olsen" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F8Z-XU-7bn">
-                                <rect key="frame" x="0.0" y="15" width="113" height="20"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="20" id="pg6-cr-94c"/>
-                                </constraints>
+                                <rect key="frame" x="16" y="15" width="288" height="20"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -32,9 +29,11 @@
                         </subviews>
                         <color key="backgroundColor" name="Main Black"/>
                         <constraints>
+                            <constraint firstAttribute="bottom" secondItem="F8Z-XU-7bn" secondAttribute="bottom" constant="16" id="6qP-Ee-zUW"/>
                             <constraint firstAttribute="height" priority="999" constant="51" id="Abl-lx-CLf"/>
-                            <constraint firstItem="F8Z-XU-7bn" firstAttribute="top" secondItem="lB4-Jj-foe" secondAttribute="top" constant="15" id="KAg-w6-Hv1"/>
-                            <constraint firstItem="F8Z-XU-7bn" firstAttribute="leading" secondItem="lB4-Jj-foe" secondAttribute="leading" id="xsL-H1-njr"/>
+                            <constraint firstItem="F8Z-XU-7bn" firstAttribute="leading" secondItem="lB4-Jj-foe" secondAttribute="leading" constant="16" id="B2M-kJ-ziG"/>
+                            <constraint firstAttribute="trailing" secondItem="F8Z-XU-7bn" secondAttribute="trailing" constant="16" id="acG-6b-vqT"/>
+                            <constraint firstItem="F8Z-XU-7bn" firstAttribute="top" secondItem="lB4-Jj-foe" secondAttribute="top" constant="15" id="utE-A9-BOJ"/>
                         </constraints>
                     </view>
                 </subviews>

@@ -24,7 +24,7 @@ class ActorsCell: UITableViewCell {
     }
     
     // MARK: - Public Functions
-    func setupSearchActorCell(data: MovieList) {
-        self.actorsNameLabel.text = data.actors
+    func setupSearchActorCell(data: Movie) {
+//        self.actorsNameLabel.text = data.actors
     }
 }
