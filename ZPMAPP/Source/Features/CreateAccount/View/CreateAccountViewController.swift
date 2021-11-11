@@ -204,7 +204,11 @@ class CreateAccountViewController: UIViewController {
     private func alert(title: String, message: String) {
         let alert: UIAlertController = UIAlertController.init(title: title, message: message, preferredStyle: UIAlertController.Style.alert)
 
-        alert.addAction(UIAlertAction.init(title: "OK", style: UIAlertAction.Style.default, handler: nil))
+        alert.addAction(UIAlertAction.init(title: "OK", style: UIAlertAction.Style.default, handler: { action in
+            if !self.invalid {
+                self.dismiss(animated: true, completion: nil)
+            }
+        }))
         
         self.present(alert, animated: true, completion: nil)
     }
@@ -213,13 +217,14 @@ class CreateAccountViewController: UIViewController {
 extension CreateAccountViewController: CreateAccountControllerProtocol {
     func failure(error: Error?) {
         print(error?.localizedDescription ?? "")
-        self.alert(title: "Autenticação", message: "Usuário ou senha incorretos")
+        self.invalid = true
+        self.alert(title: "Erro", message: "Usuário ou senha incorretos")
     }
     
     func sucess() {
+        self.invalid = false
         self.emptyFieldUI()
         self.alert(title: "Autenticação", message: "Seja bem vindo! Informe seu e-mail e senha cadastrado para logar")
-        self.dismiss(animated: true, completion: nil)
     }
 }
 
