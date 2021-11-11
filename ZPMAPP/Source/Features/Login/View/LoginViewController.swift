@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import Firebase
 
 class LoginViewController: UIViewController {
     
@@ -26,56 +25,62 @@ class LoginViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.showLoginIfNeeded()
         self.setupUI()
         self.controller.delegate = self
         navigationController?.navigationBar.isHidden = true
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        self.isModalInPresentation = true
+    }
+        
     // MARK: - Private Functions
     
+    private func showLoginIfNeeded() {
+        if !self.controller.userIsLogged() {
+            return
+        }
+
+        self.proceedToHome()
+    }
     
     @IBAction func loginButton(_ sender: UIButton) {
-        
         if checkFields(email: userTextField, password: passwordTextField) {
-            Auth.auth().signIn(withEmail: emailGeneral, password: passwordGeneral) { [weak self] authResult, error in
-                if error != nil {
-                    print("Erro no login")
-                    print(error?.localizedDescription)
-                } else {
-                    self!.dismiss(animated: true, completion: nil)
-                }
-              guard let _ = self else { return }
-                
-            }
+            guard let _email = userTextField.text else { return }
+            guard let _password = passwordTextField.text else { return }
+            self.controller.login(email: _email, password: _password)
         }
     }
     
     func checkFields (email: UITextField, password: UITextField) -> Bool {
-        if let emailCheck = email.text {
-            if isValidEmail(emailCheck) {
-                emailGeneral = emailCheck
-                if let passwordCheck = password.text {
-                    passwordGeneral = passwordCheck
-                    return true
-                } else {
-                    print("Erro na senha")
-                    return false
-                }
-            } else {
-                print("Digite um email válido")
-                return false
-            }
-        } else {
-            print("Erro no email")
+        guard let _email = email.text else { return false }
+        guard let _password = password.text else { return false }
+        
+        if email.isEmpty() {
+            self.alert(title: "Erro", message: "E-mail precisa ser preenchido")
             return false
         }
-    }
-    
-    func isValidEmail(_ email: String) -> Bool {
-        let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
+        
+        if password.isEmpty() {
+            self.alert(title: "Erro", message: "Senha precisa ser preenchido")
+            return false
+        }
 
-        let emailPred = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
-        return emailPred.evaluate(with: email)
+        if !email.isEmail() {
+            self.alert(title: "Erro", message: "Digite um email válido")
+            return false
+        }
+        
+        if !password.isPasswordValid() {
+            self.alert(title: "Erro", message: "Senha não atende aos critérios")
+            return false
+        }
+        
+        self.emailGeneral = _email
+        self.passwordGeneral = _password
+        
+        return true
     }
     
     private func setupUI() {
@@ -95,20 +100,22 @@ class LoginViewController: UIViewController {
         passwordlImageRight.addGestureRecognizer(tapGestureRecognizer)
         
         passwordTextField.attributedPlaceholder = NSAttributedString(string: "Senha", attributes: [NSAttributedString.Key.foregroundColor: UIColor.gray])
-        userTextField.attributedPlaceholder = NSAttributedString(string: "Email", attributes: [NSAttributedString.Key.foregroundColor: UIColor.gray])
+        userTextField.attributedPlaceholder = NSAttributedString(string: "E-mail", attributes: [NSAttributedString.Key.foregroundColor: UIColor.gray])
+        
+        self.isModalInPresentation = true
     }
     
     @ objc
     private func imageTapped(tapGestureRecognizer: UITapGestureRecognizer) {
-        let tappedImage = tapGestureRecognizer.view as! UIImageView
+        let tappedImage = tapGestureRecognizer.view as? UIImageView
         
         if iconClick {
             iconClick =  false
-            tappedImage.image = UIImage(systemName: "eye")
+            tappedImage?.image = UIImage(systemName: "eye")
             passwordTextField.isSecureTextEntry = false
         } else {
             iconClick = true
-            tappedImage.image = UIImage(systemName: "eye.slash")
+            tappedImage?.image = UIImage(systemName: "eye.slash")
             passwordTextField.isSecureTextEntry = true
         }
     }
@@ -120,12 +127,23 @@ class LoginViewController: UIViewController {
         
         navigationController?.pushViewController(viewController, animated: true)
     }
+    
+    private func alert(title: String, message: String) {
+        let alert: UIAlertController = UIAlertController.init(title: title, message: message, preferredStyle: UIAlertController.Style.alert)
+
+        alert.addAction(UIAlertAction.init(title: "OK", style: UIAlertAction.Style.default, handler: nil))
+        
+        self.present(alert, animated: true, completion: nil)
+    }
 }
 
 extension LoginViewController: LoginControllerProtocol {
-    
     func sucess() {
         self.dismiss(animated: true, completion: nil)
+        self.proceedToHome()
     }
     
+    func failure(error: String) {
+        self.alert(title: "Error", message: error)
+    }
 }
