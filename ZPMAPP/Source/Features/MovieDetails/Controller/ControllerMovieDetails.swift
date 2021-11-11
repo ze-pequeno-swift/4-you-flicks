@@ -44,6 +44,9 @@ class ControllerMovieDetails {
     }
     
     func saveMovieDB(tag: Tag) {
+        guard let user = self.firebase.getUser() else {
+            return
+        }
         guard var movie = self.movie else {
             return
         }
@@ -55,7 +58,7 @@ class ControllerMovieDetails {
             let refID = self.firebase.getDocumentRefWithId(collection: "movies", id: movieID)
             self.firebase.addDocumentWithId(
                 collection: "users_movies",
-                id: "oSbOu3BuQkUaTtqnFqYJgBFWJvw1", // <- TODO update with uid user
+                id: user.uid,
                 data: [
                     movieID: [tag.rawValue, refID]
                 ]
@@ -108,6 +111,10 @@ class ControllerMovieDetails {
             }
         }
         return false
+    }
+    
+    func userIsLogged() -> Bool {
+        return FirebaseDataService.userIsLoggedIn()
     }
     
     // MARK: - Private Functions
