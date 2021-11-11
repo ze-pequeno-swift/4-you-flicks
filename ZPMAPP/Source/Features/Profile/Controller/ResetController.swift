@@ -8,8 +8,10 @@
 import Foundation
 
 protocol ResetControllerProtocol: AnyObject {
+    func success()
+    func failure(error: Error?)
     func sendRecoveryPassword()
-    func sendErrorRecoveryPassword()
+    func sendErrorRecoveryPassword(error: Error?)
 }
 
 class ResetController {
@@ -39,7 +41,8 @@ class ResetController {
     }
     
     func recoveryPassword() {
-        self.firebase.recoveryPassword()
+        guard let email = self.customer?.email else { return }
+        self.firebase.recoveryPassword(email: email)
     }
 }
 
@@ -47,11 +50,12 @@ extension ResetController: FirebaseDataServiceProtocol, FirebaseRecoveryPassword
     func success(_ collection: String) {
         if collection == "users" {
             self.setCustomer()
+            self.delegate?.success()
         }
     }
     
     func failure(error: Error?) {
-        print(error)
+        self.delegate?.failure(error: error)
     }
     
     func recovery() {
@@ -59,6 +63,6 @@ extension ResetController: FirebaseDataServiceProtocol, FirebaseRecoveryPassword
     }
     
     func errorRecovery(error: Error?) {
-        print("error")
+        self.delegate?.sendErrorRecoveryPassword(error: error)
     }
 }

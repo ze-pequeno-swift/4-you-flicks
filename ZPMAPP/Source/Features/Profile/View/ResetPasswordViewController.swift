@@ -152,9 +152,7 @@ class ResetPasswordViewController: UIViewController {
     private func alert(title: String, message: String) {
         let alert: UIAlertController = UIAlertController.init(title: title, message: message, preferredStyle: UIAlertController.Style.alert)
 
-        alert.addAction(UIAlertAction.init(title: "OK", style: UIAlertAction.Style.default, handler: { action in
-            self.dismiss(animated: true, completion: nil)
-        }))
+        alert.addAction(UIAlertAction.init(title: "OK", style: UIAlertAction.Style.default, handler: nil))
         
         self.present(alert, animated: true, completion: nil)
     }
@@ -165,11 +163,21 @@ extension ResetPasswordViewController: UITextFieldDelegate, ResetControllerProto
         self.validateField(input: textField)
     }
     
+    func success() {
+        self.alert(title: "Atualização de dados", message: "Dados atualizados com sucesso")
+    }
+    
+    func failure(error: Error?) {
+        print(error?.localizedDescription ?? "")
+        self.alert(title: "Erro", message: "Não foi possível fazer as atualizações")
+    }
+    
     func sendRecoveryPassword() {
         self.alert(title: "Recuperação de senha", message: "Um email foi enviado para você realizar sua recuperação de senha")
     }
     
-    func sendErrorRecoveryPassword() {
+    func sendErrorRecoveryPassword(error: Error?) {
+        print(error?.localizedDescription ?? "")
         self.alert(title: "Erro", message: "Não foi possível enviar um email para recuperação de senha")
     }
 }
