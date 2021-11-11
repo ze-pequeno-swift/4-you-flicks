@@ -6,13 +6,14 @@
 //
 
 import UIKit
-import Firebase
 
 class LoginViewController: UIViewController {
     
     @IBOutlet weak var loginButton: UIButton!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var userTextField: UITextField!
+    @IBOutlet weak var emailValidLabel: UILabel!
+    @IBOutlet weak var passwordValidLabel: UILabel!
     
     // MARK: - Private Properties
     
@@ -20,62 +21,41 @@ class LoginViewController: UIViewController {
     private var iconClick = false
     private var emailGeneral = ""
     private var passwordGeneral = ""
+    private var invalid = false
     let controller = LoginController()
     
     // MARK: - View Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.showLoginIfNeeded()
         self.setupUI()
         self.controller.delegate = self
         navigationController?.navigationBar.isHidden = true
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        self.isModalInPresentation = true
+    }
+        
     // MARK: - Private Functions
     
+    private func showLoginIfNeeded() {
+        if !self.controller.userIsLogged() {
+            return
+        }
+
+        self.proceedToHome()
+    }
     
     @IBAction func loginButton(_ sender: UIButton) {
-        
-        if checkFields(email: userTextField, password: passwordTextField) {
-            Auth.auth().signIn(withEmail: emailGeneral, password: passwordGeneral) { [weak self] authResult, error in
-                if error != nil {
-                    print("Erro no login")
-                    print(error?.localizedDescription)
-                } else {
-                    self!.dismiss(animated: true, completion: nil)
-                }
-              guard let _ = self else { return }
-                
-            }
+        if self.invalid {
+            self.alert(title: "Erro", message: "Existem campos não preenchidos ou inválidos, verifique")
         }
-    }
-    
-    func checkFields (email: UITextField, password: UITextField) -> Bool {
-        if let emailCheck = email.text {
-            if isValidEmail(emailCheck) {
-                emailGeneral = emailCheck
-                if let passwordCheck = password.text {
-                    passwordGeneral = passwordCheck
-                    return true
-                } else {
-                    print("Erro na senha")
-                    return false
-                }
-            } else {
-                print("Digite um email válido")
-                return false
-            }
-        } else {
-            print("Erro no email")
-            return false
-        }
-    }
-    
-    func isValidEmail(_ email: String) -> Bool {
-        let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
 
-        let emailPred = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
-        return emailPred.evaluate(with: email)
+        guard let _email = userTextField.text else { return }
+        guard let _password = passwordTextField.text else { return }
+        self.controller.login(email: _email, password: _password)
     }
     
     private func setupUI() {
@@ -95,22 +75,86 @@ class LoginViewController: UIViewController {
         passwordlImageRight.addGestureRecognizer(tapGestureRecognizer)
         
         passwordTextField.attributedPlaceholder = NSAttributedString(string: "Senha", attributes: [NSAttributedString.Key.foregroundColor: UIColor.gray])
-        userTextField.attributedPlaceholder = NSAttributedString(string: "Email", attributes: [NSAttributedString.Key.foregroundColor: UIColor.gray])
+        userTextField.attributedPlaceholder = NSAttributedString(string: "E-mail", attributes: [NSAttributedString.Key.foregroundColor: UIColor.gray])
+        
+        passwordTextField.delegate = self
+        userTextField.delegate = self
+        
+        self.isModalInPresentation = true
     }
     
     @ objc
     private func imageTapped(tapGestureRecognizer: UITapGestureRecognizer) {
-        let tappedImage = tapGestureRecognizer.view as! UIImageView
+        let tappedImage = tapGestureRecognizer.view as? UIImageView
         
         if iconClick {
             iconClick =  false
-            tappedImage.image = UIImage(systemName: "eye")
+            tappedImage?.image = UIImage(systemName: "eye")
             passwordTextField.isSecureTextEntry = false
         } else {
             iconClick = true
-            tappedImage.image = UIImage(systemName: "eye.slash")
+            tappedImage?.image = UIImage(systemName: "eye.slash")
             passwordTextField.isSecureTextEntry = true
         }
+    }
+    
+    private func validateField(input: UITextField, type: Field) {
+        switch type {
+        case .email:
+            if !input.isEmail() {
+                self.invalidFieldUI(input)
+                self.emailValidLabel.text = "O e-mail é inválido"
+                return
+            }
+            if !self.defaultValidate(input: input, type: type, label: self.emailValidLabel, min: 3) {
+                return
+            }
+        case .password:
+            if !input.isPasswordValid() {
+                self.invalidFieldUI(input)
+                self.passwordValidLabel.text = "O password deve conter letras maiúscula e minúscula, número e caracter especial"
+                return
+            }
+            if !self.defaultValidate(input: input, type: type, label: self.passwordValidLabel, min: 5) {
+                return
+            }
+        default:
+            break
+        }
+        
+        input.validFieldWhite()
+        self.validFieldUI()
+    }
+    
+    private func defaultValidate(input: UITextField, type: Field, label: UILabel, min: Int) -> Bool {
+        if input.isEmpty() {
+            self.invalidFieldUI(input)
+            label.text = "O \(type.rawValue) não pode ficar em branco"
+            return false
+        }
+        if !input.min(qty: min) {
+            self.invalidFieldUI(input)
+            label.text = "Precisa ter pelo menos \(min) caracteres no campo\(type.rawValue)"
+            return false
+        }
+        
+        return true
+    }
+    
+    private func emptyFieldUI() {
+        self.userTextField.text = ""
+        self.passwordTextField.text = ""
+    }
+    
+    private func validFieldUI() {
+        self.invalid = false
+        self.emailValidLabel.text = ""
+        self.passwordValidLabel.text = ""
+    }
+    
+    private func invalidFieldUI(_ input: UITextField) {
+        input.invalidField()
+        self.invalid = true
     }
     
     private func proceedToHome() {
@@ -120,12 +164,55 @@ class LoginViewController: UIViewController {
         
         navigationController?.pushViewController(viewController, animated: true)
     }
+    
+    private func alert(title: String, message: String) {
+        let alert: UIAlertController = UIAlertController.init(title: title, message: message, preferredStyle: UIAlertController.Style.alert)
+
+        alert.addAction(UIAlertAction.init(title: "OK", style: UIAlertAction.Style.default, handler: nil))
+        
+        self.present(alert, animated: true, completion: nil)
+    }
 }
 
-extension LoginViewController: LoginControllerProtocol {
-    
+extension LoginViewController: LoginControllerProtocol {    
     func sucess() {
+        self.invalid = false
         self.dismiss(animated: true, completion: nil)
+        self.proceedToHome()
     }
     
+    func failure(error: String) {
+        self.invalid = true
+        self.alert(title: "Erro", message: error)
+    }
+}
+
+extension LoginViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        guard let identifier = textField.accessibilityIdentifier else { return true }
+
+        switch identifier {
+        case Field.email.rawValue:
+            self.passwordTextField.becomeFirstResponder()
+        default:
+            textField.resignFirstResponder()
+        }
+
+        return true
+    }
+
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        guard let identifier = textField.accessibilityIdentifier else { return }
+
+        switch identifier {
+        case Field.email.rawValue:
+            self.validateField(input: textField, type: .email)
+
+        case Field.password.rawValue:
+            self.validateField(input: textField, type: .password)
+
+        default:
+            break
+        }
+    }
 }

@@ -1,5 +1,5 @@
 //
-//  User.swift
+//  Customer.swift
 //  ZPMAPP
 //
 //  Created by Felipe Rocha Oliveira on 05/10/21.

@@ -23,26 +23,23 @@ class HomeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupUI()
         showLoginIfNeeded()
+        setupUI()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         setupNavigationBar()
+        showLoginIfNeeded()
     }
     
     // MARK: - Private Functions
     
     private func showLoginIfNeeded() {
-        guard userIsLogged() else {
+        if self.controllerHome.userIsLogged() {
             return
         }
         proceedToLogin()
-    }
-    
-    private func userIsLogged() -> Bool {
-        return true
     }
     
     private func setupNavigationBar() {

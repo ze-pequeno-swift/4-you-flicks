@@ -25,13 +25,21 @@ class SearchViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        showLoading()
+        showLoginIfNeeded()
         configureDelegate()
         registerTableView()
         setupSearchBar()
         tableView.tableFooterView = UIView()
         delegate = self
+        hideLoading()
     }
-
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        showLoginIfNeeded()
+    }
+    
     // MARK: - Private Functions
     
     private func configureDelegate() {
@@ -85,6 +93,24 @@ class SearchViewController: UIViewController {
 
 
         navigationController?.pushViewController(detailMovieVC, animated: true)
+    }
+    
+    private func showLoginIfNeeded() {
+        if self.controller.userIsLogged() {
+            return
+        }
+        proceedToLogin()
+    }
+    
+    private func proceedToLogin() {
+        let identifier = String(describing: LoginViewController.self)
+        let homeController = UIStoryboard(name: "Login", bundle: nil)
+        guard let viewController = homeController.instantiateViewController(identifier: identifier)
+                as? LoginViewController else { return }
+        
+        let navigationController = UINavigationController(rootViewController: viewController)
+        
+        present(navigationController, animated: true)
     }
 }
 

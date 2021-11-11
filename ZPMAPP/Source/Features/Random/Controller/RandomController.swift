@@ -37,6 +37,10 @@ class RandomController {
         self.note = Double(note)
     }
     
+    func userIsLogged() -> Bool {
+        return FirebaseDataService.userIsLoggedIn()
+    }
+    
     // MARK: - Private Functions
     
     func fetchRandomList(genreSelected: String, completion: @escaping () -> Void) {

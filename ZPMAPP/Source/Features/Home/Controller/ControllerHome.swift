@@ -25,6 +25,10 @@ class ControllerHome {
     
     // MARK: - Public Functions
     
+    func userIsLogged() -> Bool {
+        return FirebaseDataService.userIsLoggedIn()
+    }
+    
     func count() -> Int {
         return movieList.count
     }

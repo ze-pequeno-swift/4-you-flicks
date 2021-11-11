@@ -11,6 +11,8 @@ class ProfileViewController: UIViewController {
     
     @IBOutlet weak var profileTableView: UITableView!
     
+    static var identifier = String(describing: ProfileViewController.self)
+    
     var controller: ProfileController!
 
     // MARK: - View Lifecycle
@@ -18,13 +20,13 @@ class ProfileViewController: UIViewController {
         super.viewDidLoad()
         self.controller = ProfileController()
         self.controller.delegate = self
-
         self.setupUI()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         showLoading()
+        self.showLoginIfNeeded()
         self.controller.getCustomerInfo()
         self.profileTableView.reloadData()
         hideLoading()
@@ -45,6 +47,13 @@ class ProfileViewController: UIViewController {
         FilterTableViewCell.registerOn(profileTableView)
         FollowersTableViewCell.registerOn(profileTableView)
         ListMoviesTableViewCell.registerOn(profileTableView)
+    }
+    
+    private func showLoginIfNeeded() {
+        if self.controller.userIsLogged() {
+            return
+        }
+        proceedToLogin()
     }
     
     private func getHeaderCell() -> UITableViewCell {
@@ -101,11 +110,23 @@ class ProfileViewController: UIViewController {
         guard let viewController = homeController.instantiateViewController(identifier: identifier) as? MovieDetailsViewController else { return }
         
         if let movie = myMovie.movie {
+            viewController.displayGoBackViewCell = true
             viewController.controllerMovieDetails.movie = movie
-            viewController.hidesBottomBarWhenPushed = false
+            viewController.hidesBottomBarWhenPushed = true
             
             self.navigationController?.pushViewController(viewController, animated: true)
         }
+    }
+    
+    private func proceedToLogin() {
+        let identifier = String(describing: LoginViewController.self)
+        let homeController = UIStoryboard(name: "Login", bundle: nil)
+        guard let viewController = homeController.instantiateViewController(identifier: identifier)
+                as? LoginViewController else { return }
+        
+        let navigationController = UINavigationController(rootViewController: viewController)
+        
+        present(navigationController, animated: true)
     }
     
     private func executePerformSegue(identifier: String) {
@@ -148,6 +169,7 @@ extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
 }
 
 extension ProfileViewController: HeaderProfileProtocol, ProfileControllerProtocol, ListMoviesTableViewCellProtocol, FilterTableViewCellProtocol {
+    
     func filterMovie(tag: Tag) {
         self.controller.filterMovie(tag: tag)
         self.profileTableView.reloadData()
@@ -163,5 +185,10 @@ extension ProfileViewController: HeaderProfileProtocol, ProfileControllerProtoco
     
     func tappedPerformSegue(identifier: String) {
         self.executePerformSegue(identifier: identifier)
+    }
+    
+    func signOut() {
+        self.controller.signOut()
+        self.proceedToLogin()
     }
 }

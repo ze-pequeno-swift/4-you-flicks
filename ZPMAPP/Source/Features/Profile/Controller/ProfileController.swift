@@ -32,6 +32,10 @@ class ProfileController {
         self.firebase.delegate = self
     }
     
+    func userIsLogged() -> Bool {
+        return FirebaseDataService.userIsLoggedIn()
+    }
+    
     func filterMovie(tag: Tag) {
         if tag == .all {
             self.filterMovie = []
@@ -85,9 +89,15 @@ class ProfileController {
     }
     
     func getCustomerInfo() {
-        self.firebase.getDocumentWithId(collection: "users", id: "oSbOu3BuQkUaTtqnFqYJgBFWJvw1")
-        self.firebase.getDocumentWithId(collection: "users_movies", id: "oSbOu3BuQkUaTtqnFqYJgBFWJvw1")
-        self.firebase.getDocumentWithId(collection: "friends", id: "oSbOu3BuQkUaTtqnFqYJgBFWJvw1")
+        guard let user = self.firebase.getUser() else { return }
+        
+        self.firebase.getDocumentWithId(collection: "users", id: user.uid)
+        self.firebase.getDocumentWithId(collection: "users_movies", id: user.uid)
+        self.firebase.getDocumentWithId(collection: "friends", id: user.uid)
+    }
+    
+    func signOut() {
+        self.firebase.logout()
     }
     
     private func setCustomer() {
