@@ -38,8 +38,8 @@ class SaveWatchLaterCell: UITableViewCell {
     
     // MARK: - Private functions
    
-    @IBAction func traillerButton(_ sender: UIButton) {
-        print("Debug: Tapped trailler...")
+    @IBAction func watchingButton(_ sender: UIButton) {
+        self.delegate?.saveMovieDB(tag: .watching)
     }
     
     @IBAction func watchedButton(_ sender: UIButton) {
