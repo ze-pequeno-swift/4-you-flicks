@@ -11,7 +11,9 @@ import PhotosUI
 enum Field: String {
     case name
     case email
+    case confirmEmail
     case password
+    case confirmPassword
     case username
     case oldPassword
 }
@@ -70,6 +72,8 @@ class EditProfileViewController: UIViewController {
     }
     
     @IBAction private func tappedSignOutAction(_ sender: UIButton) {
+        navigationController?.navigationBar.isHidden = true
+        self.controller?.signOut()
         self.proceedToLogin()
     }
 
@@ -121,11 +125,14 @@ class EditProfileViewController: UIViewController {
     }
     
     private func proceedToLogin() {
-        let loginController = UIStoryboard(name: "Login", bundle: nil)
-        guard let viewController = loginController.instantiateViewController(identifier: "LoginViewController")
+        let identifier = String(describing: LoginViewController.self)
+        let homeController = UIStoryboard(name: "Login", bundle: nil)
+        guard let viewController = homeController.instantiateViewController(identifier: identifier)
                 as? LoginViewController else { return }
         
-        navigationController?.pushViewController(viewController, animated: true)
+        let navigationController = UINavigationController(rootViewController: viewController)
+        
+        present(navigationController, animated: true)
     }
     
     private func showUI(for status: PHAuthorizationStatus) {
@@ -230,8 +237,8 @@ extension EditProfileViewController: UIImagePickerControllerDelegate, UINavigati
 
 extension EditProfileViewController: UITextFieldDelegate {
     func textFieldDidEndEditing(_ textField: UITextField) {
-        guard var identifier = textField.accessibilityIdentifier else { return }
-        switch(identifier) {
+        guard let identifier = textField.accessibilityIdentifier else { return }
+        switch identifier {
         case Field.name.rawValue:
             self.validateField(input: textField, type: .name)
 

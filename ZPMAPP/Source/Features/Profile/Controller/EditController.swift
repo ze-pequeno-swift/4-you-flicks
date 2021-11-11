@@ -44,6 +44,10 @@ class EditController {
         self.firebase.uploadAvatar(localFile: path)
     }
     
+    func signOut() {
+        self.firebase.logout()
+    }
+    
     private func setCustomer() {
         self.customer = self.firebase.loadCustomer()
     }
