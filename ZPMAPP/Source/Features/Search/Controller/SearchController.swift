@@ -69,4 +69,8 @@ class SearchController {
                }
         }
     }
+    
+    func userIsLogged() -> Bool {
+        return FirebaseDataService.userIsLoggedIn()
+    }
 }
