@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import FirebaseCore
 
 // MARK: - MyMovies
 
