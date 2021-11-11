@@ -12,6 +12,8 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var loginButton: UIButton!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var userTextField: UITextField!
+    @IBOutlet weak var emailValidLabel: UILabel!
+    @IBOutlet weak var passwordValidLabel: UILabel!
     
     // MARK: - Private Properties
     
@@ -19,6 +21,7 @@ class LoginViewController: UIViewController {
     private var iconClick = false
     private var emailGeneral = ""
     private var passwordGeneral = ""
+    private var invalid = false
     let controller = LoginController()
     
     // MARK: - View Lifecycle
@@ -46,41 +49,13 @@ class LoginViewController: UIViewController {
     }
     
     @IBAction func loginButton(_ sender: UIButton) {
-        if checkFields(email: userTextField, password: passwordTextField) {
-            guard let _email = userTextField.text else { return }
-            guard let _password = passwordTextField.text else { return }
-            self.controller.login(email: _email, password: _password)
-        }
-    }
-    
-    func checkFields (email: UITextField, password: UITextField) -> Bool {
-        guard let _email = email.text else { return false }
-        guard let _password = password.text else { return false }
-        
-        if email.isEmpty() {
-            self.alert(title: "Erro", message: "E-mail precisa ser preenchido")
-            return false
-        }
-        
-        if password.isEmpty() {
-            self.alert(title: "Erro", message: "Senha precisa ser preenchido")
-            return false
+        if self.invalid {
+            self.alert(title: "Erro", message: "Existem campos não preenchidos ou inválidos, verifique")
         }
 
-        if !email.isEmail() {
-            self.alert(title: "Erro", message: "Digite um email válido")
-            return false
-        }
-        
-        if !password.isPasswordValid() {
-            self.alert(title: "Erro", message: "Senha não atende aos critérios")
-            return false
-        }
-        
-        self.emailGeneral = _email
-        self.passwordGeneral = _password
-        
-        return true
+        guard let _email = userTextField.text else { return }
+        guard let _password = passwordTextField.text else { return }
+        self.controller.login(email: _email, password: _password)
     }
     
     private func setupUI() {
@@ -102,6 +77,9 @@ class LoginViewController: UIViewController {
         passwordTextField.attributedPlaceholder = NSAttributedString(string: "Senha", attributes: [NSAttributedString.Key.foregroundColor: UIColor.gray])
         userTextField.attributedPlaceholder = NSAttributedString(string: "E-mail", attributes: [NSAttributedString.Key.foregroundColor: UIColor.gray])
         
+        passwordTextField.delegate = self
+        userTextField.delegate = self
+        
         self.isModalInPresentation = true
     }
     
@@ -118,6 +96,65 @@ class LoginViewController: UIViewController {
             tappedImage?.image = UIImage(systemName: "eye.slash")
             passwordTextField.isSecureTextEntry = true
         }
+    }
+    
+    private func validateField(input: UITextField, type: Field) {
+        switch type {
+        case .email:
+            if !input.isEmail() {
+                self.invalidFieldUI(input)
+                self.emailValidLabel.text = "O e-mail é inválido"
+                return
+            }
+            if !self.defaultValidate(input: input, type: type, label: self.emailValidLabel, min: 3) {
+                return
+            }
+        case .password:
+            if !input.isPasswordValid() {
+                self.invalidFieldUI(input)
+                self.passwordValidLabel.text = "O password deve conter letras maiúscula e minúscula, número e caracter especial"
+                return
+            }
+            if !self.defaultValidate(input: input, type: type, label: self.passwordValidLabel, min: 5) {
+                return
+            }
+        default:
+            break
+        }
+        
+        input.validFieldWhite()
+        self.validFieldUI()
+    }
+    
+    private func defaultValidate(input: UITextField, type: Field, label: UILabel, min: Int) -> Bool {
+        if input.isEmpty() {
+            self.invalidFieldUI(input)
+            label.text = "O \(type.rawValue) não pode ficar em branco"
+            return false
+        }
+        if !input.min(qty: min) {
+            self.invalidFieldUI(input)
+            label.text = "Precisa ter pelo menos \(min) caracteres no campo\(type.rawValue)"
+            return false
+        }
+        
+        return true
+    }
+    
+    private func emptyFieldUI() {
+        self.userTextField.text = ""
+        self.passwordTextField.text = ""
+    }
+    
+    private func validFieldUI() {
+        self.invalid = false
+        self.emailValidLabel.text = ""
+        self.passwordValidLabel.text = ""
+    }
+    
+    private func invalidFieldUI(_ input: UITextField) {
+        input.invalidField()
+        self.invalid = true
     }
     
     private func proceedToHome() {
@@ -137,13 +174,45 @@ class LoginViewController: UIViewController {
     }
 }
 
-extension LoginViewController: LoginControllerProtocol {
+extension LoginViewController: LoginControllerProtocol {    
     func sucess() {
+        self.invalid = false
         self.dismiss(animated: true, completion: nil)
         self.proceedToHome()
     }
     
     func failure(error: String) {
-        self.alert(title: "Error", message: error)
+        self.invalid = true
+        self.alert(title: "Erro", message: error)
+    }
+}
+
+extension LoginViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        guard let identifier = textField.accessibilityIdentifier else { return true }
+
+        switch identifier {
+        case Field.email.rawValue:
+            self.passwordTextField.becomeFirstResponder()
+        default:
+            textField.resignFirstResponder()
+        }
+
+        return true
+    }
+
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        guard let identifier = textField.accessibilityIdentifier else { return }
+
+        switch identifier {
+        case Field.email.rawValue:
+            self.validateField(input: textField, type: .email)
+
+        case Field.password.rawValue:
+            self.validateField(input: textField, type: .password)
+
+        default:
+            break
+        }
     }
 }
