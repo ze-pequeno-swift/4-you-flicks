@@ -253,7 +253,6 @@ extension MovieDetailsViewController: UITableViewDelegate, UITableViewDataSource
         case details
         case saveWatchLater
         case description
-        case whereToWatch
         case moviesNearby
         case customCast
         case recommendations
@@ -282,8 +281,6 @@ extension MovieDetailsViewController: UITableViewDelegate, UITableViewDataSource
             return getSaveWatchLaterCell()
         case .description:
             return checkEmptyStateToBuildDetailsCell()
-        case .whereToWatch:
-            return getWhereToWatchCell()
         case .moviesNearby:
             return getMoviesNearbyCell()
         case .customCast:

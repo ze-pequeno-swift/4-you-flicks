@@ -35,7 +35,21 @@ extension UITextField{
         
         self.inputAccessoryView = doneToolbar
     }
-    
+
+    func addBackButtonOnKeyboard() {
+        let backToolbar: UIToolbar = UIToolbar(frame: CGRect.init(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 50))
+        backToolbar.barStyle = .default
+
+        let flexSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
+        let back: UIBarButtonItem = UIBarButtonItem(title: "Voltar", style: .plain, target: self, action: #selector(self.doneButtonAction))
+
+        let items = [flexSpace, back]
+        backToolbar.items = items
+        backToolbar.sizeToFit()
+
+        self.inputAccessoryView = backToolbar
+    }
+
     @objc func doneButtonAction() {
         self.resignFirstResponder()
     }
