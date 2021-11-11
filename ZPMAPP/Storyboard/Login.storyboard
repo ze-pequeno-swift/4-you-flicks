@@ -32,7 +32,7 @@
                                                 </constraints>
                                             </imageView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="kMt-5X-qhW" userLabel="User Stack View">
-                                                <rect key="frame" x="20" y="170" width="374" height="68.5"/>
+                                                <rect key="frame" x="20" y="170" width="374" height="90.5"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="E-mail" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uub-7H-TDS">
                                                         <rect key="frame" x="0.0" y="0.0" width="48.5" height="20.5"/>
@@ -40,28 +40,50 @@
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <textField opaque="NO" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="E-mail" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rcg-BV-iV1">
-                                                        <rect key="frame" x="0.0" y="28.5" width="374" height="40"/>
-                                                        <color key="backgroundColor" name="Main Onix"/>
-                                                        <color key="tintColor" systemColor="systemGrayColor"/>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="6dy-lc-FVH">
+                                                        <rect key="frame" x="0.0" y="28.5" width="374" height="62"/>
+                                                        <subviews>
+                                                            <textField opaque="NO" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="E-mail" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rcg-BV-iV1">
+                                                                <rect key="frame" x="0.0" y="0.0" width="374" height="40"/>
+                                                                <color key="backgroundColor" name="Main Onix"/>
+                                                                <color key="tintColor" systemColor="systemGrayColor"/>
+                                                                <accessibility key="accessibilityConfiguration" identifier="email"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="height" constant="40" id="kai-en-RSp"/>
+                                                                </constraints>
+                                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                                <textInputTraits key="textInputTraits" autocorrectionType="no" returnKeyType="next" textContentType="email"/>
+                                                                <userDefinedRuntimeAttributes>
+                                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="doneAccessory" value="YES"/>
+                                                                </userDefinedRuntimeAttributes>
+                                                            </textField>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kQh-kw-Nsx">
+                                                                <rect key="frame" x="0.0" y="42" width="374" height="20"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="height" constant="20" id="Bdk-RK-erQ"/>
+                                                                </constraints>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                                                <color key="textColor" name="Main Red"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                        </subviews>
                                                         <constraints>
-                                                            <constraint firstAttribute="height" constant="40" id="kai-en-RSp"/>
+                                                            <constraint firstItem="kQh-kw-Nsx" firstAttribute="leading" secondItem="rcg-BV-iV1" secondAttribute="leading" id="GFy-gB-Lsk"/>
+                                                            <constraint firstAttribute="trailing" secondItem="rcg-BV-iV1" secondAttribute="trailing" id="HTh-u2-0Ji"/>
+                                                            <constraint firstItem="rcg-BV-iV1" firstAttribute="leading" secondItem="6dy-lc-FVH" secondAttribute="leading" id="Ydv-4S-9n8"/>
+                                                            <constraint firstItem="kQh-kw-Nsx" firstAttribute="trailing" secondItem="rcg-BV-iV1" secondAttribute="trailing" id="iSp-78-QzB"/>
                                                         </constraints>
-                                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                        <textInputTraits key="textInputTraits" autocorrectionType="no" returnKeyType="next" textContentType="email"/>
-                                                        <userDefinedRuntimeAttributes>
-                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="doneAccessory" value="YES"/>
-                                                        </userDefinedRuntimeAttributes>
-                                                    </textField>
+                                                    </stackView>
                                                 </subviews>
                                                 <constraints>
-                                                    <constraint firstItem="rcg-BV-iV1" firstAttribute="leading" secondItem="kMt-5X-qhW" secondAttribute="leading" id="8LK-TK-Ebb"/>
-                                                    <constraint firstAttribute="trailing" secondItem="rcg-BV-iV1" secondAttribute="trailing" id="oRh-XM-nHh"/>
+                                                    <constraint firstAttribute="bottom" secondItem="6dy-lc-FVH" secondAttribute="bottom" id="cZf-vE-m8b"/>
+                                                    <constraint firstAttribute="trailing" secondItem="6dy-lc-FVH" secondAttribute="trailing" id="pRH-vI-PGP"/>
+                                                    <constraint firstItem="6dy-lc-FVH" firstAttribute="leading" secondItem="kMt-5X-qhW" secondAttribute="leading" id="sYx-W2-lzR"/>
                                                 </constraints>
                                             </stackView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f8Q-BK-Fjo" customClass="ZPButton" customModule="ZPMAPP" customModuleProvider="target">
-                                                <rect key="frame" x="20" y="397" width="374" height="40"/>
+                                                <rect key="frame" x="20" y="431" width="374" height="40"/>
                                                 <color key="backgroundColor" name="Main Onix"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="40" id="LZq-e9-Ygy"/>
@@ -74,7 +96,7 @@
                                                 </connections>
                                             </button>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="wuQ-t5-h22">
-                                                <rect key="frame" x="20" y="447" width="374" height="27"/>
+                                                <rect key="frame" x="20" y="481" width="374" height="27"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Não tem uma conta?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qvt-oB-dDs">
                                                         <rect key="frame" x="0.0" y="0.0" width="116.5" height="27"/>
@@ -95,7 +117,7 @@
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Pnw-OK-v3l" userLabel="Password Stack View">
-                                                <rect key="frame" x="20" y="253.5" width="374" height="103.5"/>
+                                                <rect key="frame" x="20" y="265.5" width="374" height="125.5"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Senha" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TXd-Qa-Oaf">
                                                         <rect key="frame" x="0.0" y="0.0" width="48" height="20.5"/>
@@ -103,22 +125,43 @@
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Senha" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4eZ-T0-h2A">
-                                                        <rect key="frame" x="0.0" y="28.5" width="374" height="40"/>
-                                                        <color key="backgroundColor" name="Main Onix"/>
-                                                        <color key="tintColor" systemColor="systemGrayColor"/>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="hCk-he-zDx">
+                                                        <rect key="frame" x="0.0" y="28.5" width="374" height="62"/>
+                                                        <subviews>
+                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Senha" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4eZ-T0-h2A">
+                                                                <rect key="frame" x="0.0" y="0.0" width="374" height="40"/>
+                                                                <color key="backgroundColor" name="Main Onix"/>
+                                                                <color key="tintColor" systemColor="systemGrayColor"/>
+                                                                <accessibility key="accessibilityConfiguration" identifier="password"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="height" constant="40" id="tG8-9l-pyZ"/>
+                                                                </constraints>
+                                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                                <textInputTraits key="textInputTraits" autocorrectionType="no" secureTextEntry="YES" textContentType="password"/>
+                                                                <userDefinedRuntimeAttributes>
+                                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="doneAccessory" value="YES"/>
+                                                                </userDefinedRuntimeAttributes>
+                                                            </textField>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MUn-dn-PpZ">
+                                                                <rect key="frame" x="0.0" y="42" width="374" height="20"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="20" id="j7e-t6-eAY"/>
+                                                                </constraints>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                                                <color key="textColor" name="Main Red"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                        </subviews>
                                                         <constraints>
-                                                            <constraint firstAttribute="height" constant="40" id="tG8-9l-pyZ"/>
+                                                            <constraint firstItem="MUn-dn-PpZ" firstAttribute="trailing" secondItem="4eZ-T0-h2A" secondAttribute="trailing" id="VSF-5x-6DB"/>
+                                                            <constraint firstItem="MUn-dn-PpZ" firstAttribute="leading" secondItem="4eZ-T0-h2A" secondAttribute="leading" id="kVa-h6-7fc"/>
+                                                            <constraint firstItem="4eZ-T0-h2A" firstAttribute="leading" secondItem="hCk-he-zDx" secondAttribute="leading" id="mjj-YL-dzu"/>
+                                                            <constraint firstAttribute="trailing" secondItem="4eZ-T0-h2A" secondAttribute="trailing" id="nfY-HG-ZCu"/>
                                                         </constraints>
-                                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                        <textInputTraits key="textInputTraits" autocorrectionType="no" secureTextEntry="YES" textContentType="password"/>
-                                                        <userDefinedRuntimeAttributes>
-                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="doneAccessory" value="YES"/>
-                                                        </userDefinedRuntimeAttributes>
-                                                    </textField>
+                                                    </stackView>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Z1t-X1-i7d">
-                                                        <rect key="frame" x="0.0" y="76.5" width="109" height="27"/>
+                                                        <rect key="frame" x="0.0" y="98.5" width="109" height="27"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                         <state key="normal" title="Esqueceu a senha?">
                                                             <color key="titleColor" name="Main Red"/>
@@ -129,8 +172,8 @@
                                                     </button>
                                                 </subviews>
                                                 <constraints>
-                                                    <constraint firstItem="4eZ-T0-h2A" firstAttribute="leading" secondItem="Pnw-OK-v3l" secondAttribute="leading" id="M0I-gm-6pz"/>
-                                                    <constraint firstAttribute="trailing" secondItem="4eZ-T0-h2A" secondAttribute="trailing" id="MXv-Zn-StI"/>
+                                                    <constraint firstItem="hCk-he-zDx" firstAttribute="leading" secondItem="Pnw-OK-v3l" secondAttribute="leading" id="pDM-wC-iSm"/>
+                                                    <constraint firstAttribute="trailing" secondItem="hCk-he-zDx" secondAttribute="trailing" id="sKE-Wm-C1j"/>
                                                 </constraints>
                                             </stackView>
                                         </subviews>
@@ -150,7 +193,7 @@
                                             <constraint firstAttribute="trailing" secondItem="kMt-5X-qhW" secondAttribute="trailing" constant="20" id="a2a-Gc-WDv"/>
                                             <constraint firstAttribute="trailing" secondItem="Pnw-OK-v3l" secondAttribute="trailing" constant="20" id="eK3-hh-xtf"/>
                                             <constraint firstItem="Zin-v4-yFA" firstAttribute="leading" secondItem="2YB-uW-ztP" secondAttribute="leading" constant="50" id="o4H-FD-BMI"/>
-                                            <constraint firstItem="Pnw-OK-v3l" firstAttribute="top" secondItem="kMt-5X-qhW" secondAttribute="bottom" constant="15" id="s09-MA-TrW"/>
+                                            <constraint firstItem="Pnw-OK-v3l" firstAttribute="top" secondItem="kMt-5X-qhW" secondAttribute="bottom" constant="5" id="s09-MA-TrW"/>
                                             <constraint firstAttribute="trailing" secondItem="f8Q-BK-Fjo" secondAttribute="trailing" constant="20" id="scX-Ja-OQz"/>
                                             <constraint firstItem="wuQ-t5-h22" firstAttribute="leading" secondItem="2YB-uW-ztP" secondAttribute="leading" constant="20" id="tIw-t8-KZl"/>
                                             <constraint firstAttribute="trailing" secondItem="Zin-v4-yFA" secondAttribute="trailing" constant="50" id="vDT-XM-ceV"/>
@@ -176,8 +219,10 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="emailValidLabel" destination="kQh-kw-Nsx" id="EN6-xG-Och"/>
                         <outlet property="loginButton" destination="f8Q-BK-Fjo" id="KEX-R6-qq3"/>
                         <outlet property="passwordTextField" destination="4eZ-T0-h2A" id="KFA-dH-dlr"/>
+                        <outlet property="passwordValidLabel" destination="MUn-dn-PpZ" id="3rS-xF-S9b"/>
                         <outlet property="userTextField" destination="rcg-BV-iV1" id="wcd-oS-wHI"/>
                     </connections>
                 </viewController>
