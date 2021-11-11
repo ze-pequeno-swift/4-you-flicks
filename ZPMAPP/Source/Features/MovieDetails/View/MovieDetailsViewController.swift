@@ -21,6 +21,7 @@ class MovieDetailsViewController: UIViewController {
     // MARK: - Private Properties
     
     var controllerMovieDetails = ControllerMovieDetails()
+    var displayGoBackViewCell: Bool = false
 
     // MARK: - View Lifecycle
     
@@ -31,6 +32,7 @@ class MovieDetailsViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        showLoginIfNeeded()
         showLoading()
         controllerMovieDetails.fetchMovieDetails()
         hideLoading()
@@ -38,6 +40,10 @@ class MovieDetailsViewController: UIViewController {
             self.tableView.reloadData()
         }
         setupNavigationBar()
+    }
+    
+    func setDisplayGoBackViewCell(value: Bool) {
+        self.displayGoBackViewCell = value
     }
     
     // MARK: - Private Functions
@@ -61,6 +67,18 @@ class MovieDetailsViewController: UIViewController {
         RecommendationTableViewCell.registerOn(tableView)
         EmptyViewCell.registerOn(tableView)
         EmptySectionCell.registerOn(tableView)
+        NavViewCell.registerOn(tableView)
+    }
+    
+    private func getNavCell() -> UITableViewCell {
+        let identifier = NavViewCell.identifier
+
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: identifier)
+                as? NavViewCell else { return UITableViewCell() }
+
+        cell.delegate = self
+
+        return cell
     }
     
     private func getDetailsCell() -> UITableViewCell {
@@ -195,6 +213,35 @@ class MovieDetailsViewController: UIViewController {
         
         self.present(alert, animated: true, completion: nil)
     }
+    
+    private func showLoginIfNeeded() {
+        if self.controllerMovieDetails.userIsLogged() {
+            return
+        }
+        proceedToLogin()
+    }
+    
+    private func proceedToLogin() {
+        let identifier = String(describing: LoginViewController.self)
+        let loginController = UIStoryboard(name: "Login", bundle: nil)
+        guard let viewController = loginController.instantiateViewController(identifier: identifier)
+                as? LoginViewController else { return }
+        
+        let navigationController = UINavigationController(rootViewController: viewController)
+        
+        present(navigationController, animated: true)
+    }
+    
+    private func proceedToProfile() {
+        let identifier = String(describing: ProfileViewController.self)
+        let profileController = UIStoryboard(name: "Profile", bundle: nil)
+        
+        guard let viewController = profileController.instantiateViewController(identifier: identifier) as? ProfileViewController else { return }
+        
+        
+        self.hidesBottomBarWhenPushed = false
+        self.navigationController?.pushViewController(viewController, animated: true)
+    }
 }
 
 // MARK: - UITableView Protocol Extensions
@@ -202,6 +249,7 @@ class MovieDetailsViewController: UIViewController {
 extension MovieDetailsViewController: UITableViewDelegate, UITableViewDataSource {
     
     enum DetailsSection: Int, CaseIterable {
+        case nav
         case details
         case saveWatchLater
         case description
@@ -220,9 +268,14 @@ extension MovieDetailsViewController: UITableViewDelegate, UITableViewDataSource
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let section = DetailsSection(rawValue: indexPath.section) else { return UITableViewCell() }
+        let index = self.displayGoBackViewCell
+        ? indexPath.section
+        : indexPath.section + 1
+        guard let section = DetailsSection(rawValue: index) else { return UITableViewCell() }
         
         switch section {
+        case .nav:
+            return getNavCell()
         case .details:
             return getDetailsCell()
         case .saveWatchLater:
@@ -255,5 +308,13 @@ extension MovieDetailsViewController: SaveWatchLaterProtocol {
     func saveMovieDB(tag: Tag) {
         self.controllerMovieDetails.saveMovieDB(tag: tag)
         self.alert(title: "Minha lista", message: "O filme foi adicionado com sucesso na sua lista de filmes")
+    }
+}
+
+extension MovieDetailsViewController: NavViewCellProtocol {
+    
+    func goBack() {
+        self.displayGoBackViewCell = false
+        self.proceedToProfile()
     }
 }
