@@ -71,6 +71,11 @@ extension UITextField{
         self.layer.borderWidth = 0
     }
     
+    func validFieldWhite() {
+        self.textColor = .white
+        self.layer.borderWidth = 0
+    }
+    
     func min(qty: Int) -> Bool {
         if let text = self.text {
             return text.count >= qty
