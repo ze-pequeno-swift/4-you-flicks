@@ -46,6 +46,10 @@ class FirebaseDataService {
         self.user = getUser()
     }
     
+    static func userIsLoggedIn() -> Bool {
+        return Auth.auth().currentUser != nil
+    }
+    
     // MARK: - Helper functions for creating encoders and decoders
     
     func loadCustomer() -> Customer? {
@@ -64,7 +68,7 @@ class FirebaseDataService {
         customerData: Customer,
         password: String?
     ) {
-        if !self.userIsLoggedIn() {
+        if Auth.auth().currentUser != nil {
             return
         }
 
@@ -185,21 +189,10 @@ class FirebaseDataService {
         return avatarRef
     }
     
-    func getAvatar() {
-        let avatarRef = self.getReference()
-        avatarRef.child("oSbOu3BuQkUaTtqnFqYJgBFWJvw1.jpeg").getData(maxSize: 1 * 1024 * 1024) { data, error in
-            if let error = error {
-                print(error)
-            } else {
-                //self.delegateAvatar?.loadAvatar(avatar: data!)
-                print("Image OK")
-            }
-        }
-    }
-    
     func uploadAvatar(localFile: URL) {
+        guard let user = self.user else { return }
         let fileExtension = localFile.pathExtension
-        let fileName = "oSbOu3BuQkUaTtqnFqYJgBFWJvw1.\(fileExtension)"
+        let fileName = "\(user.uid).\(fileExtension)"
         let avatarRef = self.getReference()
 
         avatarRef.child(fileName).putFile(from: localFile, metadata: nil) {
@@ -212,24 +205,19 @@ class FirebaseDataService {
 
             let size = metadata.size
             print(size)
-            avatarRef.child("oSbOu3BuQkUaTtqnFqYJgBFWJvw1.jpeg").downloadURL { (url, error) in
+            avatarRef.child("\(user.uid).jpeg").downloadURL { (url, error) in
                 guard let downloadURL = url else { return }
                 
                 if let error = error {
                     print(error)
                 }
                 
-                self.addDocumentWithId(collection: "users", id: "oSbOu3BuQkUaTtqnFqYJgBFWJvw1", data: ["avatar": downloadURL.absoluteString])
+                self.addDocumentWithId(collection: "users", id: user.uid, data: ["avatar": downloadURL.absoluteString])
             }
         }
     }
-    
-    func userIsLoggedIn() -> Bool {
-        return Auth.auth().currentUser != nil
-    }
-    
-    // TODO -> Remove with feature Vitor
-    func getUser() -> User?  {
+
+    func getUser() -> User? {
         let user = Auth.auth().currentUser
         guard let _user = user else {
             return nil
@@ -238,12 +226,61 @@ class FirebaseDataService {
         return _user
     }
     
-    //TODO -> Remove with feature Vitor, case exists
-    func recoveryPassword() {
-        guard let email = self.customer?.email else { return }
+    func createUser(name: String, email: String, password: String) {
+        Auth.auth().createUser(withEmail: email, password: password) { authResult, error in
+            if error != nil {
+                self.delegate?.failure(error: error)
+                return
+            }
+            
+            if let userData = authResult?.user {
+                let username = email.components(separatedBy: "@")
+                self.addDocumentWithId(collection: "users_movies", id: userData.uid, data: [:])
+                self.addDocumentWithId(collection: "friends", id: userData.uid, data: [
+                    "followers": [],
+                    "followings": []
+                ])
+                self.addDocumentWithId(collection: "users", id: userData.uid, data: [
+                    "name": name,
+                    "email": email,
+                    "username": "\(username[0])",
+                    "friends": [self.getDocumentRefWithId(collection: "friends", id: userData.uid)],
+                    "myMovies": [self.getDocumentRefWithId(collection: "users_movies", id: userData.uid)]
+                ])
+            }
+            
+            self.login(email: email, password: password)
+        }
+    }
+    
+    func login(email: String, password: String) {
+        Auth.auth().signIn(withEmail: email, password: password) { [weak self] authResult, error in
+            guard let _auth = authResult else { return }
+            guard let _self = self else { return }
+            
+            if error != nil {
+                _self.delegate?.failure(error: error)
+                return
+            }
+
+            _self.user = _auth.user
+            _self.delegate?.success("login")
+        }
+    }
+    
+    func logout() {
+        do {
+            try Auth.auth().signOut()
+        } catch {
+            print("Erro ao desconectar")
+        }
+    }
+
+    func recoveryPassword(email: String) {
         Auth.auth().sendPasswordReset(withEmail: email) { error in
             if error != nil {
                 self.delegateRecovery?.errorRecovery(error: error)
+                return
             }
             
             self.delegateRecovery?.recovery()
@@ -256,6 +293,7 @@ class FirebaseDataService {
         request?.commitChanges { error in
             if error != nil {
                 self.delegate?.failure(error: error)
+                return
             }
             
             self.delegate?.success("users")
@@ -266,6 +304,7 @@ class FirebaseDataService {
         Auth.auth().currentUser?.updateEmail(to: email) { error in
             if error != nil {
                 self.delegate?.failure(error: error)
+                return
             }
             
             self.delegate?.success("users")
@@ -276,6 +315,7 @@ class FirebaseDataService {
         Auth.auth().currentUser?.updatePassword(to: password) { error in
             if error != nil {
                 self.delegate?.failure(error: error)
+                return
             }
             
             self.delegate?.success("users")
@@ -287,8 +327,6 @@ class FirebaseDataService {
             if error != nil {
                 self.delegate?.failure(error: error)
             }
-            
-            self.delegate?.success("users")
         }
     }
 }
