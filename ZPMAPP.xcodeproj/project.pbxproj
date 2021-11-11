@@ -21,6 +21,8 @@
 		6B05D80F270D0F2A00179A9D /* OptionsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B05D80E270D0F2A00179A9D /* OptionsController.swift */; };
 		6B05D811270D0F4000179A9D /* EditController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B05D810270D0F4000179A9D /* EditController.swift */; };
 		6B05D813270D0F5000179A9D /* ResetController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B05D812270D0F5000179A9D /* ResetController.swift */; };
+		6B1B25AC2739939300CD66FD /* EmptyCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B1B25AA2739939300CD66FD /* EmptyCollectionViewCell.swift */; };
+		6B1B25AD2739939300CD66FD /* EmptyCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6B1B25AB2739939300CD66FD /* EmptyCollectionViewCell.xib */; };
 		6B9E78D82714AA5C00C391B2 /* FirebaseDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B9E78D72714AA5C00C391B2 /* FirebaseDataService.swift */; };
 		6B9E78DA2714D45200C391B2 /* JSONService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B9E78D92714D45200C391B2 /* JSONService.swift */; };
 		6B9F4D1926DDFAE6004BB120 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B9F4D1826DDFAE6004BB120 /* ProfileViewController.swift */; };
@@ -34,6 +36,9 @@
 		6BACAF712725B92600ECBAF5 /* EmptySectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6BACAF6D2725B92600ECBAF5 /* EmptySectionCell.xib */; };
 		6BACAF722725B92600ECBAF5 /* EmptyViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BACAF6E2725B92600ECBAF5 /* EmptyViewCell.swift */; };
 		6BACAF732725B92600ECBAF5 /* EmptySectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BACAF6F2725B92600ECBAF5 /* EmptySectionCell.swift */; };
+		6BD66A19273B4DD000630BB2 /* RecoverPasswordController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BD66A18273B4DD000630BB2 /* RecoverPasswordController.swift */; };
+		6BD66A1F273B854300630BB2 /* NavViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BD66A1D273B854300630BB2 /* NavViewCell.swift */; };
+		6BD66A20273B854300630BB2 /* NavViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6BD66A1E273B854300630BB2 /* NavViewCell.xib */; };
 		6BD9F0B127151FDB0092CD89 /* MyMovie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BD9F0B027151FDA0092CD89 /* MyMovie.swift */; };
 		7404C40026FE22DF00494FD0 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7404C3FF26FE22DF00494FD0 /* NetworkManager.swift */; };
 		7404C40226FE230A00494FD0 /* MovieError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7404C40126FE230A00494FD0 /* MovieError.swift */; };
@@ -155,6 +160,8 @@
 		6B05D80E270D0F2A00179A9D /* OptionsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionsController.swift; sourceTree = "<group>"; };
 		6B05D810270D0F4000179A9D /* EditController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditController.swift; sourceTree = "<group>"; };
 		6B05D812270D0F5000179A9D /* ResetController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetController.swift; sourceTree = "<group>"; };
+		6B1B25AA2739939300CD66FD /* EmptyCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyCollectionViewCell.swift; sourceTree = "<group>"; };
+		6B1B25AB2739939300CD66FD /* EmptyCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EmptyCollectionViewCell.xib; sourceTree = "<group>"; };
 		6B9E78D72714AA5C00C391B2 /* FirebaseDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseDataService.swift; sourceTree = "<group>"; };
 		6B9E78D92714D45200C391B2 /* JSONService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONService.swift; sourceTree = "<group>"; };
 		6B9F4D1826DDFAE6004BB120 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
@@ -168,6 +175,9 @@
 		6BACAF6D2725B92600ECBAF5 /* EmptySectionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EmptySectionCell.xib; sourceTree = "<group>"; };
 		6BACAF6E2725B92600ECBAF5 /* EmptyViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmptyViewCell.swift; sourceTree = "<group>"; };
 		6BACAF6F2725B92600ECBAF5 /* EmptySectionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmptySectionCell.swift; sourceTree = "<group>"; };
+		6BD66A18273B4DD000630BB2 /* RecoverPasswordController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RecoverPasswordController.swift; path = ZPMAPP/Source/Features/Profile/View/CustomCell/MoviesSection/RecoverPasswordController.swift; sourceTree = SOURCE_ROOT; };
+		6BD66A1D273B854300630BB2 /* NavViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavViewCell.swift; sourceTree = "<group>"; };
+		6BD66A1E273B854300630BB2 /* NavViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NavViewCell.xib; sourceTree = "<group>"; };
 		6BD9F0B027151FDA0092CD89 /* MyMovie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyMovie.swift; sourceTree = "<group>"; };
 		7404C3FF26FE22DF00494FD0 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		7404C40126FE230A00494FD0 /* MovieError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieError.swift; sourceTree = "<group>"; };
@@ -320,6 +330,8 @@
 				6B9F4D2326DDFF76004BB120 /* MovieCollectionViewCell.xib */,
 				6B05D800270C0FC400179A9D /* ListMoviesTableViewCell.swift */,
 				6B05D801270C0FC400179A9D /* ListMoviesTableViewCell.xib */,
+				6B1B25AA2739939300CD66FD /* EmptyCollectionViewCell.swift */,
+				6B1B25AB2739939300CD66FD /* EmptyCollectionViewCell.xib */,
 			);
 			path = MoviesSection;
 			sourceTree = "<group>";
@@ -354,6 +366,15 @@
 				6BACAF6F2725B92600ECBAF5 /* EmptySectionCell.swift */,
 			);
 			path = EmptyView;
+			sourceTree = "<group>";
+		};
+		6BD66A1A273B84C400630BB2 /* NavCell */ = {
+			isa = PBXGroup;
+			children = (
+				6BD66A1D273B854300630BB2 /* NavViewCell.swift */,
+				6BD66A1E273B854300630BB2 /* NavViewCell.xib */,
+			);
+			path = NavCell;
 			sourceTree = "<group>";
 		};
 		7404C3FE26FE22C000494FD0 /* Networking */ = {
@@ -466,6 +487,7 @@
 		746ECACD26D6ADD50047ACE7 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				6BD66A1A273B84C400630BB2 /* NavCell */,
 				6BACAF6B2725B92600ECBAF5 /* EmptyView */,
 				74CB474626D752840091F683 /* DetailsCell */,
 				74CB474726D752A60091F683 /* SaveWatchLaterCell */,
@@ -558,7 +580,6 @@
 		7483D83C26DC4CB400ABB950 /* CreateAccount */ = {
 			isa = PBXGroup;
 			children = (
-				ABA4314326E1755000B21018 /* Model */,
 				ABA4314226E1754900B21018 /* View */,
 				ABA4314126E1754300B21018 /* Controller */,
 			);
@@ -568,7 +589,6 @@
 		7483D83D26DC4D3400ABB950 /* RecoverPassword */ = {
 			isa = PBXGroup;
 			children = (
-				ABA4313426E173B100B21018 /* Model */,
 				ABA4313326E173AD00B21018 /* View */,
 				ABA4313226E173A200B21018 /* Controller */,
 			);
@@ -789,16 +809,10 @@
 			path = Controller;
 			sourceTree = "<group>";
 		};
-		AB97FA352715FE4800BAD1B4 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
 		ABA4313226E173A200B21018 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				6BD66A18273B4DD000630BB2 /* RecoverPasswordController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -809,13 +823,6 @@
 				BCDC471526D7F0D400AD8A35 /* RecoverPasswordViewController.swift */,
 			);
 			path = View;
-			sourceTree = "<group>";
-		};
-		ABA4313426E173B100B21018 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
 			sourceTree = "<group>";
 		};
 		ABA4313626E1744A00B21018 /* View */ = {
@@ -870,13 +877,6 @@
 				BCDC471326D7EEB500AD8A35 /* CreateAccountViewController.swift */,
 			);
 			path = View;
-			sourceTree = "<group>";
-		};
-		ABA4314326E1755000B21018 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
 			sourceTree = "<group>";
 		};
 		ABA4314426E1756100B21018 /* Controller */ = {
@@ -967,7 +967,6 @@
 		BCBD243326D48677008110FB /* Login */ = {
 			isa = PBXGroup;
 			children = (
-				AB97FA352715FE4800BAD1B4 /* Model */,
 				ABA4313C26E174AE00B21018 /* View */,
 				AB97FA342715FE3E00BAD1B4 /* Controller */,
 			);
@@ -1144,6 +1143,7 @@
 				6B05D7FF270C0C9700179A9D /* FilterTableViewCell.xib in Resources */,
 				74818A4F26D419C60071AB5E /* CardCustomDailyTrendingsCell.xib in Resources */,
 				74818A5426D41AAF0071AB5E /* DailyTrendingsCell.xib in Resources */,
+				6B1B25AD2739939300CD66FD /* EmptyCollectionViewCell.xib in Resources */,
 				DE26FEA627023EC3006B46EC /* RecommendationTableViewCell.xib in Resources */,
 				6BACAF702725B92600ECBAF5 /* EmptyViewCell.xib in Resources */,
 				74CB473D26D72CF40091F683 /* MoviesNearbyCell.xib in Resources */,
@@ -1157,6 +1157,7 @@
 				7405C32B26D35FF2002B8B2B /* Home.storyboard in Resources */,
 				DE26FEAB27038AF9006B46EC /* RecommendationCell.xib in Resources */,
 				DEFED81826D6923600B2AEEA /* MovieSearchCell.xib in Resources */,
+				6BD66A20273B854300630BB2 /* NavViewCell.xib in Resources */,
 				74CB474126D739DE0091F683 /* CustomCastCell.xib in Resources */,
 				74D1AE7026D3616500AC56E5 /* Profile.storyboard in Resources */,
 				746ECAD126D6AE440047ACE7 /* DetailsCell.xib in Resources */,
@@ -1301,6 +1302,7 @@
 				74818A6926D43B320071AB5E /* UICollectionViewCell+Extension.swift in Sources */,
 				74818A4926D4180E0071AB5E /* CardCustomCell.swift in Sources */,
 				AB438220270246F300A8A74B /* UITextField+Extensions.swift in Sources */,
+				6B1B25AC2739939300CD66FD /* EmptyCollectionViewCell.swift in Sources */,
 				7404C41326FE411B00494FD0 /* Cast.swift in Sources */,
 				6B05D7FE270C0C9700179A9D /* FilterTableViewCell.swift in Sources */,
 				BC13C72226F5491900A99CFA /* HomeSection.swift in Sources */,
@@ -1323,6 +1325,7 @@
 				AB21C97F26D7266E0031724B /* UIView+Extension.swift in Sources */,
 				BC7884D926F6211200EB59BF /* ControllerHome.swift in Sources */,
 				74818A5326D41AAF0071AB5E /* DailyTrendingsCell.swift in Sources */,
+				6BD66A19273B4DD000630BB2 /* RecoverPasswordController.swift in Sources */,
 				7404C43D2700EB7200494FD0 /* ZPPickerDelegate.swift in Sources */,
 				AB21C97F26D7266E0031724B /* UIView+Extension.swift in Sources */,
 				BC7884D926F6211200EB59BF /* ControllerHome.swift in Sources */,
@@ -1335,6 +1338,7 @@
 				DEF3329C26E1701C007DD03A /* DetailSearchViewController.swift in Sources */,
 				6B9F4D1B26DDFB5E004BB120 /* OptionsViewController.swift in Sources */,
 				6BACAF732725B92600ECBAF5 /* EmptySectionCell.swift in Sources */,
+				6BD66A1F273B854300630BB2 /* NavViewCell.swift in Sources */,
 				6B9E78DA2714D45200C391B2 /* JSONService.swift in Sources */,
 				7404C40F26FE40DE00494FD0 /* Genre.swift in Sources */,
 				7404C42F2700416200494FD0 /* Int+Extension.swift in Sources */,
