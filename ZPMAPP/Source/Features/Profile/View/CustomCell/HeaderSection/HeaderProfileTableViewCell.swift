@@ -9,6 +9,7 @@ import UIKit
 
 protocol HeaderProfileProtocol: AnyObject {
     func tappedPerformSegue(identifier: String)
+    func signOut()
 }
 
 class HeaderProfileTableViewCell: UITableViewCell {
@@ -21,8 +22,7 @@ class HeaderProfileTableViewCell: UITableViewCell {
 
     // MARK: - IBOutlet
     @IBOutlet weak private var editProfileButton: UIButton!
-    @IBOutlet weak private var notificationProfileButton: UIButton!
-    @IBOutlet weak private var alertProfileButton: UIButton!
+    @IBOutlet weak var signOutButton: UIButton!
     @IBOutlet weak private var avatarProfileImageView: UIImageView!
     @IBOutlet weak private var nameProfileLabel: UILabel!
     @IBOutlet weak private var usernameProfileLabel: UILabel!
@@ -40,9 +40,8 @@ class HeaderProfileTableViewCell: UITableViewCell {
             if let avatar = _customer.avatar {
                 self.avatarProfileImageView.load(url: avatar)
             }
-            
-            print(_customer)
         }
+        
     }
     
     func setupUI() {
@@ -58,13 +57,8 @@ class HeaderProfileTableViewCell: UITableViewCell {
     @IBAction private func tappedOptionsProfileAction(_ sender: UIButton) {
         self.delegate?.tappedPerformSegue(identifier: "OptionsViewController")
     }
-    
-    @IBAction private func tappedNotificationAction(_ sender: UIButton) {
-        print("list messages and notifications from your friends")
-    }
-
-    @IBAction private func tappedAlertAction(_ sender: UIButton) {
-        print("alert, the movie you've been waiting for started in a nearby theater ")
+    @IBAction func tappedSignOutAction(_ sender: UIButton) {
+        self.delegate?.signOut()
     }
     
 }
