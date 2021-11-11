@@ -38,6 +38,7 @@ class SuggestionViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        showLoginIfNeeded()
         setupUI()
         
         DispatchQueue.main.async {
@@ -74,6 +75,24 @@ class SuggestionViewController: UIViewController {
         }
     
         hideLoading()
+    }
+    
+    private func showLoginIfNeeded() {
+        if self.controllerSuggestion.userIsLogged() {
+            return
+        }
+        proceedToLogin()
+    }
+    
+    private func proceedToLogin() {
+        let identifier = String(describing: LoginViewController.self)
+        let homeController = UIStoryboard(name: "Login", bundle: nil)
+        guard let viewController = homeController.instantiateViewController(identifier: identifier)
+                as? LoginViewController else { return }
+        
+        let navigationController = UINavigationController(rootViewController: viewController)
+        
+        present(navigationController, animated: true)
     }
     
     @IBAction private func back(_ sender: UIButton) {

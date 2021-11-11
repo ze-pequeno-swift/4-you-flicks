@@ -53,6 +53,10 @@ class ControllerSuggestion {
         }
     }
     
+    func userIsLogged() -> Bool {
+        return FirebaseDataService.userIsLoggedIn()
+    }
+    
     // MARK: - Private Functions
     
     private func showMovieDetails(_ movie: Movie, response: MovieDetailsResponse?) {
