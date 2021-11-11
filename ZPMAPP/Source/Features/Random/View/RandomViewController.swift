@@ -43,8 +43,14 @@ class RandomViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupUI()
-        setupActions()
+        self.showLoginIfNeeded()
+        self.setupUI()
+        self.setupActions()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        showLoginIfNeeded()
     }
     
     // MARK: - Private Functions
@@ -123,6 +129,24 @@ class RandomViewController: UIViewController {
         viewController.sortedMovie = sortedMovie
         viewController.controllerSuggestion.movie = sortedMovie
         present(viewController, animated: true)
+    }
+    
+    private func showLoginIfNeeded() {
+        if self.randomController.userIsLogged() {
+            return
+        }
+        proceedToLogin()
+    }
+    
+    private func proceedToLogin() {
+        let identifier = String(describing: LoginViewController.self)
+        let homeController = UIStoryboard(name: "Login", bundle: nil)
+        guard let viewController = homeController.instantiateViewController(identifier: identifier)
+                as? LoginViewController else { return }
+        
+        let navigationController = UINavigationController(rootViewController: viewController)
+        
+        present(navigationController, animated: true)
     }
 }
 
