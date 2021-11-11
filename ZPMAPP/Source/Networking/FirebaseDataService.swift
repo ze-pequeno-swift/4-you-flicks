@@ -85,8 +85,8 @@ class FirebaseDataService {
         self.delegate?.success("users")
     }
     
-    func resetPassword(password: String) {
-        self.updatePass(password: password)
+    func resetPassword(password: String, oldPassword: String) {
+        self.updatePass(password: password, oldPassword: oldPassword)
     }
     
     func addDocument(collection: String, data: [String: Any]) {
@@ -255,7 +255,6 @@ class FirebaseDataService {
     
     func login(email: String, password: String) {
         Auth.auth().signIn(withEmail: email, password: password) { [weak self] authResult, error in
-            guard let _auth = authResult else { return }
             guard let _self = self else { return }
             
             if error != nil {
@@ -263,6 +262,7 @@ class FirebaseDataService {
                 return
             }
 
+            guard let _auth = authResult else { return }
             _self.user = _auth.user
             _self.delegate?.success("login")
         }
@@ -311,14 +311,24 @@ class FirebaseDataService {
         }
     }
     
-    private func updatePass(password: String) {
-        Auth.auth().currentUser?.updatePassword(to: password) { error in
+    private func updatePass(password: String, oldPassword: String = "") {
+        guard let email = self.user?.email else { return }
+        Auth.auth().signIn(withEmail: email, password: oldPassword) { authResult, error in
+
             if error != nil {
                 self.delegate?.failure(error: error)
                 return
             }
-            
-            self.delegate?.success("users")
+
+            guard let user = authResult?.user else { return }
+            user.updatePassword(to: password) { error in
+                if error != nil {
+                    self.delegate?.failure(error: error)
+                    return
+                }
+                
+                self.delegate?.success("users")
+            }
         }
     }
     

@@ -50,7 +50,6 @@ class ResetPasswordViewController: UIViewController {
         let password = self.newPasswordTextField.text ?? ""
         let oldPassword = self.oldPasswordTextField.text ?? ""
         self.controller?.resetPassword(password: password, oldPassword: oldPassword)
-        self.navigationController?.popToRootViewController(animated: true)
     }
 
     @IBAction private func tappedCancelUpdatePasswordAction(_ sender: UIButton) {
@@ -152,7 +151,13 @@ class ResetPasswordViewController: UIViewController {
     private func alert(title: String, message: String) {
         let alert: UIAlertController = UIAlertController.init(title: title, message: message, preferredStyle: UIAlertController.Style.alert)
 
-        alert.addAction(UIAlertAction.init(title: "OK", style: UIAlertAction.Style.default, handler: nil))
+        alert.addAction(UIAlertAction.init(title: "OK", style: UIAlertAction.Style.default, handler: { _ in
+            if !self.invalid {
+                self.navigationController?.popToRootViewController(animated: true)
+            }
+            self.oldPasswordTextField.text = ""
+            self.newPasswordTextField.text = ""
+        }))
         
         self.present(alert, animated: true, completion: nil)
     }
@@ -164,20 +169,24 @@ extension ResetPasswordViewController: UITextFieldDelegate, ResetControllerProto
     }
     
     func success() {
+        self.invalid = false
         self.alert(title: "Atualização de dados", message: "Dados atualizados com sucesso")
     }
     
     func failure(error: Error?) {
+        self.invalid = true
         print(error?.localizedDescription ?? "")
         self.alert(title: "Erro", message: "Não foi possível fazer as atualizações")
     }
     
     func sendRecoveryPassword() {
+        self.invalid = false
         self.alert(title: "Recuperação de senha", message: "Um email foi enviado para você realizar sua recuperação de senha")
     }
     
     func sendErrorRecoveryPassword(error: Error?) {
         print(error?.localizedDescription ?? "")
+        self.invalid = true
         self.alert(title: "Erro", message: "Não foi possível enviar um email para recuperação de senha")
     }
 }

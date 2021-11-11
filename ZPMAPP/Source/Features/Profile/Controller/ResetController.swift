@@ -37,7 +37,7 @@ class ResetController {
     }
     
     func resetPassword(password: String, oldPassword: String) {
-        self.firebase.resetPassword(password: password)
+        self.firebase.resetPassword(password: password, oldPassword: oldPassword)
     }
     
     func recoveryPassword() {
