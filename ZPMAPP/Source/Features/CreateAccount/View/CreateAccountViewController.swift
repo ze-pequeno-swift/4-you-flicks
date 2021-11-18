@@ -41,6 +41,7 @@ class CreateAccountViewController: UIViewController {
         self.setupUI()
         self.setupKeyboard()
         self.controller.delegate = self
+        configureKeyboardType()
     }
     
     // MARK: - Private Functions
@@ -77,6 +78,11 @@ class CreateAccountViewController: UIViewController {
         self.emailConfirmationTextField.delegate = self
         self.passwordTextField.delegate = self
         self.passwordConfirmationTextField.delegate = self
+    }
+
+    private func configureKeyboardType() {
+        emailTextField.keyboardType = .emailAddress
+        emailConfirmationTextField.keyboardType = .emailAddress
     }
     
     func setupKeyboard() {
