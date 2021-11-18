@@ -32,6 +32,7 @@ class LoginViewController: UIViewController {
         self.setupUI()
         self.controller.delegate = self
         navigationController?.navigationBar.isHidden = true
+        configureKeyboardType()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -56,6 +57,10 @@ class LoginViewController: UIViewController {
         guard let _email = userTextField.text else { return }
         guard let _password = passwordTextField.text else { return }
         self.controller.login(email: _email, password: _password)
+    }
+
+    private func configureKeyboardType() {
+        userTextField.keyboardType = .emailAddress
     }
     
     private func setupUI() {

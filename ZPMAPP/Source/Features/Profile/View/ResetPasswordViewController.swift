@@ -14,9 +14,17 @@ class ResetPasswordViewController: UIViewController {
     
     // MARK: - IBOutlet
     @IBOutlet weak private var backButton: UIButton!
-    @IBOutlet weak private var oldPasswordTextField: UITextField!
+    @IBOutlet weak private var oldPasswordTextField: UITextField! {
+        didSet {
+            oldPasswordTextField.doneAccessory = true
+        }
+    }
     @IBOutlet weak private var oldPasswordValidMessage: UILabel!
-    @IBOutlet weak private var newPasswordTextField: UITextField!
+    @IBOutlet weak private var newPasswordTextField: UITextField! {
+        didSet {
+            newPasswordTextField.doneAccessory = true
+        }
+    }
     @IBOutlet weak private var stepFirstValidationView: UIView!
     @IBOutlet weak private var stepSecondValidationView: UIView!
     @IBOutlet weak private var stepThirdValidationView: UIView!
