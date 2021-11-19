@@ -13,7 +13,6 @@ class ResetPasswordViewController: UIViewController {
     var invalid: Bool = false
     
     // MARK: - IBOutlet
-    @IBOutlet weak private var backButton: UIButton!
     @IBOutlet weak private var oldPasswordTextField: UITextField!
     @IBOutlet weak private var oldPasswordValidMessage: UILabel!
     @IBOutlet weak private var newPasswordTextField: UITextField!
@@ -37,9 +36,6 @@ class ResetPasswordViewController: UIViewController {
     }
 
     // MARK: - Actions
-    @IBAction private func tappedBackButtonAction(_ sender: UIButton) {
-        self.navigationController?.popToRootViewController(animated: true)
-    }
 
     @IBAction private func tappedUpdateButtonAction(_ sender: UIButton) {
         if self.invalid {

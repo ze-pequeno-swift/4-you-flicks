@@ -21,13 +21,13 @@ class MovieDetailsViewController: UIViewController {
     // MARK: - Private Properties
     
     var controllerMovieDetails = ControllerMovieDetails()
-    var displayGoBackViewCell: Bool = false
 
     // MARK: - View Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
+        navigationItem.backButtonTitle = ""
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -39,18 +39,6 @@ class MovieDetailsViewController: UIViewController {
         DispatchQueue.main.async {
             self.tableView.reloadData()
         }
-        setupNavigationBar()
-    }
-    
-    func setDisplayGoBackViewCell(value: Bool) {
-        self.displayGoBackViewCell = value
-    }
-    
-    // MARK: - Private Functions
-    
-    private func setupNavigationBar() {
-        navigationController?.navigationBar.navigationStyle()
-        navigationItem.backButton(target: self, action: #selector(close))
     }
     
     private func setupUI() {
@@ -67,18 +55,6 @@ class MovieDetailsViewController: UIViewController {
         RecommendationTableViewCell.registerOn(tableView)
         EmptyViewCell.registerOn(tableView)
         EmptySectionCell.registerOn(tableView)
-        NavViewCell.registerOn(tableView)
-    }
-    
-    private func getNavCell() -> UITableViewCell {
-        let identifier = NavViewCell.identifier
-
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: identifier)
-                as? NavViewCell else { return UITableViewCell() }
-
-        cell.delegate = self
-
-        return cell
     }
     
     private func getDetailsCell() -> UITableViewCell {
@@ -249,7 +225,6 @@ class MovieDetailsViewController: UIViewController {
 extension MovieDetailsViewController: UITableViewDelegate, UITableViewDataSource {
     
     enum DetailsSection: Int, CaseIterable {
-        case nav
         case details
         case saveWatchLater
         case description
@@ -267,14 +242,9 @@ extension MovieDetailsViewController: UITableViewDelegate, UITableViewDataSource
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let index = self.displayGoBackViewCell
-        ? indexPath.section
-        : indexPath.section + 1
-        guard let section = DetailsSection(rawValue: index) else { return UITableViewCell() }
+        guard let section = DetailsSection(rawValue: indexPath.section) else { return UITableViewCell() }
         
         switch section {
-        case .nav:
-            return getNavCell()
         case .details:
             return getDetailsCell()
         case .saveWatchLater:
@@ -311,7 +281,6 @@ extension MovieDetailsViewController: SaveWatchLaterProtocol {
 extension MovieDetailsViewController: NavViewCellProtocol {
     
     func goBack() {
-        self.displayGoBackViewCell = false
         self.proceedToProfile()
     }
 }
