@@ -107,6 +107,16 @@ class EditProfileViewController: UIViewController {
         self.usernameTextField.delegate = self
         self.emailTextField.delegate = self
         self.nameTextField.delegate = self
+        configureKeyboard()
+
+    }
+
+    private func configureKeyboard() {
+        usernameTextField.doneAccessory = true
+        usernameTextField.keyboardType = .twitter
+        emailTextField.doneAccessory = true
+        emailTextField.keyboardType = .emailAddress
+        nameTextField.doneAccessory = true
     }
     
     private func setCustomerData() {
