@@ -26,7 +26,6 @@ class EditProfileViewController: UIViewController {
     private var customer: Customer?
 
     // MARK: - IBOutlet
-    @IBOutlet weak private var backButton: UIButton!
     @IBOutlet weak private var avatarImageView: UIImageView!
     @IBOutlet weak private var editAvatarButton: UIButton!
     @IBOutlet weak private var nameTextField: UITextField!
@@ -48,10 +47,7 @@ class EditProfileViewController: UIViewController {
     }
     
     // MARK: - Actions
-    @IBAction private func tappedBackButtonAction(_ sender: UIButton) {
-        self.navigationController?.popToRootViewController(animated: true)
-    }
-    
+
     @IBAction private func tappedSaveButtonAction(_ sender: UIButton) {
             if self.invalid {
                 self.alert(title: "Erro", message: "Não é possível salvar os dados com campos inválidos")

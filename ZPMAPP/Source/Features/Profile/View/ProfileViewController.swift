@@ -21,6 +21,7 @@ class ProfileViewController: UIViewController {
         self.controller = ProfileController()
         self.controller.delegate = self
         self.setupUI()
+        navigationItem.backButtonTitle = ""
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -110,11 +111,14 @@ class ProfileViewController: UIViewController {
         guard let viewController = homeController.instantiateViewController(identifier: identifier) as? MovieDetailsViewController else { return }
         
         if let movie = myMovie.movie {
-            viewController.displayGoBackViewCell = true
+//            viewController.displayGoBackViewCell = true
             viewController.controllerMovieDetails.movie = movie
             viewController.hidesBottomBarWhenPushed = true
-            
-            self.navigationController?.pushViewController(viewController, animated: true)
+
+            navigationController?.pushViewController(viewController, animated: true)
+
+
+//            present(navigationController, animated: true)
         }
     }
     

@@ -29,7 +29,6 @@ class HomeViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        setupNavigationBar()
         showLoginIfNeeded()
     }
     
@@ -41,11 +40,7 @@ class HomeViewController: UIViewController {
         }
         proceedToLogin()
     }
-    
-    private func setupNavigationBar() {
-        navigationController?.navigationBar.navigationStyle()
-    }
-    
+
     private func setupUI() {
         tableView.delegate = self
         tableView.dataSource = self
