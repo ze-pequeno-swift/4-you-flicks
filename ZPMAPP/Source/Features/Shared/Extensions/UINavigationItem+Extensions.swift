@@ -30,8 +30,10 @@ extension UINavigationItem {
             image: image, landscapeImagePhone: nil,
             style: UIBarButtonItem.Style.plain,
             target: target, action: action)
+        button.title = "teste"
         
         button.accessibilityIdentifier = "backButtonId"
         self.leftBarButtonItem = button
     }
 }
+

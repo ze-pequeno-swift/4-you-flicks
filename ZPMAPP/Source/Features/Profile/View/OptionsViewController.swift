@@ -12,7 +12,6 @@ class OptionsViewController: UIViewController {
     var controller: OptionsController?
     
     // MARK: - IBOutlet
-    @IBOutlet weak private var backButton: UIButton!
     @IBOutlet weak private var avatarImageView: UIImageView!
     @IBOutlet weak var profileView: UIView!
     @IBOutlet weak var resetView: UIView!
@@ -45,9 +44,6 @@ class OptionsViewController: UIViewController {
     }
 
     // MARK: - Actions
-    @IBAction private func tappedBackButtonAction(_ sender: UIButton) {
-        self.navigationController?.popToRootViewController(animated: true)
-    }
     
     @IBAction private func tappedEditAction(_ sender: UIButton) {
         self.performSegue(withIdentifier: "EditProfileViewController", sender: self.controller?.getCustomer())
