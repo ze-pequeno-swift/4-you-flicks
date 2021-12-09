@@ -10,7 +10,7 @@ import UIKit
 extension UINavigationBar {
     
     func navigationStyle() {
-        let fontColor = UIColor.white
+        let fontColor = UIColor.customRed
         let fontSystem = UIFont.systemFont(ofSize: 15)
         
         if #available(iOS 13.0, *) {
@@ -20,13 +20,14 @@ extension UINavigationBar {
             appearance.backgroundColor = .black
             appearance.titleTextAttributes = [.foregroundColor: fontColor, .font: fontSystem]
             self.isTranslucent = false
-            self.tintColor = .white
+            self.tintColor = .customRed
             self.standardAppearance = appearance
             self.scrollEdgeAppearance = appearance
             self.compactAppearance = appearance
+
         } else {
             self.isTranslucent = false
-            self.tintColor = .white
+            self.tintColor = .customRed
             self.barTintColor = .black
             self.backgroundColor = .white
             self.barStyle = UIBarStyle.black

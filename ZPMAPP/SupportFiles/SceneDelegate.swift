@@ -35,6 +35,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         )
         
         UITabBar.appearance().tintColor = .red
+        UINavigationBar.appearance().navigationStyle()
+       
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
