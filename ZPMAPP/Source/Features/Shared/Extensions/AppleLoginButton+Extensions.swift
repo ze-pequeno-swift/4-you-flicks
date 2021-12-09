@@ -9,8 +9,7 @@ import UIKit
 import AuthenticationServices
 
 extension ASAuthorizationAppleIDButton {
-    func setup(title: String) {
-        type(of: self).init(type: .signIn, style: .whiteOutline)
-        self.roundCornersAll(cornerRadius: 5)
+    func setup() {
+        self.cornerRadius = 5
     }
 }

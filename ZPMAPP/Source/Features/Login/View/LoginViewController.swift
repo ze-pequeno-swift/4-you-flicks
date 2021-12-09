@@ -131,7 +131,7 @@ class LoginViewController: UIViewController {
         userTextField.attributedPlaceholder = NSAttributedString(string: "E-mail", attributes: [NSAttributedString.Key.foregroundColor: UIColor.gray])
 
         appleButton.addTarget(self, action: #selector(handleAppleSignInButtonPress), for: .touchUpInside)
-        appleButton.setup(title: "Entrar com a Apple")
+        appleButton.setup()
         
         self.facebookButton.setup(title: "Entrar com Facebook")
         self.facebookButton.delegate = self
