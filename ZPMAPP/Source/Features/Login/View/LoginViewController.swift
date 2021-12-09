@@ -6,6 +6,9 @@
 //
 
 import UIKit
+import FBSDKLoginKit
+import GoogleSignIn
+import AuthenticationServices
 
 class LoginViewController: UIViewController {
     
@@ -14,6 +17,10 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var userTextField: UITextField!
     @IBOutlet weak var emailValidLabel: UILabel!
     @IBOutlet weak var passwordValidLabel: UILabel!
+    @IBOutlet weak var googleButton: GIDSignInButton!
+    @IBOutlet weak var facebookButton: FBLoginButton!
+    @IBOutlet weak var appleButton: ASAuthorizationAppleIDButton!
+    @IBOutlet weak var socialStackView: UIStackView!
     
     // MARK: - Private Properties
     
@@ -22,6 +29,7 @@ class LoginViewController: UIViewController {
     private var emailGeneral = ""
     private var passwordGeneral = ""
     private var invalid = false
+    fileprivate var currentNonce: String?
     let controller = LoginController()
     
     // MARK: - View Lifecycle
@@ -38,14 +46,21 @@ class LoginViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         self.isModalInPresentation = true
     }
-        
+    
     // MARK: - Private Functions
     
     private func showLoginIfNeeded() {
+        self.facebookButton.isHidden = true
+        self.googleButton.isHidden = true
+        self.appleButton.isHidden = true
+        
         if !self.controller.userIsLogged() {
+            self.facebookButton.isHidden = false
+            self.googleButton.isHidden = false
+            self.appleButton.isHidden = false
             return
         }
-
+        
         self.proceedToHome()
     }
     
@@ -53,12 +68,45 @@ class LoginViewController: UIViewController {
         if self.invalid {
             self.alert(title: "Erro", message: "Existem campos não preenchidos ou inválidos, verifique")
         }
-
+        
         guard let _email = userTextField.text else { return }
         guard let _password = passwordTextField.text else { return }
         self.controller.login(email: _email, password: _password)
     }
-
+    
+    @IBAction func googleButtonAction(_ sender: GIDSignInButton) {
+        guard let clientID = self.controller.getClientIdFirebase() else { return }
+        let config = GIDConfiguration(clientID: clientID)
+        
+        GIDSignIn.sharedInstance.signIn(with: config, presenting: self) {
+            [unowned self] user, error in
+            
+            if let error = error {
+                print(error.localizedDescription)
+                self.googleButton.isHidden = false
+                self.alert(title: "Erro", message: "Houve um erro ao conectar com o google")
+                return
+            }
+            
+            self.controller.loginWithGoogle(user: user)
+        }
+    }
+    
+    @objc @available(iOS 13, *)
+    private func handleAppleSignInButtonPress() {
+        let nonce = self.controller.randomNonceString()
+        self.currentNonce = nonce
+        let appleIDProvider = ASAuthorizationAppleIDProvider()
+        let request = appleIDProvider.createRequest()
+        request.requestedScopes = [.fullName, .email]
+        request.nonce = self.controller.sha256(nonce)
+        
+        let authorizationController = ASAuthorizationController(authorizationRequests: [request])
+        authorizationController.delegate = self
+        authorizationController.presentationContextProvider = self
+        authorizationController.performRequests()
+    }
+    
     private func configureKeyboardType() {
         userTextField.keyboardType = .emailAddress
     }
@@ -81,6 +129,14 @@ class LoginViewController: UIViewController {
         
         passwordTextField.attributedPlaceholder = NSAttributedString(string: "Senha", attributes: [NSAttributedString.Key.foregroundColor: UIColor.gray])
         userTextField.attributedPlaceholder = NSAttributedString(string: "E-mail", attributes: [NSAttributedString.Key.foregroundColor: UIColor.gray])
+
+        appleButton.addTarget(self, action: #selector(handleAppleSignInButtonPress), for: .touchUpInside)
+        appleButton.setup(title: "Entrar com a Apple")
+        
+        self.facebookButton.setup(title: "Entrar com Facebook")
+        self.facebookButton.delegate = self
+        
+        self.googleButton.setup()
         
         passwordTextField.delegate = self
         userTextField.delegate = self
@@ -172,7 +228,7 @@ class LoginViewController: UIViewController {
     
     private func alert(title: String, message: String) {
         let alert: UIAlertController = UIAlertController.init(title: title, message: message, preferredStyle: UIAlertController.Style.alert)
-
+        
         alert.addAction(UIAlertAction.init(title: "OK", style: UIAlertAction.Style.default, handler: nil))
         
         self.present(alert, animated: true, completion: nil)
@@ -195,29 +251,84 @@ extension LoginViewController: LoginControllerProtocol {
 extension LoginViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         guard let identifier = textField.accessibilityIdentifier else { return true }
-
+        
         switch identifier {
         case Field.email.rawValue:
             self.passwordTextField.becomeFirstResponder()
         default:
             textField.resignFirstResponder()
         }
-
+        
         return true
     }
-
+    
     func textFieldDidEndEditing(_ textField: UITextField) {
         guard let identifier = textField.accessibilityIdentifier else { return }
-
+        
         switch identifier {
         case Field.email.rawValue:
             self.validateField(input: textField, type: .email)
-
+            
         case Field.password.rawValue:
             self.validateField(input: textField, type: .password)
-
+            
         default:
             break
         }
+    }
+}
+
+extension LoginViewController: LoginButtonDelegate {
+    func loginButtonDidLogOut(_ loginButton: FBLoginButton) {
+        loginButton.isHidden = false
+    }
+    
+    func loginButton(_ loginButton: FBLoginButton, didCompleteWith result: LoginManagerLoginResult?, error: Error?) {
+        if let error = error {
+            self.alert(title: "Error", message: error.localizedDescription)
+            return
+        }
+        
+        guard let _token = result?.token else {
+            self.alert(title: "Error", message: "Token inválido")
+            return
+        }
+        
+        loginButton.isHidden = true
+        self.controller.loginWithFacebook(token: _token)
+        
+    }
+}
+
+@available(iOS 13.0, *)
+extension LoginViewController: ASAuthorizationControllerDelegate, ASAuthorizationControllerPresentationContextProviding {
+    func presentationAnchor(for controller: ASAuthorizationController) -> ASPresentationAnchor {
+        print("*** PresentationAnchor ***")
+        return self.view.window!
+    }
+    
+    
+    func authorizationController(controller: ASAuthorizationController, didCompleteWithAuthorization authorization: ASAuthorization) {
+        if let appleIDCredential = authorization.credential as? ASAuthorizationAppleIDCredential {
+            guard let nonce = self.currentNonce else {
+                self.alert(title: "Erro", message: "Um retorno de chamada de login foi recebido, mas nenhuma solicitação de login foi enviada.")
+                return
+            }
+            guard let appleIDToken = appleIDCredential.identityToken else {
+                print("Incapaz de buscar token de identidade")
+                return
+            }
+            guard let idTokenString = String(data: appleIDToken, encoding: .utf8) else {
+                print("Não é possível serializar a string de token dos dados: \(appleIDToken.debugDescription)")
+                return
+            }
+            
+            self.controller.loginWithApple(idTokenString: idTokenString, nonce: nonce)
+        }
+    }
+    
+    func authorizationController(controller: ASAuthorizationController, didCompleteWithError error: Error) {
+        self.appleButton.isHidden = false
+        self.alert(title: "Erro", message: "Houve um erro ao efetuar o login na apple")
     }
 }

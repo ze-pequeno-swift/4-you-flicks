@@ -8,8 +8,11 @@
 import Foundation
 import Firebase
 import FirebaseAuth
+import FacebookCore
+import FacebookLogin
+import GoogleSignIn
+import AuthenticationServices
 import CodableFirebase
-import SwiftUI
 
 enum Model: Codable {
     case customer
@@ -169,7 +172,7 @@ class FirebaseDataService {
         })
     }
     
-    func getDocumentRefWithId(collection: String, id: String) -> DocumentReference {
+    func getDocumentRefWithId(collection: String, id: String) -> DocumentReference? {
         let subRef = firebaseDB.collection(collection).document(id)
 
         return subRef
@@ -227,30 +230,36 @@ class FirebaseDataService {
     }
     
     func createUser(name: String, email: String, password: String) {
-        Auth.auth().createUser(withEmail: email, password: password) { authResult, error in
+        Auth.auth().createUser(withEmail: email, password: password) { [weak self] authResult, error in
+            guard let _self = self else { return }
+
             if error != nil {
-                self.delegate?.failure(error: error)
+                _self.delegate?.failure(error: error)
                 return
             }
             
             if let userData = authResult?.user {
-                let username = email.components(separatedBy: "@")
-                self.addDocumentWithId(collection: "users_movies", id: userData.uid, data: [:])
-                self.addDocumentWithId(collection: "friends", id: userData.uid, data: [
-                    "followers": [],
-                    "followings": []
-                ])
-                self.addDocumentWithId(collection: "users", id: userData.uid, data: [
-                    "name": name,
-                    "email": email,
-                    "username": "\(username[0])",
-                    "friends": [self.getDocumentRefWithId(collection: "friends", id: userData.uid)],
-                    "myMovies": [self.getDocumentRefWithId(collection: "users_movies", id: userData.uid)]
-                ])
+                _self.createUserData(userData: userData, name: name, email: email)
             }
             
-            self.login(email: email, password: password)
+            _self.login(email: email, password: password)
         }
+    }
+    
+    private func createUserData(userData: User, name: String, email: String) {
+        let username = email.components(separatedBy: "@")
+        self.addDocumentWithId(collection: "users_movies", id: userData.uid, data: [:])
+        self.addDocumentWithId(collection: "friends", id: userData.uid, data: [
+            "followers": [],
+            "followings": []
+        ])
+        self.addDocumentWithId(collection: "users", id: userData.uid, data: [
+            "name": name,
+            "email": email,
+            "username": "@\(username[0])-\(userData.uid)",
+            "friends": [self.getDocumentRefWithId(collection: "friends", id: userData.uid)],
+            "myMovies": [self.getDocumentRefWithId(collection: "users_movies", id: userData.uid)]
+        ])
     }
     
     func login(email: String, password: String) {
@@ -268,8 +277,77 @@ class FirebaseDataService {
         }
     }
     
+    func facebookLogin(token: AccessToken) {
+        let credential = FacebookAuthProvider.credential(withAccessToken: token.tokenString)
+        
+        Auth.auth().signIn(with: credential) { [weak self] authResult, error in
+            guard let _self = self else { return }
+            _self.socialLogin(authResult: authResult, error: error)
+        }
+    }
+    
+    func googleLogin(user: GIDGoogleUser?) {
+        guard let authentication = user?.authentication,
+              let idToken = authentication.idToken
+        else {
+            return
+        }
+        
+        let credential = GoogleAuthProvider.credential(
+            withIDToken: idToken,
+            accessToken: authentication.accessToken
+        )
+        
+        Auth.auth().signIn(with: credential) { [weak self] authResult, error in
+            guard let _self = self else { return }
+            _self.socialLogin(authResult: authResult, error: error)
+        }
+    }
+    
+    func appleLogin(idTokenString: String, nonce: String) {
+      let credential = OAuthProvider.credential(withProviderID: "apple.com",
+                                                idToken: idTokenString,
+                                                rawNonce: nonce)
+
+      Auth.auth().signIn(with: credential) { [weak self] authResult, error in
+          guard let _self = self else { return }
+          _self.socialLogin(authResult: authResult, error: error)
+      }
+    }
+    
+    private func socialLogin(authResult: AuthDataResult?, error: Error?) {
+        if error != nil {
+            self.delegate?.failure(error: error)
+            return
+        }
+        
+        guard let _auth = authResult else { return }
+        self.user = _auth.user
+        
+        guard let _additionalInfo = authResult?.additionalUserInfo else { return }
+        guard let _profile = _additionalInfo.profile else { return }
+        
+        let _email = _profile.filter { $0.key == "email" }
+        guard let email = _email.values.first as? String else { return }
+        guard let name = _auth.user.displayName else { return }
+        self.createUserData(userData: _auth.user, name: name, email: email)
+
+        if let avatar = _auth.user.photoURL {
+            self.addDocumentWithId(collection: "users", id: _auth.user.uid, data: ["avatar": avatar.absoluteString])
+        }
+       
+        self.delegate?.success("login")
+    }
+    
+    func getClientID() -> String? {
+        guard let clientID = FirebaseApp.app()?.options.clientID else { return nil }
+        return clientID
+    }
+    
     func logout() {
         do {
+            let manager = LoginManager()
+            manager.logOut()
             try Auth.auth().signOut()
         } catch {
             print("Erro ao desconectar")
