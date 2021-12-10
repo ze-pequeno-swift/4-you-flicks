@@ -176,21 +176,78 @@
                                                     <constraint firstAttribute="trailing" secondItem="hCk-he-zDx" secondAttribute="trailing" id="sKE-Wm-C1j"/>
                                                 </constraints>
                                             </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="HlD-i8-RQ4">
+                                                <rect key="frame" x="20" y="528" width="374" height="184"/>
+                                                <subviews>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0wa-Ml-0m1" customClass="ASAuthorizationAppleIDButton">
+                                                        <rect key="frame" x="0.0" y="0.0" width="374" height="48"/>
+                                                        <subviews>
+                                                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Entrar com a Apple" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SHy-7S-7YZ">
+                                                                <rect key="frame" x="114.5" y="14" width="145.5" height="20.5"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                <nil key="textColor"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                        </subviews>
+                                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                        <constraints>
+                                                            <constraint firstItem="SHy-7S-7YZ" firstAttribute="centerX" secondItem="0wa-Ml-0m1" secondAttribute="centerX" id="3oR-MY-ff9"/>
+                                                            <constraint firstItem="SHy-7S-7YZ" firstAttribute="centerY" secondItem="0wa-Ml-0m1" secondAttribute="centerY" id="78W-Kl-cFj"/>
+                                                            <constraint firstAttribute="height" constant="48" id="Oc0-mb-ebw"/>
+                                                        </constraints>
+                                                    </view>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bQY-Ez-jFd" customClass="FBSDKLoginButton">
+                                                        <rect key="frame" x="0.0" y="68" width="374" height="48"/>
+                                                        <color key="backgroundColor" name="Facebook"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="48" id="9R6-rS-EKZ"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="15"/>
+                                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                        <state key="normal" title="Entrar com o Facebook">
+                                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        </state>
+                                                    </button>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="H4G-0C-B2z" customClass="GIDSignInButton">
+                                                        <rect key="frame" x="0.0" y="136" width="374" height="48"/>
+                                                        <subviews>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Entrar com o Google" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zg1-59-eLt">
+                                                                <rect key="frame" x="116.5" y="15" width="141" height="18"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                                <nil key="textColor"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                        </subviews>
+                                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                        <constraints>
+                                                            <constraint firstItem="Zg1-59-eLt" firstAttribute="centerY" secondItem="H4G-0C-B2z" secondAttribute="centerY" id="MBm-wo-xiZ"/>
+                                                            <constraint firstAttribute="height" constant="48" id="pXI-Lo-9Dk"/>
+                                                            <constraint firstItem="Zg1-59-eLt" firstAttribute="centerX" secondItem="H4G-0C-B2z" secondAttribute="centerX" id="v1y-IW-IJ1"/>
+                                                        </constraints>
+                                                        <connections>
+                                                            <action selector="googleButtonAction:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="tx4-p3-n7T"/>
+                                                        </connections>
+                                                    </view>
+                                                </subviews>
+                                            </stackView>
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstItem="Pnw-OK-v3l" firstAttribute="leading" secondItem="2YB-uW-ztP" secondAttribute="leading" constant="20" id="6s4-yk-flr"/>
                                             <constraint firstItem="kMt-5X-qhW" firstAttribute="top" secondItem="Zin-v4-yFA" secondAttribute="bottom" constant="10" id="A5X-p5-DEe"/>
+                                            <constraint firstItem="HlD-i8-RQ4" firstAttribute="top" secondItem="wuQ-t5-h22" secondAttribute="bottom" constant="20" id="BUg-uM-9Wy"/>
                                             <constraint firstItem="Zin-v4-yFA" firstAttribute="top" secondItem="2YB-uW-ztP" secondAttribute="top" constant="10" id="E8k-Nb-EVQ"/>
                                             <constraint firstAttribute="trailing" secondItem="f8Q-BK-Fjo" secondAttribute="trailing" constant="20" id="FHP-i8-ctR"/>
                                             <constraint firstItem="kMt-5X-qhW" firstAttribute="leading" secondItem="2YB-uW-ztP" secondAttribute="leading" constant="20" id="KJk-6K-4WN"/>
                                             <constraint firstItem="wuQ-t5-h22" firstAttribute="top" secondItem="f8Q-BK-Fjo" secondAttribute="bottom" constant="10" id="M0W-UH-MiD"/>
+                                            <constraint firstItem="HlD-i8-RQ4" firstAttribute="leading" secondItem="2YB-uW-ztP" secondAttribute="leading" constant="20" id="OBM-i7-XZG"/>
                                             <constraint firstAttribute="trailing" secondItem="wuQ-t5-h22" secondAttribute="trailing" constant="20" id="Osk-d5-vep"/>
                                             <constraint firstItem="f8Q-BK-Fjo" firstAttribute="top" secondItem="Pnw-OK-v3l" secondAttribute="bottom" constant="40" id="TVh-r9-den"/>
                                             <constraint firstItem="f8Q-BK-Fjo" firstAttribute="leading" secondItem="2YB-uW-ztP" secondAttribute="leading" constant="20" id="UNt-Pg-lfk"/>
                                             <constraint firstItem="f8Q-BK-Fjo" firstAttribute="leading" secondItem="2YB-uW-ztP" secondAttribute="leading" constant="20" id="WNR-uq-G3L"/>
                                             <constraint firstAttribute="height" constant="800" id="Y4K-4p-qh8"/>
                                             <constraint firstAttribute="trailing" secondItem="kMt-5X-qhW" secondAttribute="trailing" constant="20" id="a2a-Gc-WDv"/>
+                                            <constraint firstAttribute="trailing" secondItem="HlD-i8-RQ4" secondAttribute="trailing" constant="20" id="cvg-HI-RWO"/>
                                             <constraint firstAttribute="trailing" secondItem="Pnw-OK-v3l" secondAttribute="trailing" constant="20" id="eK3-hh-xtf"/>
                                             <constraint firstItem="Zin-v4-yFA" firstAttribute="leading" secondItem="2YB-uW-ztP" secondAttribute="leading" constant="50" id="o4H-FD-BMI"/>
                                             <constraint firstItem="Pnw-OK-v3l" firstAttribute="top" secondItem="kMt-5X-qhW" secondAttribute="bottom" constant="5" id="s09-MA-TrW"/>
@@ -219,10 +276,14 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="appleButton" destination="0wa-Ml-0m1" id="GUK-6u-u6Y"/>
                         <outlet property="emailValidLabel" destination="kQh-kw-Nsx" id="EN6-xG-Och"/>
+                        <outlet property="facebookButton" destination="bQY-Ez-jFd" id="g67-zU-Tfp"/>
+                        <outlet property="googleButton" destination="H4G-0C-B2z" id="VFQ-bB-WGN"/>
                         <outlet property="loginButton" destination="f8Q-BK-Fjo" id="KEX-R6-qq3"/>
                         <outlet property="passwordTextField" destination="4eZ-T0-h2A" id="KFA-dH-dlr"/>
                         <outlet property="passwordValidLabel" destination="MUn-dn-PpZ" id="3rS-xF-S9b"/>
+                        <outlet property="socialStackView" destination="HlD-i8-RQ4" id="fGL-Mw-ceB"/>
                         <outlet property="userTextField" destination="rcg-BV-iV1" id="wcd-oS-wHI"/>
                     </connections>
                 </viewController>
@@ -609,6 +670,9 @@
     </scenes>
     <resources>
         <image name="icon-logo" width="274" height="58"/>
+        <namedColor name="Facebook">
+            <color red="0.086000002920627594" green="0.45600000023841858" blue="0.92000001668930054" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <namedColor name="Main Black">
             <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

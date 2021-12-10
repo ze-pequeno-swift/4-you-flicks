@@ -9,6 +9,7 @@ import Foundation
 
 protocol RandomControllerProtocol: AnyObject {
     func get(sortedMovie: Movie?)
+    func failure(error: String)
 }
 
 class RandomController {
@@ -54,8 +55,8 @@ class RandomController {
                 filterMovie(movieList: movieList)
                 completion()
             case .failure(_):
-                // Exibir erro
-              break
+                self.delegate?.failure(error: "Filme não foi encontrado")
+                break
             }
         }
     }
