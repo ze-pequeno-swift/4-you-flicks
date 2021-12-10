@@ -148,6 +148,14 @@ class RandomViewController: UIViewController {
         
         present(navigationController, animated: true)
     }
+    
+    private func alert(title: String, message: String) {
+        let alert: UIAlertController = UIAlertController.init(title: title, message: message, preferredStyle: UIAlertController.Style.alert)
+        
+        alert.addAction(UIAlertAction.init(title: "OK", style: UIAlertAction.Style.default, handler: nil))
+        
+        self.present(alert, animated: true, completion: nil)
+    }
 }
 
 extension RandomViewController: ZPPickerDelegate {
@@ -173,6 +181,10 @@ extension RandomViewController: ZPPickerDelegate {
 }
 
 extension RandomViewController: RandomControllerProtocol {
+    func failure(error: String) {
+        self.alert(title: "Erro", message: error)
+    }
+    
     
     func get(sortedMovie: Movie?) {
         self.sortedMovie = sortedMovie

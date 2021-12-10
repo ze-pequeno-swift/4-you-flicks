@@ -7,11 +7,19 @@
 
 import Foundation
 
+protocol ControllerSuggestionProtocol: AnyObject {
+    func failure(error: String)
+}
+
 class ControllerSuggestion {
     
     var movie: Movie?
     
     var details: Details?
+    
+    // MARK: - Delegate
+    
+    weak var delegate: ControllerSuggestionProtocol?
     
     // MARK: - Private Properties
     
@@ -29,9 +37,8 @@ class ControllerSuggestion {
     
     // MARK: - Public Functions
 
-    func getMovie() -> Movie {
-        return movie!
-
+    func getMovie() -> Movie? {
+        return movie
     }
     
     func getDetails() -> Details? {
@@ -47,7 +54,7 @@ class ControllerSuggestion {
                 showMovieDetails(movie, response: response)
                 completion()
             case .failure(_):
-                // Exibir erro
+                self.delegate?.failure(error: "Filme não foi encontrado")
                 break
             }
         }
