@@ -44,6 +44,8 @@ class SuggestionViewController: UIViewController {
         DispatchQueue.main.async {
             self.collectionView.reloadData()
         }
+        
+        controllerSuggestion.delegate = self
     }
     
     // MARK: - Private Functions
@@ -53,7 +55,7 @@ class SuggestionViewController: UIViewController {
         hidesBottomBarWhenPushed = true
         configureCell()
         
-        let movie = controllerSuggestion.getMovie()
+        guard let movie = controllerSuggestion.getMovie() else { return }
         posterMovie.layer.cornerRadius = 10
         
         posterMovie.load(url: MovieAPI.build(image: movie.posterPath ?? "", size: .w500))
@@ -98,11 +100,19 @@ class SuggestionViewController: UIViewController {
     @IBAction private func back(_ sender: UIButton) {
         dismiss(animated: true)
     }
+    
+    private func alert(title: String, message: String) {
+        let alert: UIAlertController = UIAlertController.init(title: title, message: message, preferredStyle: UIAlertController.Style.alert)
+        
+        alert.addAction(UIAlertAction.init(title: "OK", style: UIAlertAction.Style.default, handler: nil))
+        
+        self.present(alert, animated: true, completion: nil)
+    }
 }
 
 // MARK: - UITableView Protocol Extensions
 
-extension SuggestionViewController: UICollectionViewDataSource {
+extension SuggestionViewController: UICollectionViewDataSource, ControllerSuggestionProtocol {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return suggestion.count
@@ -117,5 +127,9 @@ extension SuggestionViewController: UICollectionViewDataSource {
         cell.setupCell(suggestion[indexPath.item])
         
         return cell
+    }
+    
+    func failure(error: String) {
+        self.alert(title: "Erro", message: error)
     }
 }
