@@ -54,7 +54,7 @@ class ProfileViewController: UIViewController {
         if self.controller.userIsLogged() {
             return
         }
-        proceedToLogin()
+        self.proceedToHome()
     }
     
     private func getHeaderCell() -> UITableViewCell {
@@ -111,26 +111,21 @@ class ProfileViewController: UIViewController {
         guard let viewController = homeController.instantiateViewController(identifier: identifier) as? MovieDetailsViewController else { return }
         
         if let movie = myMovie.movie {
-//            viewController.displayGoBackViewCell = true
             viewController.controllerMovieDetails.movie = movie
             viewController.hidesBottomBarWhenPushed = true
 
             navigationController?.pushViewController(viewController, animated: true)
-
-
-//            present(navigationController, animated: true)
         }
     }
     
-    private func proceedToLogin() {
-        let identifier = String(describing: LoginViewController.self)
-        let homeController = UIStoryboard(name: "Login", bundle: nil)
-        guard let viewController = homeController.instantiateViewController(identifier: identifier)
-                as? LoginViewController else { return }
+    private func proceedToHome() {
+        let homeController = UIStoryboard(name: "Home", bundle: nil)
+        guard let viewController = homeController.instantiateViewController(identifier: "HomeViewController")
+                as? HomeViewController else { return }
         
         let navigationController = UINavigationController(rootViewController: viewController)
         
-        present(navigationController, animated: true)
+        present(navigationController, animated: false)
     }
     
     private func executePerformSegue(identifier: String) {
@@ -193,6 +188,6 @@ extension ProfileViewController: HeaderProfileProtocol, ProfileControllerProtoco
     
     func signOut() {
         self.controller.signOut()
-        self.proceedToLogin()
+        self.proceedToHome()
     }
 }
