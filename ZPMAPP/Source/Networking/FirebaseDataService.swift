@@ -346,6 +346,10 @@ class FirebaseDataService {
     
     func logout() {
         do {
+            self.friends = nil
+            self.user = nil
+            self.myMovies = []
+            self.customer = nil
             let manager = LoginManager()
             manager.logOut()
             try Auth.auth().signOut()
