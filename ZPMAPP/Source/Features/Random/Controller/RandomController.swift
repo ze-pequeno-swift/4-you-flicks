@@ -44,7 +44,7 @@ class RandomController {
     
     // MARK: - Private Functions
     
-    func fetchRandomList(genreSelected: String, completion: @escaping () -> Void) {
+    func fetchRandomList(genreSelected: String, completion: @escaping (Bool) -> Void) {
         let path = self.path.first { $0.genre == genreSelected} 
         guard let idGenre = path?.idGenre else { return }
 
@@ -53,7 +53,7 @@ class RandomController {
             case .success(let response):
                 movieList = response.results
                 filterMovie(movieList: movieList)
-                completion()
+                    completion(true)
             case .failure(_):
                 self.delegate?.failure(error: "Filme não foi encontrado")
                 break
@@ -65,10 +65,10 @@ class RandomController {
         guard let note = note else { return }
         let moviesFilters = movieList.filter { $0.voteAverage >= note }
         
-        sotedMovie(moviesFilters: moviesFilters)
+        sortedMovie(moviesFilters: moviesFilters)
     }
     
-    private func sotedMovie(moviesFilters: [Movie]) {
+    private func sortedMovie(moviesFilters: [Movie]) {
         sortedMovie = moviesFilters.randomElement()
         delegate?.get(sortedMovie: sortedMovie)
     }

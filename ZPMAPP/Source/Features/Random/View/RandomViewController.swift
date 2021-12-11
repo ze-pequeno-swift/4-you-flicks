@@ -63,8 +63,14 @@ class RandomViewController: UIViewController {
 
     @IBAction private func sortedMovie(_ sender: UIButton) {
         guard let genre = genre else { return }
-        randomController.fetchRandomList(genreSelected: genre) {
-            self.proceedToSuggestion()
+        randomController.fetchRandomList(genreSelected: genre) { success in
+            switch success {
+                case true:
+                    self.proceedToSuggestion()
+                case false:
+                    self.showMessage(title: "Não conseguimos encontrar nenhuma recomendação", message: "Altere o genêro ou nota para realizar uma nova busca")
+            }
+
         }
     }
     
@@ -125,10 +131,20 @@ class RandomViewController: UIViewController {
         let randomController = UIStoryboard(name: "Random", bundle: nil)
         guard let viewController = randomController.instantiateViewController(identifier: identifier)
                 as? SuggestionViewController else { return }
-        
-        viewController.sortedMovie = sortedMovie
-        viewController.controllerSuggestion.movie = sortedMovie
-        present(viewController, animated: true)
+
+
+        switch checkIfSortedMovieHasValue() {
+        case true:
+            viewController.sortedMovie = sortedMovie
+            viewController.controllerSuggestion.movie = sortedMovie
+            present(viewController, animated: true)
+        case false:
+            self.showMessage(title: "Ops", message: "Não conseguimos encontrar nenhuma recomendação")
+        }
+    }
+
+    private func checkIfSortedMovieHasValue() -> Bool {
+        return sortedMovie != nil
     }
     
     private func showLoginIfNeeded() {
@@ -147,14 +163,6 @@ class RandomViewController: UIViewController {
         let navigationController = UINavigationController(rootViewController: viewController)
         
         present(navigationController, animated: true)
-    }
-    
-    private func alert(title: String, message: String) {
-        let alert: UIAlertController = UIAlertController.init(title: title, message: message, preferredStyle: UIAlertController.Style.alert)
-        
-        alert.addAction(UIAlertAction.init(title: "OK", style: UIAlertAction.Style.default, handler: nil))
-        
-        self.present(alert, animated: true, completion: nil)
     }
 }
 
@@ -182,7 +190,7 @@ extension RandomViewController: ZPPickerDelegate {
 
 extension RandomViewController: RandomControllerProtocol {
     func failure(error: String) {
-        self.alert(title: "Erro", message: error)
+        self.showMessage(title: "Erro", message: error)
     }
     
     
